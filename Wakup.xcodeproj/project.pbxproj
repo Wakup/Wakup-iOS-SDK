@@ -35,6 +35,56 @@
 		695D7A751C21CE710083132B /* PrototypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A711C21CE710083132B /* PrototypeView.swift */; };
 		695D7A761C21CE710083132B /* PrototypeDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A721C21CE710083132B /* PrototypeDataView.swift */; };
 		695D7A771C21CE710083132B /* UICollectionView+CellUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A731C21CE710083132B /* UICollectionView+CellUtils.swift */; };
+		695D7A831C21DB200083132B /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A7A1C21DB200083132B /* StyleKit.swift */; };
+		695D7A841C21DB200083132B /* CodeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A7B1C21DB200083132B /* CodeIcon.swift */; };
+		695D7A851C21DB200083132B /* CodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A7C1C21DB200083132B /* CodeImage.swift */; };
+		695D7A861C21DB200083132B /* CodeIconLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A7D1C21DB200083132B /* CodeIconLibrary.swift */; };
+		695D7A871C21DB200083132B /* CodeIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A7E1C21DB200083132B /* CodeIconView.swift */; };
+		695D7A881C21DB200083132B /* CodeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A7F1C21DB200083132B /* CodeImageView.swift */; };
+		695D7A891C21DB200083132B /* CircleCodeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A801C21DB200083132B /* CircleCodeButton.swift */; };
+		695D7A8A1C21DB200083132B /* CodeIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A811C21DB200083132B /* CodeIconButton.swift */; };
+		695D7A8B1C21DB200083132B /* CenteredCodeIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A821C21DB200083132B /* CenteredCodeIconButton.swift */; };
+		69D999D11C22E635000892B1 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */; };
+		69D999D21C22E635000892B1 /* ZoomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */; };
+		69D999D31C22E635000892B1 /* ImageZoomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999D01C22E635000892B1 /* ImageZoomTransitionAnimator.swift */; };
+		69D999D51C22F630000892B1 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999D41C22F630000892B1 /* Delay.swift */; };
+		69D999D71C22F668000892B1 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999D61C22F668000892B1 /* UIView+Layout.swift */; };
+		69D999E41C22F6A4000892B1 /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999D81C22F6A4000892B1 /* RoundedCornersView.swift */; };
+		69D999E51C22F6A4000892B1 /* UIImageView+Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999D91C22F6A4000892B1 /* UIImageView+Fade.swift */; };
+		69D999E61C22F6A4000892B1 /* ScissorsLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999DA1C22F6A4000892B1 /* ScissorsLoadingView.swift */; };
+		69D999E71C22F6A4000892B1 /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999DB1C22F6A4000892B1 /* LoadingFooterView.swift */; };
+		69D999E81C22F6A4000892B1 /* LoadingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D999DC1C22F6A4000892B1 /* LoadingFooterView.xib */; };
+		69D999E91C22F6A4000892B1 /* TopMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999DD1C22F6A4000892B1 /* TopMenuView.swift */; };
+		69D999EA1C22F6A4000892B1 /* TopMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D999DE1C22F6A4000892B1 /* TopMenuView.xib */; };
+		69D999EB1C22F6A4000892B1 /* CustomBackgroundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999DF1C22F6A4000892B1 /* CustomBackgroundButton.swift */; };
+		69D999EC1C22F6A4000892B1 /* CustomBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999E01C22F6A4000892B1 /* CustomBorderButton.swift */; };
+		69D999ED1C22F6A4000892B1 /* CenteredIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999E11C22F6A4000892B1 /* CenteredIconButton.swift */; };
+		69D999EE1C22F6A4000892B1 /* UIButton+VerticalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999E21C22F6A4000892B1 /* UIButton+VerticalLayout.swift */; };
+		69D999EF1C22F6A4000892B1 /* Highlightable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999E31C22F6A4000892B1 /* Highlightable.swift */; };
+		69D999F91C22FDC8000892B1 /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999F11C22FDC8000892B1 /* CouponCollectionViewCell.swift */; };
+		69D999FA1C22FDC8000892B1 /* CouponCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D999F21C22FDC8000892B1 /* CouponCollectionViewCell.xib */; };
+		69D999FB1C22FDC8000892B1 /* CouponDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999F31C22FDC8000892B1 /* CouponDetailCollectionViewCell.swift */; };
+		69D999FC1C22FDC8000892B1 /* CouponDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D999F41C22FDC8000892B1 /* CouponDetailCollectionViewCell.xib */; };
+		69D999FD1C22FDC8000892B1 /* CouponDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999F51C22FDC8000892B1 /* CouponDetailHeaderView.swift */; };
+		69D999FE1C22FDC8000892B1 /* CouponDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D999F61C22FDC8000892B1 /* CouponDetailHeaderView.xib */; };
+		69D999FF1C22FDC8000892B1 /* CouponCollectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999F71C22FDC8000892B1 /* CouponCollectionHandler.swift */; };
+		69D99A001C22FDC8000892B1 /* UIViewController+CouponUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999F81C22FDC8000892B1 /* UIViewController+CouponUtils.swift */; };
+		69D99A0D1C22FE59000892B1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A031C22FE59000892B1 /* SearchViewController.swift */; };
+		69D99A0E1C22FE59000892B1 /* CouponWaterfallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A041C22FE59000892B1 /* CouponWaterfallViewController.swift */; };
+		69D99A0F1C22FE59000892B1 /* CouponDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A051C22FE59000892B1 /* CouponDetailsViewController.swift */; };
+		69D99A101C22FE59000892B1 /* CouponMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A061C22FE59000892B1 /* CouponMapViewController.swift */; };
+		69D99A111C22FE59000892B1 /* CouponDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A071C22FE59000892B1 /* CouponDescriptionViewController.swift */; };
+		69D99A121C22FE59000892B1 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A081C22FE59000892B1 /* LoadingViewController.swift */; };
+		69D99A131C22FE59000892B1 /* SavedCouponsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A091C22FE59000892B1 /* SavedCouponsViewController.swift */; };
+		69D99A141C22FE59000892B1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A0A1C22FE59000892B1 /* WebViewController.swift */; };
+		69D99A151C22FE59000892B1 /* LoadingPresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A0B1C22FE59000892B1 /* LoadingPresenterViewController.swift */; };
+		69D99A1D1C22FF98000892B1 /* ContextMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A181C22FF98000892B1 /* ContextMenuItem.swift */; };
+		69D99A1E1C22FF98000892B1 /* ContextMenuItem+CodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A191C22FF98000892B1 /* ContextMenuItem+CodeImage.swift */; };
+		69D99A1F1C22FF98000892B1 /* ContextMenuSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A1A1C22FF98000892B1 /* ContextMenuSource.swift */; };
+		69D99A201C22FF98000892B1 /* ContextItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A1B1C22FF98000892B1 /* ContextItemView.swift */; };
+		69D99A211C22FF98000892B1 /* ContextItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D99A1C1C22FF98000892B1 /* ContextItemView.xib */; };
+		69D99A251C2300CE000892B1 /* CouponAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A231C2300CE000892B1 /* CouponAnnotation.swift */; };
+		69D99A261C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A241C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +118,56 @@
 		695D7A711C21CE710083132B /* PrototypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrototypeView.swift; sourceTree = "<group>"; };
 		695D7A721C21CE710083132B /* PrototypeDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrototypeDataView.swift; sourceTree = "<group>"; };
 		695D7A731C21CE710083132B /* UICollectionView+CellUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+CellUtils.swift"; sourceTree = "<group>"; };
+		695D7A7A1C21DB200083132B /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
+		695D7A7B1C21DB200083132B /* CodeIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeIcon.swift; sourceTree = "<group>"; };
+		695D7A7C1C21DB200083132B /* CodeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeImage.swift; sourceTree = "<group>"; };
+		695D7A7D1C21DB200083132B /* CodeIconLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeIconLibrary.swift; sourceTree = "<group>"; };
+		695D7A7E1C21DB200083132B /* CodeIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeIconView.swift; sourceTree = "<group>"; };
+		695D7A7F1C21DB200083132B /* CodeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeImageView.swift; sourceTree = "<group>"; };
+		695D7A801C21DB200083132B /* CircleCodeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleCodeButton.swift; sourceTree = "<group>"; };
+		695D7A811C21DB200083132B /* CodeIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeIconButton.swift; sourceTree = "<group>"; };
+		695D7A821C21DB200083132B /* CenteredCodeIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteredCodeIconButton.swift; sourceTree = "<group>"; };
+		69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
+		69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitionAnimator.swift; sourceTree = "<group>"; };
+		69D999D01C22E635000892B1 /* ImageZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomTransitionAnimator.swift; sourceTree = "<group>"; };
+		69D999D41C22F630000892B1 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
+		69D999D61C22F668000892B1 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		69D999D81C22F6A4000892B1 /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
+		69D999D91C22F6A4000892B1 /* UIImageView+Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Fade.swift"; sourceTree = "<group>"; };
+		69D999DA1C22F6A4000892B1 /* ScissorsLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScissorsLoadingView.swift; sourceTree = "<group>"; };
+		69D999DB1C22F6A4000892B1 /* LoadingFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
+		69D999DC1C22F6A4000892B1 /* LoadingFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingFooterView.xib; sourceTree = "<group>"; };
+		69D999DD1C22F6A4000892B1 /* TopMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuView.swift; sourceTree = "<group>"; };
+		69D999DE1C22F6A4000892B1 /* TopMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopMenuView.xib; sourceTree = "<group>"; };
+		69D999DF1C22F6A4000892B1 /* CustomBackgroundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBackgroundButton.swift; sourceTree = "<group>"; };
+		69D999E01C22F6A4000892B1 /* CustomBorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBorderButton.swift; sourceTree = "<group>"; };
+		69D999E11C22F6A4000892B1 /* CenteredIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteredIconButton.swift; sourceTree = "<group>"; };
+		69D999E21C22F6A4000892B1 /* UIButton+VerticalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+VerticalLayout.swift"; sourceTree = "<group>"; };
+		69D999E31C22F6A4000892B1 /* Highlightable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Highlightable.swift; sourceTree = "<group>"; };
+		69D999F11C22FDC8000892B1 /* CouponCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponCollectionViewCell.swift; sourceTree = "<group>"; };
+		69D999F21C22FDC8000892B1 /* CouponCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCollectionViewCell.xib; sourceTree = "<group>"; };
+		69D999F31C22FDC8000892B1 /* CouponDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		69D999F41C22FDC8000892B1 /* CouponDetailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponDetailCollectionViewCell.xib; sourceTree = "<group>"; };
+		69D999F51C22FDC8000892B1 /* CouponDetailHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponDetailHeaderView.swift; sourceTree = "<group>"; };
+		69D999F61C22FDC8000892B1 /* CouponDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponDetailHeaderView.xib; sourceTree = "<group>"; };
+		69D999F71C22FDC8000892B1 /* CouponCollectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponCollectionHandler.swift; sourceTree = "<group>"; };
+		69D999F81C22FDC8000892B1 /* UIViewController+CouponUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CouponUtils.swift"; sourceTree = "<group>"; };
+		69D99A031C22FE59000892B1 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		69D99A041C22FE59000892B1 /* CouponWaterfallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponWaterfallViewController.swift; sourceTree = "<group>"; };
+		69D99A051C22FE59000892B1 /* CouponDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponDetailsViewController.swift; sourceTree = "<group>"; };
+		69D99A061C22FE59000892B1 /* CouponMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponMapViewController.swift; sourceTree = "<group>"; };
+		69D99A071C22FE59000892B1 /* CouponDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponDescriptionViewController.swift; sourceTree = "<group>"; };
+		69D99A081C22FE59000892B1 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		69D99A091C22FE59000892B1 /* SavedCouponsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedCouponsViewController.swift; sourceTree = "<group>"; };
+		69D99A0A1C22FE59000892B1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		69D99A0B1C22FE59000892B1 /* LoadingPresenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingPresenterViewController.swift; sourceTree = "<group>"; };
+		69D99A181C22FF98000892B1 /* ContextMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextMenuItem.swift; sourceTree = "<group>"; };
+		69D99A191C22FF98000892B1 /* ContextMenuItem+CodeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContextMenuItem+CodeImage.swift"; sourceTree = "<group>"; };
+		69D99A1A1C22FF98000892B1 /* ContextMenuSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextMenuSource.swift; sourceTree = "<group>"; };
+		69D99A1B1C22FF98000892B1 /* ContextItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextItemView.swift; sourceTree = "<group>"; };
+		69D99A1C1C22FF98000892B1 /* ContextItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContextItemView.xib; sourceTree = "<group>"; };
+		69D99A231C2300CE000892B1 /* CouponAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponAnnotation.swift; sourceTree = "<group>"; };
+		69D99A241C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+ToLocation.swift"; sourceTree = "<group>"; };
 		8CE424B5B7919A87214842F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FFEAF288FFEF6410D2A4D7EE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -117,6 +217,8 @@
 				695D7A411C21B6600083132B /* Models */,
 				695D7A501C21BDA30083132B /* Services */,
 				695D7A591C21BE020083132B /* Utils */,
+				695D7A791C21DB020083132B /* Views */,
+				69D99A021C22FE48000892B1 /* ViewControllers */,
 				69144AD71C207FD500258FF5 /* Wakup.h */,
 				69144AD91C207FD500258FF5 /* Info.plist */,
 			);
@@ -154,6 +256,7 @@
 				695D7A6E1C21BFAE0083132B /* AlamofireSwiftyJSON.swift */,
 				695D7A611C21BEE50083132B /* AsyncLegacy.swift */,
 				695D7A5F1C21BEE50083132B /* Coupon+FriendlyDistance.swift */,
+				69D999D41C22F630000892B1 /* Delay.swift */,
 				695D7A5B1C21BEE50083132B /* Fmap.swift */,
 				695D7A621C21BEE50083132B /* MapSome.swift */,
 				695D7A5C1C21BEE50083132B /* NSDate+EndOfDay.swift */,
@@ -165,9 +268,120 @@
 				695D7A601C21BEE50083132B /* SyncUtils.swift */,
 				695D7A731C21CE710083132B /* UICollectionView+CellUtils.swift */,
 				695D7A6C1C21BF5F0083132B /* UIColor+RgbString.swift */,
+				69D999D61C22F668000892B1 /* UIView+Layout.swift */,
 				695D7A701C21CE710083132B /* ViewFromNib.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		695D7A781C21CFE70083132B /* CodeIcons */ = {
+			isa = PBXGroup;
+			children = (
+				695D7A7A1C21DB200083132B /* StyleKit.swift */,
+				695D7A7B1C21DB200083132B /* CodeIcon.swift */,
+				695D7A7C1C21DB200083132B /* CodeImage.swift */,
+				695D7A7D1C21DB200083132B /* CodeIconLibrary.swift */,
+				695D7A7E1C21DB200083132B /* CodeIconView.swift */,
+				695D7A7F1C21DB200083132B /* CodeImageView.swift */,
+				695D7A801C21DB200083132B /* CircleCodeButton.swift */,
+				695D7A811C21DB200083132B /* CodeIconButton.swift */,
+				695D7A821C21DB200083132B /* CenteredCodeIconButton.swift */,
+			);
+			name = CodeIcons;
+			sourceTree = "<group>";
+		};
+		695D7A791C21DB020083132B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				69D999CC1C22E60A000892B1 /* Common */,
+				69D99A171C22FF8B000892B1 /* ContextMenu */,
+				69D999F01C22FDB5000892B1 /* Coupon */,
+				69D99A221C2300B7000892B1 /* Map */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		69D999CC1C22E60A000892B1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				695D7A781C21CFE70083132B /* CodeIcons */,
+				69D999CD1C22E616000892B1 /* Transition */,
+				69D999E11C22F6A4000892B1 /* CenteredIconButton.swift */,
+				69D999DF1C22F6A4000892B1 /* CustomBackgroundButton.swift */,
+				69D999E01C22F6A4000892B1 /* CustomBorderButton.swift */,
+				69D999E31C22F6A4000892B1 /* Highlightable.swift */,
+				69D999DB1C22F6A4000892B1 /* LoadingFooterView.swift */,
+				69D999DC1C22F6A4000892B1 /* LoadingFooterView.xib */,
+				69D999D81C22F6A4000892B1 /* RoundedCornersView.swift */,
+				69D999DA1C22F6A4000892B1 /* ScissorsLoadingView.swift */,
+				69D999DD1C22F6A4000892B1 /* TopMenuView.swift */,
+				69D999DE1C22F6A4000892B1 /* TopMenuView.xib */,
+				69D999D91C22F6A4000892B1 /* UIImageView+Fade.swift */,
+				69D999E21C22F6A4000892B1 /* UIButton+VerticalLayout.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		69D999CD1C22E616000892B1 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */,
+				69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */,
+				69D999D01C22E635000892B1 /* ImageZoomTransitionAnimator.swift */,
+			);
+			name = Transition;
+			sourceTree = "<group>";
+		};
+		69D999F01C22FDB5000892B1 /* Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				69D999F11C22FDC8000892B1 /* CouponCollectionViewCell.swift */,
+				69D999F21C22FDC8000892B1 /* CouponCollectionViewCell.xib */,
+				69D999F31C22FDC8000892B1 /* CouponDetailCollectionViewCell.swift */,
+				69D999F41C22FDC8000892B1 /* CouponDetailCollectionViewCell.xib */,
+				69D999F51C22FDC8000892B1 /* CouponDetailHeaderView.swift */,
+				69D999F61C22FDC8000892B1 /* CouponDetailHeaderView.xib */,
+				69D999F71C22FDC8000892B1 /* CouponCollectionHandler.swift */,
+				69D999F81C22FDC8000892B1 /* UIViewController+CouponUtils.swift */,
+			);
+			name = Coupon;
+			sourceTree = "<group>";
+		};
+		69D99A021C22FE48000892B1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				69D99A031C22FE59000892B1 /* SearchViewController.swift */,
+				69D99A041C22FE59000892B1 /* CouponWaterfallViewController.swift */,
+				69D99A051C22FE59000892B1 /* CouponDetailsViewController.swift */,
+				69D99A061C22FE59000892B1 /* CouponMapViewController.swift */,
+				69D99A071C22FE59000892B1 /* CouponDescriptionViewController.swift */,
+				69D99A081C22FE59000892B1 /* LoadingViewController.swift */,
+				69D99A091C22FE59000892B1 /* SavedCouponsViewController.swift */,
+				69D99A0A1C22FE59000892B1 /* WebViewController.swift */,
+				69D99A0B1C22FE59000892B1 /* LoadingPresenterViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		69D99A171C22FF8B000892B1 /* ContextMenu */ = {
+			isa = PBXGroup;
+			children = (
+				69D99A181C22FF98000892B1 /* ContextMenuItem.swift */,
+				69D99A191C22FF98000892B1 /* ContextMenuItem+CodeImage.swift */,
+				69D99A1A1C22FF98000892B1 /* ContextMenuSource.swift */,
+				69D99A1B1C22FF98000892B1 /* ContextItemView.swift */,
+				69D99A1C1C22FF98000892B1 /* ContextItemView.xib */,
+			);
+			name = ContextMenu;
+			sourceTree = "<group>";
+		};
+		69D99A221C2300B7000892B1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				69D99A231C2300CE000892B1 /* CouponAnnotation.swift */,
+				69D99A241C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 		F83E7D1CB0BDBB67DC830507 /* Frameworks */ = {
@@ -248,6 +462,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69D999FE1C22FDC8000892B1 /* CouponDetailHeaderView.xib in Resources */,
+				69D999E81C22F6A4000892B1 /* LoadingFooterView.xib in Resources */,
+				69D999FC1C22FDC8000892B1 /* CouponDetailCollectionViewCell.xib in Resources */,
+				69D999FA1C22FDC8000892B1 /* CouponCollectionViewCell.xib in Resources */,
+				69D999EA1C22F6A4000892B1 /* TopMenuView.xib in Resources */,
+				69D99A211C22FF98000892B1 /* ContextItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,32 +511,76 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69D999EE1C22F6A4000892B1 /* UIButton+VerticalLayout.swift in Sources */,
+				69D99A1F1C22FF98000892B1 /* ContextMenuSource.swift in Sources */,
 				695D7A4B1C21B66F0083132B /* Store.swift in Sources */,
+				69D999FF1C22FDC8000892B1 /* CouponCollectionHandler.swift in Sources */,
+				69D99A111C22FE59000892B1 /* CouponDescriptionViewController.swift in Sources */,
+				695D7A841C21DB200083132B /* CodeIcon.swift in Sources */,
+				69D999ED1C22F6A4000892B1 /* CenteredIconButton.swift in Sources */,
+				69D99A0F1C22FE59000892B1 /* CouponDetailsViewController.swift in Sources */,
+				69D999EC1C22F6A4000892B1 /* CustomBorderButton.swift in Sources */,
+				69D99A201C22FF98000892B1 /* ContextItemView.swift in Sources */,
+				69D999FD1C22FDC8000892B1 /* CouponDetailHeaderView.swift in Sources */,
 				695D7A491C21B66F0083132B /* Coupon.swift in Sources */,
 				695D7A6F1C21BFAE0083132B /* AlamofireSwiftyJSON.swift in Sources */,
+				69D999D11C22E635000892B1 /* NavigationControllerDelegate.swift in Sources */,
+				69D99A131C22FE59000892B1 /* SavedCouponsViewController.swift in Sources */,
+				695D7A8B1C21DB200083132B /* CenteredCodeIconButton.swift in Sources */,
 				695D7A671C21BEE50083132B /* Store+Distance.swift in Sources */,
+				695D7A8A1C21DB200083132B /* CodeIconButton.swift in Sources */,
+				695D7A851C21DB200083132B /* CodeImage.swift in Sources */,
+				69D99A121C22FE59000892B1 /* LoadingViewController.swift in Sources */,
 				695D7A4D1C21B66F0083132B /* SearchResult.swift in Sources */,
+				69D999D21C22E635000892B1 /* ZoomTransitionAnimator.swift in Sources */,
+				695D7A881C21DB200083132B /* CodeImageView.swift in Sources */,
+				69D999D51C22F630000892B1 /* Delay.swift in Sources */,
 				695D7A4F1C21B66F0083132B /* SearchHistory.swift in Sources */,
+				69D99A101C22FE59000892B1 /* CouponMapViewController.swift in Sources */,
 				695D7A551C21BDB10083132B /* OffersService.swift in Sources */,
 				695D7A741C21CE710083132B /* ViewFromNib.swift in Sources */,
 				695D7A581C21BDB10083132B /* NetworkActivityIndicatorManager.swift in Sources */,
+				695D7A831C21DB200083132B /* StyleKit.swift in Sources */,
+				69D999E91C22F6A4000892B1 /* TopMenuView.swift in Sources */,
 				695D7A4A1C21B66F0083132B /* CouponImage.swift in Sources */,
 				695D7A691C21BEE50083132B /* SyncUtils.swift in Sources */,
 				695D7A4C1C21B66F0083132B /* Company.swift in Sources */,
+				69D999FB1C22FDC8000892B1 /* CouponDetailCollectionViewCell.swift in Sources */,
+				69D999EB1C22F6A4000892B1 /* CustomBackgroundButton.swift in Sources */,
+				69D999D31C22E635000892B1 /* ImageZoomTransitionAnimator.swift in Sources */,
+				69D999E51C22F6A4000892B1 /* UIImageView+Fade.swift in Sources */,
 				695D7A6D1C21BF5F0083132B /* UIColor+RgbString.swift in Sources */,
+				69D99A001C22FDC8000892B1 /* UIViewController+CouponUtils.swift in Sources */,
 				695D7A641C21BEE50083132B /* Fmap.swift in Sources */,
+				69D999D71C22F668000892B1 /* UIView+Layout.swift in Sources */,
+				69D999E71C22F6A4000892B1 /* LoadingFooterView.swift in Sources */,
+				69D999EF1C22F6A4000892B1 /* Highlightable.swift in Sources */,
+				695D7A871C21DB200083132B /* CodeIconView.swift in Sources */,
+				695D7A891C21DB200083132B /* CircleCodeButton.swift in Sources */,
 				695D7A771C21CE710083132B /* UICollectionView+CellUtils.swift in Sources */,
+				69D99A261C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift in Sources */,
+				69D999F91C22FDC8000892B1 /* CouponCollectionViewCell.swift in Sources */,
+				69D99A141C22FE59000892B1 /* WebViewController.swift in Sources */,
 				695D7A681C21BEE50083132B /* Coupon+FriendlyDistance.swift in Sources */,
+				69D999E41C22F6A4000892B1 /* RoundedCornersView.swift in Sources */,
+				695D7A861C21DB200083132B /* CodeIconLibrary.swift in Sources */,
 				695D7A751C21CE710083132B /* PrototypeView.swift in Sources */,
 				695D7A661C21BEE50083132B /* NSDate+HumanFriendly.swift in Sources */,
+				69D99A151C22FE59000892B1 /* LoadingPresenterViewController.swift in Sources */,
 				695D7A761C21CE710083132B /* PrototypeDataView.swift in Sources */,
 				695D7A571C21BDB10083132B /* SearchService.swift in Sources */,
+				69D99A1E1C22FF98000892B1 /* ContextMenuItem+CodeImage.swift in Sources */,
 				695D7A6B1C21BEE50083132B /* MapSome.swift in Sources */,
 				695D7A6A1C21BEE50083132B /* AsyncLegacy.swift in Sources */,
+				69D99A0D1C22FE59000892B1 /* SearchViewController.swift in Sources */,
 				695D7A561C21BDB10083132B /* PersistenceService.swift in Sources */,
 				695D7A4E1C21B66F0083132B /* Category.swift in Sources */,
 				695D7A651C21BEE50083132B /* NSDate+EndOfDay.swift in Sources */,
 				695D7A631C21BEE50083132B /* String+Localizable.swift in Sources */,
+				69D99A0E1C22FE59000892B1 /* CouponWaterfallViewController.swift in Sources */,
+				69D99A251C2300CE000892B1 /* CouponAnnotation.swift in Sources */,
+				69D999E61C22F6A4000892B1 /* ScissorsLoadingView.swift in Sources */,
+				69D99A1D1C22FF98000892B1 /* ContextMenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

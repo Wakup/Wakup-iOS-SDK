@@ -19,3 +19,6 @@ pod 'Alamofire', '~> 3.1'
 
 # Delightful on-disk cache
 pod 'AwesomeCache', '~> 2.0'
+
+# The waterfall (i.e., Pinterest-like) layout for UICollectionView.
+pod 'CHTCollectionViewWaterfallLayout', '~> 0.9'
