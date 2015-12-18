@@ -22,7 +22,7 @@ struct PaginationInfo {
     let perPage: Int?
 }
 
-let offerHostUrl = NSProcessInfo.processInfo().environment["OFFERS_SERVER_URL"] ?? "http://app.wakup.net/"
+let offerHostUrl = NSProcessInfo.processInfo().environment["OFFERS_SERVER_URL"] ?? "https://app.wakup.net/"
 
 let highlightedOfferUrl = "\(offerHostUrl)offers/highlighted"
 
