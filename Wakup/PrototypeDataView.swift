@@ -10,10 +10,15 @@ import Foundation
 import UIKit
 
 class PrototypeDataView<T: UIView, U> : PrototypeView<T> {
-    var updateMethod: (T, U) -> Void
-    init(fromNibName nibName: String, updateMethod: (T, U) -> Void) {
+    let updateMethod: (T, U) -> Void
+    convenience init(fromNibName nibName: String, bundle: NSBundle? = nil, updateMethod: (T, U) -> Void) {
+        let nib = UINib(nibName: nibName, bundle: bundle ?? NSBundle(forClass: T.self))
+        self.init(fromNib: nib, updateMethod: updateMethod)
+    }
+    
+    init(fromNib nib: UINib, updateMethod: (T, U) -> Void) {
         self.updateMethod = updateMethod
-        super.init(fromNibName: nibName)
+        super.init(fromNib: nib)
     }
     
     func update(data data: U) {

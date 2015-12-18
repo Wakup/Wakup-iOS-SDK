@@ -66,7 +66,7 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.registerNib(UINib(nibName: "CouponDetailCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: couponCellId)
+        collectionView?.registerNib(UINib(nibName: "CouponDetailCollectionViewCell", bundle: CurrentBundle.currentBundle()), forCellWithReuseIdentifier: couponCellId)
         self.view.backgroundColor = collectionView?.backgroundColor
     }
     

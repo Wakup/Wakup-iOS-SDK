@@ -23,6 +23,8 @@ import DZNEmptyDataSet
     let mapStoryboardId = "couponMap"
     let savedOffersSegueId = "savedOffers"
     var selectedRow: Int = 0
+    
+    let layout = CHTCollectionViewWaterfallLayout()
 
     var couponCollectionHandler: CouponCollectionHandler?
     
@@ -83,6 +85,8 @@ import DZNEmptyDataSet
     // MARK: View lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView?.collectionViewLayout = layout
         
         // Initialize CouponCollectionHandler with the load coupon method
         couponCollectionHandler = CouponCollectionHandler(collectionView: collectionView, loadCouponMethod: { (page, perPage, onComplete) -> Void in
@@ -221,11 +225,12 @@ import DZNEmptyDataSet
         switch CLLocationManager.authorizationStatus() {
         case .Denied:
             if #available(iOS 8.0, *) {
-                let alert = UIAlertView(title: "GeolocationDeniedTitle".i18n(), message: "GeolocationDeniedMsg".i18n(), delegate: nil, cancelButtonTitle: "CloseDialogButton".i18n(), otherButtonTitles: "ApplicationSettings".i18n())
-                alert.bk_setHandler({
+                let alert = UIAlertController(title: "GeolocationDeniedTitle".i18n(), message: "GeolocationDeniedMsg".i18n(), preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "ApplicationSettings".i18n(), style: .Default) { _ in
                     UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
-                }, forButtonAtIndex: 1)
-                alert.show()
+                })
+                alert.addAction(UIAlertAction(title: "CloseDialogButton".i18n(), style: .Default) { _ in })
+                presentViewController(alert, animated: true, completion: nil)
             }
             else {
                 UIAlertView(title: "GeolocationDeniedTitle".i18n(), message: "GeolocationDeniedMsg".i18n(), delegate: nil, cancelButtonTitle: "CloseDialogButton".i18n()).show()
@@ -248,8 +253,6 @@ import DZNEmptyDataSet
         self.locationManager.stopUpdatingLocation()
         self.locationManager.delegate = nil
         reload()
-//        // Send current location to TwinPush
-//        TwinPushManager.singleton().setLocation(newLocation)
     }
     
     // MARK: Transition methods
@@ -305,7 +308,7 @@ import DZNEmptyDataSet
     let emptyViewColor = UIColor(fromHexString: "#908E90")
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [
-            NSFontAttributeName: UIFont(name: "Aller", size: 18)!,
+            NSFontAttributeName: UIFont.systemFontOfSize(18),
             NSForegroundColorAttributeName: emptyViewColor
         ]
         let title = lastRequestFailed ? "ConnectionErrorViewTitle".i18n() : "EmptyOfferSearchTitle".i18n()
@@ -323,7 +326,7 @@ import DZNEmptyDataSet
     
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [
-            NSFontAttributeName: UIFont(name: "Aller", size: 14)!,
+            NSFontAttributeName: UIFont.systemFontOfSize(14),
             NSForegroundColorAttributeName: emptyViewColor
         ]
         let description = lastRequestFailed ? "ConnectionErrorViewMsg".i18n() : "EmptyOfferSearchDescription".i18n()

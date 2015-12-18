@@ -14,6 +14,7 @@ import CHTCollectionViewWaterfallLayout
 class SavedCouponsViewController: LoadingPresenterViewController, CHTCollectionViewDelegateWaterfallLayout, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate, ZoomTransitionOrigin, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
     var couponCollectionHandler: CouponCollectionHandler?
+    let layout = CHTCollectionViewWaterfallLayout()
     
     let showDetailsSegueId = "showDetails"
     var selectedRow: Int = 0
@@ -58,6 +59,8 @@ class SavedCouponsViewController: LoadingPresenterViewController, CHTCollectionV
     // MARK: View lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView?.collectionViewLayout = layout
         
         // Initialize CouponCollectionHandler with the load coupon method
         couponCollectionHandler = CouponCollectionHandler(collectionView: collectionView, loadCouponMethod: { (page, perPage, onComplete) -> Void in
@@ -202,7 +205,7 @@ class SavedCouponsViewController: LoadingPresenterViewController, CHTCollectionV
     let emptyViewColor = UIColor(fromHexString: "#908E90")
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [
-            NSFontAttributeName: UIFont(name: "Aller", size: 18)!,
+            NSFontAttributeName: UIFont.systemFontOfSize(18),
             NSForegroundColorAttributeName: emptyViewColor
         ]
         let title = lastRequestFailed ? "ConnectionErrorViewTitle".i18n() : "EmptyMyOffersTitle".i18n()
@@ -220,7 +223,7 @@ class SavedCouponsViewController: LoadingPresenterViewController, CHTCollectionV
     
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [
-            NSFontAttributeName: UIFont(name: "Aller", size: 14)!,
+            NSFontAttributeName: UIFont.systemFontOfSize(14),
             NSForegroundColorAttributeName: emptyViewColor
         ]
         let description = lastRequestFailed ? "ConnectionErrorViewMsg".i18n() : "EmptyMyOffersDescription".i18n()

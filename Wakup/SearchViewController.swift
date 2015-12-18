@@ -8,6 +8,7 @@
 
 import UIKit
 import AddressBookUI
+import CoreLocation
 
 class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
 

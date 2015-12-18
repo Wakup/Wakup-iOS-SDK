@@ -17,7 +17,7 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     @IBOutlet weak var collectionView: UICollectionView!
     
     let couponHeaderId = "CouponDetailHeaderView"
-    let couponHeaderNib = "CouponDetailHeaderView"
+    let couponHeaderNib = UINib(nibName: "CouponDetailHeaderView", bundle: CurrentBundle.currentBundle())
     var couponHeaderView: CouponDetailHeaderView!
     var prototypeHeaderView: PrototypeDataView<CouponDetailHeaderView, Coupon>!
     
@@ -39,7 +39,7 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     }
     
     override func awakeFromNib() {
-        prototypeHeaderView = PrototypeDataView(fromNibName: couponHeaderNib, updateMethod: { (header, coupon) -> Void in
+        prototypeHeaderView = PrototypeDataView(fromNib: couponHeaderNib, updateMethod: { (header, coupon) -> Void in
             let width = UIApplication.sharedApplication().keyWindow!.bounds.size.width
             header.userLocation = self.userLocation
             header.loadImages = false
@@ -47,8 +47,7 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
             header.coupon = coupon
         })
         
-        let headerNib = UINib(nibName: couponHeaderNib, bundle: nil)
-        collectionView.registerNib(headerNib, forSupplementaryViewOfKind: CHTCollectionElementKindSectionHeader, withReuseIdentifier: couponHeaderId)
+        collectionView.registerNib(couponHeaderNib, forSupplementaryViewOfKind: CHTCollectionElementKindSectionHeader, withReuseIdentifier: couponHeaderId)
         
         couponCollectionHandler = CouponCollectionHandler(collectionView: collectionView, loadCouponMethod: { (page, perPage, onComplete) -> Void in
             if let coupon = self.coupon {

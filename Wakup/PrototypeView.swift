@@ -10,14 +10,19 @@ import Foundation
 import UIKit
 
 class PrototypeView<T: UIView> {
-    var view: T
+    let view: T
     
-    init(fromNibName nibName: String) {
-        view = PrototypeView<T>.loadPrototype(fromNibName: nibName)
+    convenience init(fromNibName nibName: String, bundle: NSBundle? = nil) {
+        let nib = UINib(nibName: nibName, bundle: bundle ?? NSBundle(forClass: T.self))
+        self.init(fromNib: nib)
+    }
+    
+    init(fromNib nib: UINib) {
+        view = nib.instantiateWithOwner(nil, options: nil)[0] as! T
     }
     
     class func loadPrototype(fromNibName nibName: String) -> T {
-        return NSBundle.mainBundle().loadNibNamed(nibName, owner: nil, options: nil)[0] as! T
+        return NSBundle(forClass: T.self).loadNibNamed(nibName, owner: nil, options: nil)[0] as! T
     }
     
     func getFittingSize() -> CGSize {

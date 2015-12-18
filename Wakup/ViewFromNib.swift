@@ -8,6 +8,12 @@
 
 import Foundation
 
+class CurrentBundle {
+    static func currentBundle() -> NSBundle {
+        return NSBundle(forClass: self)
+    }
+}
+
 func loadViewFromNib(nibName: String) -> UIView! {
-    return NSBundle.mainBundle().loadNibNamed(nibName, owner: nil, options: nil)[0] as! UIView
+    return CurrentBundle.currentBundle().loadNibNamed(nibName, owner: nil, options: nil)[0] as! UIView
 }

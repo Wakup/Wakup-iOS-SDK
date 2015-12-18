@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="Aller_Lt.ttf">
-            <string>Aller-Light</string>
-            <string>Aller-Light</string>
-            <string>Aller-Light</string>
-        </mutableArray>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -21,7 +14,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCm-gQ-f1q" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
                     <rect key="frame" x="1" y="1" width="118" height="38"/>
                     <color key="backgroundColor" red="0.33333333333333331" green="0.20784313725490194" blue="0.33333333333333331" alpha="1" colorSpace="deviceRGB"/>
-                    <fontDescription key="fontDescription" name="Aller-Light" family="Aller Light" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                     <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                     <state key="normal" title="ofertón">
@@ -45,7 +38,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ9-vb-U59" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
                     <rect key="frame" x="120" y="1" width="118" height="38"/>
                     <color key="backgroundColor" red="0.33333333333333331" green="0.20784313725490194" blue="0.33333333333333331" alpha="1" colorSpace="deviceRGB"/>
-                    <fontDescription key="fontDescription" name="Aller-Light" family="Aller Light" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                     <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                     <state key="normal" title="ver mapa">
@@ -69,7 +62,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmq-F6-S5V" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
                     <rect key="frame" x="239" y="1" width="118" height="38"/>
                     <color key="backgroundColor" red="0.33333333333333331" green="0.20784313725490194" blue="0.33333333333333331" alpha="1" colorSpace="deviceRGB"/>
-                    <fontDescription key="fontDescription" name="Aller-Light" family="Aller Light" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                     <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                     <state key="normal" title="mis ofertas">

@@ -20,12 +20,13 @@ class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfallLayou
     weak var collectionView: UICollectionView?
     let refreshControl = UIRefreshControl()
     
-    let loadingFooterId = "LoadingFooterView"
-    let loadingFooterNib = "LoadingFooterView"
+    let defaultBundle = NSBundle(forClass: CouponCollectionHandler.self)
+    lazy var loadingFooterId = "LoadingFooterView"
+    lazy var loadingFooterNib: UINib = { UINib(nibName: "LoadingFooterView", bundle: self.defaultBundle) }()
     var loadingFooterView: LoadingFooterView!
     
     let couponCellId = "CouponCollectionViewCell"
-    let couponCellNib = "CouponCollectionViewCell"
+    lazy var couponCellNib: UINib = { UINib(nibName: "CouponCollectionViewCell", bundle: self.defaultBundle) }()
     var prototypeCouponCell: PrototypeDataView<CouponCollectionViewCell, Coupon>!
     
     private var requestId = arc4random()
@@ -71,18 +72,16 @@ class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfallLayou
         layout.sectionInset = UIEdgeInsetsMake(10, 6, 10, 6)
         layout.footerHeight = 80
         
-        prototypeCouponCell = PrototypeDataView(fromNibName: couponCellNib, updateMethod: { cell, coupon in
+        prototypeCouponCell = PrototypeDataView(fromNib: couponCellNib, updateMethod: { cell, coupon in
             cell.loadImages = false
             cell.preferredWidth = self.layout.itemWidthInSectionAtIndex(0)
             cell.userLocation = self.userLocation
             cell.coupon = coupon
         })
         
-        let footerNib = UINib(nibName: loadingFooterNib, bundle: nil)
-        collectionView?.registerNib(footerNib, forSupplementaryViewOfKind: CHTCollectionElementKindSectionFooter, withReuseIdentifier: loadingFooterId)
+        collectionView?.registerNib(loadingFooterNib, forSupplementaryViewOfKind: CHTCollectionElementKindSectionFooter, withReuseIdentifier: loadingFooterId)
         
-        let cellNib = UINib(nibName: couponCellNib, bundle: nil)
-        collectionView?.registerNib(cellNib, forCellWithReuseIdentifier: couponCellId)
+        collectionView?.registerNib(couponCellNib, forCellWithReuseIdentifier: couponCellId)
         
         collectionView?.setCollectionViewLayout(layout, animated: false)
         

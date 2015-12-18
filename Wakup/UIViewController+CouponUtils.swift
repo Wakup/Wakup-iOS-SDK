@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SDWebImage
 
 extension UIViewController {
     func showMap(forOffer offer: Coupon) {
