@@ -85,6 +85,8 @@
 		69D99A211C22FF98000892B1 /* ContextItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D99A1C1C22FF98000892B1 /* ContextItemView.xib */; };
 		69D99A251C2300CE000892B1 /* CouponAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A231C2300CE000892B1 /* CouponAnnotation.swift */; };
 		69D99A261C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A241C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift */; };
+		69D99A461C232D4E000892B1 /* WakupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A451C232D4E000892B1 /* WakupManager.swift */; };
+		69D99A481C2331D1000892B1 /* Wakup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D99A471C2331D1000892B1 /* Wakup.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +170,8 @@
 		69D99A1C1C22FF98000892B1 /* ContextItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContextItemView.xib; sourceTree = "<group>"; };
 		69D99A231C2300CE000892B1 /* CouponAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponAnnotation.swift; sourceTree = "<group>"; };
 		69D99A241C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+ToLocation.swift"; sourceTree = "<group>"; };
+		69D99A451C232D4E000892B1 /* WakupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakupManager.swift; sourceTree = "<group>"; };
+		69D99A471C2331D1000892B1 /* Wakup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wakup.storyboard; sourceTree = "<group>"; };
 		8CE424B5B7919A87214842F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FFEAF288FFEF6410D2A4D7EE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -219,6 +223,8 @@
 				695D7A591C21BE020083132B /* Utils */,
 				695D7A791C21DB020083132B /* Views */,
 				69D99A021C22FE48000892B1 /* ViewControllers */,
+				69D99A471C2331D1000892B1 /* Wakup.storyboard */,
+				69D99A451C232D4E000892B1 /* WakupManager.swift */,
 				69144AD71C207FD500258FF5 /* Wakup.h */,
 				69144AD91C207FD500258FF5 /* Info.plist */,
 			);
@@ -462,6 +468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69D99A481C2331D1000892B1 /* Wakup.storyboard in Resources */,
 				69D999FE1C22FDC8000892B1 /* CouponDetailHeaderView.xib in Resources */,
 				69D999E81C22F6A4000892B1 /* LoadingFooterView.xib in Resources */,
 				69D999FC1C22FDC8000892B1 /* CouponDetailCollectionViewCell.xib in Resources */,
@@ -558,6 +565,7 @@
 				695D7A871C21DB200083132B /* CodeIconView.swift in Sources */,
 				695D7A891C21DB200083132B /* CircleCodeButton.swift in Sources */,
 				695D7A771C21CE710083132B /* UICollectionView+CellUtils.swift in Sources */,
+				69D99A461C232D4E000892B1 /* WakupManager.swift in Sources */,
 				69D99A261C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift in Sources */,
 				69D999F91C22FDC8000892B1 /* CouponCollectionViewCell.swift in Sources */,
 				69D99A141C22FE59000892B1 /* WebViewController.swift in Sources */,
