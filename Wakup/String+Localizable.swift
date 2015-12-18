@@ -10,6 +10,7 @@ import Foundation
 
 extension String {
     func i18n() -> String {
-        return NSLocalizedString(self, comment: "")
+        let defaultValue = NSLocalizedString(self, tableName: "Wakup", bundle: CurrentBundle.currentBundle(), value: "", comment: "")
+        return NSLocalizedString(self, tableName: "Wakup", bundle: NSBundle.mainBundle(), value: defaultValue, comment: "")
     }
 }

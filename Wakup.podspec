@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   # Source configuration
   s.source_files  = "Wakup/**/*.swift"
-  s.resources = "Wakup/**/*.{png,jpeg,jpg,storyboard,xib}"
+  s.resources = "Wakup/**/*.{png,jpeg,jpg,storyboard,xib,strings}"
 
   s.requires_arc = true
 

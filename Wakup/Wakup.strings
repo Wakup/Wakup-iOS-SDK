@@ -1,0 +1,64 @@
+/* 
+  Localizable.strings
+  Wuakup
+
+  Created by Guillermo Gutiérrez on 26/01/15.
+  Copyright (c) 2015 Yellow Pineapple. All rights reserved.
+*/
+
+/*
+    You can override the default internationalization of the application
+    including a Wakup.strings file in your project.
+ 
+    Copy & paste this file to your project and replace the strings that 
+    you want or add more languages!
+*/
+
+"ConnectionErrorTitle" = "Error de conexión";
+"ConnectionErrorMsg" = "Hay un problema de conexión con el servidor";
+"ConnectionErrorViewTitle" = "Hay un problema de conexión con el servidor";
+"ConnectionErrorViewMsg" = "No se ha podido conectar con el servidor. Revise su conexión y toque la pantalla para intentar de nuevo";
+
+"NoResultsTitle" = "Sin resultados";
+"NoResultsMsg" = "No se ha encontrado ningún resultado con los criterios de búsqueda establecidos";
+
+"CloseDialogButton" = "Aceptar";
+"ApplicationSettings" = "Ajustes";
+
+"OnlineCoupon" = "Online";
+
+"Expired" = "Caducado";
+"ExpiresUndefined" = "-";
+"ExpiresToday" = "Hoy";
+"ExpiresTomorrow" = "Mañana";
+"ExpiresInXDays" = "En %d días";
+"ExpiresIn1Month" = "En 1 mes";
+"ExpiresInXMonths" = "En %d meses";
+
+"WebViewError" = "Error al cargar el contenido";
+
+"ActionShowMap" = "Ver en mapa";
+"ActionSave" = "Guardar en mis ofertas";
+"ActionRemove" = "Quitar de mis ofertas";
+"ActionShare" = "Compartir oferta";
+
+"CouponHeaderSave" = "Guardar";
+"CouponHeaderSaved" = "Guardado";
+
+"ShareOfferFooter" = "¡Esta oferta y muchas otras en Wakup! Disponible para iOS y Android";
+
+"GeolocationDeniedTitle" = "Ubicación desactivada";
+"GeolocationDeniedMsg" = "Ve a ajustes de privacidad para activarla de nuevo. Mientras tanto, mostraremos resultados de una ubicación por defecto";
+"GeolocationErrorTitle" = "Error de ubicación";
+"GeolocationErrorMsg" = "Ha sido imposible obtener una ubicación válida. Mostraremos resultados de una ubicación por defecto";
+
+"SearchResults" = "Resultados de la búsqueda";
+"SearchHeaderCompanies" = "Marcas";
+"SearchHeaderLocations" = "Ubicaciones";
+"SearchHeaderHistory" = "Últimas búsquedas";
+"SearchCellUserLocation" = "Cerca de mí";
+
+"EmptyMyOffersTitle" = "No tienes ninguna oferta guardada";
+"EmptyMyOffersDescription" = "Añade a tus favoritos aquellas ofertas que quieras tener siempre a mano";
+"EmptyOfferSearchTitle" = "No se han encontrado resultados";
+"EmptyOfferSearchDescription" = "La búsqueda no ha obtenido ninguna oferta, comprueba los criterios de búsqueda y vuelve a intentarlo";
