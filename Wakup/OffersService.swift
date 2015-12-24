@@ -27,6 +27,8 @@ let offerHostUrl = NSProcessInfo.processInfo().environment["OFFERS_SERVER_URL"] 
 let highlightedOfferUrl = "\(offerHostUrl)offers/highlighted"
 
 class OffersService {
+    static var apiKey: String?
+    class var authHeaders: [String: String]? { return apiKey.map{ ["API-Token": $0] } }
     
     class func findOffers(usingLocation location: CLLocationCoordinate2D, filterOptions: FilterOptions? = nil, pagination: PaginationInfo? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
         
@@ -61,7 +63,7 @@ class OffersService {
     
     private class func getOffersFromURL(url url: String, parameters: [String: AnyObject]? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
         NetworkActivityIndicatorManager.sharedInstance.startActivity()
-        let r = request(.GET, url, parameters: parameters).responseSwiftyJSON({ (req, res, result, error) -> Void in
+        let r = request(.GET, url, parameters: parameters, headers: authHeaders).validate().responseSwiftyJSON({ (req, res, result, error) -> Void in
             NetworkActivityIndicatorManager.sharedInstance.endActivity()
             if let error = error {
                 print("Error in request with URL \(req.URLString): \(error)")

@@ -19,6 +19,9 @@ class SearchService {
         return Static.instance
     }
     
+    var apiKey: String?
+    var authHeaders: [String: String]? { return apiKey.map{ ["API-Token": $0] } }
+    
     private lazy var historyCache: Cache<NSString> = { try! Cache<NSString>(name: "searchHistory") }()
     private let historyKey = "history"
     private let maxHistory = 10
@@ -27,7 +30,7 @@ class SearchService {
         let url = "\(offerHostUrl)search"
         let parameters = ["q": query]
         NetworkActivityIndicatorManager.sharedInstance.startActivity()
-        let r = request(.GET, url, parameters: parameters).responseSwiftyJSON({ (req, res, result, error) in
+        let r = request(.GET, url, parameters: parameters, headers: authHeaders).validate().responseSwiftyJSON({ (req, res, result, error) in
             NetworkActivityIndicatorManager.sharedInstance.endActivity()
             if let error = error {
                 NSLog("Error in request with URL \(req.URLString): \(error)")
