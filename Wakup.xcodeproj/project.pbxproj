@@ -56,7 +56,6 @@
 		69D999E71C22F6A4000892B1 /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999DB1C22F6A4000892B1 /* LoadingFooterView.swift */; };
 		69D999E81C22F6A4000892B1 /* LoadingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D999DC1C22F6A4000892B1 /* LoadingFooterView.xib */; };
 		69D999E91C22F6A4000892B1 /* TopMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999DD1C22F6A4000892B1 /* TopMenuView.swift */; };
-		69D999EA1C22F6A4000892B1 /* TopMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D999DE1C22F6A4000892B1 /* TopMenuView.xib */; };
 		69D999EB1C22F6A4000892B1 /* CustomBackgroundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999DF1C22F6A4000892B1 /* CustomBackgroundButton.swift */; };
 		69D999EC1C22F6A4000892B1 /* CustomBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999E01C22F6A4000892B1 /* CustomBorderButton.swift */; };
 		69D999ED1C22F6A4000892B1 /* CenteredIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999E11C22F6A4000892B1 /* CenteredIconButton.swift */; };
@@ -143,7 +142,6 @@
 		69D999DB1C22F6A4000892B1 /* LoadingFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 		69D999DC1C22F6A4000892B1 /* LoadingFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingFooterView.xib; sourceTree = "<group>"; };
 		69D999DD1C22F6A4000892B1 /* TopMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuView.swift; sourceTree = "<group>"; };
-		69D999DE1C22F6A4000892B1 /* TopMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopMenuView.xib; sourceTree = "<group>"; };
 		69D999DF1C22F6A4000892B1 /* CustomBackgroundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBackgroundButton.swift; sourceTree = "<group>"; };
 		69D999E01C22F6A4000892B1 /* CustomBorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBorderButton.swift; sourceTree = "<group>"; };
 		69D999E11C22F6A4000892B1 /* CenteredIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteredIconButton.swift; sourceTree = "<group>"; };
@@ -327,7 +325,6 @@
 				69D999D81C22F6A4000892B1 /* RoundedCornersView.swift */,
 				69D999DA1C22F6A4000892B1 /* ScissorsLoadingView.swift */,
 				69D999DD1C22F6A4000892B1 /* TopMenuView.swift */,
-				69D999DE1C22F6A4000892B1 /* TopMenuView.xib */,
 				69D999D91C22F6A4000892B1 /* UIImageView+Fade.swift */,
 				69D999E21C22F6A4000892B1 /* UIButton+VerticalLayout.swift */,
 			);
@@ -480,7 +477,6 @@
 				69D999FC1C22FDC8000892B1 /* CouponDetailCollectionViewCell.xib in Resources */,
 				69D999FA1C22FDC8000892B1 /* CouponCollectionViewCell.xib in Resources */,
 				69EA218A1C24680600B8EE30 /* Wakup.strings in Resources */,
-				69D999EA1C22F6A4000892B1 /* TopMenuView.xib in Resources */,
 				69D99A211C22FF98000892B1 /* ContextItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
