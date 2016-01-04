@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 @IBDesignable class CodeIconButton: CustomBorderButton {
     
@@ -17,7 +18,7 @@ import Foundation
     @IBInspectable var disabledIconColor: UIColor? { didSet { refreshDisabled() } }
     @IBInspectable var highlightedSelectedIconColor: UIColor? { didSet { refreshHighlightedSelected() } }
     @IBInspectable var highlightedDisabledIconColor: UIColor? { didSet { refreshHighlightedDisabled() } }
-    @IBInspectable var iconSize: CGSize = CGSize(width: 10, height: 10) { didSet { refreshIcons() } }
+    @IBInspectable var iconSize: CGSize = CGSize(width: 20, height: 20) { didSet { refreshIcons() } }
     @IBInspectable var iconFillsButton: Bool = false { didSet { refreshIcons() } }
     
     private var codeIcon: CodeIcon?
@@ -70,10 +71,7 @@ import Foundation
     }
     
     func getIcon(color color: UIColor?) -> UIImage? {
-        if let color = color {
-            return codeIcon?.getImage(color, frame: iconFrame)
-        }
-        return .None
+        return codeIcon?.getImage(iconFrame, color: color)
     }
     
 }

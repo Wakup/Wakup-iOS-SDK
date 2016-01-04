@@ -7,33 +7,37 @@
 //
 
 import Foundation
+import UIKit
 
-typealias IconDrawMethod = (frame: CGRect, color: UIColor) -> Void
+public typealias IconDrawMethod = (frame: CGRect, color: UIColor) -> Void
 
-class CodeIcon {
+public class CodeIcon {
     
     let drawMethod: IconDrawMethod
     let aspectRatio: CGFloat
+    let defaultColor: UIColor
     
-    init(drawMethod: IconDrawMethod, aspectRatio: CGFloat) {
+    public init(drawMethod: IconDrawMethod, defaultColor: UIColor, aspectRatio: CGFloat) {
         self.drawMethod = drawMethod
+        self.defaultColor = defaultColor
         self.aspectRatio = aspectRatio
     }
     
-    convenience init(iconIdentifier: String) {
+    public convenience init(iconIdentifier: String) {
         let (drawMethod, aspectRatio) = CodeIconLibrary.drawMethodForIcon(iconIdentifier: iconIdentifier)
-        self.init(drawMethod: drawMethod, aspectRatio: aspectRatio)
+        let defaultColor = CodeIconLibrary.getDefaultColor(iconIdentifier: iconIdentifier)
+        self.init(drawMethod: drawMethod, defaultColor: defaultColor, aspectRatio: aspectRatio)
     }
     
-    func draw(color: UIColor, frame: CGRect) {
-        getCodeImage(forColor: color).draw(frame)
+    public func draw(frame: CGRect, color: UIColor? = nil) {
+        getCodeImage(forColor: color ?? defaultColor).draw(frame)
     }
     
-    func getImage(color: UIColor, frame: CGRect) -> UIImage {
-        return getCodeImage(forColor: color).getImage(frame)
+    public func getImage(frame: CGRect, color: UIColor? = nil) -> UIImage {
+        return getCodeImage(forColor: color ?? defaultColor).getImage(frame)
     }
     
-    func getCodeImage(forColor color: UIColor) -> CodeImage {
-        return CodeImage(drawMethod: { frame in self.drawMethod(frame: frame, color: color) }, aspectRatio: self.aspectRatio)
+    public func getCodeImage(forColor color: UIColor? = nil) -> CodeImage {
+        return CodeImage(drawMethod: { frame in self.drawMethod(frame: frame, color: color ?? self.defaultColor) }, aspectRatio: self.aspectRatio)
     }
 }

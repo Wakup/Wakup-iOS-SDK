@@ -7,15 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
-typealias DrawMethod = (frame: CGRect) -> Void
+public typealias DrawMethod = (frame: CGRect) -> Void
 
-class CodeImage {
+public class CodeImage {
     
     let drawMethod: DrawMethod
     let aspectRatio: CGFloat
     
-    init(drawMethod: DrawMethod, aspectRatio: CGFloat) {
+    public init(drawMethod: DrawMethod, aspectRatio: CGFloat) {
         self.drawMethod = drawMethod
         self.aspectRatio = aspectRatio
     }

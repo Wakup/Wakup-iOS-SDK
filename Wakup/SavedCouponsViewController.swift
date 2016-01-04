@@ -214,10 +214,10 @@ class SavedCouponsViewController: LoadingPresenterViewController, CHTCollectionV
     
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
         if lastRequestFailed {
-            return CodeIcon(iconIdentifier: "cloud-alert").getImage(emptyViewColor, frame: CGRectMake(0, 0, 150, 100))
+            return CodeIcon(iconIdentifier: "cloud-alert").getImage(CGRectMake(0, 0, 150, 100))
         }
         else {
-            return CodeIcon(iconIdentifier: "save").getImage(emptyViewColor, frame: CGRectMake(0, 0, 90, 90))
+            return CodeIcon(iconIdentifier: "save").getImage(CGRectMake(0, 0, 90, 90))
         }
     }
     

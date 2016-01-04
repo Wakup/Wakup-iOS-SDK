@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 @IBDesignable class CodeImageView: UIView {
     var codeImage: CodeImage? { didSet { setNeedsDisplay() } }
     
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
-        codeImage?.draw(frame)
+        codeImage?.draw(bounds)
     }
 }

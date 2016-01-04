@@ -188,7 +188,7 @@ class CouponMapViewController: UIViewController, MKMapViewDelegate {
             let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) ?? MKAnnotationView(annotation: couponAnnotation, reuseIdentifier: identifier)
             let iconFrame = CGRect(x: 0, y: 0, width: mapPinSize.width, height: mapPinSize.height)
             let (mapPinId, pinColor) = mapIconId(forCategory: couponAnnotation.coupon.category)
-            let iconImage = CodeIcon(iconIdentifier: mapPinId).getImage(pinColor, frame: iconFrame)
+            let iconImage = CodeIcon(iconIdentifier: mapPinId).getImage(iconFrame, color: pinColor)
             annotationView.image = iconImage
             annotationView.canShowCallout = true
             annotationView.centerOffset = CGPoint(x: 0, y: (-mapPinSize.height / 2) + 1)

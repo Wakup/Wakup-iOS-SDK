@@ -11,11 +11,13 @@ import Foundation
 public class WakupManager {
     public static let manager = WakupManager()
     
-    public var apiKey: String? {
-        didSet {
-            SearchService.sharedInstance.apiKey = apiKey
-            OffersService.apiKey = apiKey
-        }
+    internal var config = WakupConfiguration()
+    
+    public func setup(apiKey: String, config: WakupConfiguration = WakupConfiguration()) {
+        SearchService.sharedInstance.apiKey = apiKey
+        OffersService.apiKey = apiKey
+        
+        CodeIconLibrary.instance = config.iconLibrary
     }
     
     public lazy var storyboard: UIStoryboard! = UIStoryboard(name: "Wakup", bundle: NSBundle(forClass: WakupManager.self))
@@ -23,4 +25,10 @@ public class WakupManager {
     public func initialController() -> UIViewController! {
         return storyboard.instantiateInitialViewController()
     }
+}
+
+public class WakupConfiguration {
+    public var iconLibrary: IconLibrary = MyIconLibrary()
+    
+    public init() {}
 }

@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        WakupManager.manager.apiKey = "YOUR WAKUP API KEY HERE"
+        let wakupConfig = WakupConfiguration()
+        WakupManager.manager.setup("YOUR WAKUP API KEY HERE", config: wakupConfig)
         window?.rootViewController = WakupManager.manager.initialController()
         window?.makeKeyAndVisible()
         

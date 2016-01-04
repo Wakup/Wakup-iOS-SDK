@@ -11,22 +11,17 @@ import UIKit
 
 @IBDesignable class CodeIconView: UIView, Highlightable {
     
-    @IBInspectable var iconColor: UIColor = UIColor.grayColor() { didSet { setNeedsDisplay() } }
+    @IBInspectable var iconColor: UIColor? { didSet { setNeedsDisplay() } }
     @IBInspectable var highlightedIconColor: UIColor? { didSet { setNeedsDisplay() } }
     @IBInspectable var highlighted: Bool = false { didSet { setNeedsDisplay() } }
     
-    @IBInspectable var iconIdentifier: String = "" {
-        didSet {
-            codeIcon = CodeIcon(iconIdentifier: iconIdentifier)
-            setNeedsDisplay()
-        }
-    }
+    @IBInspectable var iconIdentifier: String = "" { didSet { codeIcon = CodeIcon(iconIdentifier: iconIdentifier) } }
     
-    var codeIcon: CodeIcon?
+    var codeIcon: CodeIcon? { didSet { setNeedsDisplay() } }
     
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         let color = highlighted && highlightedIconColor != nil ? highlightedIconColor! : iconColor
-        codeIcon?.draw(color, frame: rect)
+        codeIcon?.draw(bounds, color: color)
     }
 }

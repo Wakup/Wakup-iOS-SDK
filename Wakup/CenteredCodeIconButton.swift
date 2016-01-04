@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 @IBDesignable class CenteredCodeIconButton: CodeIconButton {
     @IBInspectable var padding: CGFloat = 6
