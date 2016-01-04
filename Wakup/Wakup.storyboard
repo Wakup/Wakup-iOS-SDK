@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NBd-7t-Z4K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NBd-7t-Z4K">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -562,7 +562,7 @@
         <!--Coupon Waterfall View Controller-->
         <scene sceneID="KBc-cT-rtF">
             <objects>
-                <viewController storyboardIdentifier="couponWaterfall" id="8uP-JE-fId" customClass="CouponWaterfallViewController" customModule="Wakup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="couponWaterfall" automaticallyAdjustsScrollViewInsets="NO" id="8uP-JE-fId" customClass="CouponWaterfallViewController" customModule="Wakup" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HgN-Yy-xIW"/>
                         <viewControllerLayoutGuide type="bottom" id="Tbx-G9-jCi"/>
@@ -572,7 +572,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aDA-Ph-LTD">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="104" width="320" height="464"/>
                                 <color key="backgroundColor" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ow7-ov-C8i">
                                     <size key="itemSize" width="50" height="50"/>
@@ -586,12 +586,108 @@
                                     <outlet property="delegate" destination="8uP-JE-fId" id="NxV-Fa-dge"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpK-Vw-dwM" customClass="TopMenuView" customModule="Wakup" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="320" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8G-mP-9Fo" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
+                                        <rect key="frame" x="1" y="1" width="105" height="38"/>
+                                        <color key="backgroundColor" red="0.33333333329999998" green="0.20784313730000001" blue="0.33333333329999998" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="ofertón">
+                                            <color key="titleColor" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="star"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
+                                                <size key="value" width="15" height="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="iconFillsButton" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="offerButtonClicked:" destination="CpK-Vw-dwM" eventType="touchUpInside" id="TXE-ph-iRF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V5-C8-6ZT" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
+                                        <rect key="frame" x="107" y="1" width="106" height="38"/>
+                                        <color key="backgroundColor" red="0.33333333329999998" green="0.20784313730000001" blue="0.33333333329999998" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="ver mapa">
+                                            <color key="titleColor" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="show-map"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
+                                                <size key="value" width="15" height="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="iconFillsButton" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="mapButtonClicked:" destination="CpK-Vw-dwM" eventType="touchUpInside" id="o1C-TQ-vr0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P58-xH-KMz" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
+                                        <rect key="frame" x="214" y="1" width="105" height="38"/>
+                                        <color key="backgroundColor" red="0.33333333329999998" green="0.20784313730000001" blue="0.33333333329999998" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="mis ofertas">
+                                            <color key="titleColor" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="profile"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
+                                                <size key="value" width="15" height="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="iconFillsButton" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="myOffersButtonClicked:" destination="CpK-Vw-dwM" eventType="touchUpInside" id="gxR-CG-fiW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.30196079609999998" green="0.1647058874" blue="0.29803922770000002" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="k8G-mP-9Fo" secondAttribute="bottom" constant="1" id="2EL-TP-5tl"/>
+                                    <constraint firstItem="7V5-C8-6ZT" firstAttribute="leading" secondItem="k8G-mP-9Fo" secondAttribute="trailing" constant="1" id="Ba7-HW-iAk"/>
+                                    <constraint firstItem="k8G-mP-9Fo" firstAttribute="top" secondItem="7V5-C8-6ZT" secondAttribute="top" id="DUE-Ai-Xhg"/>
+                                    <constraint firstItem="P58-xH-KMz" firstAttribute="leading" secondItem="7V5-C8-6ZT" secondAttribute="trailing" constant="1" id="FWH-VD-V3c"/>
+                                    <constraint firstAttribute="height" constant="40" id="L6l-Wy-dR2"/>
+                                    <constraint firstItem="k8G-mP-9Fo" firstAttribute="bottom" secondItem="7V5-C8-6ZT" secondAttribute="bottom" id="MDu-yP-JFo"/>
+                                    <constraint firstItem="k8G-mP-9Fo" firstAttribute="width" secondItem="7V5-C8-6ZT" secondAttribute="width" id="NLj-F8-SEC"/>
+                                    <constraint firstItem="k8G-mP-9Fo" firstAttribute="leading" secondItem="CpK-Vw-dwM" secondAttribute="leading" constant="1" id="WCT-gP-b6s"/>
+                                    <constraint firstItem="7V5-C8-6ZT" firstAttribute="top" secondItem="P58-xH-KMz" secondAttribute="top" id="ZJt-Dk-bfx"/>
+                                    <constraint firstItem="7V5-C8-6ZT" firstAttribute="bottom" secondItem="P58-xH-KMz" secondAttribute="bottom" id="cZU-qF-iQ4"/>
+                                    <constraint firstItem="7V5-C8-6ZT" firstAttribute="width" secondItem="P58-xH-KMz" secondAttribute="width" id="nt5-2m-YZe"/>
+                                    <constraint firstAttribute="centerX" secondItem="7V5-C8-6ZT" secondAttribute="centerX" id="q78-rV-xhJ"/>
+                                    <constraint firstItem="k8G-mP-9Fo" firstAttribute="top" secondItem="CpK-Vw-dwM" secondAttribute="top" constant="1" id="rP1-yT-6ZL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aDA-Ph-LTD" firstAttribute="top" secondItem="bz5-dF-2bW" secondAttribute="topMargin" id="9Zp-KS-2vG"/>
+                            <constraint firstAttribute="trailing" secondItem="CpK-Vw-dwM" secondAttribute="trailing" id="Ex8-Ny-gpA"/>
+                            <constraint firstItem="aDA-Ph-LTD" firstAttribute="top" secondItem="CpK-Vw-dwM" secondAttribute="bottom" id="JNr-ch-Brb"/>
                             <constraint firstItem="aDA-Ph-LTD" firstAttribute="leading" secondItem="bz5-dF-2bW" secondAttribute="leading" id="UFI-DS-NwA"/>
+                            <constraint firstItem="CpK-Vw-dwM" firstAttribute="top" secondItem="HgN-Yy-xIW" secondAttribute="bottom" id="VWc-Lx-DeQ"/>
                             <constraint firstAttribute="trailing" secondItem="aDA-Ph-LTD" secondAttribute="trailing" id="csZ-Po-ZQI"/>
+                            <constraint firstItem="CpK-Vw-dwM" firstAttribute="leading" secondItem="bz5-dF-2bW" secondAttribute="leading" id="sTu-1c-ITg"/>
                             <constraint firstAttribute="bottom" secondItem="aDA-Ph-LTD" secondAttribute="bottom" id="uCx-z5-T2T"/>
                         </constraints>
                     </view>
@@ -631,6 +727,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="aDA-Ph-LTD" id="e1K-Ri-PSb"/>
+                        <outlet property="topMenuView" destination="CpK-Vw-dwM" id="ytk-GV-jU5"/>
                         <segue destination="n3g-6J-ktu" kind="presentation" identifier="loading" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="dLq-oR-GYv"/>
                         <segue destination="nb0-iV-9fB" kind="show" identifier="search" id="4OA-Tp-H1F"/>
                         <segue destination="4rV-lP-bwK" kind="show" identifier="highlightedOffer" id="QTT-uI-8C0"/>

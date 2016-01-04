@@ -25,10 +25,10 @@ import DZNEmptyDataSet
     var selectedRow: Int = 0
     
     let layout = CHTCollectionViewWaterfallLayout()
+    
+    @IBOutlet var topMenuView: TopMenuView?
 
     var couponCollectionHandler: CouponCollectionHandler?
-    
-    let topMenuView = loadViewFromNib("TopMenuView") as! TopMenuView
     
     let locationManager = CLLocationManager()
     var location: CLLocation? { didSet { couponCollectionHandler?.userLocation = location } }
@@ -86,6 +86,7 @@ import DZNEmptyDataSet
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        topMenuView?.delegate = self
         collectionView?.collectionViewLayout = layout
         
         // Initialize CouponCollectionHandler with the load coupon method
@@ -134,14 +135,6 @@ import DZNEmptyDataSet
         
         reload()
         
-        // Setup TopMenuView
-        topMenuView.delegate = self
-        
-//        // Setup Shy NavBar
-//        shyNavBarManager.scrollView = self.collectionView
-//        shyNavBarManager.extensionView = topMenuView
-//        shyNavBarManager.expansionResistance = 20
-        
         if let title = filterTitle {
             navigationItem.titleView = nil
             navigationItem.title = title
@@ -150,22 +143,7 @@ import DZNEmptyDataSet
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        topMenuView.frame = CGRect(x: topMenuView.frame.origin.x, y: topMenuView.frame.origin.y, width: self.view.bounds.width, height: topMenuView.frame.height)
         couponCollectionHandler?.refreshControl.endRefreshing() // iOS 9 UIRefreshControl issue
-        
-        UIView.animateWithDuration(0.3, delay: 0.3, options: .CurveEaseIn, animations: { () -> Void in
-            self.topMenuView.alpha = 1
-        }, completion: nil)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        if !couponCollectionHandler!.loading {
-            UIView.animateWithDuration(0.1, animations: { () -> Void in
-                self.topMenuView.alpha = 0
-            })
-        }
     }
     
     // MARK: IBActions
@@ -200,7 +178,6 @@ import DZNEmptyDataSet
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        
         return couponCollectionHandler!.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, atIndexPath: indexPath)
     }
     
