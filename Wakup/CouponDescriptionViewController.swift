@@ -29,9 +29,13 @@ class CouponDescriptionViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        descriptionLabel?.preferredMaxLayoutWidth = descriptionLabel.frame.width
         descriptionLabel?.text = descriptionText
-        descriptionLabel?.setNeedsLayout()
+        
+        guard #available(iOS 8.0, *) else {
+            descriptionLabel?.preferredMaxLayoutWidth = descriptionLabel.frame.width - 10
+            descriptionLabel?.layoutIfNeeded()
+            return
+        }
     }
 
     @IBAction func actionButtonTapped(sender: AnyObject) {
