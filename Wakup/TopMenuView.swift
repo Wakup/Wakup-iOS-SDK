@@ -14,7 +14,7 @@ protocol TopMenuViewDelegate {
     func topMenuViewDidSelectMyOffersButton(view: TopMenuView)
 }
 
-class TopMenuView: UIView {
+public class TopMenuView: UIView {
     
     var delegate: TopMenuViewDelegate?
 
