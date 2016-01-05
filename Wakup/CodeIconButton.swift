@@ -9,31 +9,31 @@
 import Foundation
 import UIKit
 
-@IBDesignable class CodeIconButton: CustomBorderButton {
+@IBDesignable public class CodeIconButton: CustomBorderButton {
     
-    @IBInspectable var iconIdentifier: String? { didSet { refreshIcons() } }
-    @IBInspectable var iconColor: UIColor? { didSet { refreshNormal() } }
-    @IBInspectable var highlightedIconColor: UIColor? { didSet { refreshHighlighted() } }
-    @IBInspectable var selectedIconColor: UIColor? { didSet { refreshSelected() } }
-    @IBInspectable var disabledIconColor: UIColor? { didSet { refreshDisabled() } }
-    @IBInspectable var highlightedSelectedIconColor: UIColor? { didSet { refreshHighlightedSelected() } }
-    @IBInspectable var highlightedDisabledIconColor: UIColor? { didSet { refreshHighlightedDisabled() } }
-    @IBInspectable var iconSize: CGSize = CGSize(width: 20, height: 20) { didSet { refreshIcons() } }
-    @IBInspectable var iconFillsButton: Bool = false { didSet { refreshIcons() } }
+    @IBInspectable public dynamic var iconIdentifier: String? { didSet { refreshIcons() } }
+    @IBInspectable public dynamic var iconColor: UIColor? { didSet { refreshNormal() } }
+    @IBInspectable public dynamic var highlightedIconColor: UIColor? { didSet { refreshHighlighted() } }
+    @IBInspectable public dynamic var selectedIconColor: UIColor? { didSet { refreshSelected() } }
+    @IBInspectable public dynamic var disabledIconColor: UIColor? { didSet { refreshDisabled() } }
+    @IBInspectable public dynamic var highlightedSelectedIconColor: UIColor? { didSet { refreshHighlightedSelected() } }
+    @IBInspectable public dynamic var highlightedDisabledIconColor: UIColor? { didSet { refreshHighlightedDisabled() } }
+    @IBInspectable public dynamic var iconSize: CGSize = CGSize(width: 20, height: 20) { didSet { refreshIcons() } }
+    @IBInspectable public dynamic var iconFillsButton: Bool = false { didSet { refreshIcons() } }
     
     private var codeIcon: CodeIcon?
     private var iconFrame: CGRect { get { return iconFillsButton ? bounds : CGRect(origin: CGPointZero, size: iconSize) } }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
     func refreshIcons() {
-        codeIcon = CodeIcon(iconIdentifier: iconIdentifier ?? "")
+        codeIcon = iconIdentifier.map { CodeIcon(iconIdentifier: $0) }
         refreshNormal()
         refreshHighlighted()
         refreshSelected()

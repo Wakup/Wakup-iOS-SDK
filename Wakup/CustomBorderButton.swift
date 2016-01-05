@@ -8,19 +8,19 @@
 
 import Foundation
 
-@IBDesignable class CustomBorderButton: CustomBackgroundButton {
-    @IBInspectable var selectedBorderColor: UIColor?
-    @IBInspectable var highlightedBorderColor: UIColor?
-    @IBInspectable var disabledBorderColor: UIColor?
-    @IBInspectable var highlightedDisabledBorderColor: UIColor?
-    @IBInspectable var highlightedSelectedBorderColor: UIColor?
+@IBDesignable public class CustomBorderButton: CustomBackgroundButton {
+    @IBInspectable public dynamic var selectedBorderColor: UIColor?
+    @IBInspectable public dynamic var highlightedBorderColor: UIColor?
+    @IBInspectable public dynamic var disabledBorderColor: UIColor?
+    @IBInspectable public dynamic var highlightedDisabledBorderColor: UIColor?
+    @IBInspectable public dynamic var highlightedSelectedBorderColor: UIColor?
     var originalBorderColor: UIColor?
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
     }
     

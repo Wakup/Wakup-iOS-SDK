@@ -9,7 +9,7 @@
 import Foundation
 
 extension UIColor {
-    convenience init(fromHexString hex: String) {
+    convenience public init(fromHexString hex: String) {
         var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
         
         if (cString.hasPrefix("#")) {

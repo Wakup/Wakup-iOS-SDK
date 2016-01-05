@@ -9,19 +9,18 @@
 import Foundation
 import UIKit
 
-@IBDesignable class CustomBackgroundButton: UIButton {
+@IBDesignable public class CustomBackgroundButton: UIButton {
     @IBOutlet var highlightedElements: Array<UIView>?
-    @IBInspectable var selectedBackgroundColor: UIColor?
-    @IBInspectable var highlightedBackgroundColor: UIColor?
-    @IBInspectable var disabledBackgroundColor: UIColor?
-    @IBInspectable var highlightedDisabledBackgroundColor: UIColor?
-    @IBInspectable var highlightedSelectedBackgroundColor: UIColor?
-    @IBInspectable var toggleButton: Bool = false
+    @IBInspectable public dynamic var selectedBackgroundColor: UIColor?
+    @IBInspectable public dynamic var highlightedBackgroundColor: UIColor?
+    @IBInspectable public dynamic var disabledBackgroundColor: UIColor?
+    @IBInspectable public dynamic var highlightedDisabledBackgroundColor: UIColor?
+    @IBInspectable public dynamic var highlightedSelectedBackgroundColor: UIColor?
+    @IBInspectable public var toggleButton: Bool = false
     var originalBackgroundColor: UIColor?
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        originalBackgroundColor = backgroundColor
         setTitleColor(titleColorForState(.Selected), forState: [.Highlighted, .Selected])
         setTitle(titleForState(.Selected), forState: [.Highlighted, .Selected])
         configureToggle()
@@ -32,17 +31,17 @@ import UIKit
         configureToggle()
     }
     
-    override var highlighted: Bool {
+    override public var highlighted: Bool {
         get { return super.highlighted }
         set { super.highlighted = newValue; refreshUI() }
     }
     
-    override var selected: Bool {
+    override public var selected: Bool {
         get { return super.selected }
         set { super.selected = newValue; refreshUI() }
     }
     
-    override var enabled: Bool {
+    override public var enabled: Bool {
         get { return super.enabled }
         set { super.enabled = newValue; refreshUI() }
     }
