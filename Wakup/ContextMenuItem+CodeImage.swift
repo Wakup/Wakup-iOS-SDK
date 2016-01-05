@@ -37,12 +37,11 @@ extension ContextMenuItem {
     
     class func withCustomView(iconIdentifier: String, titleText: String? = .None) -> ContextMenuItem {
         let view = loadViewFromNib("ContextItemView") as! ContextItemView
-        view.backgroundColor = StyleKit.corporateDarkColor
         view.iconIdentifier = iconIdentifier
         
         let highlightedView = loadViewFromNib("ContextItemView") as! ContextItemView
-        highlightedView.backgroundColor = StyleKit.corporateLightColor
         highlightedView.iconIdentifier = iconIdentifier
+        highlightedView.highlighted = true
         
         let menuItem = ContextMenuItem(itemView: view, highlightedItemView: highlightedView, titleText: titleText)
         menuItem.identifier = iconIdentifier
