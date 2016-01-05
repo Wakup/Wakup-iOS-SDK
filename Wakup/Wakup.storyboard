@@ -589,7 +589,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpK-Vw-dwM" customClass="TopMenuView" customModule="Wakup" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="320" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8G-mP-9Fo" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8G-mP-9Fo" customClass="TopMenuButton" customModule="Wakup" customModuleProvider="target">
                                         <rect key="frame" x="1" y="1" width="105" height="38"/>
                                         <color key="backgroundColor" red="0.33333333329999998" green="0.20784313730000001" blue="0.33333333329999998" alpha="1" colorSpace="deviceRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
@@ -613,7 +613,7 @@
                                             <action selector="offerButtonClicked:" destination="CpK-Vw-dwM" eventType="touchUpInside" id="TXE-ph-iRF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V5-C8-6ZT" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V5-C8-6ZT" customClass="TopMenuButton" customModule="Wakup" customModuleProvider="target">
                                         <rect key="frame" x="107" y="1" width="106" height="38"/>
                                         <color key="backgroundColor" red="0.33333333329999998" green="0.20784313730000001" blue="0.33333333329999998" alpha="1" colorSpace="deviceRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
@@ -626,7 +626,7 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="show-map"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                                <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="value" red="0.63529411764705879" green="0.46666666666666667" blue="0.63529411764705879" alpha="1" colorSpace="deviceRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
                                                 <size key="value" width="15" height="16"/>
@@ -637,7 +637,7 @@
                                             <action selector="mapButtonClicked:" destination="CpK-Vw-dwM" eventType="touchUpInside" id="o1C-TQ-vr0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P58-xH-KMz" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P58-xH-KMz" customClass="TopMenuButton" customModule="Wakup" customModuleProvider="target">
                                         <rect key="frame" x="214" y="1" width="105" height="38"/>
                                         <color key="backgroundColor" red="0.33333333329999998" green="0.20784313730000001" blue="0.33333333329999998" alpha="1" colorSpace="deviceRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
@@ -959,14 +959,12 @@
                                 </connections>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTe-rs-9Vm" customClass="RoundedCornerView" customModule="Wakup" customModuleProvider="target">
-                                <rect key="frame" x="36" y="50" width="248" height="468"/>
+                                <rect key="frame" x="20" y="50" width="280" height="468"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" preferredMaxLayoutWidth="263" translatesAutoresizingMaskIntoConstraints="NO" id="5wu-aY-cCq">
-                                        <rect key="frame" x="10" y="12" width="228" height="444"/>
-                                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Sed a dolor at enim cursus facilisis in ut est. Nunc hendrerit quam quis tortor blandit facilisis. Vivamus et risus quis orci laoreet posuere a faucibus lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris eget felis sit amet nunc rhoncus accumsan in nec dui. Quisque maximus nunc id semper tincidunt. Aliquam tincidunt velit at congue scelerisque. Proin mollis odio ut suscipit scelerisque. Nam vitae interdum lacus, nec molestie elit. Curabitur elit urna, pulvinar sit amet laoreet sit amet, porta a lacus.
-
-Quisque vel metus eget velit commodo tincidunt ac et elit. Mauris ultrices dictum dui in suscipit. Nullam interdum maximus turpis, non convallis tellus tempor sed. Suspendisse potenti. Donec scelerisque accumsan porttitor. Integer molestie dolor interdum metus auctor auctor. Praesent ultrices turpis nisi, eget ultricies lectus ultrices eget. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam ultrices eros sed mi fermentum, eu fermentum diam scelerisque. Fusce sagittis, tortor eget sodales commodo, augue enim fringilla est, sit amet pellentesque velit ante nec libero. Sed id est eros. Nam vitae mauris sit amet lectus dapibus semper. Vivamus at mauris erat.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="900" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wu-aY-cCq">
+                                        <rect key="frame" x="10" y="12" width="260" height="444"/>
+                                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae elementum orci.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -974,7 +972,7 @@ Quisque vel metus eget velit commodo tincidunt ac et elit. Mauris ultrices dictu
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="5wu-aY-cCq" secondAttribute="bottom" constant="12" id="8xK-6g-4fM"/>
-                                    <constraint firstAttribute="height" priority="250" constant="45" id="9Gw-wt-ZSc"/>
+                                    <constraint firstAttribute="height" priority="240" constant="45" id="9Gw-wt-ZSc"/>
                                     <constraint firstAttribute="trailing" secondItem="5wu-aY-cCq" secondAttribute="trailing" constant="10" id="QYw-9g-SzI"/>
                                     <constraint firstItem="5wu-aY-cCq" firstAttribute="leading" secondItem="sTe-rs-9Vm" secondAttribute="leading" constant="10" id="l82-yb-1eB"/>
                                     <constraint firstItem="5wu-aY-cCq" firstAttribute="top" secondItem="sTe-rs-9Vm" secondAttribute="top" constant="12" id="uZw-pz-Wo4"/>
@@ -988,15 +986,15 @@ Quisque vel metus eget velit commodo tincidunt ac et elit. Mauris ultrices dictu
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="sTe-rs-9Vm" firstAttribute="leading" secondItem="lY5-4D-VyI" secondAttribute="leadingMargin" constant="20" id="7Zf-TD-3Yg"/>
                             <constraint firstItem="Owv-5O-n4e" firstAttribute="top" secondItem="I5d-5n-T3e" secondAttribute="bottom" id="A9V-D9-Ini"/>
                             <constraint firstItem="I5d-5n-T3e" firstAttribute="leading" secondItem="lY5-4D-VyI" secondAttribute="leading" id="BGW-JX-rBJ"/>
                             <constraint firstItem="sTe-rs-9Vm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lY5-4D-VyI" secondAttribute="top" constant="50" id="J5h-YV-P6m"/>
                             <constraint firstAttribute="centerY" secondItem="sTe-rs-9Vm" secondAttribute="centerY" multiplier="6:5" priority="250" id="J7S-3d-OaY"/>
                             <constraint firstItem="I5d-5n-T3e" firstAttribute="top" secondItem="0tL-FB-oHY" secondAttribute="bottom" id="KgY-tf-PLc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sTe-rs-9Vm" secondAttribute="trailing" constant="20" id="LsK-Ky-MiF"/>
+                            <constraint firstItem="sTe-rs-9Vm" firstAttribute="leading" secondItem="lY5-4D-VyI" secondAttribute="leading" constant="20" id="Vfd-an-wgx"/>
                             <constraint firstAttribute="trailing" secondItem="I5d-5n-T3e" secondAttribute="trailing" id="cqn-Ti-eLp"/>
                             <constraint firstItem="Owv-5O-n4e" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sTe-rs-9Vm" secondAttribute="bottom" constant="50" id="fwP-0G-xvQ"/>
+                            <constraint firstAttribute="trailing" secondItem="sTe-rs-9Vm" secondAttribute="trailing" constant="20" id="zPo-vV-fM0"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1082,6 +1080,6 @@ Quisque vel metus eget velit commodo tincidunt ac et elit. Mauris ultrices dictu
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lcF-LL-qe2"/>
+        <segue reference="McD-Bl-rTj"/>
     </inferredMetricsTieBreakers>
 </document>

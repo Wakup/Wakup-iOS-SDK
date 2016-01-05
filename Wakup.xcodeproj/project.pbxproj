@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		35D608904968AB67B6294034 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFEAF288FFEF6410D2A4D7EE /* Pods.framework */; };
 		69144AD81C207FD500258FF5 /* Wakup.h in Headers */ = {isa = PBXBuildFile; fileRef = 69144AD71C207FD500258FF5 /* Wakup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69431BA91C3BDA8800A42139 /* TopMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69431BA81C3BDA8800A42139 /* TopMenuButton.swift */; };
 		695D7A491C21B66F0083132B /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A421C21B66F0083132B /* Coupon.swift */; };
 		695D7A4A1C21B66F0083132B /* CouponImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A431C21B66F0083132B /* CouponImage.swift */; };
 		695D7A4B1C21B66F0083132B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A441C21B66F0083132B /* Store.swift */; };
@@ -95,6 +96,7 @@
 		69144AD41C207FD500258FF5 /* Wakup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Wakup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69144AD71C207FD500258FF5 /* Wakup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wakup.h; sourceTree = "<group>"; };
 		69144AD91C207FD500258FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69431BA81C3BDA8800A42139 /* TopMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuButton.swift; sourceTree = "<group>"; };
 		695D7A421C21B66F0083132B /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		695D7A431C21B66F0083132B /* CouponImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponImage.swift; sourceTree = "<group>"; };
 		695D7A441C21B66F0083132B /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -234,6 +236,15 @@
 			path = Wakup;
 			sourceTree = "<group>";
 		};
+		69431BA71C3BD9F600A42139 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				69D999DD1C22F6A4000892B1 /* TopMenuView.swift */,
+				69431BA81C3BDA8800A42139 /* TopMenuButton.swift */,
+			);
+			name = Appearance;
+			sourceTree = "<group>";
+		};
 		695D7A411C21B6600083132B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +314,7 @@
 		695D7A791C21DB020083132B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				69431BA71C3BD9F600A42139 /* Appearance */,
 				69D999CC1C22E60A000892B1 /* Common */,
 				69D99A171C22FF8B000892B1 /* ContextMenu */,
 				69D999F01C22FDB5000892B1 /* Coupon */,
@@ -324,7 +336,6 @@
 				69D999DC1C22F6A4000892B1 /* LoadingFooterView.xib */,
 				69D999D81C22F6A4000892B1 /* RoundedCornersView.swift */,
 				69D999DA1C22F6A4000892B1 /* ScissorsLoadingView.swift */,
-				69D999DD1C22F6A4000892B1 /* TopMenuView.swift */,
 				69D999D91C22F6A4000892B1 /* UIImageView+Fade.swift */,
 				69D999E21C22F6A4000892B1 /* UIButton+VerticalLayout.swift */,
 			);
@@ -576,6 +587,7 @@
 				695D7A681C21BEE50083132B /* Coupon+FriendlyDistance.swift in Sources */,
 				69D999E41C22F6A4000892B1 /* RoundedCornersView.swift in Sources */,
 				695D7A861C21DB200083132B /* CodeIconLibrary.swift in Sources */,
+				69431BA91C3BDA8800A42139 /* TopMenuButton.swift in Sources */,
 				695D7A751C21CE710083132B /* PrototypeView.swift in Sources */,
 				695D7A661C21BEE50083132B /* NSDate+HumanFriendly.swift in Sources */,
 				69D99A151C22FE59000892B1 /* LoadingPresenterViewController.swift in Sources */,
