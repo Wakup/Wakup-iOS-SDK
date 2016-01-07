@@ -146,7 +146,7 @@
                             <color key="textColor" red="0.46274513006210327" green="0.46274513006210327" blue="0.46274513006210327" alpha="1" colorSpace="deviceRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="999" translatesAutoresizingMaskIntoConstraints="NO" id="WWZ-dj-rhf" customClass="RoundedCornerView" customModule="Wakup" customModuleProvider="target">
+                        <view contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="999" translatesAutoresizingMaskIntoConstraints="NO" id="WWZ-dj-rhf" customClass="DiscountTagView" customModule="Wakup" customModuleProvider="target">
                             <rect key="frame" x="248" y="33" width="56" height="39"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" text="30%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="S2A-2E-SwX">
@@ -168,6 +168,9 @@
                                     <real key="value" value="7"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outlet property="label" destination="S2A-2E-SwX" id="jDX-Wz-e6Q"/>
+                            </connections>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Caduca en 5 días" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7F-eD-mZ7">
                             <rect key="frame" x="36" y="81" width="105" height="16"/>
