@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-@IBDesignable class CenteredCodeIconButton: CodeIconButton {
-    @IBInspectable var padding: CGFloat = 6
+@IBDesignable public class CenteredCodeIconButton: CodeIconButton {
+    @IBInspectable dynamic public var padding: CGFloat = 6
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         centerVerticallyWithPadding(padding)
     }

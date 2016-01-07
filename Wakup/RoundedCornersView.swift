@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable public dynamic var cornerRadius: CGFloat {
         get { return self.layer.cornerRadius }
         set(cornerRadius) {
             self.layer.masksToBounds = true
@@ -18,12 +18,9 @@ extension UIView {
         }
     }
     
-    @IBInspectable var borderColor: UIColor? {
+    @IBInspectable public dynamic var borderColor: UIColor? {
         get {
-            if let borderColor = self.layer.borderColor {
-                return UIColor(CGColor: borderColor)
-            }
-            return .None
+            return layer.borderColor.map { UIColor(CGColor: $0) }
         }
         set {
             if let color = newValue {
@@ -32,7 +29,7 @@ extension UIView {
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat {
+    @IBInspectable public dynamic var borderWidth: CGFloat {
         get { return self.layer.borderWidth }
         set(borderWidth) {
             self.layer.borderWidth = borderWidth

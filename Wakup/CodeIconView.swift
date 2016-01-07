@@ -9,17 +9,17 @@
 import Foundation
 import UIKit
 
-@IBDesignable class CodeIconView: UIView, Highlightable {
+@IBDesignable public class CodeIconView: UIView, Highlightable {
     
-    @IBInspectable var iconColor: UIColor? { didSet { setNeedsDisplay() } }
-    @IBInspectable var highlightedIconColor: UIColor? { didSet { setNeedsDisplay() } }
-    @IBInspectable var highlighted: Bool = false { didSet { setNeedsDisplay() } }
+    @IBInspectable public dynamic var iconColor: UIColor? { didSet { setNeedsDisplay() } }
+    @IBInspectable public dynamic var highlightedIconColor: UIColor? { didSet { setNeedsDisplay() } }
+    @IBInspectable public var highlighted: Bool = false { didSet { setNeedsDisplay() } }
     
-    @IBInspectable var iconIdentifier: String = "" { didSet { codeIcon = CodeIcon(iconIdentifier: iconIdentifier) } }
+    @IBInspectable public dynamic var iconIdentifier: String = "" { didSet { codeIcon = CodeIcon(iconIdentifier: iconIdentifier) } }
     
     var codeIcon: CodeIcon? { didSet { setNeedsDisplay() } }
     
-    override func drawRect(rect: CGRect) {
+    override public func drawRect(rect: CGRect) {
         super.drawRect(rect)
         let color = highlighted && highlightedIconColor != nil ? highlightedIconColor! : iconColor
         codeIcon?.draw(bounds, color: color)

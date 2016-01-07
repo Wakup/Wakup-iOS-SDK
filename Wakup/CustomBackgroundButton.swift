@@ -33,17 +33,17 @@ import UIKit
     
     override public var highlighted: Bool {
         get { return super.highlighted }
-        set { super.highlighted = newValue; refreshUI() }
+        set { super.highlighted = newValue; setNeedsLayout() }
     }
     
     override public var selected: Bool {
         get { return super.selected }
-        set { super.selected = newValue; refreshUI() }
+        set { super.selected = newValue; setNeedsLayout() }
     }
     
     override public var enabled: Bool {
         get { return super.enabled }
-        set { super.enabled = newValue; refreshUI() }
+        set { super.enabled = newValue; setNeedsLayout() }
     }
     
     private func configureToggle() {
@@ -54,6 +54,11 @@ import UIKit
         if toggleButton {
             selected = !selected
         }
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        refreshUI()
     }
     
     func refreshUI() {
