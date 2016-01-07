@@ -17,6 +17,7 @@ public class WakupManager {
         SearchService.sharedInstance.apiKey = apiKey
         OffersService.apiKey = apiKey
         
+        self.config = config
         CodeIconLibrary.instance = config.iconLibrary
     }
     
