@@ -694,7 +694,7 @@
                     <navigationItem key="navigationItem" id="nM2-PM-m0W">
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="jEU-dT-6Jy"/>
-                        <view key="titleView" contentMode="scaleToFill" id="Sue-Z3-mKh" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
+                        <view key="titleView" contentMode="scaleToFill" id="Sue-Z3-mKh" customClass="NavBarIconView" customModule="Wakup" customModuleProvider="target">
                             <rect key="frame" x="107" y="6" width="106" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -706,7 +706,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Ora-Lo-NuL">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="feQ-Mm-SY9" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="feQ-Mm-SY9" customClass="NavBarIconButton" customModule="Wakup" customModuleProvider="target">
                                 <rect key="frame" x="279" y="9" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -778,7 +778,7 @@
                     <navigationItem key="navigationItem" id="UCR-77-2ki">
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="7OT-RP-D0L"/>
-                        <view key="titleView" contentMode="scaleToFill" id="ihh-H0-WaD" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
+                        <view key="titleView" contentMode="scaleToFill" id="ihh-H0-WaD" customClass="NavBarIconView" customModule="Wakup" customModuleProvider="target">
                             <rect key="frame" x="107" y="6" width="106" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -848,7 +848,7 @@
                     <navigationItem key="navigationItem" id="bw6-cT-gdh">
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="Fbz-72-coj"/>
-                        <view key="titleView" contentMode="scaleToFill" id="9lS-3S-Lyb" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
+                        <view key="titleView" contentMode="scaleToFill" id="9lS-3S-Lyb" customClass="NavBarIconView" customModule="Wakup" customModuleProvider="target">
                             <rect key="frame" x="107" y="6" width="106" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
