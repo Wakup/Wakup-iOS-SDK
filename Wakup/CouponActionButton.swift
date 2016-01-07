@@ -8,6 +8,7 @@
 
 import Foundation
 
+@IBDesignable
 public class CouponActionButton: CenteredCodeIconButton {
     
 }
