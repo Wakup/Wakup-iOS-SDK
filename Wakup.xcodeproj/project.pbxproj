@@ -12,6 +12,7 @@
 		69431BA91C3BDA8800A42139 /* TopMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69431BA81C3BDA8800A42139 /* TopMenuButton.swift */; };
 		69431BB01C3BF68C00A42139 /* NavBarIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69431BAF1C3BF68C00A42139 /* NavBarIconView.swift */; };
 		69431BB21C3BF6C400A42139 /* NavBarIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69431BB11C3BF6C400A42139 /* NavBarIconButton.swift */; };
+		69431BB41C3C1D7300A42139 /* CouponActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69431BB31C3C1D7300A42139 /* CouponActionButton.swift */; };
 		695D7A491C21B66F0083132B /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A421C21B66F0083132B /* Coupon.swift */; };
 		695D7A4A1C21B66F0083132B /* CouponImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A431C21B66F0083132B /* CouponImage.swift */; };
 		695D7A4B1C21B66F0083132B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A441C21B66F0083132B /* Store.swift */; };
@@ -101,6 +102,7 @@
 		69431BA81C3BDA8800A42139 /* TopMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuButton.swift; sourceTree = "<group>"; };
 		69431BAF1C3BF68C00A42139 /* NavBarIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarIconView.swift; sourceTree = "<group>"; };
 		69431BB11C3BF6C400A42139 /* NavBarIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarIconButton.swift; sourceTree = "<group>"; };
+		69431BB31C3C1D7300A42139 /* CouponActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponActionButton.swift; sourceTree = "<group>"; };
 		695D7A421C21B66F0083132B /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		695D7A431C21B66F0083132B /* CouponImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponImage.swift; sourceTree = "<group>"; };
 		695D7A441C21B66F0083132B /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 		69431BA71C3BD9F600A42139 /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
+				69431BB31C3C1D7300A42139 /* CouponActionButton.swift */,
 				69431BB11C3BF6C400A42139 /* NavBarIconButton.swift */,
 				69431BAF1C3BF68C00A42139 /* NavBarIconView.swift */,
 				69D999DD1C22F6A4000892B1 /* TopMenuView.swift */,
@@ -458,6 +461,7 @@
 		69144ACB1C207FD500258FF5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Yellow Pineapple";
 				TargetAttributes = {
@@ -595,6 +599,7 @@
 				69D999E41C22F6A4000892B1 /* RoundedCornersView.swift in Sources */,
 				695D7A861C21DB200083132B /* CodeIconLibrary.swift in Sources */,
 				69431BB21C3BF6C400A42139 /* NavBarIconButton.swift in Sources */,
+				69431BB41C3C1D7300A42139 /* CouponActionButton.swift in Sources */,
 				69431BA91C3BDA8800A42139 /* TopMenuButton.swift in Sources */,
 				695D7A751C21CE710083132B /* PrototypeView.swift in Sources */,
 				695D7A661C21BEE50083132B /* NSDate+HumanFriendly.swift in Sources */,
