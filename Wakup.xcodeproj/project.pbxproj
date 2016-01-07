@@ -49,6 +49,7 @@
 		695D7A8A1C21DB200083132B /* CodeIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A811C21DB200083132B /* CodeIconButton.swift */; };
 		695D7A8B1C21DB200083132B /* CenteredCodeIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A821C21DB200083132B /* CenteredCodeIconButton.swift */; };
 		695F7C481C3E8EA000D61415 /* DiscountTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F7C471C3E8EA000D61415 /* DiscountTagView.swift */; };
+		695F7C4A1C3EC44700D61415 /* SearchFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F7C491C3EC44700D61415 /* SearchFilterButton.swift */; };
 		6986D6881C3A864B00C46531 /* MyIconLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986D6871C3A864B00C46531 /* MyIconLibrary.swift */; };
 		69D999D11C22E635000892B1 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */; };
 		69D999D21C22E635000892B1 /* ZoomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */; };
@@ -140,6 +141,7 @@
 		695D7A811C21DB200083132B /* CodeIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeIconButton.swift; sourceTree = "<group>"; };
 		695D7A821C21DB200083132B /* CenteredCodeIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteredCodeIconButton.swift; sourceTree = "<group>"; };
 		695F7C471C3E8EA000D61415 /* DiscountTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTagView.swift; sourceTree = "<group>"; };
+		695F7C491C3EC44700D61415 /* SearchFilterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilterButton.swift; sourceTree = "<group>"; };
 		6986D6871C3A864B00C46531 /* MyIconLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyIconLibrary.swift; sourceTree = "<group>"; };
 		69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				695F7C471C3E8EA000D61415 /* DiscountTagView.swift */,
 				69431BB11C3BF6C400A42139 /* NavBarIconButton.swift */,
 				69431BAF1C3BF68C00A42139 /* NavBarIconView.swift */,
+				695F7C491C3EC44700D61415 /* SearchFilterButton.swift */,
 				69D999DD1C22F6A4000892B1 /* TopMenuView.swift */,
 				69431BA81C3BDA8800A42139 /* TopMenuButton.swift */,
 			);
@@ -590,6 +593,7 @@
 				695D7A641C21BEE50083132B /* Fmap.swift in Sources */,
 				69D999D71C22F668000892B1 /* UIView+Layout.swift in Sources */,
 				6986D6881C3A864B00C46531 /* MyIconLibrary.swift in Sources */,
+				695F7C4A1C3EC44700D61415 /* SearchFilterButton.swift in Sources */,
 				69D999E71C22F6A4000892B1 /* LoadingFooterView.swift in Sources */,
 				69D999EF1C22F6A4000892B1 /* Highlightable.swift in Sources */,
 				695D7A871C21DB200083132B /* CodeIconView.swift in Sources */,
