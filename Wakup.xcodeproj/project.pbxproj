@@ -95,6 +95,7 @@
 		69D99A461C232D4E000892B1 /* WakupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A451C232D4E000892B1 /* WakupManager.swift */; };
 		69D99A481C2331D1000892B1 /* Wakup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D99A471C2331D1000892B1 /* Wakup.storyboard */; };
 		69EA218A1C24680600B8EE30 /* Wakup.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69EA21891C24680600B8EE30 /* Wakup.strings */; };
+		69F485BC1C3FE47A006BCDE5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F485BB1C3FE47A006BCDE5 /* SearchResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -188,6 +189,7 @@
 		69D99A451C232D4E000892B1 /* WakupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakupManager.swift; sourceTree = "<group>"; };
 		69D99A471C2331D1000892B1 /* Wakup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wakup.storyboard; sourceTree = "<group>"; };
 		69EA21891C24680600B8EE30 /* Wakup.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Wakup.strings; sourceTree = "<group>"; };
+		69F485BB1C3FE47A006BCDE5 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		8CE424B5B7919A87214842F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FFEAF288FFEF6410D2A4D7EE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -257,6 +259,7 @@
 				69431BB11C3BF6C400A42139 /* NavBarIconButton.swift */,
 				69431BAF1C3BF68C00A42139 /* NavBarIconView.swift */,
 				695F7C491C3EC44700D61415 /* SearchFilterButton.swift */,
+				69F485BB1C3FE47A006BCDE5 /* SearchResultCell.swift */,
 				69D999DD1C22F6A4000892B1 /* TopMenuView.swift */,
 				69431BA81C3BDA8800A42139 /* TopMenuButton.swift */,
 			);
@@ -605,6 +608,7 @@
 				695D7A771C21CE710083132B /* UICollectionView+CellUtils.swift in Sources */,
 				69D99A461C232D4E000892B1 /* WakupManager.swift in Sources */,
 				69D99A261C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift in Sources */,
+				69F485BC1C3FE47A006BCDE5 /* SearchResultCell.swift in Sources */,
 				69D999F91C22FDC8000892B1 /* CouponCollectionViewCell.swift in Sources */,
 				69D99A141C22FE59000892B1 /* WebViewController.swift in Sources */,
 				695D7A681C21BEE50083132B /* Coupon+FriendlyDistance.swift in Sources */,

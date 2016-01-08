@@ -76,12 +76,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         }
     }
     
-    private func iconWithIdentifier(iconIdentifier: String) -> UIImage! {
-        let iconFrame = CGRectMake(0, 0, 20, 20)
-        let icon = CodeIcon(iconIdentifier: iconIdentifier)
-        return icon.getImage(iconFrame)
-    }
-    
     // MARK: UIView Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -177,38 +171,38 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell!
+        var cell: SearchResultCell!
         if let section = Section(rawValue: indexPath.section) {
             switch section {
             case .Companies:
-                cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell!
+                cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! SearchResultCell
                 let company = searchResult?.companies[indexPath.row]
                 cell.textLabel?.text = company?.name
-                cell.imageView?.image = iconWithIdentifier("star")
+                cell.iconIdentifier = "star"
             case .Locations:
-                cell = tableView.dequeueReusableCellWithIdentifier("SubtitleCell") as UITableViewCell!
+                cell = tableView.dequeueReusableCellWithIdentifier("SubtitleCell") as! SearchResultCell
                 let placemark = placemarks?[indexPath.row]
                 let name = placemark?.name ?? ""
                 let address = ABCreateStringWithAddressDictionary((placemark?.addressDictionary)!, false)
                 cell.textLabel?.text = name
                 cell.detailTextLabel?.text = address
-                cell.imageView?.image = iconWithIdentifier("map-pin")
+                cell.iconIdentifier = "location"
             case .UserLocation:
-                cell = tableView.dequeueReusableCellWithIdentifier("FeaturedCell") as UITableViewCell!
+                cell = tableView.dequeueReusableCellWithIdentifier("FeaturedCell") as! SearchResultCell
                 cell.textLabel?.text = "SearchCellUserLocation".i18n()
-                cell.imageView?.image = iconWithIdentifier("location")
+                cell.iconIdentifier = "location"
             case .History:
                 if let history = searchHistory?[indexPath.row] {
                     switch history {
                     case .Location(let name, let address, _, _):
-                        cell = tableView.dequeueReusableCellWithIdentifier("SubtitleCell") as UITableViewCell!
+                        cell = tableView.dequeueReusableCellWithIdentifier("SubtitleCell") as! SearchResultCell
                         cell.textLabel?.text = name
                         cell.detailTextLabel?.text = address
-                        cell.imageView?.image = iconWithIdentifier("map-pin")
+                        cell.iconIdentifier = "location"
                     case .Company(_, let name):
-                        cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell!
+                        cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! SearchResultCell
                         cell.textLabel?.text = name
-                        cell.imageView?.image = iconWithIdentifier("brand")
+                        cell.iconIdentifier = "star"
                     }
                 }
             }
