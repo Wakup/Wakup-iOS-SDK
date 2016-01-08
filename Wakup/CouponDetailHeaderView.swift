@@ -20,13 +20,33 @@ protocol CouponDetailHeaderViewDelegate {
     func headerViewDidSelectAction(action: HeaderViewAction, headerView: CouponDetailHeaderView)
 }
 
-class CouponDetailHeaderView: UICollectionReusableView {
+public class CouponDetailHeaderView: UICollectionReusableView {
 
+    public dynamic var companyNameFont: UIFont? { get { return companyNameLabel?.font } set { companyNameLabel?.font = newValue } }
+    public dynamic var companyNameTextColor: UIColor? { get { return companyNameLabel?.textColor } set { companyNameLabel?.textColor = newValue } }
+    public dynamic var storeAddressFont: UIFont? { get { return storeAddressLabel?.font } set { storeAddressLabel?.font = newValue } }
+    public dynamic var storeAddressTextColor: UIColor? { get { return storeAddressLabel?.textColor } set { storeAddressLabel?.textColor = newValue } }
+    public dynamic var storeDistanceFont: UIFont? { get { return storeDistanceLabel?.font } set { storeDistanceLabel?.font = newValue } }
+    public dynamic var storeDistanceTextColor: UIColor? { get { return storeDistanceLabel?.textColor } set { storeDistanceLabel?.textColor = newValue } }
+    public dynamic var storeDistanceIconColor: UIColor? { get { return distanceIconView?.iconColor } set { distanceIconView?.iconColor = newValue } }
+    public dynamic var couponNameFont: UIFont? { get { return couponNameLabel?.font } set { couponNameLabel?.font = newValue } }
+    public dynamic var couponNameTextColor: UIColor? { get { return couponNameLabel?.textColor } set { couponNameLabel?.textColor = newValue } }
+    public dynamic var couponDescriptionFont: UIFont? { get { return couponDescriptionLabel?.font } set { couponDescriptionLabel?.font = newValue } }
+    public dynamic var couponDescriptionTextColor: UIColor? { get { return couponDescriptionLabel?.textColor } set { couponDescriptionLabel?.textColor = newValue } }
+    public dynamic var shortTextFont: UIFont? { get { return shortTextLabel?.font } set { shortTextLabel?.font = newValue } }
+    public dynamic var shortTextColor: UIColor? { get { return shortTextLabel?.textColor } set { shortTextLabel?.textColor = newValue } }
+    public dynamic var expirationFont: UIFont? { get { return storeDistanceLabel?.font } set { storeDistanceLabel?.font = newValue } }
+    public dynamic var expirationTextColor: UIColor? { get { return couponExpirationLabel?.textColor } set { couponExpirationLabel?.textColor = newValue } }
+    public dynamic var expirationIconColor: UIColor? { get { return expirationIconView?.iconColor } set { expirationIconView?.iconColor = newValue } }
+    public dynamic var companyDisclosureColor: UIColor? { get { return companyDisclosureIconView?.iconColor } set { companyDisclosureIconView?.iconColor = newValue } }
+    public dynamic var couponDescriptionDisclosureColor: UIColor? { get { return couponDescriptionDisclosureView?.iconColor } set { couponDescriptionDisclosureView?.iconColor = newValue } }
+    
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var storeAddressLabel: UILabel!
     @IBOutlet weak var storeDistanceLabel: UILabel!
     @IBOutlet weak var couponNameLabel: UILabel!
     @IBOutlet weak var couponDescriptionLabel: UILabel!
+    @IBOutlet weak var couponDescriptionDisclosureView: CodeIconView!
     @IBOutlet weak var shortTextLabel: UILabel!
     @IBOutlet weak var couponImageView: UIImageView!
     @IBOutlet weak var couponDetailImageView: UIImageView!
@@ -38,6 +58,8 @@ class CouponDetailHeaderView: UICollectionReusableView {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var companyButton: UIButton!
     @IBOutlet weak var companyDisclosureIconView: CodeIconView!
+    @IBOutlet weak var distanceIconView: CodeIconView!
+    @IBOutlet weak var expirationIconView: CodeIconView!
     
     var imageAspectRatioConstraint: NSLayoutConstraint?
     var logoAspectRatioConstraint: NSLayoutConstraint?
@@ -54,14 +76,14 @@ class CouponDetailHeaderView: UICollectionReusableView {
     
     let persistenceService = PersistenceService.sharedInstance
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         cellWidthConstraint!.constant = preferredWidth
         self.setNeedsLayout()
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         refreshUI()
         super.layoutSubviews()
     }
@@ -114,7 +136,7 @@ class CouponDetailHeaderView: UICollectionReusableView {
         saveButton.selected = persistenceService.isSaved(coupon.id)
     }
     
-    override func updateConstraints() {
+    public override func updateConstraints() {
         // Remove previous constraints
         if let constraint = imageAspectRatioConstraint {
             couponImageView?.removeConstraint(constraint)

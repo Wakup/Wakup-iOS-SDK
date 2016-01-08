@@ -559,12 +559,15 @@
                 <outlet property="companyButton" destination="aq2-aA-R10" id="VVf-en-r1B"/>
                 <outlet property="companyDisclosureIconView" destination="1Yg-b2-3HR" id="eXx-0p-AfY"/>
                 <outlet property="companyNameLabel" destination="UTM-k5-oAV" id="28R-kq-oDC"/>
+                <outlet property="couponDescriptionDisclosureView" destination="krW-lZ-rRi" id="J5l-uT-5JB"/>
                 <outlet property="couponDescriptionLabel" destination="38F-LK-AOM" id="JGB-CC-nus"/>
                 <outlet property="couponDetailImageView" destination="b3h-gT-bhV" id="Yay-NS-bXL"/>
                 <outlet property="couponExpirationLabel" destination="O7F-eD-mZ7" id="zXb-Su-FH8"/>
                 <outlet property="couponImageView" destination="Hck-kz-slI" id="kPL-Uc-y54"/>
                 <outlet property="couponNameLabel" destination="Mlt-OT-wdG" id="ZmY-Ot-TKp"/>
                 <outlet property="descriptionViewConstraint" destination="f5Q-qp-3bP" id="Bc5-Qo-JNa"/>
+                <outlet property="distanceIconView" destination="4LU-fb-cxZ" id="N59-dM-15Z"/>
+                <outlet property="expirationIconView" destination="Oo4-GF-23H" id="YA4-YA-d4Z"/>
                 <outlet property="logoImageView" destination="Vwo-ky-dUd" id="NKi-ty-WPM"/>
                 <outlet property="saveButton" destination="281-uz-Yx1" id="k6p-PK-WeK"/>
                 <outlet property="shareButton" destination="SzU-Wf-0z5" id="HdJ-tD-pFb"/>
