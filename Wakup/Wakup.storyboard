@@ -410,7 +410,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="U3y-ls-ko1" style="IBUITableViewCellStyleDefault" id="jQg-06-huN">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="U3y-ls-ko1" style="IBUITableViewCellStyleDefault" id="jQg-06-huN" customClass="SearchResultCell" customModule="Wakup" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="168" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jQg-06-huN" id="sKJ-Nn-H3j">
@@ -427,7 +427,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FeaturedCell" textLabel="6CF-rW-63i" style="IBUITableViewCellStyleDefault" id="voU-Mb-6Q0">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FeaturedCell" textLabel="6CF-rW-63i" style="IBUITableViewCellStyleDefault" id="voU-Mb-6Q0" customClass="SearchResultCell" customModule="Wakup" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="212" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="voU-Mb-6Q0" id="0qt-02-LpB">
@@ -444,7 +444,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SubtitleCell" textLabel="biv-Br-jwB" detailTextLabel="sPW-cj-Nrd" style="IBUITableViewCellStyleSubtitle" id="7qB-5R-u70">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SubtitleCell" textLabel="biv-Br-jwB" detailTextLabel="sPW-cj-Nrd" style="IBUITableViewCellStyleSubtitle" id="7qB-5R-u70" customClass="SearchResultCell" customModule="Wakup" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="256" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7qB-5R-u70" id="RNZ-N6-VyG">
