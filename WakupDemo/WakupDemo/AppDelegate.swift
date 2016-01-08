@@ -16,6 +16,81 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        // Customization sample
+//        let corporateColor = UIColor(red:0.98, green:0.16, blue:0.63, alpha:1)
+//        let darkCorporateColor = UIColor(red:0.85, green:0, blue:0.47, alpha:1)
+//        let navBarTintColor = UIColor.whiteColor()
+//        let couponTextColor = UIColor(red:0, green:0.56, blue:0.13, alpha:1)
+//        
+//        // Navigation bar appearance
+//        UINavigationBar.appearance().barTintColor = corporateColor
+//        UINavigationBar.appearance().tintColor = navBarTintColor
+//        UINavigationBar.appearance().titleTextAttributes = [
+//            NSForegroundColorAttributeName: navBarTintColor
+//        ]
+//        NavBarIconButton.appearance().iconColor = navBarTintColor
+//        NavBarIconButton.appearance().highlightedIconColor = navBarTintColor.colorWithAlphaComponent(0.5)
+//        NavBarIconView.appearance().iconColor = navBarTintColor
+//        
+//        // Top Menu Appearance
+//        TopMenuButton.appearance().setTitleColor(UIColor.blackColor(), forState: .Normal)
+//        TopMenuButton.appearance().setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
+//        TopMenuButton.appearance().iconIdentifier = nil // Remove icons from menu buttons
+//        TopMenuButton.appearance().titleEdgeInsets = UIEdgeInsetsZero
+//        TopMenuButton.appearance().imageEdgeInsets = UIEdgeInsetsZero
+//        TopMenuButton.appearance().backgroundColor = UIColor.clearColor()
+//        TopMenuButton.appearance().highlightedBackgroundColor = UIColor.clearColor()
+//        TopMenuView.appearance().backgroundColor = darkCorporateColor
+//        
+//        // Contextual menu
+//        ContextItemView.appearance().backgroundColor = darkCorporateColor
+//        ContextItemView.appearance().highlightedBackgroundColor = corporateColor
+//        
+//        // Coupon collection cells
+//        CouponCollectionViewCell.appearance().storeNameTextColor = couponTextColor
+//        CouponCollectionViewCell.appearance().descriptionTextColor = couponTextColor
+//        CouponCollectionViewCell.appearance().distanceTextColor = couponTextColor
+//        CouponCollectionViewCell.appearance().distanceIconColor = couponTextColor
+//        CouponCollectionViewCell.appearance().expirationTextColor = couponTextColor
+//        CouponCollectionViewCell.appearance().expirationIconColor = couponTextColor
+//        
+//        // Coupon details
+//        CouponDetailHeaderView.appearance().companyNameTextColor = couponTextColor
+//        CouponDetailHeaderView.appearance().storeAddressTextColor = couponTextColor
+//        CouponDetailHeaderView.appearance().storeDistanceTextColor = couponTextColor
+//        CouponDetailHeaderView.appearance().storeDistanceIconColor = couponTextColor
+//        CouponDetailHeaderView.appearance().couponNameTextColor = couponTextColor
+//        CouponDetailHeaderView.appearance().couponDescriptionTextColor = couponTextColor
+//        CouponDetailHeaderView.appearance().shortTextColor = couponTextColor
+//        CouponDetailHeaderView.appearance().expirationTextColor = couponTextColor
+//        CouponDetailHeaderView.appearance().expirationIconColor = couponTextColor
+//        CouponDetailHeaderView.appearance().companyDisclosureColor = couponTextColor
+//        CouponDetailHeaderView.appearance().couponDescriptionDisclosureColor = couponTextColor
+//        CouponDetailHeaderView.appearance().companyNameTextColor = couponTextColor
+//        
+//        CouponActionButton.appearance().iconColor = darkCorporateColor
+//        CouponActionButton.appearance().highlightedBackgroundColor = darkCorporateColor
+//        CouponActionButton.appearance().setTitleColor(darkCorporateColor, forState: .Normal)
+//        CouponActionButton.appearance().normalBorderColor = darkCorporateColor
+//        
+//        DiscountTagView.appearance().backgroundColor = UIColor(red:0.88, green:0.94, blue:0.88, alpha:1)
+//        DiscountTagView.appearance().labelColor = couponTextColor
+//        
+//        // Search view
+//        SearchFilterButton.appearance().iconColor = darkCorporateColor
+//        SearchFilterButton.appearance().highlightedBackgroundColor = darkCorporateColor
+//        SearchFilterButton.appearance().setTitleColor(darkCorporateColor, forState: .Normal)
+//        SearchFilterButton.appearance().normalBorderColor = darkCorporateColor
+//        
+//        SearchResultCell.appearance().iconColor = darkCorporateColor
+//        
+//        // Map View
+//        CouponAnnotationView.appearance().restaurantCategoryColor = UIColor.redColor()
+//        CouponAnnotationView.appearance().leisureCategoryColor = UIColor.greenColor()
+//        CouponAnnotationView.appearance().servicesCategoryColor = UIColor.blueColor()
+//        CouponAnnotationView.appearance().shoppingCategoryColor = UIColor.orangeColor()
+        
         
         let wakupConfig = WakupConfiguration()
         WakupManager.manager.setup("YOUR WAKUP API KEY HERE", config: wakupConfig)
