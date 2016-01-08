@@ -57,31 +57,6 @@ public class MyIconLibrary: IconLibrary {
         case "cloud-alert": fallthrough
         case "save":
             return emptyViewColor
-            
-        case "clock": fallthrough
-        case "back": fallthrough
-        case "disclosure": fallthrough
-        case "share": fallthrough
-        case "navbar-logo": fallthrough
-        case "search": fallthrough
-        case "restaurant": fallthrough
-        case "shopping": fallthrough
-        case "popcorn": fallthrough
-        case "gears": fallthrough
-        case "map-pin": fallthrough
-        case "services": fallthrough
-        case "leisure": fallthrough
-        case "map-restaurant-pin": fallthrough
-        case "map-leisure-pin": fallthrough
-        case "map-shopping-pin": fallthrough
-        case "map-services-pin": fallthrough
-        case "profile": fallthrough
-        case "show-map": fallthrough
-        case "remove": fallthrough
-        case "cross": fallthrough
-        case "check": fallthrough
-        case "alert": fallthrough
-        
         default:
             return UIColor.grayColor()
         }
