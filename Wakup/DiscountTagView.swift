@@ -13,20 +13,6 @@ public class DiscountTagView: UIView {
     
     @IBOutlet var label: UILabel?
     
-    public dynamic var labelFont: UIFont?
-    public dynamic var labelColor: UIColor?
-    
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        guard let label = label else { return }
-        
-        if let labelFont = labelFont {
-            label.font = labelFont
-        }
-        if let labelColor = labelColor {
-            label.textColor = labelColor
-        }
-        
-    }
+    public dynamic var labelFont: UIFont? { didSet { label?.font = labelFont } }
+    public dynamic var labelColor: UIColor? { didSet { label?.textColor = labelColor } }
 }

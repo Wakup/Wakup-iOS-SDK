@@ -243,7 +243,7 @@ import UIKit
     
     func CirclePathWithBounds(bound: CGRect) -> UIBezierPath{
         let CirclePath = UIBezierPath()
-        var minX = CGFloat(bound.minX), minY = bound.minY, w = bound.width, h = bound.height;
+        let minX = CGFloat(bound.minX), minY = bound.minY, w = bound.width, h = bound.height;
         
         CirclePath.moveToPoint(CGPointMake(minX + 0.50014 * w, minY + h))
         CirclePath.addCurveToPoint(CGPointMake(minX + 0.44431 * w, minY + 0.99694 * h), controlPoint1:CGPointMake(minX + 0.48141 * w, minY + 1 * h), controlPoint2:CGPointMake(minX + 0.46267 * w, minY + 0.99897 * h))
@@ -510,7 +510,7 @@ import UIKit
     
     func DownPathWithBounds(bound: CGRect) -> UIBezierPath{
         let DownPath = UIBezierPath()
-        var minX = CGFloat(bound.minX), minY = bound.minY, w = bound.width, h = bound.height;
+        let minX = CGFloat(bound.minX), minY = bound.minY, w = bound.width, h = bound.height;
         
         DownPath.moveToPoint(CGPointMake(minX + 0.30519 * w, minY + 0.41006 * h))
         DownPath.addCurveToPoint(CGPointMake(minX + 0.52151 * w, minY + 0.2496 * h), controlPoint1:CGPointMake(minX + 0.38876 * w, minY + 0.41006 * h), controlPoint2:CGPointMake(minX + 0.4602 * w, minY + 0.2496 * h))
@@ -536,7 +536,7 @@ import UIKit
     
     func UpPathWithBounds(bound: CGRect) -> UIBezierPath{
         let UpPath = UIBezierPath()
-        var minX = CGFloat(bound.minX), minY = bound.minY, w = bound.width, h = bound.height;
+        let minX = CGFloat(bound.minX), minY = bound.minY, w = bound.width, h = bound.height;
         
         UpPath.moveToPoint(CGPointMake(minX + 0.26344 * w, minY + 0.49907 * h))
         UpPath.addCurveToPoint(CGPointMake(minX + 0.22519 * w, minY + 0.13276 * h), controlPoint1:CGPointMake(minX + 0.26721 * w, minY + 0.4262 * h), controlPoint2:CGPointMake(minX + 0.27326 * w, minY + 0.26252 * h))
