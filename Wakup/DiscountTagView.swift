@@ -13,6 +13,6 @@ public class DiscountTagView: UIView {
     
     @IBOutlet var label: UILabel?
     
-    public dynamic var labelFont: UIFont? { didSet { label?.font = labelFont } }
-    public dynamic var labelColor: UIColor? { didSet { label?.textColor = labelColor } }
+    public dynamic var labelFont: UIFont? { get { return label?.font } set { label?.font = newValue } }
+    public dynamic var labelColor: UIColor? { get { return label?.textColor } set { label?.textColor = newValue } }
 }
