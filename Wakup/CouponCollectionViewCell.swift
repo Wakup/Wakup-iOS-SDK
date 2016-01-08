@@ -19,19 +19,32 @@ enum CouponContextAction: String {
 
 typealias OnContextMenuAction = (action: CouponContextAction, forCoupon: Coupon) -> Void
 
-class CouponCollectionViewCell: UICollectionViewCell {
+public class CouponCollectionViewCell: UICollectionViewCell {
 
+    public dynamic var storeNameFont: UIFont! { get { return storeNameLabel?.font } set { storeNameLabel?.font = newValue } }
+    public dynamic var storeNameTextColor: UIColor! { get { return storeNameLabel?.textColor } set { storeNameLabel?.textColor = newValue } }
+    public dynamic var descriptionTextFont: UIFont! { get { return offerDescriptionLabel?.font } set { offerDescriptionLabel?.font = newValue } }
+    public dynamic var descriptionTextColor: UIColor! { get { return offerDescriptionLabel?.textColor } set { offerDescriptionLabel?.textColor = newValue } }
+    public dynamic var distanceFont: UIFont! { get { return distanceLabel?.font } set { distanceLabel?.font = newValue } }
+    public dynamic var distanceTextColor: UIColor! { get { return distanceLabel?.textColor } set { distanceLabel?.textColor = newValue } }
+    public dynamic var distanceIconColor: UIColor! { get { return distanceIconView?.iconColor } set { distanceIconView?.iconColor = newValue } }
+    public dynamic var expirationFont: UIFont! { get { return expirationLabel?.font } set { expirationLabel?.font = newValue } }
+    public dynamic var expirationTextColor: UIColor! { get { return expirationLabel?.textColor } set { expirationLabel?.textColor = newValue } }
+    public dynamic var expirationIconColor: UIColor! { get { return expirationIconView?.iconColor } set { expirationIconView?.iconColor = newValue } }
+    
     @IBOutlet weak var couponImageView: UIImageView!
     @IBOutlet weak var shortTextLabel: UILabel!
     @IBOutlet weak var storeNameLabel: UILabel!
     @IBOutlet weak var offerDescriptionLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var expirationLabel: UILabel!
+    @IBOutlet weak var distanceIconView: CodeIconView!
+    @IBOutlet weak var expirationIconView: CodeIconView!
     
     private var imageAspectRatioConstraint: NSLayoutConstraint?
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -90,7 +103,7 @@ class CouponCollectionViewCell: UICollectionViewCell {
         return false
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         contextualMenu = BAMContextualMenu.addContextualMenuToView(contentView, delegate: menuDelegate, dataSource: menuDelegate, activateOption: kBAMContextualMenuActivateOptionLongPress)
         menuDelegate.onSelection = { menuItem, index in
             if let actionId = menuItem?.identifier ?? .None {
@@ -110,7 +123,7 @@ class CouponCollectionViewCell: UICollectionViewCell {
         distanceLabel.text = coupon?.distanceText <*> userLocation
     }
     
-    override func updateConstraints() {
+    override public func updateConstraints() {
         if let constraint = imageAspectRatioConstraint {
             couponImageView?.removeConstraint(constraint)
             imageAspectRatioConstraint = nil
@@ -129,7 +142,7 @@ class CouponCollectionViewCell: UICollectionViewCell {
         super.updateConstraints()
     }
     
-    override func prepareForReuse() {
+    override public func prepareForReuse() {
         super.prepareForReuse()
         couponImageView?.backgroundColor = UIColor.clearColor()
         couponImageView?.image = nil

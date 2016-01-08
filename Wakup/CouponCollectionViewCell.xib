@@ -168,7 +168,9 @@
             <size key="customSize" width="28" height="363"/>
             <connections>
                 <outlet property="couponImageView" destination="EGR-hq-hts" id="Jox-wI-avc"/>
+                <outlet property="distanceIconView" destination="2Z9-1r-ixb" id="cj3-GJ-MQS"/>
                 <outlet property="distanceLabel" destination="h9Z-pU-LEy" id="loV-Ww-gT8"/>
+                <outlet property="expirationIconView" destination="AlL-fe-5PT" id="DLU-J1-GIx"/>
                 <outlet property="expirationLabel" destination="RUk-mx-6Vf" id="o1D-Tb-hAO"/>
                 <outlet property="offerDescriptionLabel" destination="ctk-o5-m4M" id="LNr-A9-LjN"/>
                 <outlet property="shortTextLabel" destination="gbG-oB-6f6" id="O9K-6R-65U"/>
