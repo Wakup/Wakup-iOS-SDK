@@ -50,6 +50,7 @@
 		695D7A8B1C21DB200083132B /* CenteredCodeIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A821C21DB200083132B /* CenteredCodeIconButton.swift */; };
 		695F7C481C3E8EA000D61415 /* DiscountTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F7C471C3E8EA000D61415 /* DiscountTagView.swift */; };
 		695F7C4A1C3EC44700D61415 /* SearchFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F7C491C3EC44700D61415 /* SearchFilterButton.swift */; };
+		695F7C4C1C3ED51000D61415 /* CouponAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F7C4B1C3ED51000D61415 /* CouponAnnotationView.swift */; };
 		6986D6881C3A864B00C46531 /* MyIconLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986D6871C3A864B00C46531 /* MyIconLibrary.swift */; };
 		69D999D11C22E635000892B1 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */; };
 		69D999D21C22E635000892B1 /* ZoomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */; };
@@ -142,6 +143,7 @@
 		695D7A821C21DB200083132B /* CenteredCodeIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteredCodeIconButton.swift; sourceTree = "<group>"; };
 		695F7C471C3E8EA000D61415 /* DiscountTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTagView.swift; sourceTree = "<group>"; };
 		695F7C491C3EC44700D61415 /* SearchFilterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilterButton.swift; sourceTree = "<group>"; };
+		695F7C4B1C3ED51000D61415 /* CouponAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponAnnotationView.swift; sourceTree = "<group>"; };
 		6986D6871C3A864B00C46531 /* MyIconLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyIconLibrary.swift; sourceTree = "<group>"; };
 		69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				69431BB31C3C1D7300A42139 /* CouponActionButton.swift */,
+				695F7C4B1C3ED51000D61415 /* CouponAnnotationView.swift */,
 				695F7C471C3E8EA000D61415 /* DiscountTagView.swift */,
 				69431BB11C3BF6C400A42139 /* NavBarIconButton.swift */,
 				69431BAF1C3BF68C00A42139 /* NavBarIconView.swift */,
@@ -573,6 +576,7 @@
 				69D999D21C22E635000892B1 /* ZoomTransitionAnimator.swift in Sources */,
 				695D7A881C21DB200083132B /* CodeImageView.swift in Sources */,
 				69D999D51C22F630000892B1 /* Delay.swift in Sources */,
+				695F7C4C1C3ED51000D61415 /* CouponAnnotationView.swift in Sources */,
 				695D7A4F1C21B66F0083132B /* SearchHistory.swift in Sources */,
 				69D99A101C22FE59000892B1 /* CouponMapViewController.swift in Sources */,
 				695D7A551C21BDB10083132B /* OffersService.swift in Sources */,

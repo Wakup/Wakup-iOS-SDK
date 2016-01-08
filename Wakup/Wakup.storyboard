@@ -923,11 +923,6 @@
                             </view>
                         </barButtonItem>
                     </navigationItem>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="size" keyPath="mapPinSize">
-                            <size key="value" width="46" height="60"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="loadingIndicatorView" destination="sS1-wX-ATT" id="Qai-wy-vFZ"/>
                         <outlet property="mapView" destination="Cbq-LX-9rF" id="bcr-G6-Iyt"/>

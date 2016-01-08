@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 @IBDesignable
-class CouponMapViewController: UIViewController, MKMapViewDelegate {
+public class CouponMapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var loadingIndicatorView: ScissorsLoadingView!
@@ -44,26 +44,28 @@ class CouponMapViewController: UIViewController, MKMapViewDelegate {
     
     let selectionSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     
-    @IBInspectable var mapPinSize = CGSize(width: 60, height: 80)
-    
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     // MARK: View lifecycle
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         refreshUI()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         mapView?.showsUserLocation = true
         loadingIndicatorView.hidden = true
         loadingIndicatorView?.alpha = 0
+        
+        if let navigationController = navigationController {
+            loadingIndicatorView.fillColor = navigationController.navigationBar.tintColor
+        }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if !shouldLoad {
             if let coupon = selectedCoupon {
@@ -81,7 +83,7 @@ class CouponMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override public func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         mapView?.showsUserLocation = false
     }
@@ -161,16 +163,6 @@ class CouponMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    func mapIconId(forCategory category: Category) -> (String, UIColor) {
-        switch category {
-        case .Restaurant: return ("map-restaurant-pin", StyleKit.restaurantCategoryColor)
-        case .Leisure: return ("map-leisure-pin", StyleKit.leisureCategoryColor)
-        case .Services: return ("map-services-pin", StyleKit.servicesCategoryColor)
-        case .Shopping: return ("map-shopping-pin", StyleKit.shoppingCategoryColor)
-        default: return ("map-pin", StyleKit.corporateDarkColor)
-        }
-    }
-    
     // MARK: Actions
     func showDetails(forOffer offer: Coupon) {
         let detailsStoryboardId = "couponDetails"
@@ -182,48 +174,49 @@ class CouponMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     // MARK: MKMapViewDelegate methods
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if let couponAnnotation = annotation as? CouponAnnotation {
+    public func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        return (annotation as? CouponAnnotation).map { couponAnnotation in
             let identifier = "couponAnnotation"
-            let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) ?? MKAnnotationView(annotation: couponAnnotation, reuseIdentifier: identifier)
-            let iconFrame = CGRect(x: 0, y: 0, width: mapPinSize.width, height: mapPinSize.height)
-            let (mapPinId, pinColor) = mapIconId(forCategory: couponAnnotation.coupon.category)
-            let iconImage = CodeIcon(iconIdentifier: mapPinId).getImage(iconFrame, color: pinColor)
-            annotationView.image = iconImage
+            let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) ?? CouponAnnotationView(annotation: couponAnnotation, reuseIdentifier: identifier)
+            annotationView.layoutSubviews()
+            annotationView.annotation = couponAnnotation
             annotationView.canShowCallout = true
-            annotationView.centerOffset = CGPoint(x: 0, y: (-mapPinSize.height / 2) + 1)
             
             if couponAnnotation.coupon.company.logo?.sourceUrl != nil {
-                let imageView = UIImageView(frame: CGRect(origin: CGPointZero, size: CGSize(width: 52, height: 52)))
-                imageView.contentMode = .ScaleAspectFit
-                annotationView.leftCalloutAccessoryView = imageView
+                if !(annotationView.leftCalloutAccessoryView is UIImageView) {
+                    let imageView = UIImageView(frame: CGRect(origin: CGPointZero, size: CGSize(width: 52, height: 52)))
+                    imageView.contentMode = .ScaleAspectFit
+                    annotationView.leftCalloutAccessoryView = imageView
+                }
             }
+            else {
+                annotationView.leftCalloutAccessoryView = nil
+            }
+            
             if allowDetailsNavigation {
                 let button = UIButton(type: .DetailDisclosure)
                 annotationView.rightCalloutAccessoryView = button
             }
+            annotationView.setNeedsLayout()
             return annotationView
         }
-        return .None
     }
     
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    public func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let annotation = view.annotation as? CouponAnnotation {
             showDetails(forOffer: annotation.coupon)
         }
     }
     
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        if let annotation = view.annotation as? CouponAnnotation {
-            if let imageView = view.leftCalloutAccessoryView as? UIImageView {
-                if let logoUrl = annotation.coupon.company.logo?.sourceUrl {
-                    imageView.sd_setImageWithURL(logoUrl)
-                }
-            }
-        }
+    public func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        guard let annotation = view.annotation as? CouponAnnotation,
+            imageView = view.leftCalloutAccessoryView as? UIImageView,
+            logoUrl = annotation.coupon.company.logo?.sourceUrl else { return }
+        
+        imageView.sd_setImageWithURL(logoUrl)
     }
     
-    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    public func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
 //        NSLog("Region changed with new center: %f, %f", mapView.region.center.latitude, mapView.region.center.longitude)
         if loadCouponsOnRegionChange && shouldLoad {
             let center = mapView.region.center
