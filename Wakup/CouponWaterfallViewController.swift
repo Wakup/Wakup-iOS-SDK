@@ -144,6 +144,17 @@ import DZNEmptyDataSet
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         couponCollectionHandler?.refreshControl.endRefreshing() // iOS 9 UIRefreshControl issue
+        
+        if let navigationController = navigationController where navigationController.presentingViewController != nil && navigationController.viewControllers.first == self && navigationItem.leftBarButtonItem == nil {
+            
+            let button = CodeIconButton(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
+            button.iconFillsButton = true
+            button.iconColor = navigationController.navigationBar.tintColor
+            button.iconIdentifier = "cross"
+            button.addTarget(self, action: "dismissAction:", forControlEvents: .TouchUpInside)
+            let barButton = UIBarButtonItem(customView: button)
+            navigationItem.leftBarButtonItem = barButton
+        }
     }
     
     // MARK: IBActions
@@ -156,6 +167,10 @@ import DZNEmptyDataSet
         else {
             performSegueWithIdentifier("search", sender: self)
         }
+    }
+    
+    func dismissAction(sender: AnyObject) {
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: Collection View methods
