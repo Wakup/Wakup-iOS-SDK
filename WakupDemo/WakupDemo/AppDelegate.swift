@@ -94,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let wakupConfig = WakupConfiguration()
         WakupManager.manager.setup("YOUR WAKUP API KEY HERE", config: wakupConfig)
-        window?.rootViewController = WakupManager.manager.initialController()
+        window?.rootViewController = WakupManager.manager.rootNavigationController()
         window?.makeKeyAndVisible()
         
         return true

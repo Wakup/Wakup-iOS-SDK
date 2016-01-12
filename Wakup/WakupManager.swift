@@ -23,8 +23,12 @@ public class WakupManager {
     
     public lazy var storyboard: UIStoryboard! = UIStoryboard(name: "Wakup", bundle: NSBundle(forClass: WakupManager.self))
     
-    public func initialController() -> UIViewController! {
-        return storyboard.instantiateInitialViewController()
+    public func rootNavigationController() -> UINavigationController! {
+        return storyboard.instantiateInitialViewController() as? UINavigationController
+    }
+    
+    public func rootController() -> UIViewController! {
+        return storyboard.instantiateViewControllerWithIdentifier("couponWaterfall")
     }
 }
 
