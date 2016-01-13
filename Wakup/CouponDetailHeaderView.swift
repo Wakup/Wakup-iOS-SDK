@@ -33,8 +33,6 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     public dynamic var couponNameTextColor: UIColor? { get { return couponNameLabel?.textColor } set { couponNameLabel?.textColor = newValue } }
     public dynamic var couponDescriptionFont: UIFont? { get { return couponDescriptionLabel?.font } set { couponDescriptionLabel?.font = newValue } }
     public dynamic var couponDescriptionTextColor: UIColor? { get { return couponDescriptionLabel?.textColor } set { couponDescriptionLabel?.textColor = newValue } }
-    public dynamic var shortTextFont: UIFont? { get { return shortTextLabel?.font } set { shortTextLabel?.font = newValue } }
-    public dynamic var shortTextColor: UIColor? { get { return shortTextLabel?.textColor } set { shortTextLabel?.textColor = newValue } }
     public dynamic var expirationFont: UIFont? { get { return storeDistanceLabel?.font } set { storeDistanceLabel?.font = newValue } }
     public dynamic var expirationTextColor: UIColor? { get { return couponExpirationLabel?.textColor } set { couponExpirationLabel?.textColor = newValue } }
     public dynamic var expirationIconColor: UIColor? { get { return expirationIconView?.iconColor } set { expirationIconView?.iconColor = newValue } }
