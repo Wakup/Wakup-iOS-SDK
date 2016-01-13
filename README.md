@@ -13,9 +13,9 @@ To start using Wakup you have to integrate the Wakup SDK in your iOS application
 
 ### Using CocoaPods
 
-[CocoaPods](http://cocoapods.org/) is the easiest and most maintainable way to install TwinPush SDK. If you are using CocoaPods (that you should) just follow these steps:
+[CocoaPods](http://cocoapods.org/) is the easiest and most maintainable way to install Wakup SDK. If you are using CocoaPods (that you should) just follow these steps:
 
-1. Add a reference to the [Wakup pod](http://cocoapods.org/?q=wakup) to your `Podfile`.
+1. Add a reference to the [Wakup pod](https://cocoapods.org/pods/Wakup) to your `Podfile`.
 
 	~~~
 	pod 'Wakup'
