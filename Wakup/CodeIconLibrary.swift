@@ -17,7 +17,7 @@ public protocol IconLibrary {
 public class CodeIconLibrary {
     
     #if TARGET_INTERFACE_BUILDER
-    public static var instance: IconLibrary? = MyIconLibrary()
+    public static var instance: IconLibrary? = DefaultIconLibrary()
     #else
     public static var instance: IconLibrary?
     #endif

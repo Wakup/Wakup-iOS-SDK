@@ -1,5 +1,5 @@
 //
-//  MyIconLibrary.swift
+//  DefaultIconLibrary.swift
 //  TSales
 //
 //  Created by Guillermo Gutiérrez on 8/10/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class MyIconLibrary: IconLibrary {
+public class DefaultIconLibrary: IconLibrary {
     
     var searchListColor = UIColor(fromHexString: "#906191")
     var emptyViewColor = UIColor(fromHexString: "#908E90")

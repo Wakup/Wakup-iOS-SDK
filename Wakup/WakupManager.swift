@@ -33,7 +33,7 @@ public class WakupManager {
 }
 
 public class WakupConfiguration {
-    public var iconLibrary: IconLibrary = MyIconLibrary()
+    public var iconLibrary: IconLibrary = DefaultIconLibrary()
     
     public init() {}
 }
