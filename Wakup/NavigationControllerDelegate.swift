@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+public class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
+    public func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         switch (operation, fromVC, toVC) {
         case (.Push, is ZoomTransitionOrigin, is ZoomTransitionDestination):
