@@ -1,15 +1,15 @@
 Wakup SDK Library
 ==================
 
-[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/Wakup/badge.png)](https://cocoapods.org/pods/TwinPushSDK)
-[![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/Wakup/badge.svg)](https://cocoapods.org/pods/TwinPushSDK)
+[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/Wakup/badge.png)](https://cocoapods.org/pods/Wakup)
+[![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/Wakup/badge.svg)](https://cocoapods.org/pods/Wakup)
 [![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](https://github.com/Wakup/Wakup-iOS-SDK/blob/master/LICENSE)
 
 Native iOS SDK for [Wakup platform](http://wakup.net).
 
 ## Installation
 
-To start using TwinPush you have to integrate the TwinPush SDK in your iOS application. You can download a working sample with the [TwinPush SDK sources](https://github.com/TwinPush/ios-sdk/archive/master.zip).
+To start using Wakup you have to integrate the Wakup SDK in your iOS application. You can download a working sample with the [Wakup SDK sources](https://github.com/Wakup/Wakup-iOS-SDK/archive/master.zip).
 
 ### Using CocoaPods
 
@@ -295,7 +295,7 @@ For example, we want to override the default share icon:
 
 ![](http://imgur.com/cN8ls2h.png)
 
-with new paper plane version:
+with a new paper plane version:
 
 ![](http://imgur.com/FerbLaJ.png)
 
