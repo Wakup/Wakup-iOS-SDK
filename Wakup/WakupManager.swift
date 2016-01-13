@@ -11,14 +11,14 @@ import Foundation
 public class WakupManager {
     public static let manager = WakupManager()
     
-    internal var config = WakupConfiguration()
+    internal var options = WakupOptions()
     
-    public func setup(apiKey: String, config: WakupConfiguration = WakupConfiguration()) {
+    public func setup(apiKey: String, options: WakupOptions = WakupOptions()) {
         SearchService.sharedInstance.apiKey = apiKey
         OffersService.apiKey = apiKey
         
-        self.config = config
-        CodeIconLibrary.instance = config.iconLibrary
+        self.options = options
+        CodeIconLibrary.instance = options.iconLibrary
     }
     
     public lazy var storyboard: UIStoryboard! = UIStoryboard(name: "Wakup", bundle: NSBundle(forClass: WakupManager.self))
@@ -32,7 +32,7 @@ public class WakupManager {
     }
 }
 
-public class WakupConfiguration {
+public class WakupOptions {
     public var iconLibrary: IconLibrary = DefaultIconLibrary()
     
     public init() {}
