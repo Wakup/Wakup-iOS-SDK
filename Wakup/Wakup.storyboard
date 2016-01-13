@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NBd-7t-Z4K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NBd-7t-Z4K">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -706,7 +706,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Ora-Lo-NuL">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="feQ-Mm-SY9" customClass="NavBarIconButton" customModule="Wakup" customModuleProvider="target">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="feQ-Mm-SY9" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
                                 <rect key="frame" x="279" y="9" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -727,6 +727,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="aDA-Ph-LTD" id="e1K-Ri-PSb"/>
+                        <outlet property="searchButton" destination="feQ-Mm-SY9" id="9ka-rj-SXy"/>
                         <outlet property="topMenuView" destination="CpK-Vw-dwM" id="ytk-GV-jU5"/>
                         <segue destination="n3g-6J-ktu" kind="presentation" identifier="loading" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="dLq-oR-GYv"/>
                         <segue destination="nb0-iV-9fB" kind="show" identifier="search" id="4OA-Tp-H1F"/>

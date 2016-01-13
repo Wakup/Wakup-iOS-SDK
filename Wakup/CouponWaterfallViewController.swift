@@ -15,6 +15,8 @@ import DZNEmptyDataSet
 @IBDesignable class CouponWaterfallViewController: LoadingPresenterViewController, UICollectionViewDataSource, UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout, ZoomTransitionOrigin, CLLocationManagerDelegate, TopMenuViewDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
 
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var topMenuView: TopMenuView?
+    @IBOutlet weak var searchButton: CodeIconButton!
     
     static let storyboardId = "couponWaterfall"
     
@@ -25,9 +27,6 @@ import DZNEmptyDataSet
     var selectedRow: Int = 0
     
     let layout = CHTCollectionViewWaterfallLayout()
-    
-    @IBOutlet var topMenuView: TopMenuView?
-
     var couponCollectionHandler: CouponCollectionHandler?
     
     let locationManager = CLLocationManager()
@@ -144,6 +143,11 @@ import DZNEmptyDataSet
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         couponCollectionHandler?.refreshControl.endRefreshing() // iOS 9 UIRefreshControl issue
+        
+        if let navBarTintColor = navigationController?.navigationBar.tintColor {
+            searchButton.iconColor = navBarTintColor
+            searchButton.highlightedIconColor = navBarTintColor.colorWithAlpha(0.5)
+        }
         
         if let navigationController = navigationController where navigationController.presentingViewController != nil && navigationController.viewControllers.first == self && navigationItem.leftBarButtonItem == nil {
             
