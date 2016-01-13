@@ -61,4 +61,6 @@ public class DefaultIconLibrary: IconLibrary {
             return UIColor.grayColor()
         }
     }
+    
+    public init() {}
 }
