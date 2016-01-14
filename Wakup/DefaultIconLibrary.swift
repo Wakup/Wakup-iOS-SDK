@@ -43,6 +43,7 @@ public class DefaultIconLibrary: IconLibrary {
         case "alert": return (StyleKit.drawAlertIcon, 1)
         case "cloud-alert": return (StyleKit.drawCloudWarningIcon, 71/52)
         case "brand": return (StyleKit.drawBrandIcon, 1)
+        case "link": return (StyleKit.drawLinkIcon, 1)
         default: return ({ f, c in }, 1)
         }
     }
