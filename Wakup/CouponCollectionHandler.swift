@@ -162,6 +162,9 @@ class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfallLayou
             }
             else {
                 let coupons = result ?? [Coupon]()
+                self.hasMore = coupons.count >= self.elementsPerPage
+                self.nextPage += 1
+                
                 if (append) {
                     let indexes = self.coupons.count..<self.coupons.count + coupons.count
                     let indexPaths = indexes.map { index in NSIndexPath(forRow: index, inSection: 0) }
@@ -178,9 +181,6 @@ class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfallLayou
                     }
                 }
                 self.collectionView?.reloadEmptyDataSet()
-                
-                self.hasMore = coupons.count >= self.elementsPerPage
-                self.nextPage += 1
             }
         }))
     }
