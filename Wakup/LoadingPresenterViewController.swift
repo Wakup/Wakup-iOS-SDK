@@ -81,10 +81,12 @@ class LoadingPresenterViewController: UIViewController, LoadingViewProtocol {
                 }, completion: { (finished) -> Void in
                     self.loadingController?.view.alpha = 1
                     self.loadingController?.view.removeFromSuperview()
+                    completion?()
             })
         }
         else {
             loadingController?.view.removeFromSuperview()
+            completion?()
         }
     }
 
