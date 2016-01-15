@@ -12,12 +12,12 @@ import Wakup
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow? = UIWindow()
+    var window: UIWindow? = UIWindow(frame: UIScreen.mainScreen().bounds)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        WakupManager.manager.setup("YOUR WAKUP API KEY HERE")
+        WakupManager.manager.setup("075f9656-6909-4e4e-a286-3ddc562a2513")
         window?.rootViewController = WakupManager.manager.rootNavigationController()
         window?.makeKeyAndVisible()
         
