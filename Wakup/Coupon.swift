@@ -27,14 +27,16 @@ class Coupon: Equatable {
     let store: Store?
     let company: Company
     let online: Bool
+    let link: NSURL?
     
-    init(id: Int, shortText: String, shortDescription: String, description: String, category: Category, online: Bool, expirationDate: NSDate?, thumbnail: CouponImage?, image: CouponImage?, store: Store?, company: Company) {
+    init(id: Int, shortText: String, shortDescription: String, description: String, category: Category, online: Bool, link: NSURL?, expirationDate: NSDate?, thumbnail: CouponImage?, image: CouponImage?, store: Store?, company: Company) {
         self.id = id
         self.shortText = shortText
         self.shortDescription = shortDescription
         self.description = description
         self.category = category
         self.online = online
+        self.link = link
         self.expirationDate = expirationDate
         self.thumbnail = thumbnail
         self.image = image

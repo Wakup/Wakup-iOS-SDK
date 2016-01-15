@@ -151,13 +151,14 @@ class OffersService {
         let description = json["description"].stringValue
         let category = parseCategory(categoryId: json["category"].stringValue)
         let online = json["isOnline"].boolValue
+        let link = json["link"].URL
         let expirationDate: NSDate? = json["expirationDate"].string.map { self.parseDate(string: $0) } ?? .None
         let thumbnail = parseImage(json: json["thumbnail"])
         let image = parseImage(json: json["image"])
         let store = parseStore(json: json["store"])
         let company = parseCompany(json: json["company"])
         
-        return Coupon(id: id, shortText: shortText, shortDescription: shortDescription, description: description, category: category, online: online, expirationDate: expirationDate, thumbnail: thumbnail, image: image, store: store, company: company)
+        return Coupon(id: id, shortText: shortText, shortDescription: shortDescription, description: description, category: category, online: online, link: link, expirationDate: expirationDate, thumbnail: thumbnail, image: image, store: store, company: company)
     }
     
     private class func parseCategory(categoryId categoryId: String) -> Category {

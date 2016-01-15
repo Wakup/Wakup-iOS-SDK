@@ -31,6 +31,7 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     var shareDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
     var showDescriptionDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
     var showCompanyDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
+    var showLinkDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
     
     var selectedIndex: NSIndexPath!
     
@@ -130,6 +131,13 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         showMapDelegate?(cell: self, coupon: offer)
     }
     
+    func showLink(forOffer offer: Coupon) {
+        if let link = offer.link {
+            // TODO: Ask for confirmation?
+            UIApplication.sharedApplication().openURL(link)
+        }
+    }
+    
     func share(offer offer: Coupon) {
         shareDelegate?(cell: self, coupon: offer)
     }
@@ -152,6 +160,7 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         case .Share: share(offer: headerView.coupon)
         case .ShowDescription: showDescription(forOffer: headerView.coupon)
         case .ShowCompany: showCompanyView(forOffer: headerView.coupon)
+        case .ShowLink: showLink(forOffer: headerView.coupon)
         }
     }
 

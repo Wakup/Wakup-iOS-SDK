@@ -11,6 +11,7 @@ import CoreLocation
 
 enum HeaderViewAction {
     case ShowMap
+    case ShowLink
     case Share
     case ShowDescription
     case ShowCompany
@@ -51,9 +52,9 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var cellWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var couponExpirationLabel: UILabel!
-    @IBOutlet weak var showInMapButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var showInMapButton: CodeIconButton!
+    @IBOutlet weak var saveButton: CodeIconButton!
+    @IBOutlet weak var shareButton: CodeIconButton!
     @IBOutlet weak var companyButton: UIButton!
     @IBOutlet weak var companyDisclosureIconView: CodeIconView!
     @IBOutlet weak var distanceIconView: CodeIconView!
@@ -74,9 +75,16 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     
     let persistenceService = PersistenceService.sharedInstance
     
+    var hasLocation: Bool { return coupon?.store?.location() != nil }
+    var hasLink: Bool { return coupon?.online ?? false && coupon?.link != nil }
+    
     override public func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        saveButton.setTitle("CouponHeaderSave".i18n(), forState: .Normal)
+        saveButton.setTitle("CouponHeaderSaved".i18n(), forState: .Selected)
+        shareButton.setTitle("CouponHeaderShare".i18n(), forState: .Normal)
+
         cellWidthConstraint!.constant = preferredWidth
         self.setNeedsLayout()
     }
@@ -121,9 +129,16 @@ public class CouponDetailHeaderView: UICollectionReusableView {
             storeAddressLabel?.text = coupon.store?.address
             
             storeDistanceLabel?.text = coupon.distanceText <*> userLocation
-
-            let hasLocation = (coupon.store?.location() ?? .None) != .None
-            showInMapButton?.enabled = hasLocation
+            
+            if hasLink {
+                showInMapButton?.iconIdentifier = "link"
+                showInMapButton?.setTitle("CouponHeaderLink".i18n(), forState: .Normal)
+            }
+            else {
+                showInMapButton?.iconIdentifier = "location"
+                showInMapButton?.setTitle("CouponHeaderShowMap".i18n(), forState: .Normal)
+                showInMapButton?.enabled = hasLocation
+            }
             refreshSavedStatus()
             
             setNeedsUpdateConstraints()
@@ -168,7 +183,7 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     
     // MARK: IBActions
     @IBAction func showMapButtonTapped(sender: AnyObject) {
-        delegate?.headerViewDidSelectAction(.ShowMap, headerView: self)
+        delegate?.headerViewDidSelectAction(hasLink ? .ShowLink : .ShowMap, headerView: self)
     }
     @IBAction func saveButtonTapped(sender: AnyObject) {
         persistenceService.toggle(coupon.id)

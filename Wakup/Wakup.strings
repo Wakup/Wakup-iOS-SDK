@@ -42,8 +42,11 @@
 "ActionRemove" = "Quitar de mis ofertas";
 "ActionShare" = "Compartir oferta";
 
-"CouponHeaderSave" = "Guardar";
-"CouponHeaderSaved" = "Guardado";
+"CouponHeaderSave" = "guardar";
+"CouponHeaderSaved" = "guardado";
+"CouponHeaderLink" = "abrir";
+"CouponHeaderShare" = "compartir";
+"CouponHeaderShowMap" = "ubicar";
 
 "ShareOfferFooter" = "¡Esta oferta y muchas otras en Wakup! Disponible para iOS y Android";
 
