@@ -9,7 +9,14 @@ Native iOS SDK for [Wakup platform](http://wakup.net).
 
 ## Installation
 
-To start using Wakup you have to integrate the Wakup SDK in your iOS application. You can download a working sample with the [Wakup SDK sources](https://github.com/Wakup/Wakup-iOS-SDK/archive/master.zip).
+To start using Wakup you have to integrate the Wakup SDK in your iOS application. If you already have [CocoaPods](http://cocoapods.org/) installed, you can open the sample project by executing:
+
+~~~
+pod try Wakup
+~~~
+
+This will open the project with all the dependencies already installed and ready to execute.
+
 
 ### Using CocoaPods
 
