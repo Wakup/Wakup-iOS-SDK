@@ -49,7 +49,7 @@ import DZNEmptyDataSet
         }
     }
     
-    var defaultLocation = CLLocation(latitude: 40.416944, longitude: -3.703611) // Puerta del Sol, Madrid
+    var defaultLocation = WakupManager.manager.options.defaultLocation
     var isDefaultLocation: Bool { get { return defaultLocation == location } }
     var nonDefaultLocation: Bool { get { return !isDefaultLocation } }
     

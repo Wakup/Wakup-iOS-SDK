@@ -32,8 +32,10 @@ public class WakupManager {
     }
 }
 
+import CoreLocation
 public class WakupOptions {
     public var iconLibrary: IconLibrary = DefaultIconLibrary()
+    public var defaultLocation = CLLocation(latitude: 40.416944, longitude: -3.703611) // Puerta del Sol, Madrid
     
     public init() {}
 }
