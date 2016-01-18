@@ -264,7 +264,7 @@ import DZNEmptyDataSet
         }
         else if (segue.identifier == highlightedOfferSegueId) {
             let vc = segue.destinationViewController as! WebViewController
-            vc.url = NSURL(string: highlightedOfferUrl)
+            vc.url = NSURL(string: OffersService.highlightedOfferUrl)
         }
         else if (segue.identifier == savedOffersSegueId) {
             let vc = segue.destinationViewController as! SavedCouponsViewController

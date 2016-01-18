@@ -24,11 +24,17 @@ struct PaginationInfo {
 
 let offerHostUrl = NSProcessInfo.processInfo().environment["OFFERS_SERVER_URL"] ?? "https://app.wakup.net/"
 
-let highlightedOfferUrl = "\(offerHostUrl)offers/highlighted"
-
 class OffersService {
     static var apiKey: String?
     class var authHeaders: [String: String]? { return apiKey.map{ ["API-Token": $0] } }
+    
+    class var highlightedOfferUrl: String {
+        let url = "\(offerHostUrl)offers/highlighted"
+        if let apiKey = apiKey {
+            return url + "/" + apiKey
+        }
+        return url
+    }
     
     class func findOffers(usingLocation location: CLLocationCoordinate2D, filterOptions: FilterOptions? = nil, pagination: PaginationInfo? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
         
