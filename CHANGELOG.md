@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Added `pod try Wakup` documentation to [`README`](https://github.com/Wakup/Wakup-iOS-SDK/blob/master/README.md) file
 
+### Changed
+- Changed highlighted offer URL to the application-specific URL
+- Highlighted offer unsecure URLs are now opened in Safari
+
 ## [0.2.0] - 2016-01-18
 ### Added
 - Added CHANGELOG file to keep track of changes between versions

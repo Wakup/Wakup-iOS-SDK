@@ -15,6 +15,7 @@ class WebViewController: LoadingPresenterViewController, UIWebViewDelegate {
     @IBOutlet var webView: UIWebView!
     
     func loadUrl(url: NSURL, animated: Bool = true) {
+        self.url = url
         showLoadingView()
         webView?.loadRequest(NSURLRequest(URL: url))
     }
@@ -35,6 +36,20 @@ class WebViewController: LoadingPresenterViewController, UIWebViewDelegate {
         }
     }
     
+    func openInSafari() -> Bool {
+        guard let url = url else { return false }
+        return UIApplication.sharedApplication().openURL(url)
+    }
+    
+    func closeController(animated: Bool = true) {
+        if let navigationController = navigationController {
+            navigationController.popViewControllerAnimated(animated)
+        }
+        if let presentingViewController = presentingViewController {
+            presentingViewController.dismissViewControllerAnimated(animated, completion: nil)
+        }
+    }
+    
     // MARK: UIWebViewDelegate
     func webViewDidStartLoad(webView: UIWebView) {
         showLoadingView()
@@ -48,6 +63,14 @@ class WebViewController: LoadingPresenterViewController, UIWebViewDelegate {
         guard let error = error else { return }
         if error.domain == "WebKitErrorDomain" && error.code == 204 {
             return
+        }
+        if #available(iOS 9.0, *) {
+            if error.domain == NSURLErrorDomain && error.code == NSURLErrorAppTransportSecurityRequiresSecureConnection {
+                if openInSafari() {
+                    closeController()
+                    return
+                }
+            }
         }
         UIAlertView(title: "WebViewError".i18n(), message: error.localizedDescription, delegate: nil, cancelButtonTitle: "CloseDialogButton".i18n()).show()
         
