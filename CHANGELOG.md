@@ -8,13 +8,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Included original PaintCode file with all icons included in the SDK
 - Online offers now may have an external link that opens in Safari
 - Added 'link' icon for the external URL button of the offer
+- Offer share text now includes the company name
 
 ### Changed
 - Default user location is now configurable via `WakupOptions`
 - Search location country is now configurable via `WakupOptions`
+- Minor changes in README file
 
 ### Fixed
 - Application no longer shows duplicated offers when there are very few results
+- Fixed sample application window frame on iOS 8
 
 
 ## 0.1.0 - 2016-01-13
