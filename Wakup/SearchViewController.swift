@@ -31,7 +31,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     let locationManager = CLLocationManager()
     let searchService = SearchService.sharedInstance
     
-    let searchComplement = WakupManager.manager.options.searchCountry.map{", " + $0}
+    var searchCountry: String? { return WakupManager.manager.options.searchCountryCode.flatMap { NSLocale.currentLocale().displayNameForKey(NSLocaleCountryCode, value: $0) } }
+    var searchComplement: String? { return searchCountry.map{", " + $0} }
     
     var userLocation: CLLocation? { didSet { reloadData([.UserLocation]) } }
     var searchResult: SearchResult? { didSet { reloadData([.UserLocation, .Companies]) } }

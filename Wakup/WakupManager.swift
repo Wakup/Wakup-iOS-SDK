@@ -40,7 +40,7 @@ public class WakupOptions {
     public var defaultLocation = CLLocation(latitude: 40.416944, longitude: -3.703611) // Puerta del Sol, Madrid
     
     /// Search country, will be appended to geolocation searches to narrow results
-    public var searchCountry: String? = "Spain"
+    public var searchCountryCode: String? = "es" // NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as? String
     
     public init() {}
 }
