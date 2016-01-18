@@ -1,7 +1,7 @@
 Wakup SDK Library
 ==================
 
-[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/Wakup/badge.png)](https://cocoapods.org/pods/Wakup)
+[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/Wakup/badge.png)](https://github.com/Wakup/Wakup-iOS-SDK/blob/master/CHANGELOG.md)
 [![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/Wakup/badge.svg)](https://cocoapods.org/pods/Wakup)
 [![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](https://github.com/Wakup/Wakup-iOS-SDK/blob/master/LICENSE)
 
