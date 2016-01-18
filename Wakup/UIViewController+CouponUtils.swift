@@ -40,7 +40,7 @@ extension UIViewController {
 private func shareCouponInPresenter(coupon: Coupon, presenter: UIViewController, loadViewPresenter: LoadingViewProtocol) {
     let url: NSURL! = nil
     let text = coupon.shortDescription ?? coupon.description ?? ""
-    let shareText = text + "\n" + "ShareOfferFooter".i18n()
+    let shareText = coupon.company.name + " - " + text + "\n" + "ShareOfferFooter".i18n()
     if let imageUrl = coupon.image?.sourceUrl {
         loadViewPresenter.showLoadingView(animated: true)
         SDWebImageManager.sharedManager().downloadImageWithURL(imageUrl, options: .HighPriority, progress: nil, completed: { (image, error, cacheType, finished, imageUrl) -> Void in
