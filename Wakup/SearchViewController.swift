@@ -31,7 +31,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     let locationManager = CLLocationManager()
     let searchService = SearchService.sharedInstance
     
-    let searchComplement = ", Spain"
+    let searchComplement = WakupManager.manager.options.searchCountry.map{", " + $0}
     
     var userLocation: CLLocation? { didSet { reloadData([.UserLocation]) } }
     var searchResult: SearchResult? { didSet { reloadData([.UserLocation, .Companies]) } }
@@ -126,7 +126,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                 }
             })
             
-            self.geocoder.geocodeAddressString(searchText + self.searchComplement, completionHandler: { (results, error) in
+            
+            self.geocoder.geocodeAddressString(searchText + (self.searchComplement ?? ""), completionHandler: { (results, error) in
                 if (searchBar.text ?? "") != searchText {
                     return
                 }
