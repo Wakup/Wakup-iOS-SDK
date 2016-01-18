@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 - No changes
 
-## [0.3.0] - 2016-01-18
+## [0.2.1] - 2016-01-18
 ### Added
 - Added `pod try Wakup` documentation to [`README`](https://github.com/Wakup/Wakup-iOS-SDK/blob/master/README.md) file
 
@@ -35,6 +35,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.0...HEAD
-[0.3.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.2.0...v0.3.0
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.1.0...v0.2.0
