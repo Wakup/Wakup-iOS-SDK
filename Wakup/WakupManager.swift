@@ -8,7 +8,8 @@
 
 import Foundation
 
-public class WakupManager {
+@objc
+public class WakupManager: NSObject {
     public static let manager = WakupManager()
     
     internal var options = WakupOptions()
@@ -33,7 +34,8 @@ public class WakupManager {
 }
 
 import CoreLocation
-public class WakupOptions {
+@objc
+public class WakupOptions: NSObject {
     public var iconLibrary: IconLibrary = DefaultIconLibrary()
     
     /// Default user location, used when there's no user location available
@@ -42,5 +44,5 @@ public class WakupOptions {
     /// Search country, will be appended to geolocation searches to narrow results
     public var searchCountryCode: String? = "es" // NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as? String
     
-    public init() {}
+    public override init() {}
 }
