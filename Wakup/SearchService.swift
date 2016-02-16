@@ -11,16 +11,8 @@ import SwiftyJSON
 import AwesomeCache
 import Alamofire
 
-class SearchService {
-    class var sharedInstance : SearchService {
-        struct Static {
-            static let instance : SearchService = SearchService()
-        }
-        return Static.instance
-    }
-    
-    var apiKey: String?
-    var authHeaders: [String: String]? { return apiKey.map{ ["API-Token": $0] } }
+class SearchService: BaseService {
+    static let sharedInstance = SearchService()
     
     private lazy var historyCache: Cache<NSString> = { try! Cache<NSString>(name: "searchHistory") }()
     private let historyKey = "history"
@@ -29,20 +21,28 @@ class SearchService {
     func genericSearch(query: String, completion: (SearchResult?, ErrorType?) -> Void) {
         let url = "\(offerHostUrl)search"
         let parameters = ["q": query]
-        NetworkActivityIndicatorManager.sharedInstance.startActivity()
-        let r = request(.GET, url, parameters: parameters, headers: authHeaders).validate().responseSwiftyJSON({ (req, res, result, error) in
-            NetworkActivityIndicatorManager.sharedInstance.endActivity()
-            if let error = error {
-                NSLog("Error in request with URL \(req.URLString): \(error)")
-                completion(nil, error)
+        
+        UserService.sharedInstance.fetchUserToken { (userToken, error) in
+            guard let userToken = userToken else {
+                completion(nil, error!)
+                return
             }
-            else  {
-                NSLog("Success %@: %@)", req.URLString, result.rawString()!)
-                let searchResult = self.parseSearchResult(json: result)
-                completion(searchResult, nil)
-            }
-        })
-        NSLog("Performing search with URL: %@", r.request!.URLString)
+            
+            NetworkActivityIndicatorManager.sharedInstance.startActivity()
+            let r = request(.GET, url, parameters: parameters, headers: self.userHeaders(userToken)).validate().responseSwiftyJSON({ (req, res, result, error) in
+                NetworkActivityIndicatorManager.sharedInstance.endActivity()
+                if let error = error {
+                    NSLog("Error in request with URL \(req.URLString): \(error)")
+                    completion(nil, error)
+                }
+                else  {
+                    NSLog("Success %@: %@)", req.URLString, result.rawString()!)
+                    let searchResult = self.parseSearchResult(json: result)
+                    completion(searchResult, nil)
+                }
+            })
+            NSLog("Performing search with URL: %@", r.request!.URLString)
+        }
     }
     
     private func parseCompany(json json: JSON) -> Company {

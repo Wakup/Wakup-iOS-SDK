@@ -53,6 +53,8 @@ import DZNEmptyDataSet
     var isDefaultLocation: Bool { get { return defaultLocation == location } }
     var nonDefaultLocation: Bool { get { return !isDefaultLocation } }
     
+    let offersService = OffersService.sharedInstance
+    
     // MARK: Search customization
     
     // Used to search offer around this location
@@ -92,7 +94,7 @@ import DZNEmptyDataSet
         couponCollectionHandler = CouponCollectionHandler(collectionView: collectionView, loadCouponMethod: { (page, perPage, onComplete) -> Void in
             let pagination = PaginationInfo(page: page, perPage: perPage)
             
-            OffersService.findOffers(usingLocation: self.coordinate, filterOptions: self.filterOptions, pagination: pagination, completion: onComplete)
+            self.offersService.findOffers(usingLocation: self.coordinate, filterOptions: self.filterOptions, pagination: pagination, completion: onComplete)
         })
         
         couponCollectionHandler!.showFooterWhenReloading = false
@@ -264,7 +266,7 @@ import DZNEmptyDataSet
         }
         else if (segue.identifier == highlightedOfferSegueId) {
             let vc = segue.destinationViewController as! WebViewController
-            vc.url = NSURL(string: OffersService.highlightedOfferUrl)
+            vc.url = NSURL(string: offersService.highlightedOfferUrl)
         }
         else if (segue.identifier == savedOffersSegueId) {
             let vc = segue.destinationViewController as! SavedCouponsViewController

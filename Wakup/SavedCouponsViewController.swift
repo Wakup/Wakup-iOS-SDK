@@ -19,6 +19,7 @@ class SavedCouponsViewController: LoadingPresenterViewController, CHTCollectionV
     let showDetailsSegueId = "showDetails"
     var selectedRow: Int = 0
     
+    let offersService = OffersService.sharedInstance
     let locationManager = CLLocationManager()
     var location: CLLocation? { didSet { couponCollectionHandler?.userLocation = location } }
     var coordinate: CLLocationCoordinate2D? { get { return location?.coordinate } }
@@ -66,7 +67,7 @@ class SavedCouponsViewController: LoadingPresenterViewController, CHTCollectionV
         couponCollectionHandler = CouponCollectionHandler(collectionView: collectionView, loadCouponMethod: { (page, perPage, onComplete) -> Void in
             let savedOfferIds = self.persistenceService.getSavedOfferIds(true)
             if savedOfferIds.count > 0 {
-                OffersService.getOfferDetails(savedOfferIds, location: self.location!.coordinate, completion: onComplete)
+                self.offersService.getOfferDetails(savedOfferIds, location: self.location!.coordinate, completion: onComplete)
             }
             else {
                 self.couponCollectionHandler?.cancel()

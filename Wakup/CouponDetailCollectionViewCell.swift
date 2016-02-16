@@ -35,6 +35,8 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     
     var selectedIndex: NSIndexPath!
     
+    let offersService = OffersService.sharedInstance
+    
     func selectionChanged(couponIndex couponIndex: Int) {
         selectedIndex = NSIndexPath(forRow: couponIndex, inSection: selectedIndex?.section ?? 0)
     }
@@ -53,7 +55,7 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         couponCollectionHandler = CouponCollectionHandler(collectionView: collectionView, loadCouponMethod: { (page, perPage, onComplete) -> Void in
             if let coupon = self.coupon {
                 let pagination = PaginationInfo(page: page, perPage: perPage)
-                OffersService.findRelatedOffer(toOffer: coupon, pagination: pagination, completion: onComplete)
+                self.offersService.findRelatedOffer(toOffer: coupon, pagination: pagination, completion: onComplete)
             }
             else {
                 self.couponCollectionHandler?.clear()

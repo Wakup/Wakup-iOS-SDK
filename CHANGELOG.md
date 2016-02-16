@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Implemented user statistics and device information reporting
 - Added Objective-C compatibility
 - Included minimal Objective-C sample project
 

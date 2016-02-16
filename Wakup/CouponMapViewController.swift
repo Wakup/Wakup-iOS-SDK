@@ -44,6 +44,8 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
     
     let selectionSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     
+    let offersService = OffersService.sharedInstance
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -113,7 +115,7 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
         self.lastRequestCenter = center
         self.loading = true
         NSLog("Requesting coupons for center %f, %f with radius %f meters", center.latitude, center.longitude, radius)
-        OffersService.findStoreOffers(nearLocation: center, radius: radius, filterOptions: filterOptions, completion: { (coupons, error) -> Void in
+        offersService.findStoreOffers(nearLocation: center, radius: radius, filterOptions: filterOptions, completion: { (coupons, error) -> Void in
             self.loading = false
             if let error = error {
                 NSLog("Error loading coupons: \(error)")

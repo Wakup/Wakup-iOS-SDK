@@ -22,13 +22,10 @@ struct PaginationInfo {
     let perPage: Int?
 }
 
-let offerHostUrl = NSProcessInfo.processInfo().environment["OFFERS_SERVER_URL"] ?? "https://app.wakup.net/"
-
-class OffersService {
-    static var apiKey: String?
-    class var authHeaders: [String: String]? { return apiKey.map{ ["API-Token": $0] } }
+class OffersService: BaseService {
+    static let sharedInstance = OffersService()
     
-    class var highlightedOfferUrl: String {
+    var highlightedOfferUrl: String {
         let url = "\(offerHostUrl)offers/highlighted"
         if let apiKey = apiKey {
             return url + "/" + apiKey
@@ -36,7 +33,7 @@ class OffersService {
         return url
     }
     
-    class func findOffers(usingLocation location: CLLocationCoordinate2D, filterOptions: FilterOptions? = nil, pagination: PaginationInfo? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
+    func findOffers(usingLocation location: CLLocationCoordinate2D, filterOptions: FilterOptions? = nil, pagination: PaginationInfo? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
         
         let url = "\(offerHostUrl)offers/find"
         let locationParameters = ["latitude": location.latitude, "longitude": location.longitude]
@@ -45,7 +42,7 @@ class OffersService {
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    class func findRelatedOffer(toOffer offer: Coupon, pagination: PaginationInfo? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
+    func findRelatedOffer(toOffer offer: Coupon, pagination: PaginationInfo? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
         
         let url = "\(offerHostUrl)offers/related"
         let offerParameters = ["storeId": offer.store?.id ?? -1, "offerId": offer.id]
@@ -53,38 +50,53 @@ class OffersService {
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    class func findStoreOffers(nearLocation location: CLLocationCoordinate2D, radius: CLLocationDistance, filterOptions: FilterOptions? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
+    func findStoreOffers(nearLocation location: CLLocationCoordinate2D, radius: CLLocationDistance, filterOptions: FilterOptions? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
         let url = "\(offerHostUrl)offers/find"
         var parameters: [String: AnyObject] = ["latitude": location.latitude, "longitude": location.longitude, "radiusInKm": radius / 1000, "includeOnline": false,  "perPage": 50]
         parameters = getFilterParams(filter: filterOptions, combinedWith: parameters)
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    class func getOfferDetails(ids: [Int], location: CLLocationCoordinate2D, completion: ([Coupon]?, ErrorType?) -> Void) {
+    func getOfferDetails(ids: [Int], location: CLLocationCoordinate2D, completion: ([Coupon]?, ErrorType?) -> Void) {
         let url = "\(offerHostUrl)offers/get"
         let idsStr = ids.map(String.init).joinWithSeparator(",")
         let parameters: [String: AnyObject] = ["ids": idsStr, "latitude": location.latitude, "longitude": location.longitude, "includeOnline": false]
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    private class func getOffersFromURL(url url: String, parameters: [String: AnyObject]? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
-        NetworkActivityIndicatorManager.sharedInstance.startActivity()
-        let r = request(.GET, url, parameters: parameters, headers: authHeaders).validate().responseSwiftyJSON({ (req, res, result, error) -> Void in
-            NetworkActivityIndicatorManager.sharedInstance.endActivity()
-            if let error = error {
-                print("Error in request with URL \(req.URLString): \(error)")
-                completion(nil, error)
-            }
-            else  {
-                NSLog("Success %@: %@)", req.URLString, result.rawString()!)
-                let coupons = result.arrayValue.map { json in OffersService.parseCoupon(json: json) }
-                completion(coupons, nil)
-            }
-        })
-        NSLog("Requesting offers with URL: %@", r.request!.URLString)
+    func reportErrorUrl(forOffer offer: Coupon, inStore store: Store?) -> String {
+        let url = "\(offerHostUrl)offers/\(offer.id)/report"
+        if let store = store {
+            return "\(url)?storeId=\(store.id)"
+        }
+        return url
     }
     
-    private class func getPaginationParams(pagination pagination: PaginationInfo?, combinedWith parameters: [String: AnyObject]? = nil) -> [String: AnyObject] {
+    private func getOffersFromURL(url url: String, parameters: [String: AnyObject]? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
+        UserService.sharedInstance.fetchUserToken { (userToken, error) in
+            guard let userToken = userToken else {
+                completion(nil, error!)
+                return
+            }
+            
+            NetworkActivityIndicatorManager.sharedInstance.startActivity()
+            let r = request(.GET, url, parameters: parameters, headers: self.userHeaders(userToken)).validate().responseSwiftyJSON({ (req, res, result, error) -> Void in
+                NetworkActivityIndicatorManager.sharedInstance.endActivity()
+                if let error = error {
+                    print("Error in request with URL \(req.URLString): \(error)")
+                    completion(nil, error)
+                }
+                else  {
+                    NSLog("Success %@: %@)", req.URLString, result.rawString()!)
+                    let coupons = result.arrayValue.map { json in self.parseCoupon(json: json) }
+                    completion(coupons, nil)
+                }
+            })
+            NSLog("Requesting offers with URL: %@", r.request!.URLString)
+        }
+    }
+    
+    private func getPaginationParams(pagination pagination: PaginationInfo?, combinedWith parameters: [String: AnyObject]? = nil) -> [String: AnyObject] {
         var result = parameters ?? [String: AnyObject]()
         if let pagination = pagination {
             if let page = pagination.page {
@@ -97,7 +109,7 @@ class OffersService {
         return result
     }
     
-    private class func getFilterParams(filter filter: FilterOptions?, combinedWith parameters: [String: AnyObject]? = nil) -> [String: AnyObject] {
+    private func getFilterParams(filter filter: FilterOptions?, combinedWith parameters: [String: AnyObject]? = nil) -> [String: AnyObject] {
         var result = parameters ?? [String: AnyObject]()
         if let filter = filter {
             if let query = filter.searchTerm {
@@ -113,7 +125,7 @@ class OffersService {
         return result
     }
     
-    private class func parseImage(json json: JSON) -> CouponImage? {
+    private func parseImage(json json: JSON) -> CouponImage? {
         if (json.isEmpty) { return nil }
         let sourceUrl = NSURL(string: json["url"].stringValue)
         let width = json["width"].float ?? 100
@@ -127,20 +139,20 @@ class OffersService {
         }
     }
     
-    private class func parseCompany(json json: JSON) -> Company {
+    private func parseCompany(json json: JSON) -> Company {
         let id = json["id"].intValue
         let name = json["name"].stringValue
         let logo = parseImage(json: json["logo"])
         return Company(id: id, name: name, logo: logo)
     }
     
-    private class func parseDate(string string: String) -> NSDate? {
+    private func parseDate(string string: String) -> NSDate? {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.dateFromString(string)
     }
     
-    private class func parseStore(json json: JSON) -> Store? {
+    private func parseStore(json json: JSON) -> Store? {
         if (json.type == .Null) { return .None }
         let id = json["id"].intValue
         let name = json["name"].string
@@ -150,7 +162,7 @@ class OffersService {
         return Store(id: id, name: name, address: address, latitude: latitude, longitude: longitude)
     }
     
-    private class func parseCoupon(json json: JSON) -> Coupon {
+    private func parseCoupon(json json: JSON) -> Coupon {
         let id = json["id"].intValue
         let shortText = json["shortOffer"].stringValue
         let shortDescription = json["shortDescription"].stringValue
@@ -167,7 +179,7 @@ class OffersService {
         return Coupon(id: id, shortText: shortText, shortDescription: shortDescription, description: description, category: category, online: online, link: link, expirationDate: expirationDate, thumbnail: thumbnail, image: image, store: store, company: company)
     }
     
-    private class func parseCategory(categoryId categoryId: String) -> Category {
+    private func parseCategory(categoryId categoryId: String) -> Category {
         switch categoryId {
         case "restaurants": return Category.Restaurant
         case "leisure": return Category.Leisure

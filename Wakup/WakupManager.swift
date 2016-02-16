@@ -16,7 +16,8 @@ public class WakupManager: NSObject {
     
     public func setup(apiKey: String, options: WakupOptions = WakupOptions()) {
         SearchService.sharedInstance.apiKey = apiKey
-        OffersService.apiKey = apiKey
+        OffersService.sharedInstance.apiKey = apiKey
+        UserService.sharedInstance.apiKey = apiKey
         
         self.options = options
         CodeIconLibrary.instance = options.iconLibrary
