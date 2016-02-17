@@ -5,7 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - Implemented user statistics and device information reporting
-- Added Objective-C compatibility
+- Added 'report offer error' functionality in offer details view
+- Added Objective-C compatibility in WakupManager class
 - Included minimal Objective-C sample project
 
 ## [0.2.1] - 2016-01-18

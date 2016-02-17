@@ -12,6 +12,7 @@ import CoreLocation
 class CouponDetailsViewController: LoadingPresenterViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate, ZoomTransitionDestination, ZoomTransitionOrigin {
 
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet weak var menuButton: CodeIconButton!
     
     var coupons: [Coupon]!
     var userLocation: CLLocation?
@@ -70,6 +71,19 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
         self.view.backgroundColor = collectionView?.backgroundColor
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        guard let segueIdentifier = segue.identifier, offer = selectedCoupon else { return }
+        
+        switch segueIdentifier {
+        case "reportError":
+            let vc = segue.destinationViewController as! WebViewController
+            vc.url = NSURL(string: OffersService.sharedInstance.reportErrorUrl(forOffer: offer))
+        default:
+            break
+        }
+    }
+    
     // MARK: UICollectionView
     func collectionView (collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return collectionView.bounds.size
@@ -120,6 +134,18 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
             }
         }
     }
+    
+    // MARK: IBActions
+    @IBAction func menuAction(sender: AnyObject) {
+        let alertController = UIAlertController(title: nil, message: "ReportErrorMessage".i18n(), preferredStyle: .ActionSheet)
+        alertController.addAction(UIAlertAction(title: "ReportErrorCancel".i18n(), style: .Cancel) { (action) in })
+        alertController.addAction(UIAlertAction(title: "ReportErrorButton".i18n(), style: .Destructive) { (action) in
+            self.performSegueWithIdentifier("reportError", sender: self)
+        })
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     
     // MARK: Transition methods
     func selectedIndexPath() -> NSIndexPath{

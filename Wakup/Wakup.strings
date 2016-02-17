@@ -65,3 +65,7 @@
 "EmptyMyOffersDescription" = "Añade a tus favoritos aquellas ofertas que quieras tener siempre a mano";
 "EmptyOfferSearchTitle" = "No se han encontrado resultados";
 "EmptyOfferSearchDescription" = "La búsqueda no ha obtenido ninguna oferta, comprueba los criterios de búsqueda y vuelve a intentarlo";
+
+"ReportErrorMessage" = "¿Has encontrado algún problema con esta oferta? Ayúdanos a mejorar";
+"ReportErrorButton" = "Informar de un problema";
+"ReportErrorCancel" = "Cancelar";

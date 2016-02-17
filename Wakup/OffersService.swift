@@ -64,9 +64,9 @@ class OffersService: BaseService {
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    func reportErrorUrl(forOffer offer: Coupon, inStore store: Store?) -> String {
+    func reportErrorUrl(forOffer offer: Coupon) -> String {
         let url = "\(offerHostUrl)offers/\(offer.id)/report"
-        if let store = store {
+        if let store = offer.store {
             return "\(url)?storeId=\(store.id)"
         }
         return url
