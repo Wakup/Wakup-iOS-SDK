@@ -122,6 +122,15 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
         return cell;
     }
     
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        guard let cell = cell as? CouponDetailCollectionViewCell else { return }
+        delay(0) {
+            if collectionView.indexPathsForVisibleItems().contains(indexPath) {
+                cell.reloadRelatedCoupons()
+            }
+        }
+    }
+    
     // MARK: UIScrollViewDelegate
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         if let visibleIndexPath = self.collectionView?.indexPathsForVisibleItems().first {

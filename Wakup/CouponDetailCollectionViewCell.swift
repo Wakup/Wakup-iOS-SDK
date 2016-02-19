@@ -23,7 +23,7 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     
     var couponCollectionHandler: CouponCollectionHandler?
     
-    var coupon: Coupon! { didSet { refreshUI(); couponCollectionHandler?.reloadCoupons() } }
+    var coupon: Coupon! { didSet { refreshUI(); } }
     var userLocation: CLLocation? { didSet { couponCollectionHandler?.userLocation = userLocation } }
     
     var showDetailsDelegate: ((cell: CouponDetailCollectionViewCell, coupons: [Coupon], selectedIndex: Int) -> Void)?
@@ -80,6 +80,10 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
             collectionView?.reloadData()
             couponHeaderView?.coupon = coupon
         }
+    }
+    
+    func reloadRelatedCoupons() {
+        couponCollectionHandler?.reloadCoupons()
     }
     
     override func prepareForReuse() {
