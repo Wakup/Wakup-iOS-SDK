@@ -93,8 +93,8 @@ import DZNEmptyDataSet
         // Initialize CouponCollectionHandler with the load coupon method
         couponCollectionHandler = CouponCollectionHandler(collectionView: collectionView, loadCouponMethod: { (page, perPage, onComplete) -> Void in
             let pagination = PaginationInfo(page: page, perPage: perPage)
-            
-            self.offersService.findOffers(usingLocation: self.coordinate, filterOptions: self.filterOptions, pagination: pagination, completion: onComplete)
+            let sensor = self.location.map { l in l.horizontalAccuracy > 0 } ?? false
+            self.offersService.findOffers(usingLocation: self.coordinate, sensor: sensor, filterOptions: self.filterOptions, pagination: pagination, completion: onComplete)
         })
         
         couponCollectionHandler!.showFooterWhenReloading = false

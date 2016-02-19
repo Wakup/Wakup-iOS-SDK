@@ -67,7 +67,8 @@ class SavedCouponsViewController: LoadingPresenterViewController, CHTCollectionV
         couponCollectionHandler = CouponCollectionHandler(collectionView: collectionView, loadCouponMethod: { (page, perPage, onComplete) -> Void in
             let savedOfferIds = self.persistenceService.getSavedOfferIds(true)
             if savedOfferIds.count > 0 {
-                self.offersService.getOfferDetails(savedOfferIds, location: self.location!.coordinate, completion: onComplete)
+                guard let location = self.location else { return }
+                self.offersService.getOfferDetails(savedOfferIds, location: location.coordinate, sensor: location.horizontalAccuracy > 0, completion: onComplete)
             }
             else {
                 self.couponCollectionHandler?.cancel()

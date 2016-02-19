@@ -33,10 +33,10 @@ class OffersService: BaseService {
         return url
     }
     
-    func findOffers(usingLocation location: CLLocationCoordinate2D, filterOptions: FilterOptions? = nil, pagination: PaginationInfo? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
+    func findOffers(usingLocation location: CLLocationCoordinate2D, sensor: Bool, filterOptions: FilterOptions? = nil, pagination: PaginationInfo? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
         
         let url = "\(offerHostUrl)offers/find"
-        let locationParameters = ["latitude": location.latitude, "longitude": location.longitude]
+        let locationParameters: [String: AnyObject] = ["latitude": location.latitude, "longitude": location.longitude, "sensor": "\(sensor)"]
         var parameters = getPaginationParams(pagination: pagination, combinedWith: locationParameters)
         parameters = getFilterParams(filter: filterOptions, combinedWith: parameters)
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
@@ -50,17 +50,17 @@ class OffersService: BaseService {
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    func findStoreOffers(nearLocation location: CLLocationCoordinate2D, radius: CLLocationDistance, filterOptions: FilterOptions? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
+    func findStoreOffers(nearLocation location: CLLocationCoordinate2D, radius: CLLocationDistance, sensor: Bool, filterOptions: FilterOptions? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
         let url = "\(offerHostUrl)offers/find"
-        var parameters: [String: AnyObject] = ["latitude": location.latitude, "longitude": location.longitude, "radiusInKm": radius / 1000, "includeOnline": false,  "perPage": 50]
+        var parameters: [String: AnyObject] = ["latitude": location.latitude, "longitude": location.longitude, "sensor": "\(sensor)", "radiusInKm": radius / 1000, "includeOnline": false,  "perPage": 50]
         parameters = getFilterParams(filter: filterOptions, combinedWith: parameters)
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    func getOfferDetails(ids: [Int], location: CLLocationCoordinate2D, completion: ([Coupon]?, ErrorType?) -> Void) {
+    func getOfferDetails(ids: [Int], location: CLLocationCoordinate2D, sensor: Bool, completion: ([Coupon]?, ErrorType?) -> Void) {
         let url = "\(offerHostUrl)offers/get"
         let idsStr = ids.map(String.init).joinWithSeparator(",")
-        let parameters: [String: AnyObject] = ["ids": idsStr, "latitude": location.latitude, "longitude": location.longitude, "includeOnline": false]
+        let parameters: [String: AnyObject] = ["ids": idsStr, "latitude": location.latitude, "longitude": location.longitude, "sensor": "\(sensor)", "includeOnline": false]
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     

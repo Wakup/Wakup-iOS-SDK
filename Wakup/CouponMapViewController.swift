@@ -115,7 +115,7 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
         self.lastRequestCenter = center
         self.loading = true
         NSLog("Requesting coupons for center %f, %f with radius %f meters", center.latitude, center.longitude, radius)
-        offersService.findStoreOffers(nearLocation: center, radius: radius, filterOptions: filterOptions, completion: { (coupons, error) -> Void in
+        offersService.findStoreOffers(nearLocation: center, radius: radius, sensor: false, filterOptions: filterOptions, completion: { (coupons, error) -> Void in
             self.loading = false
             if let error = error {
                 NSLog("Error loading coupons: \(error)")
