@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+
+## [0.3.1] - 2016-02-19
 ### Fixed
 - Fixed an issue that could cause unnecessary API requests when opening an offer
 
@@ -43,7 +46,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.1...HEAD
+[0.3.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.1.0...v0.2.0

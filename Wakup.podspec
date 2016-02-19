@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   # Meta data
   s.name         = "Wakup"
-  s.version      = "0.3.0"
+  s.version      = "0.3.1"
   s.summary      = "Wakup allows you to find offers near your location"
   s.homepage     = "http://wakup.net"
   s.license      = { :type => "MIT", :file => "LICENSE" }
