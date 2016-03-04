@@ -22,7 +22,7 @@
     WakupOptions* options = [[WakupOptions alloc] init];
     options.searchCountryCode = @"es";
     
-    [[WakupManager manager] setup:@"075f9656-6909-4e4e-a286-3ddc562a2513" options:options]; // Sample project API Key, don't use this in a production
+    [[WakupManager manager] setup:@"1223b89c-ca0b-4c40-bc87-6fce7f7d1ad7" options:options]; // Sample project API Key, don't use this in a production
     
     self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
     self.window.rootViewController = [[WakupManager manager] rootNavigationController];
