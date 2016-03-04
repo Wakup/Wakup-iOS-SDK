@@ -10,7 +10,7 @@ import UIKit
 
 class CouponDescriptionViewController: UIViewController {
 
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UITextView!
     var descriptionText: String?
     
     override func viewDidLoad() {
@@ -30,12 +30,6 @@ class CouponDescriptionViewController: UIViewController {
         super.viewWillAppear(animated)
         
         descriptionLabel?.text = descriptionText
-        
-        guard #available(iOS 8.0, *) else {
-            descriptionLabel?.preferredMaxLayoutWidth = descriptionLabel.frame.width - 10
-            descriptionLabel?.layoutIfNeeded()
-            return
-        }
     }
 
     @IBAction func actionButtonTapped(sender: AnyObject) {

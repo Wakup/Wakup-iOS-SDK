@@ -3,7 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-- No changes
+### Added
+- Added link, phone and address link detection in offer details text.
 
 ## [0.3.1] - 2016-02-19
 ### Fixed
