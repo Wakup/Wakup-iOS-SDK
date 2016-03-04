@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Added link, phone and address link detection in offer details text.
 
+### Fixed
+- 'Report offer error' button will now correctly use navigation bar tint color.
+
 ## [0.3.1] - 2016-02-19
 ### Fixed
 - Fixed an issue that could cause unnecessary API requests when opening an offer

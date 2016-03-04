@@ -63,6 +63,11 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
             guard let cell = cell as? CouponDetailCollectionViewCell else { continue }
             cell.couponCollectionHandler?.refreshControl.endRefreshing()
         }
+        
+        if let navBarTintColor = navigationController?.navigationBar.tintColor {
+            menuButton.iconColor = navBarTintColor
+            menuButton.highlightedIconColor = navBarTintColor.colorWithAlpha(0.5)
+        }
     }
     
     override func viewDidLoad() {
