@@ -8,67 +8,6 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Notification Details View Controller-->
-        <scene sceneID="yTs-Qi-osv">
-            <objects>
-                <viewController id="SMf-m5-O2K" customClass="NotificationDetailsViewController" customModule="Wakup" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Jhy-R1-wSx"/>
-                        <viewControllerLayoutGuide type="bottom" id="e4C-CX-5ah"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="20z-cT-l6a">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deY-x3-M9R">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="SMf-m5-O2K" id="PSj-PS-kWh"/>
-                                </connections>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
-                        <constraints>
-                            <constraint firstItem="deY-x3-M9R" firstAttribute="leading" secondItem="20z-cT-l6a" secondAttribute="leading" id="2Hq-Qb-UaD"/>
-                            <constraint firstItem="deY-x3-M9R" firstAttribute="top" secondItem="20z-cT-l6a" secondAttribute="top" id="Hgv-1d-kNU"/>
-                            <constraint firstItem="e4C-CX-5ah" firstAttribute="top" secondItem="deY-x3-M9R" secondAttribute="bottom" id="HxO-O1-mK8"/>
-                            <constraint firstAttribute="trailing" secondItem="deY-x3-M9R" secondAttribute="trailing" id="lee-WQ-A2B"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="FuK-4i-HMC">
-                        <nil key="title"/>
-                        <barButtonItem key="backBarButtonItem" title=" " id="dHY-uJ-6Tj"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="j4M-tn-2C4">
-                            <connections>
-                                <action selector="closeButtonTapped:" destination="SMf-m5-O2K" id="J4B-zR-8kT"/>
-                            </connections>
-                        </barButtonItem>
-                        <view key="titleView" contentMode="scaleToFill" id="5wb-nb-pJ3" customClass="NavBarIconView" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="135" y="6" width="106" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                    <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="navbar-logo"/>
-                            </userDefinedRuntimeAttributes>
-                        </view>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="gyC-y5-jed">
-                            <connections>
-                                <action selector="refreshButtonTapped:" destination="SMf-m5-O2K" id="7ye-E0-5Oy"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="webView" destination="deY-x3-M9R" id="Ri3-h3-NYd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xkn-Mg-Aej" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1041.5" y="-1149.5"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="m3n-pM-IUU">
             <objects>
@@ -1007,31 +946,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbb-2w-Obj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="779" y="1188"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wwP-nU-jRD">
-            <objects>
-                <navigationController storyboardIdentifier="notificationDetails" automaticallyAdjustsScrollViewInsets="NO" id="Vk8-cn-Tln" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Fb6-4V-4TR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
-                        <color key="barTintColor" red="0.27450980390000002" green="0.078431372550000003" blue="0.2666666667" alpha="1" colorSpace="deviceRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="SMf-m5-O2K" kind="relationship" relationship="rootViewController" id="hBs-Os-ud5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="11d-dA-1tM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="590.5" y="-1149.5"/>
         </scene>
         <!--mis ofertas-->
         <scene sceneID="3jT-ys-vc4">
