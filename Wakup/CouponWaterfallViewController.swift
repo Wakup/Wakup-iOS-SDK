@@ -257,7 +257,7 @@ import DZNEmptyDataSet
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == showDetailsSegueId) {
             let vc = segue.destinationViewController as! CouponDetailsViewController
-            vc.userLocation = location
+            vc.userLocation = couponCollectionHandler?.userLocation
             vc.coupons = couponCollectionHandler!.coupons
             vc.selectedIndex = selectedRow
             vc.onSelectionChanged = { coupon, row in

@@ -44,6 +44,7 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
     func showCompanyView(forOffer offer: Coupon) {
         if let vc = storyboard?.instantiateViewControllerWithIdentifier(CouponWaterfallViewController.storyboardId) as? CouponWaterfallViewController {
             
+            vc.forcedLocation = userLocation
             vc.filterTitle = offer.company.name
             vc.filterOptions = FilterOptions(searchTerm: nil, categories: nil, companyId: offer.company.id)
             
