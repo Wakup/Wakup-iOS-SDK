@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 - No changes
 
+## [0.3.3] - 2016-03-07
+### Fixed
+- Fixed an issue that could cause empty distance labels when navigating related results after a location search.
+
 ## [0.3.2] - 2016-03-04
 ### Added
 - Added link, phone and address link detection in offer details text.
@@ -53,7 +57,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.2...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.3...HEAD
+[0.3.3]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.2...v0.3.3
 [0.3.2]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.2.1...v0.3.0
