@@ -153,13 +153,8 @@ import DZNEmptyDataSet
         
         if let navigationController = navigationController where navigationController.presentingViewController != nil && navigationController.viewControllers.first == self && navigationItem.leftBarButtonItem == nil {
             
-            let button = CodeIconButton(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
-            button.iconFillsButton = true
-            button.iconColor = navigationController.navigationBar.tintColor
-            button.iconIdentifier = "cross"
-            button.addTarget(self, action: "dismissAction:", forControlEvents: .TouchUpInside)
-            let barButton = UIBarButtonItem(customView: button)
-            navigationItem.leftBarButtonItem = barButton
+            let closeButton = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "dismissAction:")
+            navigationItem.leftBarButtonItem = closeButton
         }
     }
     
