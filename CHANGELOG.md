@@ -3,9 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Web view controller is now public and accesible using `WakupManager`
+
 ### Changed
 - Modal close button is now the default iOS 'stop' icon instead of a custom one
-
 
 ## [0.3.3] - 2016-03-07
 ### Fixed

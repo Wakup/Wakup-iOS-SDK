@@ -644,7 +644,7 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="navbar-logo"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ora-Lo-NuL">
+                        <barButtonItem key="rightBarButtonItem" id="Ora-Lo-NuL">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="feQ-Mm-SY9" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
                                 <rect key="frame" x="279" y="9" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -764,7 +764,7 @@
         <!--Web View Controller-->
         <scene sceneID="iSb-mv-CfV">
             <objects>
-                <viewController id="4rV-lP-bwK" customClass="WebViewController" customModule="Wakup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="webViewController" id="4rV-lP-bwK" customClass="WebViewController" customModule="Wakup" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jLH-jo-a2V"/>
                         <viewControllerLayoutGuide type="bottom" id="plc-dV-h7Z"/>

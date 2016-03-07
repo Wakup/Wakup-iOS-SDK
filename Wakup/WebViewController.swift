@@ -8,40 +8,57 @@
 
 import UIKit
 
-class WebViewController: LoadingPresenterViewController, UIWebViewDelegate {
+public class WebViewController: LoadingPresenterViewController, UIWebViewDelegate {
     
-    var url: NSURL?
+    public var url: NSURL?
+    public var showRefreshButton = false
+    
+    var isModal: Bool {
+        guard let navigationController = navigationController else { return false }
+        return navigationController.presentingViewController != nil && navigationController.viewControllers.first == self
+    }
     
     @IBOutlet var webView: UIWebView!
     
-    func loadUrl(url: NSURL, animated: Bool = true) {
+    public func loadUrl(url: NSURL, animated: Bool = true) {
         self.url = url
         showLoadingView()
         webView?.loadRequest(NSURLRequest(URL: url))
     }
     
     // MARK: View lifecycle
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         setupLoadingView()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if self.presentedViewController == nil {
             if let url = self.url {
                 loadUrl(url, animated: false)
             }
         }
+        
+        // Auto-detect modal and add close button
+        if isModal && navigationItem.leftBarButtonItem == nil {
+            let closeButton = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "dismissAction:")
+            navigationItem.leftBarButtonItem = closeButton
+        }
+        
+        if showRefreshButton && navigationItem.rightBarButtonItem == nil {
+            let refreshButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "refreshAction:")
+            navigationItem.rightBarButtonItem = refreshButton
+        }
     }
     
-    func openInSafari() -> Bool {
+    public func openInSafari() -> Bool {
         guard let url = url else { return false }
         return UIApplication.sharedApplication().openURL(url)
     }
     
-    func closeController(animated: Bool = true) {
+    public func closeController(animated: Bool = true) {
         if let navigationController = navigationController {
             navigationController.popViewControllerAnimated(animated)
         }
@@ -50,14 +67,23 @@ class WebViewController: LoadingPresenterViewController, UIWebViewDelegate {
         }
     }
     
+    // MARK: Actions
+    func dismissAction(sender: NSObject!) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func refreshAction(sender: NSObject!) {
+        webView.reload()
+    }
+    
     // MARK: UIWebViewDelegate
-    func webViewDidStartLoad(webView: UIWebView) {
+    public func webViewDidStartLoad(webView: UIWebView) {
         showLoadingView()
     }
-    func webViewDidFinishLoad(webView: UIWebView) {
+    public func webViewDidFinishLoad(webView: UIWebView) {
         dismissLoadingView()
     }
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+    public func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         dismissLoadingView()
         
         guard let error = error else { return }

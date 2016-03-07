@@ -14,7 +14,7 @@ protocol LoadingViewProtocol {
     func dismissLoadingView(animated animated: Bool, completion: (() -> Void)?)
 }
 
-class LoadingPresenterViewController: UIViewController, LoadingViewProtocol {
+public class LoadingPresenterViewController: UIViewController, LoadingViewProtocol {
     var showingLoadingView = false
     
     var loadingController: UIViewController?
@@ -25,14 +25,14 @@ class LoadingPresenterViewController: UIViewController, LoadingViewProtocol {
         loadingController = self.storyboard?.instantiateViewControllerWithIdentifier("loadingViewController")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if loading {
             showLoadingView(animated: true)
         }
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    public override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         self.loadingController?.view.removeFromSuperview()
         showingLoadingView = false

@@ -32,6 +32,10 @@ public class WakupManager: NSObject {
     public func rootController() -> UIViewController! {
         return storyboard.instantiateViewControllerWithIdentifier("couponWaterfall")
     }
+    
+    public func webViewController() -> WebViewController! {
+        return storyboard.instantiateViewControllerWithIdentifier("webViewController") as? WebViewController
+    }
 }
 
 import CoreLocation
