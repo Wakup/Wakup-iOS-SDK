@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+
+## [0.3.4] - 2016-03-07
 ### Added
 - Web view controller is now public and accesible using `WakupManager`
 
@@ -61,7 +64,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.3...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.4...HEAD
+[0.3.4]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.3...v0.3.4
 [0.3.3]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.2...v0.3.3
 [0.3.2]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.0...v0.3.1
