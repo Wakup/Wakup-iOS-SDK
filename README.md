@@ -291,6 +291,45 @@ CouponAnnotationView.appearance().shoppingCategoryColor = shoppingCategoryColor
 
 Most fonts of the Wakup views can be customized using the same `UIAppearance` proxies that are used for color customization. Take into account that font size has to be explicitly specified and some labels have minimum font scale to avoid word clipping.
 
+This example shows how to replace most of the application fonts with the [Aller family](http://www.fontsquirrel.com/fonts/aller) fonts:
+
+~~~swift
+// Navigation bar
+UINavigationBar.appearance().titleTextAttributes = [
+    NSFontAttributeName: UIFont(name: "Aller", size: 18)!
+]
+
+// Top menu and search bar
+TopMenuButton.appearance().titleFont = UIFont(name: "Aller-Light", size: 14)
+SearchFilterButton.appearance().titleFont = UIFont(name: "Aller", size: 10)
+
+// Collection view cells
+CouponCollectionViewCell.appearance().storeNameFont = UIFont(name: "Aller-Bold", size: 17)
+CouponCollectionViewCell.appearance().descriptionTextFont = UIFont(name: "Aller-Italic", size: 15)
+CouponCollectionViewCell.appearance().distanceFont = UIFont(name: "Aller-Italic", size: 11)
+CouponCollectionViewCell.appearance().expirationFont = UIFont(name: "Aller-Italic", size: 11)
+DiscountTagView.appearance().labelFont = UIFont(name: "AllerDisplay", size: 17)
+
+// Offer details
+CouponActionButton.appearance().titleFont = UIFont(name: "Aller", size: 10)
+CouponDetailHeaderView.appearance().companyNameFont = UIFont(name: "Aller", size: 18)
+CouponDetailHeaderView.appearance().storeAddressFont = UIFont(name: "Aller-LightItalic", size: 14)
+CouponDetailHeaderView.appearance().storeDistanceFont = UIFont(name: "Aller-Italic", size: 11)
+CouponDetailHeaderView.appearance().couponNameFont = UIFont(name: "Aller", size: 19)
+CouponDetailHeaderView.appearance().couponDescriptionFont = UIFont(name: "Aller", size: 14)
+CouponDetailHeaderView.appearance().expirationFont = UIFont(name: "Aller-Italic", size: 13)
+
+if #available(iOS 9.0, *) {
+    let headerTitle = UILabel.appearanceWhenContainedInInstancesOfClasses([UITableViewHeaderFooterView.self])
+    headerTitle.font = UIFont(name: "Aller", size: 16)
+    
+    let searchBarTextField = UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self])
+    searchBarTextField.defaultTextAttributes = [
+        NSFontAttributeName: UIFont(name: "Aller", size: 14)!
+    ]
+}
+~~~
+
 
 ### Customize icons
 
