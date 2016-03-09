@@ -404,6 +404,11 @@ class CustomIconLibrary: DefaultIconLibrary {
 
 Then, when setting up `WakupManager`, set the `iconLibrary` property of `WakupOptions` to an instance of your new `CustomIconLibrary` (or the name you just gave it):
 
+~~~swift
+let wakupOptions = WakupOptions()
+wakupOptions.iconLibrary = CustomIconLibrary()
+WakupManager.manager.setup("YOUR_API_TOKEN_HERE", options: wakupOptions)
+~~~
 
 Run the App and you'll see your new icon, pixel perfect regardless the size and colored as you wish:
 
