@@ -3,8 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+
+## [0.3.5] - 2016-03-11
 ### Fixed
-- Fixed issue that caused to show as expired offers that expire today.
+- Fixed issue that shown offers that expire today as already expired.
 
 ## [0.3.4] - 2016-03-07
 ### Added
@@ -65,7 +68,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.4...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.5...HEAD
+[0.3.5]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.4...v0.3.5
 [0.3.4]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.3...v0.3.4
 [0.3.3]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.2...v0.3.3
 [0.3.2]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.1...v0.3.2
