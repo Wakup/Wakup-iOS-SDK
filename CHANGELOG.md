@@ -3,7 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-- No changes
+### Fixed
+- Fixed issue that caused to show as expired offers that expire today.
 
 ## [0.3.4] - 2016-03-07
 ### Added

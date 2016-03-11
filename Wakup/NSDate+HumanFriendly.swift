@@ -10,7 +10,7 @@ import Foundation
 
 extension NSDate {
     func humanFriendlyDate() -> String {
-        switch (self.timeIntervalSinceNow, dateComponents()) {
+        switch (self.timeIntervalSinceDate(NSDate().atBeginningOfDay()), dateComponents()) {
         case (let i, _) where i < 0: return "Expired".i18n()
         case (_, (0, 0, 0)): return "ExpiresToday".i18n()
         case (_, (0, 0, 1)): return "ExpiresTomorrow".i18n()
@@ -26,9 +26,15 @@ extension NSDate {
     
     func dateComponents() -> (Int, Int, Int) {
         let calendar = NSCalendar.currentCalendar()
-        let now = NSDate()
-        let components = calendar.components([NSCalendarUnit.NSYearCalendarUnit, NSCalendarUnit.NSMonthCalendarUnit, NSCalendarUnit.NSDayCalendarUnit], fromDate: now, toDate: self, options: NSCalendarOptions(rawValue: 0))
+        let today = NSDate().atBeginningOfDay()
+        let components = calendar.components([.Year, .Month, .Day], fromDate: today, toDate: self, options: [])
         
         return (components.year, components.month, components.day)
+    }
+    
+    func atBeginningOfDay() -> NSDate {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Year, .Month, .Day], fromDate: self)
+        return calendar.dateFromComponents(components)!
     }
 }
