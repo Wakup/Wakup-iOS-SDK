@@ -152,6 +152,7 @@
 		695F7C491C3EC44700D61415 /* SearchFilterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilterButton.swift; sourceTree = "<group>"; };
 		695F7C4B1C3ED51000D61415 /* CouponAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponAnnotationView.swift; sourceTree = "<group>"; };
 		6986D6871C3A864B00C46531 /* DefaultIconLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultIconLibrary.swift; sourceTree = "<group>"; };
+		69966C4A1CE2191E001AB97F /* Madrid.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Madrid.gpx; sourceTree = "<group>"; };
 		69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitionAnimator.swift; sourceTree = "<group>"; };
 		69D999D01C22E635000892B1 /* ImageZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -252,6 +253,7 @@
 				69EA21891C24680600B8EE30 /* Wakup.strings */,
 				69144AD71C207FD500258FF5 /* Wakup.h */,
 				69144AD91C207FD500258FF5 /* Info.plist */,
+				69966C4A1CE2191E001AB97F /* Madrid.gpx */,
 			);
 			path = Wakup;
 			sourceTree = "<group>";
