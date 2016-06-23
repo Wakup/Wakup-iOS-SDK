@@ -97,6 +97,8 @@
 		69D99A261C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A241C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift */; };
 		69D99A461C232D4E000892B1 /* WakupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A451C232D4E000892B1 /* WakupManager.swift */; };
 		69D99A481C2331D1000892B1 /* Wakup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D99A471C2331D1000892B1 /* Wakup.storyboard */; };
+		69E3BE1A1D1AEC1C0005E817 /* RedemptionCodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E3BE191D1AEC1C0005E817 /* RedemptionCodeInfo.swift */; };
+		69E3BE1C1D1AEC330005E817 /* RedemptionCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E3BE1B1D1AEC330005E817 /* RedemptionCode.swift */; };
 		69EA218A1C24680600B8EE30 /* Wakup.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69EA21891C24680600B8EE30 /* Wakup.strings */; };
 		69F485BC1C3FE47A006BCDE5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F485BB1C3FE47A006BCDE5 /* SearchResultCell.swift */; };
 /* End PBXBuildFile section */
@@ -195,6 +197,8 @@
 		69D99A241C2300CE000892B1 /* CLLocationCoordinate2D+ToLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+ToLocation.swift"; sourceTree = "<group>"; };
 		69D99A451C232D4E000892B1 /* WakupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakupManager.swift; sourceTree = "<group>"; };
 		69D99A471C2331D1000892B1 /* Wakup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wakup.storyboard; sourceTree = "<group>"; };
+		69E3BE191D1AEC1C0005E817 /* RedemptionCodeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedemptionCodeInfo.swift; sourceTree = "<group>"; };
+		69E3BE1B1D1AEC330005E817 /* RedemptionCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedemptionCode.swift; sourceTree = "<group>"; };
 		69EA21891C24680600B8EE30 /* Wakup.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Wakup.strings; sourceTree = "<group>"; };
 		69F485BB1C3FE47A006BCDE5 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		8CE424B5B7919A87214842F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 				695D7A451C21B66F0083132B /* Company.swift */,
 				695D7A421C21B66F0083132B /* Coupon.swift */,
 				695D7A431C21B66F0083132B /* CouponImage.swift */,
+				69E3BE1B1D1AEC330005E817 /* RedemptionCode.swift */,
+				69E3BE191D1AEC1C0005E817 /* RedemptionCodeInfo.swift */,
 				695D7A481C21B66F0083132B /* SearchHistory.swift */,
 				695D7A461C21B66F0083132B /* SearchResult.swift */,
 				695D7A441C21B66F0083132B /* Store.swift */,
@@ -603,6 +609,7 @@
 				695D7A831C21DB200083132B /* StyleKit.swift in Sources */,
 				69D999E91C22F6A4000892B1 /* TopMenuView.swift in Sources */,
 				695D7A4A1C21B66F0083132B /* CouponImage.swift in Sources */,
+				69E3BE1C1D1AEC330005E817 /* RedemptionCode.swift in Sources */,
 				695D7A691C21BEE50083132B /* SyncUtils.swift in Sources */,
 				69431BB01C3BF68C00A42139 /* NavBarIconView.swift in Sources */,
 				695D7A4C1C21B66F0083132B /* Company.swift in Sources */,
@@ -614,6 +621,7 @@
 				69D99A001C22FDC8000892B1 /* UIViewController+CouponUtils.swift in Sources */,
 				695D7A641C21BEE50083132B /* Fmap.swift in Sources */,
 				69D999D71C22F668000892B1 /* UIView+Layout.swift in Sources */,
+				69E3BE1A1D1AEC1C0005E817 /* RedemptionCodeInfo.swift in Sources */,
 				6986D6881C3A864B00C46531 /* DefaultIconLibrary.swift in Sources */,
 				695F7C4A1C3EC44700D61415 /* SearchFilterButton.swift in Sources */,
 				69D999E71C22F6A4000892B1 /* LoadingFooterView.swift in Sources */,

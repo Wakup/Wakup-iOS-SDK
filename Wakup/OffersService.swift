@@ -33,6 +33,11 @@ class OffersService: BaseService {
         return url
     }
     
+    func redemptionCodeImageUrl(offerId: Int, format: String, width: Int, height: Int) -> String? {
+        guard let userToken = UserService.sharedInstance.userToken else { return .None }
+        return "\(offerHostUrl)offers/\(offerId)/code/\(format)/\(width)/\(height)?userToken=\(userToken)"
+    }
+    
     func findOffers(usingLocation location: CLLocationCoordinate2D, sensor: Bool, filterOptions: FilterOptions? = nil, pagination: PaginationInfo? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
         
         let url = "\(offerHostUrl)offers/find"
@@ -64,6 +69,14 @@ class OffersService: BaseService {
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
+    func getRedemptionCode(forOffer offer: Coupon, completion: (RedemptionCode?, ErrorType?) -> Void) {
+        let url = "\(offerHostUrl)offers/\(offer.id)/code"
+        createRequest(.GET, url) { (json, error) in
+            let redemptionCode = json.flatMap { self.parseRedemptionCode(json: $0) }
+            completion(redemptionCode, error)
+        }
+    }
+    
     func reportErrorUrl(forOffer offer: Coupon) -> String {
         let url = "\(offerHostUrl)offers/\(offer.id)/report"
         if let store = offer.store {
@@ -73,6 +86,13 @@ class OffersService: BaseService {
     }
     
     private func getOffersFromURL(url url: String, parameters: [String: AnyObject]? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
+        createRequest(.GET, url, parameters: parameters) { (json, error) in
+            let coupons = json.map { $0.arrayValue.map { json in self.parseCoupon(json: json) } }
+            completion(coupons, error)
+        }
+    }
+    
+    private func createRequest(method: Alamofire.Method, _ url: URLStringConvertible, parameters: [String: AnyObject]? = nil, completion: (JSON?, ErrorType?) -> Void) {
         UserService.sharedInstance.fetchUserToken { (userToken, error) in
             guard let userToken = userToken else {
                 completion(nil, error!)
@@ -80,7 +100,7 @@ class OffersService: BaseService {
             }
             
             NetworkActivityIndicatorManager.sharedInstance.startActivity()
-            let r = request(.GET, url, parameters: parameters, headers: self.userHeaders(userToken)).validate().responseSwiftyJSON({ (req, res, result, error) -> Void in
+            let r = request(method, url, parameters: parameters, headers: self.userHeaders(userToken)).validate().responseSwiftyJSON({ (req, res, result, error) -> Void in
                 NetworkActivityIndicatorManager.sharedInstance.endActivity()
                 if let error = error {
                     print("Error in request with URL \(req.URLString): \(error)")
@@ -88,11 +108,10 @@ class OffersService: BaseService {
                 }
                 else  {
                     NSLog("Success %@: %@)", req.URLString, result.rawString()!)
-                    let coupons = result.arrayValue.map { json in self.parseCoupon(json: json) }
-                    completion(coupons, nil)
+                    completion(result, nil)
                 }
             })
-            NSLog("Requesting offers with URL: %@", r.request!.URLString)
+            NSLog("Creating request with URL: %@", r.request!.URLString)
         }
     }
     
@@ -162,6 +181,14 @@ class OffersService: BaseService {
         return Store(id: id, name: name, address: address, latitude: latitude, longitude: longitude)
     }
     
+    private func parseRedemptionCodeInfo(json json: JSON) -> RedemptionCodeInfo? {
+        if (json.type == .Null) { return .None }
+        let totalCodes = json["totalCodes"].int
+        let availableCodes = json["availableCodes"].int
+        let limited = json["limited"].boolValue
+        return RedemptionCodeInfo(limited: limited, totalCodes: totalCodes, availableCodes: availableCodes)
+    }
+    
     private func parseCoupon(json json: JSON) -> Coupon {
         let id = json["id"].intValue
         let shortText = json["shortOffer"].stringValue
@@ -175,8 +202,16 @@ class OffersService: BaseService {
         let image = parseImage(json: json["image"])
         let store = parseStore(json: json["store"])
         let company = parseCompany(json: json["company"])
+        let redemptionCodeInfo = parseRedemptionCodeInfo(json: json["redemptionCode"])
         
-        return Coupon(id: id, shortText: shortText, shortDescription: shortDescription, description: description, category: category, online: online, link: link, expirationDate: expirationDate, thumbnail: thumbnail, image: image, store: store, company: company)
+        return Coupon(id: id, shortText: shortText, shortDescription: shortDescription, description: description, category: category, online: online, link: link, expirationDate: expirationDate, thumbnail: thumbnail, image: image, store: store, company: company, redemptionCode: redemptionCodeInfo)
+    }
+    
+    private func parseRedemptionCode(json json: JSON) -> RedemptionCode? {
+        if (json.type == .Null) { return .None }
+        let code = json["code"].stringValue
+        let formats = json["formats"].array?.map { $0.stringValue } ?? []
+        return RedemptionCode(code: code, formats: formats)
     }
     
     private func parseCategory(categoryId categoryId: String) -> Category {
