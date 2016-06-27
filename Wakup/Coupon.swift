@@ -8,34 +8,26 @@
 
 import Foundation
 
-enum Category {
-    case Restaurant
-    case Leisure
-    case Shopping
-    case Services
-    case Other
-}
-
-class Coupon: Equatable {
-    let id: Int
-    let shortText: String
-    let shortDescription: String
-    let description: String
-    let expirationDate: NSDate?
-    let thumbnail, image: CouponImage?
-    let category: Category
-    let store: Store?
-    let company: Company
-    let online: Bool
-    let link: NSURL?
-    let redemptionCode: RedemptionCodeInfo?
+public class Coupon: Equatable {
+    public let id: Int
+    public let shortText: String
+    public let shortDescription: String
+    public let description: String
+    public let tags: [String]
+    public let expirationDate: NSDate?
+    public let thumbnail, image: CouponImage?
+    public let store: Store?
+    public let company: Company
+    public let online: Bool
+    public let link: NSURL?
+    public let redemptionCode: RedemptionCodeInfo?
     
-    init(id: Int, shortText: String, shortDescription: String, description: String, category: Category, online: Bool, link: NSURL?, expirationDate: NSDate?, thumbnail: CouponImage?, image: CouponImage?, store: Store?, company: Company, redemptionCode: RedemptionCodeInfo?) {
+    public init(id: Int, shortText: String, shortDescription: String, description: String, tags: [String], online: Bool, link: NSURL?, expirationDate: NSDate?, thumbnail: CouponImage?, image: CouponImage?, store: Store?, company: Company, redemptionCode: RedemptionCodeInfo?) {
         self.id = id
         self.shortText = shortText
         self.shortDescription = shortDescription
         self.description = description
-        self.category = category
+        self.tags = tags
         self.online = online
         self.link = link
         self.expirationDate = expirationDate
@@ -47,6 +39,6 @@ class Coupon: Equatable {
     }
 }
 
-func ==(lhs: Coupon, rhs: Coupon) -> Bool {
+public func ==(lhs: Coupon, rhs: Coupon) -> Bool {
     return lhs.id == rhs.id
 }

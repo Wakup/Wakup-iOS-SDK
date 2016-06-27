@@ -194,7 +194,7 @@ class OffersService: BaseService {
         let shortText = json["shortOffer"].stringValue
         let shortDescription = json["shortDescription"].stringValue
         let description = json["description"].stringValue
-        let category = parseCategory(categoryId: json["category"].stringValue)
+        let tags = json["tags"].arrayValue.map { $0.stringValue }
         let online = json["isOnline"].boolValue
         let link = json["link"].URL
         let expirationDate: NSDate? = json["expirationDate"].string.map { self.parseDate(string: $0) } ?? .None
@@ -204,7 +204,7 @@ class OffersService: BaseService {
         let company = parseCompany(json: json["company"])
         let redemptionCodeInfo = parseRedemptionCodeInfo(json: json["redemptionCode"])
         
-        return Coupon(id: id, shortText: shortText, shortDescription: shortDescription, description: description, category: category, online: online, link: link, expirationDate: expirationDate, thumbnail: thumbnail, image: image, store: store, company: company, redemptionCode: redemptionCodeInfo)
+        return Coupon(id: id, shortText: shortText, shortDescription: shortDescription, description: description, tags: tags, online: online, link: link, expirationDate: expirationDate, thumbnail: thumbnail, image: image, store: store, company: company, redemptionCode: redemptionCodeInfo)
     }
     
     private func parseRedemptionCode(json json: JSON) -> RedemptionCode? {
@@ -213,14 +213,5 @@ class OffersService: BaseService {
         let formats = json["formats"].array?.map { $0.stringValue } ?? []
         return RedemptionCode(code: code, formats: formats)
     }
-    
-    private func parseCategory(categoryId categoryId: String) -> Category {
-        switch categoryId {
-        case "restaurants": return Category.Restaurant
-        case "leisure": return Category.Leisure
-        case "services": return Category.Services
-        case "shopping": return Category.Shopping
-        default: return Category.Other
-        }
-    }
+
 }
