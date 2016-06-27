@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Store {
-    let id: Int
-    let name: String?
-    let address: String?
-    let latitude, longitude: Float?
+public class Store {
+    public let id: Int
+    public let name: String?
+    public let address: String?
+    public let latitude, longitude: Float?
     
-    init(id: Int, name: String?, address: String?, latitude: Float?, longitude: Float?) {
+    public init(id: Int, name: String?, address: String?, latitude: Float?, longitude: Float?) {
         self.id = id
         self.name = name
         self.address = address

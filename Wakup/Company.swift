@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Company {
-    let id: Int
-    let name: String
-    let logo: CouponImage?
+public class Company {
+    public let id: Int
+    public let name: String
+    public let logo: CouponImage?
     
-    init(id: Int, name: String, logo: CouponImage?) {
+    public init(id: Int, name: String, logo: CouponImage?) {
         self.id = id
         self.name = name
         self.logo = logo
