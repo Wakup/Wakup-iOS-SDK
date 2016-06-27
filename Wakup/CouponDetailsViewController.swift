@@ -29,27 +29,25 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
     func showDescription(forOffer offer: Coupon) {
         let presenter = self.navigationController ?? self
         
-        if let vc = storyboard?.instantiateViewControllerWithIdentifier("couponDescription") as? CouponDescriptionViewController {
+        guard let vc = storyboard?.instantiateViewControllerWithIdentifier("couponDescription") as? CouponDescriptionViewController else { return }
         
-            vc.descriptionText = offer.description
-            
-            presenter.modalPresentationStyle = .CurrentContext;
-            if #available(iOS 8.0, *) {
-                vc.modalPresentationStyle = .OverFullScreen
-            }
-            presenter.presentViewController(vc, animated: true, completion: nil)
+        vc.descriptionText = offer.description
+        
+        presenter.modalPresentationStyle = .CurrentContext;
+        if #available(iOS 8.0, *) {
+            vc.modalPresentationStyle = .OverFullScreen
         }
+        presenter.presentViewController(vc, animated: true, completion: nil)
     }
     
     func showCompanyView(forOffer offer: Coupon) {
-        if let vc = storyboard?.instantiateViewControllerWithIdentifier(CouponWaterfallViewController.storyboardId) as? CouponWaterfallViewController {
+        guard let vc = storyboard?.instantiateViewControllerWithIdentifier(CouponWaterfallViewController.storyboardId) as? CouponWaterfallViewController else { return }
             
-            vc.forcedLocation = userLocation
-            vc.filterTitle = offer.company.name
-            vc.filterOptions = FilterOptions(searchTerm: nil, categories: nil, companyId: offer.company.id)
-            
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        vc.forcedLocation = userLocation
+        vc.filterTitle = offer.company.name
+        vc.filterOptions = FilterOptions(searchTerm: nil, categories: nil, companyId: offer.company.id)
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: View lifecycle
