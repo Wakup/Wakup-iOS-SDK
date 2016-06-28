@@ -10,10 +10,12 @@ import Foundation
 
 class RedemptionCode {
     let code: String
+    let displayCode: String
     let formats: [String]
     
-    init(code: String, formats: [String]) {
+    init(code: String, displayCode: String, formats: [String]) {
         self.code = code
+        self.displayCode = displayCode
         self.formats = formats
     }
 }

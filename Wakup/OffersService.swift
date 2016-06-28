@@ -210,8 +210,9 @@ class OffersService: BaseService {
     private func parseRedemptionCode(json json: JSON) -> RedemptionCode? {
         if (json.type == .Null) { return .None }
         let code = json["code"].stringValue
+        let displayCode = json["displayCode"].stringValue
         let formats = json["formats"].array?.map { $0.stringValue } ?? []
-        return RedemptionCode(code: code, formats: formats)
+        return RedemptionCode(code: code, displayCode: displayCode, formats: formats)
     }
 
 }
