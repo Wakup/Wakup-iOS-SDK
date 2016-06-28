@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -484,6 +484,13 @@
                                 <action selector="shareButtonTapped:" destination="pzf-Sc-kNF" eventType="touchUpInside" id="q4B-ab-AMd"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqe-nm-K62">
+                            <rect key="frame" x="186" y="62" width="46" height="30"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="codeButtonTapped:" destination="pzf-Sc-kNF" eventType="touchUpInside" id="YAL-PO-n0D"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -569,6 +576,7 @@
                 <outlet property="distanceIconView" destination="4LU-fb-cxZ" id="N59-dM-15Z"/>
                 <outlet property="expirationIconView" destination="Oo4-GF-23H" id="YA4-YA-d4Z"/>
                 <outlet property="logoImageView" destination="Vwo-ky-dUd" id="NKi-ty-WPM"/>
+                <outlet property="redemptionCodeButton" destination="Hqe-nm-K62" id="zDG-91-0Co"/>
                 <outlet property="saveButton" destination="281-uz-Yx1" id="k6p-PK-WeK"/>
                 <outlet property="shareButton" destination="SzU-Wf-0z5" id="HdJ-tD-pFb"/>
                 <outlet property="shortTextLabel" destination="S2A-2E-SwX" id="rGP-rr-AIj"/>

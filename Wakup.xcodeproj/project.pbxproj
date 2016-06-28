@@ -99,6 +99,7 @@
 		69D99A481C2331D1000892B1 /* Wakup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D99A471C2331D1000892B1 /* Wakup.storyboard */; };
 		69E3BE1A1D1AEC1C0005E817 /* RedemptionCodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E3BE191D1AEC1C0005E817 /* RedemptionCodeInfo.swift */; };
 		69E3BE1C1D1AEC330005E817 /* RedemptionCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E3BE1B1D1AEC330005E817 /* RedemptionCode.swift */; };
+		69E6C1C51D21916C0051FDE0 /* RedemptionCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E6C1C41D21916C0051FDE0 /* RedemptionCodeViewController.swift */; };
 		69EA218A1C24680600B8EE30 /* Wakup.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69EA21891C24680600B8EE30 /* Wakup.strings */; };
 		69F485BC1C3FE47A006BCDE5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F485BB1C3FE47A006BCDE5 /* SearchResultCell.swift */; };
 /* End PBXBuildFile section */
@@ -199,6 +200,7 @@
 		69D99A471C2331D1000892B1 /* Wakup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wakup.storyboard; sourceTree = "<group>"; };
 		69E3BE191D1AEC1C0005E817 /* RedemptionCodeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedemptionCodeInfo.swift; sourceTree = "<group>"; };
 		69E3BE1B1D1AEC330005E817 /* RedemptionCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedemptionCode.swift; sourceTree = "<group>"; };
+		69E6C1C41D21916C0051FDE0 /* RedemptionCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedemptionCodeViewController.swift; sourceTree = "<group>"; };
 		69EA21891C24680600B8EE30 /* Wakup.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Wakup.strings; sourceTree = "<group>"; };
 		69F485BB1C3FE47A006BCDE5 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		8CE424B5B7919A87214842F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -408,15 +410,16 @@
 		69D99A021C22FE48000892B1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				69D99A031C22FE59000892B1 /* SearchViewController.swift */,
 				69D99A041C22FE59000892B1 /* CouponWaterfallViewController.swift */,
 				69D99A051C22FE59000892B1 /* CouponDetailsViewController.swift */,
 				69D99A061C22FE59000892B1 /* CouponMapViewController.swift */,
 				69D99A071C22FE59000892B1 /* CouponDescriptionViewController.swift */,
 				69D99A081C22FE59000892B1 /* LoadingViewController.swift */,
-				69D99A091C22FE59000892B1 /* SavedCouponsViewController.swift */,
-				69D99A0A1C22FE59000892B1 /* WebViewController.swift */,
 				69D99A0B1C22FE59000892B1 /* LoadingPresenterViewController.swift */,
+				69E6C1C41D21916C0051FDE0 /* RedemptionCodeViewController.swift */,
+				69D99A091C22FE59000892B1 /* SavedCouponsViewController.swift */,
+				69D99A031C22FE59000892B1 /* SearchViewController.swift */,
+				69D99A0A1C22FE59000892B1 /* WebViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				695F7C4C1C3ED51000D61415 /* CouponAnnotationView.swift in Sources */,
 				695D7A4F1C21B66F0083132B /* SearchHistory.swift in Sources */,
 				69D99A101C22FE59000892B1 /* CouponMapViewController.swift in Sources */,
+				69E6C1C51D21916C0051FDE0 /* RedemptionCodeViewController.swift in Sources */,
 				694C68281C7358100062C730 /* Diagnostics.swift in Sources */,
 				694C68241C73328A0062C730 /* UserService.swift in Sources */,
 				695D7A551C21BDB10083132B /* OffersService.swift in Sources */,

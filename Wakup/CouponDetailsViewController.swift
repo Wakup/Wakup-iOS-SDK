@@ -50,6 +50,19 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func showRedemptionCode(code: RedemptionCode, forOffer offer: Coupon) {
+        guard let vc = storyboard?.instantiateViewControllerWithIdentifier("redemptionCode") as? RedemptionCodeViewController else { return }
+        vc.offer = offer
+        vc.redemptionCode = code
+        
+        let presenter = self.navigationController ?? self
+        presenter.modalPresentationStyle = .CurrentContext;
+        if #available(iOS 8.0, *) {
+            vc.modalPresentationStyle = .OverFullScreen
+        }
+        presenter.presentViewController(vc, animated: true, completion: nil)
+    }
+    
     // MARK: View lifecycle
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -111,17 +124,31 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
             }
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }
-        cell.showMapDelegate = { cell, coupon in
-            self.showMap(forOffer: coupon)
+        cell.showMapDelegate = { cell, offer in
+            self.showMap(forOffer: offer)
         }
-        cell.shareDelegate = { cell, coupon in
-            self.shareCoupon(coupon)
+        cell.shareDelegate = { cell, offer in
+            self.shareCoupon(offer)
         }
-        cell.showDescriptionDelegate = { cell, coupon in
-            self.showDescription(forOffer: coupon)
+        cell.showDescriptionDelegate = { cell, offer in
+            self.showDescription(forOffer: offer)
         }
-        cell.showCompanyDelegate = { cell, coupon in
-            self.showCompanyView(forOffer: coupon)
+        cell.showCompanyDelegate = { cell, offer in
+            self.showCompanyView(forOffer: offer)
+        }
+        cell.showRedemptionCodeDelegate = { [unowned self] cell, offer in
+            self.showLoadingView(animated: true)
+            OffersService.sharedInstance.getRedemptionCode(forOffer: offer) { (code, error) in
+                self.dismissLoadingView(animated: false)
+                if let code = code {
+                    self.showRedemptionCode(code, forOffer: offer)
+                }
+                else {
+                    let msg = (error as? NSError)?.localizedDescription ?? "ErrorGettingRedemptionCodeMsg".i18n()
+                    UIAlertView(title: "ErrorGettingRedemptionCodeTitle".i18n(), message: msg, delegate: nil, cancelButtonTitle: "CloseDialogButton".i18n()).show()
+                }
+                
+            }
         }
         return cell;
     }

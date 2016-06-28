@@ -15,6 +15,7 @@ enum HeaderViewAction {
     case Share
     case ShowDescription
     case ShowCompany
+    case ShowCode
 }
 
 protocol CouponDetailHeaderViewDelegate {
@@ -55,6 +56,8 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     @IBOutlet weak var showInMapButton: CodeIconButton!
     @IBOutlet weak var saveButton: CodeIconButton!
     @IBOutlet weak var shareButton: CodeIconButton!
+    @IBOutlet weak var showCodeButton: CodeIconButton!
+    @IBOutlet weak var redemptionCodeButton: UIButton!
     @IBOutlet weak var companyButton: UIButton!
     @IBOutlet weak var companyDisclosureIconView: CodeIconView!
     @IBOutlet weak var distanceIconView: CodeIconView!
@@ -198,4 +201,8 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     @IBAction func companyButtonTapped(sender: AnyObject) {
         delegate?.headerViewDidSelectAction(.ShowCompany, headerView: self)
     }
+    @IBAction func codeButtonTapped(sender: AnyObject) {
+        delegate?.headerViewDidSelectAction(.ShowCode, headerView: self)
+    }
+    
 }
