@@ -8,13 +8,13 @@
 
 import Foundation
 
-class RedemptionCodeViewController: UIViewController, UIScrollViewDelegate {
+class RedemptionCodeViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegate {
     
     var redemptionCode: RedemptionCode!
     var offer: Coupon!
     
     // MARK: IBOutlets
-    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var codeField: UITextField!
     @IBOutlet weak var imagesScrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
@@ -23,8 +23,10 @@ class RedemptionCodeViewController: UIViewController, UIScrollViewDelegate {
     // MARK: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        codeLabel.text = redemptionCode.displayCode
+        codeField.text = redemptionCode.displayCode
+        codeField.inputView = UIView(frame: CGRectZero) // Disable keyboard
         pageControl.numberOfPages = redemptionCode.formats.count
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -66,7 +68,7 @@ class RedemptionCodeViewController: UIViewController, UIScrollViewDelegate {
     
     
     // MARK: IBActions
-    func actionButtonTapped(sender: UIButton) {
+    @IBAction func actionButtonTapped(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -74,5 +76,16 @@ class RedemptionCodeViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let page = Int(0.5 + scrollView.contentOffset.x / scrollView.frame.width)
         pageControl.currentPage = page
+    }
+    
+    // MARK: UITextFieldDelegate
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        return false
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        delay(0) {
+            textField.selectAll(self)
+        }
     }
 }
