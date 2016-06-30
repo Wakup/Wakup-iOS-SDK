@@ -48,6 +48,7 @@ public class DefaultIconLibrary: IconLibrary {
         case "flag": return (StyleKit.drawFlagIcon, 57/70)
         case "document-copy": return (StyleKit.drawDocumentCopyIcon, 52/63)
         case "add-clipboard": return (StyleKit.drawAddClipboardIcon, 49/68)
+        case "barcode": return (StyleKit.drawBarcodeIcon, 46/31)
         default: return ({ f, c in }, 1)
         }
     }
