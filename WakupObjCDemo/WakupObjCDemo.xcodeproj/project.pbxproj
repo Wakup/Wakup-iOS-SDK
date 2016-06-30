@@ -11,7 +11,7 @@
 		6956603C1C722BD80067918C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956603B1C722BD80067918C /* AppDelegate.m */; };
 		695660441C722BD80067918C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 695660431C722BD80067918C /* Assets.xcassets */; };
 		695660471C722BD80067918C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695660451C722BD80067918C /* LaunchScreen.storyboard */; };
-		FB631E43F3EB558FC32BA7E4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7192774BAC0FC51211A6149D /* Pods.framework */; };
+		D61BDF20FCE6282F11E997F7 /* Pods_WakupObjCDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF3D9ECE03E7AD5275F9412 /* Pods_WakupObjCDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +25,9 @@
 		695660481C722BD80067918C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7192774BAC0FC51211A6149D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C9E94920989E655BB8D355 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9FC3927FD578ADF471589365 /* Pods-WakupObjCDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WakupObjCDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WakupObjCDemo/Pods-WakupObjCDemo.release.xcconfig"; sourceTree = "<group>"; };
+		BAF3D9ECE03E7AD5275F9412 /* Pods_WakupObjCDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WakupObjCDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE322B1B576226D74194C484 /* Pods-WakupObjCDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WakupObjCDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WakupObjCDemo/Pods-WakupObjCDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB631E43F3EB558FC32BA7E4 /* Pods.framework in Frameworks */,
+				D61BDF20FCE6282F11E997F7 /* Pods_WakupObjCDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				7192774BAC0FC51211A6149D /* Pods.framework */,
+				BAF3D9ECE03E7AD5275F9412 /* Pods_WakupObjCDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -91,6 +95,8 @@
 			children = (
 				77C9E94920989E655BB8D355 /* Pods.debug.xcconfig */,
 				2157FF27DBCF9AEC4F94EF06 /* Pods.release.xcconfig */,
+				FE322B1B576226D74194C484 /* Pods-WakupObjCDemo.debug.xcconfig */,
+				9FC3927FD578ADF471589365 /* Pods-WakupObjCDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -102,12 +108,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6956604B1C722BD80067918C /* Build configuration list for PBXNativeTarget "WakupObjCDemo" */;
 			buildPhases = (
-				CB5D7A076F48C696482493A7 /* Check Pods Manifest.lock */,
+				CB5D7A076F48C696482493A7 /* [CP] Check Pods Manifest.lock */,
 				695660301C722BD80067918C /* Sources */,
 				695660311C722BD80067918C /* Frameworks */,
 				695660321C722BD80067918C /* Resources */,
-				245B22858FEB610A27F852D9 /* Embed Pods Frameworks */,
-				8576721C0768962F2318D84B /* Copy Pods Resources */,
+				245B22858FEB610A27F852D9 /* [CP] Embed Pods Frameworks */,
+				8576721C0768962F2318D84B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,44 +169,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		245B22858FEB610A27F852D9 /* Embed Pods Frameworks */ = {
+		245B22858FEB610A27F852D9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WakupObjCDemo/Pods-WakupObjCDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8576721C0768962F2318D84B /* Copy Pods Resources */ = {
+		8576721C0768962F2318D84B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WakupObjCDemo/Pods-WakupObjCDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CB5D7A076F48C696482493A7 /* Check Pods Manifest.lock */ = {
+		CB5D7A076F48C696482493A7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +322,7 @@
 		};
 		6956604C1C722BD80067918C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 77C9E94920989E655BB8D355 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = FE322B1B576226D74194C484 /* Pods-WakupObjCDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WakupObjCDemo/Info.plist;
@@ -328,7 +334,7 @@
 		};
 		6956604D1C722BD80067918C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2157FF27DBCF9AEC4F94EF06 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 9FC3927FD578ADF471589365 /* Pods-WakupObjCDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WakupObjCDemo/Info.plist;

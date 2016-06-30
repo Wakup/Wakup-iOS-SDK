@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35D608904968AB67B6294034 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFEAF288FFEF6410D2A4D7EE /* Pods.framework */; };
+		4195545EAED77C2DDA35AB0A /* Pods_Wakup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1CA2D12BF5AFC675AC2735 /* Pods_Wakup.framework */; };
 		69144AD81C207FD500258FF5 /* Wakup.h in Headers */ = {isa = PBXBuildFile; fileRef = 69144AD71C207FD500258FF5 /* Wakup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69431BA91C3BDA8800A42139 /* TopMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69431BA81C3BDA8800A42139 /* TopMenuButton.swift */; };
 		69431BB01C3BF68C00A42139 /* NavBarIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69431BAF1C3BF68C00A42139 /* NavBarIconView.swift */; };
@@ -105,7 +105,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		106B5D451D90E5829D74CCBF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5F1CA2D12BF5AFC675AC2735 /* Pods_Wakup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wakup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69144AD41C207FD500258FF5 /* Wakup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Wakup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69144AD71C207FD500258FF5 /* Wakup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wakup.h; sourceTree = "<group>"; };
 		69144AD91C207FD500258FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -203,7 +203,8 @@
 		69E6C1C41D21916C0051FDE0 /* RedemptionCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedemptionCodeViewController.swift; sourceTree = "<group>"; };
 		69EA21891C24680600B8EE30 /* Wakup.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Wakup.strings; sourceTree = "<group>"; };
 		69F485BB1C3FE47A006BCDE5 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
-		8CE424B5B7919A87214842F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B58DF2A905CAE8E0717CEF3C /* Pods-Wakup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wakup.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wakup/Pods-Wakup.release.xcconfig"; sourceTree = "<group>"; };
+		CDF25DC2C0C90AD354547C11 /* Pods-Wakup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wakup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wakup/Pods-Wakup.debug.xcconfig"; sourceTree = "<group>"; };
 		FFEAF288FFEF6410D2A4D7EE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -212,29 +213,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35D608904968AB67B6294034 /* Pods.framework in Frameworks */,
+				4195545EAED77C2DDA35AB0A /* Pods_Wakup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D7DEF366437DDF49BF30C1E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				106B5D451D90E5829D74CCBF /* Pods.debug.xcconfig */,
-				8CE424B5B7919A87214842F5 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		69144ACA1C207FD500258FF5 = {
 			isa = PBXGroup;
 			children = (
 				69144AD61C207FD500258FF5 /* Wakup */,
 				69144AD51C207FD500258FF5 /* Products */,
-				3D7DEF366437DDF49BF30C1E /* Pods */,
 				F83E7D1CB0BDBB67DC830507 /* Frameworks */,
+				8C79EE7824F28D118F52D962 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -445,10 +437,20 @@
 			name = Map;
 			sourceTree = "<group>";
 		};
+		8C79EE7824F28D118F52D962 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CDF25DC2C0C90AD354547C11 /* Pods-Wakup.debug.xcconfig */,
+				B58DF2A905CAE8E0717CEF3C /* Pods-Wakup.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F83E7D1CB0BDBB67DC830507 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				FFEAF288FFEF6410D2A4D7EE /* Pods.framework */,
+				5F1CA2D12BF5AFC675AC2735 /* Pods_Wakup.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -471,12 +473,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69144ADC1C207FD500258FF5 /* Build configuration list for PBXNativeTarget "Wakup" */;
 			buildPhases = (
-				7D92301B58C526896B284230 /* Check Pods Manifest.lock */,
+				D0A4FA839F13543CF4A5345B /* [CP] Check Pods Manifest.lock */,
 				69144ACF1C207FD500258FF5 /* Sources */,
 				69144AD01C207FD500258FF5 /* Frameworks */,
 				69144AD11C207FD500258FF5 /* Headers */,
 				69144AD21C207FD500258FF5 /* Resources */,
-				C3D5C539A65CE7531ACE1857 /* Copy Pods Resources */,
+				6C7E4D24D270B3B86F382C8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -537,34 +539,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7D92301B58C526896B284230 /* Check Pods Manifest.lock */ = {
+		6C7E4D24D270B3B86F382C8F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wakup/Pods-Wakup-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0A4FA839F13543CF4A5345B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C3D5C539A65CE7531ACE1857 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -757,7 +759,7 @@
 		};
 		69144ADD1C207FD500258FF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 106B5D451D90E5829D74CCBF /* Pods.debug.xcconfig */;
+			baseConfigurationReference = CDF25DC2C0C90AD354547C11 /* Pods-Wakup.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -776,7 +778,7 @@
 		};
 		69144ADE1C207FD500258FF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CE424B5B7919A87214842F5 /* Pods.release.xcconfig */;
+			baseConfigurationReference = B58DF2A905CAE8E0717CEF3C /* Pods-Wakup.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
