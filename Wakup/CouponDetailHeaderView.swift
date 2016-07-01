@@ -24,6 +24,7 @@ protocol CouponDetailHeaderViewDelegate {
 
 public class CouponDetailHeaderView: UICollectionReusableView {
 
+    // MARK: UIAppearance proxy customization
     public dynamic var companyNameFont: UIFont? { get { return companyNameLabel?.font } set { companyNameLabel?.font = newValue } }
     public dynamic var companyNameTextColor: UIColor? { get { return companyNameLabel?.textColor } set { companyNameLabel?.textColor = newValue } }
     public dynamic var storeAddressFont: UIFont? { get { return storeAddressLabel?.font } set { storeAddressLabel?.font = newValue } }
@@ -40,7 +41,14 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     public dynamic var expirationIconColor: UIColor? { get { return expirationIconView?.iconColor } set { expirationIconView?.iconColor = newValue } }
     public dynamic var companyDisclosureColor: UIColor? { get { return companyDisclosureIconView?.iconColor } set { companyDisclosureIconView?.iconColor = newValue } }
     public dynamic var couponDescriptionDisclosureColor: UIColor? { get { return couponDescriptionDisclosureView?.iconColor } set { couponDescriptionDisclosureView?.iconColor = newValue } }
+    public dynamic var redemptionCodeDisclosureColor: UIColor? { get { return redemptionCodeDisclosureView?.iconColor } set { redemptionCodeDisclosureView?.iconColor = newValue } }
+    public dynamic var redemptionCodeIconColor: UIColor? { get { return barcodeIconView?.iconColor } set { barcodeIconView?.iconColor = newValue } }
+    public dynamic var redemptionCodeTitleColor: UIColor? { get { return redemptionCodeTitleLabel?.textColor } set { redemptionCodeTitleLabel?.textColor = newValue } }
+    public dynamic var redemptionCodeTitleFont: UIFont? { get { return redemptionCodeTitleLabel?.font } set { redemptionCodeTitleLabel?.font = newValue } }
+    public dynamic var redemptionCodeSubtitleColor: UIColor? { get { return redemptionCodeSubtitleLabel?.textColor } set { redemptionCodeSubtitleLabel?.textColor = newValue } }
+    public dynamic var redemptionCodeSubtitleFont: UIFont? { get { return redemptionCodeSubtitleLabel?.font } set { redemptionCodeSubtitleLabel?.font = newValue } }
     
+    // MARK: IBOutlets
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var storeAddressLabel: UILabel!
     @IBOutlet weak var storeDistanceLabel: UILabel!
@@ -56,17 +64,21 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     @IBOutlet weak var showInMapButton: CodeIconButton!
     @IBOutlet weak var saveButton: CodeIconButton!
     @IBOutlet weak var shareButton: CodeIconButton!
-    @IBOutlet weak var showCodeButton: CodeIconButton!
-    @IBOutlet weak var redemptionCodeButton: UIButton!
     @IBOutlet weak var companyButton: UIButton!
     @IBOutlet weak var companyDisclosureIconView: CodeIconView!
     @IBOutlet weak var distanceIconView: CodeIconView!
     @IBOutlet weak var expirationIconView: CodeIconView!
+    @IBOutlet weak var redemptionCodeConstraint: NSLayoutConstraint!
+    @IBOutlet weak var barcodeIconView: CodeIconView!
+    @IBOutlet weak var redemptionCodeTitleLabel: UILabel!
+    @IBOutlet weak var redemptionCodeSubtitleLabel: UILabel!
+    @IBOutlet weak var redemptionCodeDisclosureView: CodeIconView!
     
     var imageAspectRatioConstraint: NSLayoutConstraint?
     var logoAspectRatioConstraint: NSLayoutConstraint?
     @IBOutlet weak var descriptionViewConstraint: NSLayoutConstraint!
     
+    // MARK: Properties
     var coupon: Coupon! { didSet { setNeedsLayout() } }
     var userLocation: CLLocation? { didSet { setNeedsLayout() } }
     
@@ -81,6 +93,7 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     var hasLocation: Bool { return coupon?.store?.location() != nil }
     var hasLink: Bool { return coupon?.online ?? false && coupon?.link != nil }
     
+    // MARK: UIView
     override public func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -144,6 +157,31 @@ public class CouponDetailHeaderView: UICollectionReusableView {
             }
             refreshSavedStatus()
             
+            if let code = coupon.redemptionCode {
+                redemptionCodeDisclosureView.hidden = !code.alreadyAssigned && code.limited && code.availableCodes == 0
+                switch (code.limited, code.alreadyAssigned, code.availableCodes) {
+                case (true, true, _):
+                    redemptionCodeTitleLabel.text = "CouponHeaderRedemptionCodeShow".i18n()
+                    redemptionCodeSubtitleLabel.text = "CouponHeaderRedemptionCodeAssigned".i18n()
+                    break
+                case (true, false, .Some(let available)) where available == 0:
+                    redemptionCodeTitleLabel.text = "CouponHeaderRedemptionCodeOutOfStock".i18n()
+                    redemptionCodeSubtitleLabel.text = ""
+                    break
+                case (true, false, .Some(let available)) where available <= 1: // TODO: Maybe use a more configurable value
+                    redemptionCodeTitleLabel.text = "CouponHeaderRedemptionCodeGet".i18n()
+                    redemptionCodeSubtitleLabel.text = "CouponHeaderRedemptionCodeLast".i18n()
+                    break
+                case (true, false, .Some(let available)) where available > 1:
+                    redemptionCodeTitleLabel.text = "CouponHeaderRedemptionCodeGet".i18n()
+                    redemptionCodeSubtitleLabel.text = String(format: "CouponHeaderRedemptionCodeXLeft".i18n(), available)
+                    break
+                default:
+                    redemptionCodeTitleLabel.text = "CouponHeaderRedemptionCodeShow".i18n()
+                    redemptionCodeSubtitleLabel.text = ""
+                }
+            }
+            
             setNeedsUpdateConstraints()
         }
     }
@@ -176,6 +214,10 @@ public class CouponDetailHeaderView: UICollectionReusableView {
             logoAspectRatioConstraint = aspectRatioConstraint(forView: logoImageView!, ratio: aspectRatio)
             logoImageView.addConstraint(logoAspectRatioConstraint!)
         }
+        
+        // Hide Redemption code view if needed
+        redemptionCodeConstraint.constant = coupon?.redemptionCode != nil ? 150 : 0
+        
         super.updateConstraints()
     }
 
@@ -202,6 +244,8 @@ public class CouponDetailHeaderView: UICollectionReusableView {
         delegate?.headerViewDidSelectAction(.ShowCompany, headerView: self)
     }
     @IBAction func codeButtonTapped(sender: AnyObject) {
+        // Ignore requests if limited codes are out of stock
+        guard let code = coupon?.redemptionCode where code.alreadyAssigned || !code.limited || code.availableCodes > 0 else { return }
         delegate?.headerViewDidSelectAction(.ShowCode, headerView: self)
     }
     

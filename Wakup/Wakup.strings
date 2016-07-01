@@ -47,6 +47,14 @@
 "CouponHeaderLink" = "abrir";
 "CouponHeaderShare" = "compartir";
 "CouponHeaderShowMap" = "ubicar";
+"CouponHeaderRedemptionCodeShow" = "Ver código";
+"CouponHeaderRedemptionCodeGet" = "Obtener código";
+"CouponHeaderRedemptionCodeOutOfStock" = "No quedan códigos";
+"CouponHeaderRedemptionCodeXLeft" = "Quedan %d";
+"CouponHeaderRedemptionCodeLast" = "Último código";
+"CouponHeaderRedemptionCodeAssigned" = "Ya obtenido";
+
+"ErrorGettingRedemptionCodeMsg" = "No se ha podido obtener el código";
 
 "ShareOfferFooter" = "¡Esta oferta y muchas otras en Wakup! Disponible para iOS y Android";
 

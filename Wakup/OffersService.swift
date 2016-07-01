@@ -72,6 +72,7 @@ class OffersService: BaseService {
     func getRedemptionCode(forOffer offer: Coupon, completion: (RedemptionCode?, ErrorType?) -> Void) {
         let url = "\(offerHostUrl)offers/\(offer.id)/code"
         createRequest(.GET, url) { (json, error) in
+            // TODO: Process error codes
             let redemptionCode = json.flatMap { self.parseRedemptionCode(json: $0) }
             completion(redemptionCode, error)
         }
@@ -186,7 +187,8 @@ class OffersService: BaseService {
         let totalCodes = json["totalCodes"].int
         let availableCodes = json["availableCodes"].int
         let limited = json["limited"].boolValue
-        return RedemptionCodeInfo(limited: limited, totalCodes: totalCodes, availableCodes: availableCodes)
+        let alreadyAssigned = json["alreadyAssigned"].boolValue
+        return RedemptionCodeInfo(limited: limited, totalCodes: totalCodes, availableCodes: availableCodes, alreadyAssigned: alreadyAssigned)
     }
     
     private func parseCoupon(json json: JSON) -> Coupon {

@@ -20,7 +20,7 @@ public class Coupon: Equatable {
     public let company: Company
     public let online: Bool
     public let link: NSURL?
-    public let redemptionCode: RedemptionCodeInfo?
+    public var redemptionCode: RedemptionCodeInfo?
     
     public init(id: Int, shortText: String, shortDescription: String, description: String, tags: [String], online: Bool, link: NSURL?, expirationDate: NSDate?, thumbnail: CouponImage?, image: CouponImage?, store: Store?, company: Company, redemptionCode: RedemptionCodeInfo?) {
         self.id = id

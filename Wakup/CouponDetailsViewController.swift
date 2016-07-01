@@ -142,6 +142,12 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
                 self.dismissLoadingView(animated: false)
                 if let code = code {
                     self.showRedemptionCode(code, forOffer: offer)
+                    // If limited offer, update UI with new values
+                    if let code = offer.redemptionCode where code.limited && !code.alreadyAssigned {
+                        let newCode = RedemptionCodeInfo(limited: code.limited, totalCodes: code.totalCodes, availableCodes: code.availableCodes.map{$0-1}, alreadyAssigned: true)
+                        offer.redemptionCode = newCode
+                        cell.refreshUI()
+                    }
                 }
                 else {
                     let msg = (error as? NSError)?.localizedDescription ?? "ErrorGettingRedemptionCodeMsg".i18n()

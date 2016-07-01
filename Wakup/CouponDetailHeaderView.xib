@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CouponDetailHeaderView" id="pzf-Sc-kNF" customClass="CouponDetailHeaderView" customModule="Wakup" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="603"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="744"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfE-sU-mgW" userLabel="Company View">
@@ -484,13 +484,6 @@
                                 <action selector="shareButtonTapped:" destination="pzf-Sc-kNF" eventType="touchUpInside" id="q4B-ab-AMd"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqe-nm-K62">
-                            <rect key="frame" x="186" y="62" width="46" height="30"/>
-                            <state key="normal" title="Button"/>
-                            <connections>
-                                <action selector="codeButtonTapped:" destination="pzf-Sc-kNF" eventType="touchUpInside" id="YAL-PO-n0D"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -507,15 +500,98 @@
                         <constraint firstItem="SzU-Wf-0z5" firstAttribute="top" secondItem="281-uz-Yx1" secondAttribute="top" id="zNy-9F-inJ"/>
                     </constraints>
                 </view>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAB-Tr-GRL" userLabel="Redemption Code View">
+                    <rect key="frame" x="0.0" y="439" width="320" height="42"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ah-OF-NVr" userLabel="Top Separator">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                            <color key="backgroundColor" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="cs2-ju-wHi"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noa-ad-vKK">
+                            <rect key="frame" x="0.0" y="1" width="320" height="41"/>
+                            <connections>
+                                <action selector="codeButtonTapped:" destination="pzf-Sc-kNF" eventType="touchUpInside" id="gE8-Ee-eyr"/>
+                            </connections>
+                        </button>
+                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afo-uk-8wT" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="16" y="9" width="30" height="24"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="GQR-tT-rf0"/>
+                                <constraint firstAttribute="width" constant="30" id="eOO-nr-XZl"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="barcode"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                    <color key="value" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Quedan 100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RC0-eD-Bif">
+                            <rect key="frame" x="225" y="14" width="64" height="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fT-ah-ctX" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="297" y="12" width="15" height="17"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="SYw-j2-MIO"/>
+                                <constraint firstAttribute="height" constant="17" id="h11-m3-cBa"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="disclosure"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                    <color key="value" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
+                                    <color key="value" red="0.5647059083" green="0.3803921938" blue="0.56862747670000002" alpha="1" colorSpace="deviceRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="900" text="Obtener código" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBD-Pt-IKn">
+                            <rect key="frame" x="62" y="13" width="155" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="0ah-OF-NVr" secondAttribute="trailing" id="1Mw-GU-XlY"/>
+                        <constraint firstItem="afo-uk-8wT" firstAttribute="centerY" secondItem="aAB-Tr-GRL" secondAttribute="centerY" id="1Ta-NC-U19"/>
+                        <constraint firstItem="noa-ad-vKK" firstAttribute="top" secondItem="0ah-OF-NVr" secondAttribute="bottom" id="5Pw-TZ-ydC"/>
+                        <constraint firstItem="RC0-eD-Bif" firstAttribute="centerY" secondItem="aAB-Tr-GRL" secondAttribute="centerY" id="AQY-pq-ySo"/>
+                        <constraint firstItem="1fT-ah-ctX" firstAttribute="trailing" secondItem="aAB-Tr-GRL" secondAttribute="trailingMargin" id="Azs-ci-R1H"/>
+                        <constraint firstItem="afo-uk-8wT" firstAttribute="leading" secondItem="aAB-Tr-GRL" secondAttribute="leadingMargin" constant="8" id="Gll-uM-sZn"/>
+                        <constraint firstItem="noa-ad-vKK" firstAttribute="leading" secondItem="aAB-Tr-GRL" secondAttribute="leading" id="IYS-Ml-6mu"/>
+                        <constraint firstItem="0ah-OF-NVr" firstAttribute="top" secondItem="aAB-Tr-GRL" secondAttribute="top" id="LIw-el-jhZ"/>
+                        <constraint firstItem="nBD-Pt-IKn" firstAttribute="centerY" secondItem="aAB-Tr-GRL" secondAttribute="centerY" id="OOk-0O-rQ0"/>
+                        <constraint firstAttribute="trailing" secondItem="noa-ad-vKK" secondAttribute="trailing" id="ZEj-KM-Ysa"/>
+                        <constraint firstItem="afo-uk-8wT" firstAttribute="top" secondItem="0ah-OF-NVr" secondAttribute="bottom" priority="900" constant="8" id="bjh-gV-a3O"/>
+                        <constraint firstItem="1fT-ah-ctX" firstAttribute="centerY" secondItem="aAB-Tr-GRL" secondAttribute="centerY" id="dAG-YD-wcU"/>
+                        <constraint firstItem="0ah-OF-NVr" firstAttribute="leading" secondItem="aAB-Tr-GRL" secondAttribute="leading" id="iXI-SP-G5n"/>
+                        <constraint firstItem="1fT-ah-ctX" firstAttribute="leading" secondItem="RC0-eD-Bif" secondAttribute="trailing" constant="8" id="jr8-mT-GRY"/>
+                        <constraint firstItem="RC0-eD-Bif" firstAttribute="leading" secondItem="nBD-Pt-IKn" secondAttribute="trailing" constant="8" id="l2v-07-hI0"/>
+                        <constraint firstAttribute="bottom" secondItem="noa-ad-vKK" secondAttribute="bottom" id="pqx-5w-DFq"/>
+                        <constraint firstAttribute="bottomMargin" secondItem="afo-uk-8wT" secondAttribute="bottom" priority="900" constant="8" id="qNy-0w-0DI"/>
+                        <constraint firstItem="nBD-Pt-IKn" firstAttribute="leading" secondItem="afo-uk-8wT" secondAttribute="trailing" constant="16" id="wbt-s6-r9F"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="wyd-4P-83q"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6u-0E-oK6" userLabel="Related Coupons Separator">
-                    <rect key="frame" x="0.0" y="439" width="320" height="1"/>
+                    <rect key="frame" x="0.0" y="481" width="320" height="1"/>
                     <color key="backgroundColor" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="5QF-94-JoW"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxL-No-eka" userLabel="Related Coupons Header View">
-                    <rect key="frame" x="0.0" y="440" width="320" height="28"/>
+                    <rect key="frame" x="0.0" y="482" width="320" height="28"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ofertas relacionadas:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGa-6f-XRI">
                             <rect key="frame" x="81" y="8" width="158" height="18"/>
@@ -535,10 +611,12 @@
             <color key="backgroundColor" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
                 <constraint firstItem="WYn-HB-390" firstAttribute="top" secondItem="Hck-kz-slI" secondAttribute="bottom" id="1eM-Yc-SZb"/>
+                <constraint firstItem="aAB-Tr-GRL" firstAttribute="top" secondItem="aTs-kh-DIn" secondAttribute="bottom" id="3ry-sC-aZE"/>
                 <constraint firstAttribute="trailing" secondItem="VfE-sU-mgW" secondAttribute="trailing" id="4a7-Nh-1P1"/>
-                <constraint firstItem="J6u-0E-oK6" firstAttribute="top" secondItem="aTs-kh-DIn" secondAttribute="bottom" id="744-Km-iq6"/>
+                <constraint firstItem="J6u-0E-oK6" firstAttribute="top" secondItem="aAB-Tr-GRL" secondAttribute="bottom" id="6fU-DQ-UAo"/>
                 <constraint firstItem="b3h-gT-bhV" firstAttribute="trailing" secondItem="Hck-kz-slI" secondAttribute="trailing" id="8Xw-z6-S2c"/>
                 <constraint firstItem="b3h-gT-bhV" firstAttribute="bottom" secondItem="Hck-kz-slI" secondAttribute="bottom" id="9iF-H1-8Fi"/>
+                <constraint firstAttribute="trailing" secondItem="aAB-Tr-GRL" secondAttribute="trailing" id="9zY-Kr-CZF"/>
                 <constraint firstItem="b3h-gT-bhV" firstAttribute="top" secondItem="Hck-kz-slI" secondAttribute="top" id="B3H-Ab-6JT"/>
                 <constraint firstItem="b3h-gT-bhV" firstAttribute="leading" secondItem="Hck-kz-slI" secondAttribute="leading" id="CZW-Lq-E5K"/>
                 <constraint firstItem="vxL-No-eka" firstAttribute="leading" secondItem="pzf-Sc-kNF" secondAttribute="leading" id="FCj-7P-6g3"/>
@@ -555,6 +633,7 @@
                 <constraint firstItem="vxL-No-eka" firstAttribute="top" secondItem="J6u-0E-oK6" secondAttribute="bottom" id="i79-gR-QsI"/>
                 <constraint firstAttribute="trailing" secondItem="aTs-kh-DIn" secondAttribute="trailing" id="jKc-vn-8UA"/>
                 <constraint firstAttribute="trailing" secondItem="WYn-HB-390" secondAttribute="trailing" id="kAF-Kr-XFp"/>
+                <constraint firstItem="aAB-Tr-GRL" firstAttribute="leading" secondItem="pzf-Sc-kNF" secondAttribute="leading" id="krg-2t-zdV"/>
                 <constraint firstAttribute="trailing" secondItem="Hck-kz-slI" secondAttribute="trailing" id="pcx-c6-beX"/>
                 <constraint firstItem="J6u-0E-oK6" firstAttribute="leading" secondItem="pzf-Sc-kNF" secondAttribute="leading" id="sLD-qz-kQt"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vxL-No-eka" secondAttribute="bottom" priority="900" id="ty7-qu-Uwm"/>
@@ -562,6 +641,7 @@
                 <constraint firstItem="YT9-5r-lan" firstAttribute="top" secondItem="WYn-HB-390" secondAttribute="bottom" id="yqm-1P-3jd"/>
             </constraints>
             <connections>
+                <outlet property="barcodeIconView" destination="afo-uk-8wT" id="kSo-3R-fjB"/>
                 <outlet property="cellWidthConstraint" destination="0HS-pt-BOd" id="TFX-2a-agn"/>
                 <outlet property="companyButton" destination="aq2-aA-R10" id="VVf-en-r1B"/>
                 <outlet property="companyDisclosureIconView" destination="1Yg-b2-3HR" id="eXx-0p-AfY"/>
@@ -576,7 +656,10 @@
                 <outlet property="distanceIconView" destination="4LU-fb-cxZ" id="N59-dM-15Z"/>
                 <outlet property="expirationIconView" destination="Oo4-GF-23H" id="YA4-YA-d4Z"/>
                 <outlet property="logoImageView" destination="Vwo-ky-dUd" id="NKi-ty-WPM"/>
-                <outlet property="redemptionCodeButton" destination="Hqe-nm-K62" id="zDG-91-0Co"/>
+                <outlet property="redemptionCodeConstraint" destination="wyd-4P-83q" id="m1m-zT-T2x"/>
+                <outlet property="redemptionCodeDisclosureView" destination="1fT-ah-ctX" id="yXZ-bv-4P8"/>
+                <outlet property="redemptionCodeSubtitleLabel" destination="RC0-eD-Bif" id="RtL-sG-Bj4"/>
+                <outlet property="redemptionCodeTitleLabel" destination="nBD-Pt-IKn" id="6T2-oF-J8I"/>
                 <outlet property="saveButton" destination="281-uz-Yx1" id="k6p-PK-WeK"/>
                 <outlet property="shareButton" destination="SzU-Wf-0z5" id="HdJ-tD-pFb"/>
                 <outlet property="shortTextLabel" destination="S2A-2E-SwX" id="rGP-rr-AIj"/>
@@ -584,7 +667,7 @@
                 <outlet property="storeAddressLabel" destination="Aex-D0-Jzp" id="b46-0Q-LMP"/>
                 <outlet property="storeDistanceLabel" destination="ZQK-c5-DDe" id="4uD-J4-MGB"/>
             </connections>
-            <point key="canvasLocation" x="139" y="239.5"/>
+            <point key="canvasLocation" x="139" y="310"/>
         </collectionReusableView>
     </objects>
 </document>
