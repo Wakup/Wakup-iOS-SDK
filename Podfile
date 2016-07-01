@@ -26,3 +26,12 @@ target 'Wakup' do
     pod 'CHTCollectionViewWaterfallLayout', '~> 0.9'
 
 end
+
+# Workaround until https://github.com/CocoaPods/CocoaPods/issues/5334 is fixed
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['CONFIGURATION_BUILD_DIR'] = '$PODS_CONFIGURATION_BUILD_DIR'
+        end
+    end
+end
