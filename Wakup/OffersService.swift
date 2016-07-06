@@ -13,7 +13,7 @@ import SwiftyJSON
 
 struct FilterOptions {
     let searchTerm: String?
-    let categories: [OfferCategory]?
+    let tags: [String]?
     let companyId: Int?
 }
 
@@ -135,8 +135,8 @@ class OffersService: BaseService {
             if let query = filter.searchTerm {
                 result["query"] = query
             }
-            if let categories = filter.categories where categories.count > 0 {
-                result["categories"] = categories.map{ $0.rawValue }.joinWithSeparator(",")
+            if let tags = filter.tags where tags.count > 0 {
+                result["tags"] = tags.joinWithSeparator(",")
             }
             if let companyId = filter.companyId {
                 result["companyId"] = companyId

@@ -282,7 +282,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         }
         
         let categories = getSelectedCategories()
-        let filterOptions = FilterOptions(searchTerm: searchTerm, categories: categories, companyId: companyId)
+        let filterOptions = FilterOptions(searchTerm: searchTerm, tags: categories.map{$0.map{$0.rawValue}}, companyId: companyId)
         
         if let couponVC = storyboard?.instantiateViewControllerWithIdentifier(CouponWaterfallViewController.storyboardId) as? CouponWaterfallViewController {
             couponVC.forcedLocation = location

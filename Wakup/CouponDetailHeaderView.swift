@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import TagListView
 
 enum HeaderViewAction {
     case ShowMap
@@ -16,6 +17,7 @@ enum HeaderViewAction {
     case ShowDescription
     case ShowCompany
     case ShowCode
+    case ShowTag(tag: String)
 }
 
 protocol CouponDetailHeaderViewDelegate {
@@ -73,13 +75,15 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     @IBOutlet weak var redemptionCodeTitleLabel: UILabel!
     @IBOutlet weak var redemptionCodeSubtitleLabel: UILabel!
     @IBOutlet weak var redemptionCodeDisclosureView: CodeIconView!
+    @IBOutlet weak var tagViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tagListView: TagListView!
     
     var imageAspectRatioConstraint: NSLayoutConstraint?
     var logoAspectRatioConstraint: NSLayoutConstraint?
     @IBOutlet weak var descriptionViewConstraint: NSLayoutConstraint!
     
     // MARK: Properties
-    var coupon: Coupon! { didSet { setNeedsLayout() } }
+    var coupon: Coupon! { didSet { setNeedsLayout(); updateTags() } }
     var userLocation: CLLocation? { didSet { setNeedsLayout() } }
     
     var loadImages = true
@@ -92,6 +96,8 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     
     var hasLocation: Bool { return coupon?.store?.location() != nil }
     var hasLink: Bool { return coupon?.online ?? false && coupon?.link != nil }
+    
+    public dynamic var tagPrefix = "#"
     
     // MARK: UIView
     override public func awakeFromNib() {
@@ -108,6 +114,16 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     override public func layoutSubviews() {
         refreshUI()
         super.layoutSubviews()
+    }
+    
+    func updateTags() {
+        tagListView.removeAllTags()
+        for tag in coupon.tags {
+            let tagView = tagListView.addTag(tagPrefix + tag)
+            tagView.onTap = { [unowned self] _ in
+                self.delegate?.headerViewDidSelectAction(.ShowTag(tag: tag), headerView: self)
+            }
+        }
     }
     
     func refreshUI() {
@@ -217,6 +233,9 @@ public class CouponDetailHeaderView: UICollectionReusableView {
         
         // Hide Redemption code view if needed
         redemptionCodeConstraint.constant = coupon?.redemptionCode != nil ? 150 : 0
+        
+        // Hide tag view if no tags found
+        tagViewConstraint.constant = coupon?.tags.isEmpty ?? true ? 0 : 150
         
         super.updateConstraints()
     }

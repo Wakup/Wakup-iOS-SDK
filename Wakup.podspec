@@ -40,4 +40,7 @@ Pod::Spec.new do |s|
   # The waterfall (i.e., Pinterest-like) layout for UICollectionView.
   s.dependency 'CHTCollectionViewWaterfallLayout', '~> 0.9'
 
+  # Simple and highly customizable tag list view
+  s.dependency 'TagListView', '~> 1.0'
+
 end

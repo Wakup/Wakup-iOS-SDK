@@ -33,6 +33,7 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     var showCompanyDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
     var showLinkDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
     var showRedemptionCodeDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
+    var showTagDelegate: ((cell: CouponDetailCollectionViewCell, tag: String) -> Void)?
     
     var selectedIndex: NSIndexPath!
     
@@ -161,6 +162,10 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         showRedemptionCodeDelegate?(cell: self, coupon: offer)
     }
     
+    func showTagResults(tag: String) {
+        showTagDelegate?(cell: self, tag: tag)
+    }
+    
     func getSelectedCell() -> CouponCollectionViewCell {
         return self.collectionView.scrollToAndGetCell(atIndexPath: selectedIndex) as! CouponCollectionViewCell
     }
@@ -173,6 +178,7 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         case .ShowCompany: showCompanyView(forOffer: headerView.coupon)
         case .ShowLink: showLink(forOffer: headerView.coupon)
         case .ShowCode: showCodeView(forOffer: headerView.coupon)
+        case .ShowTag(let tag): showTagResults(tag)
         }
     }
 

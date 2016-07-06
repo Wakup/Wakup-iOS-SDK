@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -286,8 +286,67 @@
                         <constraint firstItem="38F-LK-AOM" firstAttribute="top" secondItem="jXb-MX-KHm" secondAttribute="bottom" constant="8" symbolic="YES" id="soI-zq-Rp5"/>
                     </constraints>
                 </view>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTr-l1-5gn" userLabel="Tags View">
+                    <rect key="frame" x="0.0" y="339" width="320" height="41"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5J-rM-hll" customClass="TagListView" customModule="TagListView">
+                            <rect key="frame" x="16" y="8" width="288" height="24"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="1" constant="18" id="jBd-sa-8tT"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="paddingY">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="paddingX">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="marginY">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
+                                    <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="tagHighlightedBackgroundColor">
+                                    <color key="value" cyan="0.34395813941955566" magenta="0.54871714115142822" yellow="0.045257799327373505" black="0.10760698931895805" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" cyan="0.34395813939999997" magenta="0.54871714120000004" yellow="0.045257799330000001" black="0.10554829002432434" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="marginX">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6a8-hV-qIJ" userLabel="Bottom Separator">
+                            <rect key="frame" x="0.0" y="40" width="320" height="1"/>
+                            <color key="backgroundColor" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="ewk-Mc-6JU"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="b5J-rM-hll" firstAttribute="top" secondItem="BTr-l1-5gn" secondAttribute="top" priority="900" constant="8" id="Gi6-IB-rR8"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="Ja2-kJ-4bI"/>
+                        <constraint firstItem="6a8-hV-qIJ" firstAttribute="top" secondItem="b5J-rM-hll" secondAttribute="bottom" constant="8" id="NQg-kw-mRq"/>
+                        <constraint firstItem="b5J-rM-hll" firstAttribute="leading" secondItem="BTr-l1-5gn" secondAttribute="leading" constant="16" id="dRz-nD-XWf"/>
+                        <constraint firstAttribute="trailing" secondItem="b5J-rM-hll" secondAttribute="trailing" constant="16" id="dgS-rW-adt"/>
+                        <constraint firstAttribute="trailing" secondItem="6a8-hV-qIJ" secondAttribute="trailing" id="hrN-iU-wI3"/>
+                        <constraint firstItem="6a8-hV-qIJ" firstAttribute="leading" secondItem="BTr-l1-5gn" secondAttribute="leading" id="tBC-Cg-ptG"/>
+                        <constraint firstAttribute="bottom" secondItem="6a8-hV-qIJ" secondAttribute="bottom" id="uub-lm-DEP"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTs-kh-DIn" userLabel="Buttons View">
-                    <rect key="frame" x="0.0" y="339" width="320" height="100"/>
+                    <rect key="frame" x="0.0" y="380" width="320" height="100"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8c7-oL-rxR" customClass="CouponActionButton" customModule="Wakup" customModuleProvider="target">
                             <rect key="frame" x="23" y="12" width="76" height="76"/>
@@ -501,7 +560,7 @@
                     </constraints>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAB-Tr-GRL" userLabel="Redemption Code View">
-                    <rect key="frame" x="0.0" y="439" width="320" height="42"/>
+                    <rect key="frame" x="0.0" y="480" width="320" height="42"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ah-OF-NVr" userLabel="Top Separator">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
@@ -584,14 +643,14 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6u-0E-oK6" userLabel="Related Coupons Separator">
-                    <rect key="frame" x="0.0" y="481" width="320" height="1"/>
+                    <rect key="frame" x="0.0" y="522" width="320" height="1"/>
                     <color key="backgroundColor" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="5QF-94-JoW"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxL-No-eka" userLabel="Related Coupons Header View">
-                    <rect key="frame" x="0.0" y="482" width="320" height="28"/>
+                    <rect key="frame" x="0.0" y="523" width="320" height="28"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ofertas relacionadas:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGa-6f-XRI">
                             <rect key="frame" x="81" y="8" width="158" height="18"/>
@@ -618,6 +677,7 @@
                 <constraint firstItem="b3h-gT-bhV" firstAttribute="bottom" secondItem="Hck-kz-slI" secondAttribute="bottom" id="9iF-H1-8Fi"/>
                 <constraint firstAttribute="trailing" secondItem="aAB-Tr-GRL" secondAttribute="trailing" id="9zY-Kr-CZF"/>
                 <constraint firstItem="b3h-gT-bhV" firstAttribute="top" secondItem="Hck-kz-slI" secondAttribute="top" id="B3H-Ab-6JT"/>
+                <constraint firstAttribute="trailing" secondItem="BTr-l1-5gn" secondAttribute="trailing" id="C04-pk-h8Q"/>
                 <constraint firstItem="b3h-gT-bhV" firstAttribute="leading" secondItem="Hck-kz-slI" secondAttribute="leading" id="CZW-Lq-E5K"/>
                 <constraint firstItem="vxL-No-eka" firstAttribute="leading" secondItem="pzf-Sc-kNF" secondAttribute="leading" id="FCj-7P-6g3"/>
                 <constraint firstAttribute="trailing" secondItem="YT9-5r-lan" secondAttribute="trailing" id="Ghn-1Z-Twb"/>
@@ -625,7 +685,10 @@
                 <constraint firstAttribute="trailing" secondItem="vxL-No-eka" secondAttribute="trailing" id="MER-8M-eE9"/>
                 <constraint firstItem="VfE-sU-mgW" firstAttribute="top" secondItem="pzf-Sc-kNF" secondAttribute="top" id="QqI-AC-U7F"/>
                 <constraint firstItem="WYn-HB-390" firstAttribute="leading" secondItem="pzf-Sc-kNF" secondAttribute="leading" id="UHe-7u-AND"/>
+                <constraint firstItem="aTs-kh-DIn" firstAttribute="top" secondItem="BTr-l1-5gn" secondAttribute="bottom" id="Zci-nH-M0a"/>
                 <constraint firstItem="aTs-kh-DIn" firstAttribute="leading" secondItem="pzf-Sc-kNF" secondAttribute="leading" id="aht-Mc-OqY"/>
+                <constraint firstItem="BTr-l1-5gn" firstAttribute="leading" secondItem="pzf-Sc-kNF" secondAttribute="leading" id="bju-cd-V08"/>
+                <constraint firstItem="BTr-l1-5gn" firstAttribute="top" secondItem="YT9-5r-lan" secondAttribute="bottom" id="bnh-yX-sgD"/>
                 <constraint firstItem="VfE-sU-mgW" firstAttribute="leading" secondItem="pzf-Sc-kNF" secondAttribute="leading" id="cfh-Db-YR0"/>
                 <constraint firstItem="YT9-5r-lan" firstAttribute="leading" secondItem="pzf-Sc-kNF" secondAttribute="leading" id="hZF-IN-uNe"/>
                 <constraint firstItem="Hck-kz-slI" firstAttribute="top" secondItem="VfE-sU-mgW" secondAttribute="bottom" constant="1" id="hrr-9Y-sVs"/>
@@ -637,7 +700,6 @@
                 <constraint firstAttribute="trailing" secondItem="Hck-kz-slI" secondAttribute="trailing" id="pcx-c6-beX"/>
                 <constraint firstItem="J6u-0E-oK6" firstAttribute="leading" secondItem="pzf-Sc-kNF" secondAttribute="leading" id="sLD-qz-kQt"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vxL-No-eka" secondAttribute="bottom" priority="900" id="ty7-qu-Uwm"/>
-                <constraint firstItem="aTs-kh-DIn" firstAttribute="top" secondItem="YT9-5r-lan" secondAttribute="bottom" id="wfe-nS-an1"/>
                 <constraint firstItem="YT9-5r-lan" firstAttribute="top" secondItem="WYn-HB-390" secondAttribute="bottom" id="yqm-1P-3jd"/>
             </constraints>
             <connections>
@@ -666,6 +728,8 @@
                 <outlet property="showInMapButton" destination="8c7-oL-rxR" id="lLi-ep-QzS"/>
                 <outlet property="storeAddressLabel" destination="Aex-D0-Jzp" id="b46-0Q-LMP"/>
                 <outlet property="storeDistanceLabel" destination="ZQK-c5-DDe" id="4uD-J4-MGB"/>
+                <outlet property="tagListView" destination="b5J-rM-hll" id="2V0-qL-QQG"/>
+                <outlet property="tagViewConstraint" destination="Ja2-kJ-4bI" id="1gc-TQ-SUL"/>
             </connections>
             <point key="canvasLocation" x="139" y="310"/>
         </collectionReusableView>

@@ -45,7 +45,17 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
             
         vc.forcedLocation = userLocation
         vc.filterTitle = offer.company.name
-        vc.filterOptions = FilterOptions(searchTerm: nil, categories: nil, companyId: offer.company.id)
+        vc.filterOptions = FilterOptions(searchTerm: nil, tags: nil, companyId: offer.company.id)
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showTagView(forTag tag: String) {
+        guard let vc = storyboard?.instantiateViewControllerWithIdentifier(CouponWaterfallViewController.storyboardId) as? CouponWaterfallViewController else { return }
+        
+        vc.forcedLocation = userLocation
+        vc.filterTitle = "#" + tag
+        vc.filterOptions = FilterOptions(searchTerm: nil, tags: [tag], companyId: nil)
         
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -155,6 +165,9 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
                 }
                 
             }
+        }
+        cell.showTagDelegate = { [unowned self] cell, tag in
+            self.showTagView(forTag: tag)
         }
         return cell;
     }

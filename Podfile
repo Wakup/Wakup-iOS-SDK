@@ -25,6 +25,9 @@ target 'Wakup' do
     # The waterfall (i.e., Pinterest-like) layout for UICollectionView.
     pod 'CHTCollectionViewWaterfallLayout', '~> 0.9'
 
+    # Simple and highly customizable tag list view
+    pod 'TagListView', '~> 1.0'
+
 end
 
 # Workaround until https://github.com/CocoaPods/CocoaPods/issues/5334 is fixed
