@@ -49,5 +49,13 @@ public class WakupOptions: NSObject {
     /// Search country, will be appended to geolocation searches to narrow results
     public var searchCountryCode: String? = "es" // NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as? String
     
+    /// Category definition. Used for search controller shortcuts. Set to nil to disable category search.
+    public var searchCategories: [OfferCategory]? = [
+        OfferCategory(title: "Comida", icon: "restaurant", associatedTags: ["restaurants"]),
+        OfferCategory(title: "Tiendas", icon: "shopping", associatedTags: ["shopping"]),
+        OfferCategory(title: "Ocio", icon: "leisure", associatedTags: ["leisure"]),
+        OfferCategory(title: "Servicios", icon: "services", associatedTags: ["services"])
+    ]
+    
     public override init() {}
 }

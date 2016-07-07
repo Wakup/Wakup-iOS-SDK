@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4195545EAED77C2DDA35AB0A /* Pods_Wakup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1CA2D12BF5AFC675AC2735 /* Pods_Wakup.framework */; };
 		69144AD81C207FD500258FF5 /* Wakup.h in Headers */ = {isa = PBXBuildFile; fileRef = 69144AD71C207FD500258FF5 /* Wakup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		692B1FCB1D2D430B00DAF1E7 /* SearchFilterButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692B1FCA1D2D430B00DAF1E7 /* SearchFilterButton.xib */; };
 		69431BA91C3BDA8800A42139 /* TopMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69431BA81C3BDA8800A42139 /* TopMenuButton.swift */; };
 		69431BB01C3BF68C00A42139 /* NavBarIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69431BAF1C3BF68C00A42139 /* NavBarIconView.swift */; };
 		69431BB41C3C1D7300A42139 /* CouponActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69431BB31C3C1D7300A42139 /* CouponActionButton.swift */; };
@@ -109,6 +110,7 @@
 		69144AD41C207FD500258FF5 /* Wakup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Wakup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69144AD71C207FD500258FF5 /* Wakup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wakup.h; sourceTree = "<group>"; };
 		69144AD91C207FD500258FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		692B1FCA1D2D430B00DAF1E7 /* SearchFilterButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchFilterButton.xib; sourceTree = "<group>"; };
 		69431BA81C3BDA8800A42139 /* TopMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuButton.swift; sourceTree = "<group>"; };
 		69431BAF1C3BF68C00A42139 /* NavBarIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarIconView.swift; sourceTree = "<group>"; };
 		69431BB31C3C1D7300A42139 /* CouponActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponActionButton.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				695F7C471C3E8EA000D61415 /* DiscountTagView.swift */,
 				69431BAF1C3BF68C00A42139 /* NavBarIconView.swift */,
 				695F7C491C3EC44700D61415 /* SearchFilterButton.swift */,
+				692B1FCA1D2D430B00DAF1E7 /* SearchFilterButton.xib */,
 				69F485BB1C3FE47A006BCDE5 /* SearchResultCell.swift */,
 				69D999DD1C22F6A4000892B1 /* TopMenuView.swift */,
 				69431BA81C3BDA8800A42139 /* TopMenuButton.swift */,
@@ -533,6 +536,7 @@
 				69D999FA1C22FDC8000892B1 /* CouponCollectionViewCell.xib in Resources */,
 				69EA218A1C24680600B8EE30 /* Wakup.strings in Resources */,
 				69D99A211C22FF98000892B1 /* ContextItemView.xib in Resources */,
+				692B1FCB1D2D430B00DAF1E7 /* SearchFilterButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

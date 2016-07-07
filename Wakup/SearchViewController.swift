@@ -22,10 +22,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var restaurantsButton: CodeIconButton!
-    @IBOutlet weak var shoppingButton: CodeIconButton!
-    @IBOutlet weak var leisureButton: CodeIconButton!
-    @IBOutlet weak var servicesButton: CodeIconButton!
+    @IBOutlet weak var filterButtonsScrollView: UIScrollView!
+    
+    var categoryButtons: [SearchFilterButton]?
+    var categoryButtonNib = UINib(nibName: "SearchFilterButton", bundle: NSBundle(forClass: SearchViewController.self))
     
     let geocoder = CLGeocoder()
     let locationManager = CLLocationManager()
@@ -39,6 +39,38 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     var placemarks: [CLPlacemark]? { didSet { reloadData([.UserLocation, .Locations]) } }
     var searchHistory: [SearchHistory]? { didSet { reloadData([.History]); } }
     
+    let buttonsPadding: CGFloat = 8
+    let buttonsSeparation: CGFloat = 8
+    
+    func configureFilterButtons() {
+        categoryButtons = WakupManager.manager.options.searchCategories?.map { category in
+            let button = categoryButtonNib.instantiateWithOwner(self, options: nil)[0] as! SearchFilterButton
+            button.category = category
+            return button
+        }
+        
+        guard let buttons = categoryButtons where !buttons.isEmpty else {
+            tableView.tableHeaderView = nil
+            return
+        }
+        
+        var previousButton: UIButton? = nil
+        for button in buttons {
+            filterButtonsScrollView.addSubview(button)
+            if let previousButton = previousButton {
+                filterButtonsScrollView.addConstraint(NSLayoutConstraint(item: button, attribute: .Left, relatedBy: .Equal, toItem: previousButton, attribute: .Right, multiplier: 1, constant: buttonsSeparation))
+            }
+            else {
+                filterButtonsScrollView.addConstraint(NSLayoutConstraint(item: button, attribute: .Left, relatedBy: .Equal, toItem: filterButtonsScrollView, attribute: .Left, multiplier: 1, constant: 0))
+            }
+            filterButtonsScrollView.addConstraint(NSLayoutConstraint(item: button, attribute: .CenterY, relatedBy: .Equal, toItem: filterButtonsScrollView, attribute: .CenterY, multiplier: 1, constant: 0))
+            
+            previousButton = button
+        }
+        if let lastButton = previousButton {
+            filterButtonsScrollView.addConstraint(NSLayoutConstraint(item: lastButton, attribute: .Right, relatedBy: .Equal, toItem: filterButtonsScrollView, attribute: .Right, multiplier: 1, constant: 0))
+        }
+    }
     
     func reloadData(sections: [Section]?) {
         if let sections = sections where sections.count > 0 {
@@ -54,27 +86,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     }
     
     func getSelectedCategories() -> [OfferCategory]? {
-        var categories = [OfferCategory]()
-        
-        if restaurantsButton?.selected ?? false {
-            categories.append(.Restaurants)
-        }
-        if (shoppingButton?.selected ?? false) {
-            categories.append(.Shopping)
-        }
-        if (leisureButton?.selected ?? false) {
-            categories.append(.Leisure)
-        }
-        if (servicesButton?.selected ?? false) {
-            categories.append(.Services)
-        }
-        
-        if categories.count > 0 {
-            return categories
-        }
-        else {
-            return nil
-        }
+        let categories = categoryButtons?.filter{$0.selected}.flatMap{$0.category}
+        return categories?.isEmpty ?? true ? nil : categories
     }
     
     // MARK: UIView Lifecycle
@@ -86,6 +99,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         searchBar.scopeBarBackgroundImage = UIImage()
         
         locationManager.delegate = self
+        
+        configureFilterButtons()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -97,6 +112,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         locationManager.stopUpdatingLocation()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let offset = (filterButtonsScrollView.frame.width - filterButtonsScrollView.contentSize.width) / 2
+        filterButtonsScrollView.contentInset = UIEdgeInsets(top: 0, left: max(buttonsPadding, offset), bottom: 0, right: buttonsPadding)
     }
 
     // MARK: UISearchBarDelegate
@@ -282,7 +303,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         }
         
         let categories = getSelectedCategories()
-        let filterOptions = FilterOptions(searchTerm: searchTerm, tags: categories.map{$0.map{$0.rawValue}}, companyId: companyId)
+        let tags = categories?.flatMap { $0.associatedTags }
+        let filterOptions = FilterOptions(searchTerm: searchTerm, tags: tags, companyId: companyId)
         
         if let couponVC = storyboard?.instantiateViewControllerWithIdentifier(CouponWaterfallViewController.storyboardId) as? CouponWaterfallViewController {
             couponVC.forcedLocation = location

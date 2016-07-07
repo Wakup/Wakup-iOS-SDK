@@ -6,6 +6,9 @@ target 'WakupDemo' do
 
     # Wakup SDK
     pod 'Wakup', :path => '../'
+    
+    # Simple and highly customizable tag list view (force UIAppearance proxy commit)
+    pod 'TagListView', :git => 'https://github.com/xhacker/TagListView.git', :commit => '44cc003fe2e701bdd603e7c9f64f7111439e2082'
 
 end
 

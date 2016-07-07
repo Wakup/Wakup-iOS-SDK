@@ -8,9 +8,14 @@
 
 import Foundation
 
-enum OfferCategory: String {
-    case Restaurants = "restaurants"
-    case Shopping = "shopping"
-    case Leisure = "leisure"
-    case Services = "services"
+public class OfferCategory {
+    let title: String
+    let icon: String
+    let associatedTags: [String]
+    
+    public init(title: String, icon: String, associatedTags: [String]) {
+        self.title = title
+        self.icon = icon
+        self.associatedTags = associatedTags
+    }
 }
