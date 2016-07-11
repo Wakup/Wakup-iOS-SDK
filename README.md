@@ -248,12 +248,33 @@ CouponActionButton.appearance().normalBorderColor = actionColor
 ~~~
 
 
+#### Offer tag cloud
+
+Tag cloud appearance can be customized using `TagListView` appearance proxy:
+
+[![](https://i.imgur.com/tISlQgQl.png)](https://i.imgur.com/tISlQgQ.png)
+
+~~~swift
+using TagListView
+
+let darkColor = UIColor(red:0.26, green:0.07, blue:0.25, alpha:1)
+let lightColor = UIColor(red:0.56, green:0.38, blue:0.57, alpha:1)
+        
+TagListView.appearance().tagBackgroundColor = lightColor
+TagListView.appearance().tagHighlightedBackgroundColor = darkColor
+TagListView.appearance().borderColor = darkColor
+TagListView.appearance().cornerRadius = 4
+TagListView.appearance().borderWidth = 1
+~~~
+
+`TagListView` is a third party library that declares some properties already declared in `Wakup` module. To avoid conflict errors, don't import `TagListView` and `Wakup` in the same file if you're modifying `borderColor`, `cornerRadius` or `borderWidth`.
+
 
 #### Offer finder
 
 Offer finder allows customization of filter icons through `SearchFilterButton` appearance proxy and result cells using `SearchResultCell`.
 
-[![](http://imgur.com/NBH4Xs2l.png)](http://imgur.com/NBH4Xs2.png)
+[![](https://i.imgur.com/NBH4Xs2l.png)](https://i.imgur.com/NBH4Xs2.png)
 
 ~~~swift
 let searchButtonColor = UIColor(red:0.56, green:0.38, blue:0.57, alpha:1)
@@ -267,10 +288,39 @@ SearchFilterButton.appearance().normalBorderColor = searchButtonColor
 SearchResultCell.appearance().iconColor = iconTintColor
 ~~~
 
+-
+
+Category shortcuts can be replaced using `searchCategories` property of `WakupOptions` when configuring `WakupManager`:
+
+~~~swift
+let options = WakupOptions()
+options.searchCategories = [
+    OfferCategory(title: "Food", icon: "restaurant", associatedTags: ["restaurants"]),
+    OfferCategory(title: "Shopping", icon: "shopping", associatedTags: ["shopping"]),
+    OfferCategory(title: "Services", icon: "services", associatedTags: ["services"])
+]
+
+WakupManager.manager.setup("YOUR API KEY", options: options)
+~~~
+
+Will render this:
+
+[![](https://i.imgur.com/qhJMlfJl.png)](https://i.imgur.com/qhJMlfJ.png)
+
+Button titles can be internationalized using `NSLocalizedString`. Make sure to check  the length of the title to avoid render issues.
+
+To remove category shortcuts, simply set `searchCategories` to `nil`:
+
+~~~swift
+let options = WakupOptions()
+options.searchCategories = nil
+
+WakupManager.manager.setup("YOUR API KEY", options: options)
+~~~
 
 #### Offer map
 
-Offer map view allows customization of map pin colors using `CouponAnnotationView` appearance proxy.
+Offer map view allows customization of map pin icons and colors using `CouponAnnotationView` appearance proxy. Icons and colors are assigned based on offer tags. You can associate more than one tag to each group. You can also declare an empty tag group for offers not matching any previous tag:
 
 [![](https://i.imgur.com/bCTSODDl.png)](https://i.imgur.com/bCTSODD.png)
 
@@ -279,11 +329,15 @@ let restaurantCategoryColor: UIColor = UIColor(red: 0.660, green: 0.133, blue: 0
 let leisureCategoryColor: UIColor = UIColor(red: 0.201, green: 0.310, blue: 0.550, alpha: 1.000)
 let servicesCategoryColor: UIColor = UIColor(red: 0.803, green: 0.341, blue: 0.092, alpha: 1.000)
 let shoppingCategoryColor: UIColor = UIColor(red: 0.321, green: 0.498, blue: 0.190, alpha: 1.000)
-    
-CouponAnnotationView.appearance().restaurantCategoryColor = restaurantCategoryColor
-CouponAnnotationView.appearance().leisureCategoryColor = leisureCategoryColor
-CouponAnnotationView.appearance().servicesCategoryColor = servicesCategoryColor
-CouponAnnotationView.appearance().shoppingCategoryColor = shoppingCategoryColor
+
+CouponAnnotationView.appearance().mapPinSize = CGSize(width: 46, height: 60)
+CouponAnnotationView.appearance().iconAndColorForTags = [
+    ColorForTags(tags: ["restaurants", "food"], mapIcon: "map-restaurant-pin", color: restaurantCategoryColor),
+    ColorForTags(tags: ["leisure", "cinema"], mapIcon: "map-leisure-pin", color: leisureCategoryColor),
+    ColorForTags(tags: ["services"], mapIcon: "map-services-pin", color: servicesCategoryColor),
+    ColorForTags(tags: ["shopping"], mapIcon: "map-shopping-pin", color: shoppingCategoryColor),
+    ColorForTags(tags: [], mapIcon: "map-pin", color: UIColor.darkGrayColor()) // Empty tag list for default pin and color
+]
 ~~~
 
 

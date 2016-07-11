@@ -3,7 +3,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-- No changes
+### Added
+- Added tag search to search controller
+- Offer details now show the associated tags. Tags are clickable and will allow browsing offers with that tag.
+- Offer details now show redemption code if available.
+
+### Changed
+- Categories filter in search controller are now dynamic and can be configured via `WakupOptions` on setup
+- Map icon categories are now dynamic and can be configured via `CouponAnnotationView` appearance proxy.
+- Updated framework and demo `Podfile` to CocoaPods 1.0 spec
 
 ## [0.3.5] - 2016-03-11
 ### Fixed
