@@ -15,6 +15,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     enum Section: Int {
         case UserLocation
         case Companies
+        case Tags
         case Locations
         case History
     }
@@ -35,7 +36,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     var searchComplement: String? { return searchCountry.map{", " + $0} }
     
     var userLocation: CLLocation? { didSet { reloadData([.UserLocation]) } }
-    var searchResult: SearchResult? { didSet { reloadData([.UserLocation, .Companies]) } }
+    var searchResult: SearchResult? { didSet { reloadData([.UserLocation, .Companies, .Tags]) } }
     var placemarks: [CLPlacemark]? { didSet { reloadData([.UserLocation, .Locations]) } }
     var searchHistory: [SearchHistory]? { didSet { reloadData([.History]); } }
     
@@ -180,6 +181,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             switch section {
             case .Companies:
                 return searchResult?.companies.count ?? 0
+            case .Tags:
+                return searchResult?.tags.count ?? 0
             case .Locations:
                 return placemarks?.count ?? 0
             case .UserLocation:
@@ -202,6 +205,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                 let company = searchResult?.companies[indexPath.row]
                 cell.textLabel?.text = company?.name
                 cell.iconIdentifier = "star"
+            case .Tags:
+                cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! SearchResultCell
+                let tag = searchResult?.tags[indexPath.row]
+                cell.textLabel?.text = "#" + tag!
+                cell.iconIdentifier = "tag"
             case .Locations:
                 cell = tableView.dequeueReusableCellWithIdentifier("SubtitleCell") as! SearchResultCell
                 let placemark = placemarks?[indexPath.row]
@@ -226,6 +234,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                         cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! SearchResultCell
                         cell.textLabel?.text = name
                         cell.iconIdentifier = "star"
+                    case .Tag(let tag):
+                        cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! SearchResultCell
+                        cell.textLabel?.text = "#" + tag
+                        cell.iconIdentifier = "tag"
                     }
                 }
             }
@@ -240,6 +252,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             case .Companies:
                 if (searchResult?.companies.count ?? 0) > 0 {
                     return "SearchHeaderCompanies".i18n()
+                }
+            case .Tags:
+                if (searchResult?.tags.count ?? 0) > 0 {
+                    return "SearchHeaderTags".i18n()
                 }
             case .Locations:
                 if (placemarks?.count ?? 0) > 0 {
@@ -263,6 +279,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         var companyName: String?
         var location: CLLocation?
         var locationName: String?
+        var selectedTag: String?
         
         var newHistory: SearchHistory? = .None
         if let section = Section(rawValue: indexPath.section) {
@@ -272,6 +289,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                     companyId = company.id
                     companyName = company.name
                     newHistory = .Company(id: company.id, name: company.name)
+                }
+            case .Tags:
+                if let tag = searchResult?.tags[indexPath.row] {
+                    selectedTag = tag
+                    newHistory = .Tag(tag: tag)
                 }
             case .Locations:
                 if let placemark = placemarks?[indexPath.row], let coord = placemark.location?.coordinate {
@@ -292,6 +314,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                     case .Company(let id, let name):
                         companyId = id
                         companyName = name
+                    case .Tag(let tag):
+                        selectedTag = tag
                     }
                 }
                 break
@@ -303,13 +327,16 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         }
         
         let categories = getSelectedCategories()
-        let tags = categories?.flatMap { $0.associatedTags }
+        var tags = categories?.flatMap { $0.associatedTags } ?? []
+        if let tag = selectedTag {
+            tags.append(tag)
+        }
         let filterOptions = FilterOptions(searchTerm: searchTerm, tags: tags, companyId: companyId)
         
         if let couponVC = storyboard?.instantiateViewControllerWithIdentifier(CouponWaterfallViewController.storyboardId) as? CouponWaterfallViewController {
             couponVC.forcedLocation = location
             couponVC.filterOptions = filterOptions
-            couponVC.filterTitle = companyName ?? locationName ?? "SearchResults".i18n()
+            couponVC.filterTitle = companyName ?? locationName ?? selectedTag.map{"#\($0)"} ?? "SearchResults".i18n()
             navigationController?.pushViewController(couponVC, animated: true)
         }
         

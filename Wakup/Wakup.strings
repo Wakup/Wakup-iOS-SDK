@@ -63,8 +63,9 @@
 "GeolocationErrorTitle" = "Error de ubicación";
 "GeolocationErrorMsg" = "Ha sido imposible obtener una ubicación válida. Mostraremos resultados de una ubicación por defecto";
 
-"SearchResults" = "Resultados de la búsqueda";
+"SearchResults" = "Resultados de búsqueda";
 "SearchHeaderCompanies" = "Marcas";
+"SearchHeaderTags" = "Categorías";
 "SearchHeaderLocations" = "Ubicaciones";
 "SearchHeaderHistory" = "Últimas búsquedas";
 "SearchCellUserLocation" = "Cerca de mí";

@@ -53,7 +53,8 @@ class SearchService: BaseService {
     
     private func parseSearchResult(json json: JSON) -> SearchResult {
         let companies = json["companies"].arrayValue.map { companyJson in self.parseCompany(json: companyJson) }
-        return SearchResult(companies: companies)
+        let tags = json["tags"].arrayValue.map { $0.stringValue }
+        return SearchResult(companies: companies, tags: tags)
     }
     
     func addToHistory(element: SearchHistory) -> [SearchHistory] {

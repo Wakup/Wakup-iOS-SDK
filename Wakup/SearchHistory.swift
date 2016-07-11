@@ -13,6 +13,7 @@ import SwiftyJSON
 enum SearchHistory: Equatable {
     case Location(name: String, address: String?, latitude: CLLocationDegrees, longitude: CLLocationDegrees)
     case Company(id: Int, name: String)
+    case Tag(tag: String)
     
     func toJson() -> JSON {
         switch self {
@@ -20,6 +21,8 @@ enum SearchHistory: Equatable {
             return JSON(["type": "Company", "id": id, "name": name])
         case .Location(let name, let address, let latitude, let longitude):
             return JSON(["type": "Location", "name": name, "address": address ?? "", "lat": latitude, "lng": longitude])
+        case .Tag(let tag):
+            return JSON(["type": "Tag", "tag": tag])
         }
     }
     
@@ -29,6 +32,8 @@ enum SearchHistory: Equatable {
             return .Company(id: json["id"].intValue, name: json["name"].stringValue)
         case .Some("Location"):
             return .Location(name: json["name"].stringValue, address: json["address"].string, latitude: json["lat"].doubleValue, longitude: json["lng"].doubleValue)
+        case .Some("Tag"):
+            return .Tag(tag: json["tag"].stringValue)
         default:
             return .None
         }
@@ -49,6 +54,13 @@ func ==(lhs: SearchHistory, rhs: SearchHistory) -> Bool {
         switch rhs {
         case .Location(let rhsName, let rhsAddress, _, _):
             return lhsName == rhsName && lhsAddress == rhsAddress
+        default:
+            return false
+        }
+    case .Tag(let lhsTag):
+        switch rhs {
+        case .Tag(let rhsTag):
+            return lhsTag == rhsTag
         default:
             return false
         }

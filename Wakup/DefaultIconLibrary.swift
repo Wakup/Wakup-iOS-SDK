@@ -44,6 +44,7 @@ public class DefaultIconLibrary: IconLibrary {
         case "cloud-alert": return (StyleKit.drawCloudWarningIcon, 71/52)
         case "brand": return (StyleKit.drawBrandIcon, 1)
         case "link": return (StyleKit.drawLinkIcon, 1)
+        case "tag": return (StyleKit.drawTagIcon, 57/58)
         case "menu": return (StyleKit.drawMenuIcon, 2/9)
         case "flag": return (StyleKit.drawFlagIcon, 57/70)
         case "document-copy": return (StyleKit.drawDocumentCopyIcon, 52/63)
@@ -58,6 +59,7 @@ public class DefaultIconLibrary: IconLibrary {
         case "map-pin": fallthrough
         case "location": fallthrough
         case "brand": fallthrough
+        case "tag": fallthrough
         case "star":
             return searchListColor
         case "cloud-alert": fallthrough

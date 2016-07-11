@@ -12,9 +12,11 @@ import Foundation
 class SearchResult {
 
     let companies: [Company]
+    let tags: [String]
     
-    init(companies: [Company]) {
+    init(companies: [Company], tags: [String]) {
         self.companies = companies
+        self.tags = tags
     }
     
 }
