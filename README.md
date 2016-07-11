@@ -94,7 +94,7 @@ Wakup controller will automatically detect if it's being presented modally and a
 
 The default Wakup integration would look like this:
 
-[![](http://imgur.com/lSOAScDm.png)](http://imgur.com/lSOAScD.png) [![](http://imgur.com/Enc6IDBm.png)](http://imgur.com/Enc6IDB.png) [![](http://imgur.com/j9h9HZXm.png)](http://imgur.com/j9h9HZX.png) [![](http://imgur.com/lJvMTMFm.png)](http://imgur.com/lJvMTMF.png)
+[![](https://i.imgur.com/lSOAScDm.png)](https://i.imgur.com/lSOAScD.png) [![](https://i.imgur.com/Enc6IDBm.png)](https://i.imgur.com/Enc6IDB.png) [![](https://i.imgur.com/j9h9HZXm.png)](https://i.imgur.com/j9h9HZX.png) [![](https://i.imgur.com/lJvMTMFm.png)](https://i.imgur.com/lJvMTMF.png)
 
 Most application colors, fonts and icons are easily customizable. If not customized, they will appear with the default look&feel of Wakup.
 
@@ -108,7 +108,7 @@ Most component colors are configurable using `UIAppearance` proxies, the same wa
 
 Navigation bar can be customized using `UINavigationBar` appearance proxy like any other iOS application. Icons and buttons will take the navigation bar `tintColor` property for tinting themselves.
 
-[![](http://imgur.com/ywguOtAl.png)](http://imgur.com/ywguOtA.png)
+[![](https://i.imgur.com/ywguOtAl.png)](https://i.imgur.com/ywguOtA.png)
 
 ~~~swift
 let navBarColor = UIColor(red:0.26, green:0.07, blue:0.25, alpha:1)
@@ -128,7 +128,7 @@ UINavigationBar.appearance().titleTextAttributes = [
 
 Top bar view can be customized by using `TopMenuButton` and `TopMenuView` appearance proxies. Change `TopMenuView` background color to change the separator colors and customize `TopMenuButton` as standard `UIButton` with some extension properties for changing icon color.
 
-[![](http://imgur.com/SPnJZdrl.png)](http://imgur.com/SPnJZdr.png)
+[![](https://i.imgur.com/SPnJZdrl.png)](https://i.imgur.com/SPnJZdr.png)
 
 ~~~swift
 let backgroundColor = UIColor(red:0.26, green:0.15, blue:0.26, alpha:1)
@@ -160,7 +160,7 @@ TopMenuButton.appearance().imageEdgeInsets = UIEdgeInsetsZero
 
 Offer cascade views can be customized using `CollectionViewCell` appearance proxy, in addition to the `DiscountTagView` that modifies both the list and the detail green discount tag.
 
-[![](http://imgur.com/rsyNPGZl.png)](http://imgur.com/rsyNPGZ.png)
+[![](https://i.imgur.com/rsyNPGZl.png)](https://i.imgur.com/rsyNPGZ.png)
 
 
 ~~~swift
@@ -186,7 +186,7 @@ DiscountTagView.appearance().labelColor = UIColor.whiteColor()
 
 Quick actions appear when a offer view is pressed for a few seconds. They can be customized using `ContextItemView` appearance proxy.
 
-[![](http://imgur.com/PDJIE2ql.png)](http://imgur.com/PDJIE2q.png)
+[![](https://i.imgur.com/PDJIE2ql.png)](https://i.imgur.com/PDJIE2q.png)
 
 ~~~swift
 let quickActionColor = UIColor(red:0.56, green:0.39, blue:0.56, alpha:1)
@@ -205,7 +205,7 @@ ContextItemView.appearance().borderColor = UIColor.whiteColor()
 
 Offer details view can be customized using `CouponDetailHeaderView` appearance proxy. The green tag can be customized using `DiscountTagView` and shares appearance with the main offer view described above.
 
-[![](http://imgur.com/CIh11Acl.png)](http://imgur.com/CIh11Ac.png)
+[![](https://i.imgur.com/CIh11Acl.png)](https://i.imgur.com/CIh11Ac.png)
 
 ~~~swift
 let titleColor = UIColor.blackColor()
@@ -237,7 +237,7 @@ DiscountTagView.appearance().labelColor = UIColor.whiteColor()
 
 Offer action buttons appear below the offer details and can be customized using the `CouponActionButton` appearance proxy.
 
-[![](http://imgur.com/b5AJ67il.png)](http://imgur.com/b5AJ67i.png)
+[![](https://i.imgur.com/b5AJ67il.png)](https://i.imgur.com/b5AJ67i.png)
 
 ~~~swift
 let actionColor = UIColor(red:0.56, green:0.38, blue:0.57, alpha:1)
@@ -272,7 +272,7 @@ SearchResultCell.appearance().iconColor = iconTintColor
 
 Offer map view allows customization of map pin colors using `CouponAnnotationView` appearance proxy.
 
-[![](http://imgur.com/bCTSODDl.png)](http://imgur.com/bCTSODD.png)
+[![](https://i.imgur.com/bCTSODDl.png)](https://i.imgur.com/bCTSODD.png)
 
 ~~~swift
 let restaurantCategoryColor: UIColor = UIColor(red: 0.660, green: 0.133, blue: 0.159, alpha: 1.000)
@@ -339,11 +339,11 @@ To achieve it, simply subclass `DefaultIconLibrary` class and return the new dra
 
 For example, we want to override the default share icon:
 
-![](http://imgur.com/cN8ls2h.png)
+![](https://i.imgur.com/cN8ls2h.png)
 
 with a new paper plane version:
 
-![](http://imgur.com/FerbLaJ.png)
+![](https://i.imgur.com/FerbLaJ.png)
 
 
 
@@ -412,7 +412,7 @@ WakupManager.manager.setup("YOUR_API_TOKEN_HERE", options: wakupOptions)
 
 Run the App and you'll see your new icon, pixel perfect regardless the size and colored as you wish:
 
-[![](http://imgur.com/JcCkce9l.png)](http://imgur.com/JcCkce9.png)
+[![](https://i.imgur.com/JcCkce9l.png)](https://i.imgur.com/JcCkce9.png)
 
 
 ### Adding additional languages or replacing strings
