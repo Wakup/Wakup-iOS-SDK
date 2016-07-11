@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+
+## [1.0.0] - 2016-07-11
 ### Added
 - Added tag search to search controller
 - Offer details now show the associated tags. Tags are clickable and will allow browsing offers with that tag.
@@ -76,7 +79,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.5...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v1.0.0...HEAD
+[0.3.5]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.5...v1.0.0
 [0.3.5]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.4...v0.3.5
 [0.3.4]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.3...v0.3.4
 [0.3.3]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.2...v0.3.3
