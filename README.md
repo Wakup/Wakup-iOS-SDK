@@ -269,6 +269,13 @@ TagListView.appearance().borderWidth = 1
 
 `TagListView` is a third party library that declares some properties already declared in `Wakup` module. To avoid conflict errors, don't import `TagListView` and `Wakup` in the same file if you're modifying `borderColor`, `cornerRadius` or `borderWidth`.
 
+The tag list view can be hidden by setting the `hideTagsView` property of the `CouponDetailHeadersView` appearance proxy to `false`:
+
+~~~swift
+// Disable tags view in offer details
+CouponDetailHeaderView.appearance().hideTagsView = false
+~~~
+
 
 #### Offer finder
 

@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Tag list view can now be hidden in the offer details view by setting the `hideTagsView` property of the `CouponDetailHeadersView` appearance proxy to `false`
+
 ### Changed
 - Updated WakupDemo `Podspec` to use a different version of `iOSContextualMenu` that works correctly on modal controllers
 

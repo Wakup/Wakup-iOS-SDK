@@ -49,6 +49,7 @@ public class CouponDetailHeaderView: UICollectionReusableView {
     public dynamic var redemptionCodeTitleFont: UIFont? { get { return redemptionCodeTitleLabel?.font } set { redemptionCodeTitleLabel?.font = newValue } }
     public dynamic var redemptionCodeSubtitleColor: UIColor? { get { return redemptionCodeSubtitleLabel?.textColor } set { redemptionCodeSubtitleLabel?.textColor = newValue } }
     public dynamic var redemptionCodeSubtitleFont: UIFont? { get { return redemptionCodeSubtitleLabel?.font } set { redemptionCodeSubtitleLabel?.font = newValue } }
+    public dynamic var hideTagsView: Bool = false
     
     // MARK: IBOutlets
     @IBOutlet weak var companyNameLabel: UILabel!
@@ -235,7 +236,8 @@ public class CouponDetailHeaderView: UICollectionReusableView {
         redemptionCodeConstraint.constant = coupon?.redemptionCode != nil ? 150 : 0
         
         // Hide tag view if no tags found
-        tagViewConstraint.constant = coupon?.tags.isEmpty ?? true ? 0 : 150
+        let hideTags = hideTagsView || coupon?.tags.isEmpty ?? true
+        tagViewConstraint.constant = hideTags ? 0 : 150
         
         super.updateConstraints()
     }
