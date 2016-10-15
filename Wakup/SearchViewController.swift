@@ -214,7 +214,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                 cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell") as! SearchResultCell
                 let placemark = placemarks?[(indexPath as NSIndexPath).row]
                 let name = placemark?.name ?? ""
-                let address = ABCreateStringWithAddressDictionary((placemark?.addressDictionary)!, false)
+                let address = (placemark?.addressDictionary?["FormattedAddressLines"] as? Array<String>)?.joined(separator: ", ")
                 cell.textLabel?.text = name
                 cell.detailTextLabel?.text = address
                 cell.iconIdentifier = "location"
