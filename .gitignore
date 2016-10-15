@@ -1,5 +1,6 @@
 **/*.xcworkspace
 Pods
 **/xcuserdata
+**/xcuserdatad
 Podfile.lock
 */xcuserdata
