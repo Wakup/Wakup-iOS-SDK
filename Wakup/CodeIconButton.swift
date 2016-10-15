@@ -9,20 +9,20 @@
 import Foundation
 import UIKit
 
-@IBDesignable public class CodeIconButton: CustomBorderButton {
+@IBDesignable open class CodeIconButton: CustomBorderButton {
     
-    @IBInspectable public dynamic var iconIdentifier: String? { didSet { refreshIcons() } }
-    @IBInspectable public dynamic var iconColor: UIColor? { didSet { refreshNormal() } }
-    @IBInspectable public dynamic var highlightedIconColor: UIColor? { didSet { refreshHighlighted() } }
-    @IBInspectable public dynamic var selectedIconColor: UIColor? { didSet { refreshSelected() } }
-    @IBInspectable public dynamic var disabledIconColor: UIColor? { didSet { refreshDisabled() } }
-    @IBInspectable public dynamic var highlightedSelectedIconColor: UIColor? { didSet { refreshHighlightedSelected() } }
-    @IBInspectable public dynamic var highlightedDisabledIconColor: UIColor? { didSet { refreshHighlightedDisabled() } }
-    @IBInspectable public dynamic var iconSize: CGSize = CGSize(width: 20, height: 20) { didSet { refreshIcons() } }
-    @IBInspectable public dynamic var iconFillsButton: Bool = false { didSet { refreshIcons() } }
+    @IBInspectable open dynamic var iconIdentifier: String? { didSet { refreshIcons() } }
+    @IBInspectable open dynamic var iconColor: UIColor? { didSet { refreshNormal() } }
+    @IBInspectable open dynamic var highlightedIconColor: UIColor? { didSet { refreshHighlighted() } }
+    @IBInspectable open dynamic var selectedIconColor: UIColor? { didSet { refreshSelected() } }
+    @IBInspectable open dynamic var disabledIconColor: UIColor? { didSet { refreshDisabled() } }
+    @IBInspectable open dynamic var highlightedSelectedIconColor: UIColor? { didSet { refreshHighlightedSelected() } }
+    @IBInspectable open dynamic var highlightedDisabledIconColor: UIColor? { didSet { refreshHighlightedDisabled() } }
+    @IBInspectable open dynamic var iconSize: CGSize = CGSize(width: 20, height: 20) { didSet { refreshIcons() } }
+    @IBInspectable open dynamic var iconFillsButton: Bool = false { didSet { refreshIcons() } }
     
-    private var codeIcon: CodeIcon?
-    private var iconFrame: CGRect { get { return iconFillsButton ? bounds : CGRect(origin: CGPointZero, size: iconSize) } }
+    fileprivate var codeIcon: CodeIcon?
+    fileprivate var iconFrame: CGRect { get { return iconFillsButton ? bounds : CGRect(origin: CGPoint.zero, size: iconSize) } }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -43,34 +43,34 @@ import UIKit
     }
     
     func refreshNormal() {
-        setImage(getIcon(color: iconColor), forState: .Normal)
+        setImage(getIcon(color: iconColor), for: UIControlState())
     }
     
     func refreshHighlighted() {
-        setImage(getIcon(color: highlightedIconColor), forState: .Highlighted)
+        setImage(getIcon(color: highlightedIconColor), for: .highlighted)
     }
     
     func refreshSelected() {
-        setImage(getIcon(color: selectedIconColor), forState: .Selected)
+        setImage(getIcon(color: selectedIconColor), for: .selected)
     }
     
     func refreshDisabled() {
-        setImage(getIcon(color: disabledIconColor), forState: .Disabled)
+        setImage(getIcon(color: disabledIconColor), for: .disabled)
     }
     
     func refreshHighlightedSelected() {
         if let color = highlightedSelectedIconColor {
-            setImage(getIcon(color: color), forState: [.Selected, .Highlighted])
+            setImage(getIcon(color: color), for: [.selected, .highlighted])
         }
     }
     
     func refreshHighlightedDisabled() {
         if let color = highlightedDisabledIconColor {
-            setImage(getIcon(color: color), forState: [.Disabled, .Highlighted])
+            setImage(getIcon(color: color), for: [.disabled, .highlighted])
         }
     }
     
-    func getIcon(color color: UIColor?) -> UIImage? {
+    func getIcon(color: UIColor?) -> UIImage? {
         return codeIcon?.getImage(iconFrame, color: color)
     }
     

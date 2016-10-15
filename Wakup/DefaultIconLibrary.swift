@@ -8,12 +8,12 @@
 
 import Foundation
 
-public class DefaultIconLibrary: IconLibrary {
+open class DefaultIconLibrary: IconLibrary {
     
     var searchListColor = UIColor(fromHexString: "#906191")
     var emptyViewColor = UIColor(fromHexString: "#908E90")
     
-    public func drawMethodForIcon(iconIdentifier iconIdentifier: String) -> (drawMethod: IconDrawMethod, aspectRatio: CGFloat) {
+    open func drawMethodForIcon(iconIdentifier: String) -> (drawMethod: IconDrawMethod, aspectRatio: CGFloat) {
         switch iconIdentifier {
         case "location": return (StyleKit.drawLocationIcon, 59/78)
         case "clock": return (StyleKit.drawClockIcon, 1)
@@ -54,7 +54,7 @@ public class DefaultIconLibrary: IconLibrary {
         }
     }
     
-    public func getDefaultColor(iconIdentifier iconIdentifier: String) -> UIColor {
+    open func getDefaultColor(iconIdentifier: String) -> UIColor {
         switch iconIdentifier {
         case "map-pin": fallthrough
         case "location": fallthrough
@@ -66,7 +66,7 @@ public class DefaultIconLibrary: IconLibrary {
         case "save":
             return emptyViewColor
         default:
-            return UIColor.grayColor()
+            return UIColor.gray
         }
     }
     

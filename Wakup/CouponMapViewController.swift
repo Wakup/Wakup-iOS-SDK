@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 @IBDesignable
-public class CouponMapViewController: UIViewController, MKMapViewDelegate {
+open class CouponMapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var loadingIndicatorView: ScissorsLoadingView!
@@ -19,7 +19,7 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
     
     var coupons: [Coupon] = [Coupon]()
     var selectedCoupon: Coupon?
-    var selectedAnnotation: CouponAnnotation? { get { return selectedCoupon.map{ self.annotations[$0.id] } ?? .None } }
+    var selectedAnnotation: CouponAnnotation? { get { return selectedCoupon.map{ self.annotations[$0.id] } ?? .none } }
     var userLocation: CLLocation?
     var allowDetailsNavigation = false
     
@@ -27,15 +27,15 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
     var filterOptions: FilterOptions?
     
     var loadCouponsOnRegionChange = false
-    private var shouldLoad = false
-    private var lastRequestCenter: CLLocationCoordinate2D?
+    fileprivate var shouldLoad = false
+    fileprivate var lastRequestCenter: CLLocationCoordinate2D?
     
-    private var annotations = [Int: CouponAnnotation]()
+    fileprivate var annotations = [Int: CouponAnnotation]()
     
-    private var loading: Bool = false {
+    fileprivate var loading: Bool = false {
         didSet {
-            self.loadingIndicatorView.hidden = false
-            UIView.animateWithDuration(0.3, animations: {
+            self.loadingIndicatorView.isHidden = false
+            UIView.animate(withDuration: 0.3, animations: {
                 self.loadingIndicatorView?.alpha = self.loading ? 1 : 0
                 return
             })
@@ -51,15 +51,15 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     // MARK: View lifecycle
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         refreshUI()
     }
     
-    override public func viewWillAppear(animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         mapView?.showsUserLocation = true
-        loadingIndicatorView.hidden = true
+        loadingIndicatorView.isHidden = true
         loadingIndicatorView?.alpha = 0
         
         if let navigationController = navigationController {
@@ -67,7 +67,7 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    override public func viewDidAppear(animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !shouldLoad {
             if let coupon = selectedCoupon {
@@ -85,7 +85,7 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    override public func viewWillDisappear(animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         mapView?.showsUserLocation = false
     }
@@ -93,7 +93,7 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
     // MARK: Private Methods
     func refreshUI() {
         mapView?.removeAnnotations(mapView.annotations)
-        annotations.removeAll(keepCapacity: false)
+        annotations.removeAll(keepingCapacity: false)
         
         for coupon in coupons {
             guard coupon.store?.location() != nil else { continue }
@@ -110,7 +110,7 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
         let span = mapView.region.span
         
         let corner = CLLocation(latitude: center.latitude + span.latitudeDelta / 2, longitude: center.longitude + span.longitudeDelta / 2)
-        let radius = corner.distanceFromLocation(center.toLocation())
+        let radius = corner.distance(from: center.toLocation())
         
         self.lastRequestCenter = center
         self.loading = true
@@ -132,7 +132,7 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
         })
     }
     
-    func selectCoupon(coupon: Coupon, animated: Bool = false) {
+    func selectCoupon(_ coupon: Coupon, animated: Bool = false) {
         selectedCoupon = coupon
         guard let annotation = self.annotations[coupon.id] else { return }
         self.centerInAnnotations([annotation], animated: animated)
@@ -142,7 +142,7 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    func centerInSelection(animated: Bool) {
+    func centerInSelection(_ animated: Bool) {
         var annotations = [CouponAnnotation]()
         if let selectedAnnotation = self.selectedAnnotation {
             annotations = [selectedAnnotation]
@@ -154,12 +154,12 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
         centerInAnnotations(annotations, animated: animated)
     }
     
-    func centerInCoordinate(coordinate: CLLocationCoordinate2D, animated: Bool) {
+    func centerInCoordinate(_ coordinate: CLLocationCoordinate2D, animated: Bool) {
         let region = MKCoordinateRegion(center: coordinate, span: selectionSpan)
         self.mapView?.setRegion(region, animated: animated)
     }
     
-    func centerInAnnotations(annotations: [CouponAnnotation], animated: Bool) {
+    func centerInAnnotations(_ annotations: [CouponAnnotation], animated: Bool) {
         if annotations.count > 0 {
             mapView?.showAnnotations(annotations, animated: animated)
         }
@@ -168,26 +168,26 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
     // MARK: Actions
     func showDetails(forOffer offer: Coupon) {
         let detailsStoryboardId = "couponDetails"
-        let detailsVC = self.storyboard?.instantiateViewControllerWithIdentifier(detailsStoryboardId) as! CouponDetailsViewController
+        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: detailsStoryboardId) as! CouponDetailsViewController
         detailsVC.userLocation = self.userLocation
         detailsVC.coupons = coupons
-        detailsVC.selectedIndex = coupons.indexOf(offer) ?? 0
+        detailsVC.selectedIndex = coupons.index(of: offer) ?? 0
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     
     // MARK: MKMapViewDelegate methods
-    public func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    open func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         return (annotation as? CouponAnnotation).map { couponAnnotation in
             let identifier = "couponAnnotation"
-            let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) ?? CouponAnnotationView(annotation: couponAnnotation, reuseIdentifier: identifier)
+            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) ?? CouponAnnotationView(annotation: couponAnnotation, reuseIdentifier: identifier)
             annotationView.layoutSubviews()
             annotationView.annotation = couponAnnotation
             annotationView.canShowCallout = true
             
             if couponAnnotation.coupon.company.logo?.sourceUrl != nil {
                 if !(annotationView.leftCalloutAccessoryView is UIImageView) {
-                    let imageView = UIImageView(frame: CGRect(origin: CGPointZero, size: CGSize(width: 52, height: 52)))
-                    imageView.contentMode = .ScaleAspectFit
+                    let imageView = UIImageView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 52, height: 52)))
+                    imageView.contentMode = .scaleAspectFit
                     annotationView.leftCalloutAccessoryView = imageView
                 }
             }
@@ -196,7 +196,7 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
             }
             
             if allowDetailsNavigation {
-                let button = UIButton(type: .DetailDisclosure)
+                let button = UIButton(type: .detailDisclosure)
                 annotationView.rightCalloutAccessoryView = button
             }
             annotationView.setNeedsLayout()
@@ -204,21 +204,21 @@ public class CouponMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    public func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    open func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let annotation = view.annotation as? CouponAnnotation {
             showDetails(forOffer: annotation.coupon)
         }
     }
     
-    public func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+    open func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let annotation = view.annotation as? CouponAnnotation,
-            imageView = view.leftCalloutAccessoryView as? UIImageView,
-            logoUrl = annotation.coupon.company.logo?.sourceUrl else { return }
+            let imageView = view.leftCalloutAccessoryView as? UIImageView,
+            let logoUrl = annotation.coupon.company.logo?.sourceUrl else { return }
         
-        imageView.sd_setImageWithURL(logoUrl)
+        imageView.sd_setImage(with: logoUrl as URL!)
     }
     
-    public func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    open func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
 //        NSLog("Region changed with new center: %f, %f", mapView.region.center.latitude, mapView.region.center.longitude)
         if loadCouponsOnRegionChange && shouldLoad {
             let center = mapView.region.center

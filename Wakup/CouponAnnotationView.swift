@@ -10,10 +10,10 @@ import Foundation
 import MapKit
 
 @objc
-public class ColorForTags: NSObject {
-    public let tags: Set<String>
-    public let color: UIColor
-    public let mapIcon: String
+open class ColorForTags: NSObject {
+    open let tags: Set<String>
+    open let color: UIColor
+    open let mapIcon: String
     
     public init(tags: Set<String>, mapIcon: String, color: UIColor) {
         self.tags = tags
@@ -22,11 +22,11 @@ public class ColorForTags: NSObject {
     }
 }
 
-public class CouponAnnotationView: MKAnnotationView {
+open class CouponAnnotationView: MKAnnotationView {
     
-    public dynamic var mapPinSize = CGSize(width: 46, height: 60)
+    open dynamic var mapPinSize = CGSize(width: 46, height: 60)
     
-    public dynamic var iconAndColorForTags: [ColorForTags] = [
+    open dynamic var iconAndColorForTags: [ColorForTags] = [
         ColorForTags(tags: ["restaurants"], mapIcon: "map-restaurant-pin", color: StyleKit.restaurantCategoryColor),
         ColorForTags(tags: ["leisure"], mapIcon: "map-leisure-pin", color: StyleKit.leisureCategoryColor),
         ColorForTags(tags: ["services"], mapIcon: "map-services-pin", color: StyleKit.servicesCategoryColor),
@@ -37,14 +37,14 @@ public class CouponAnnotationView: MKAnnotationView {
     func mapIconId(forOffer offer: Coupon) -> (String, UIColor) {
         let offerTags = Set(offer.tags)
         for element in iconAndColorForTags {
-            if !offerTags.intersect(element.tags).isEmpty || element.tags.isEmpty {
+            if !offerTags.intersection(element.tags).isEmpty || element.tags.isEmpty {
                 return (element.mapIcon, element.color)
             }
         }
         return ("map-pin", StyleKit.corporateDarkColor)
     }
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         
         guard let couponAnnotation = annotation as? CouponAnnotation else { return }

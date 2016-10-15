@@ -12,8 +12,8 @@ import UIKit
 @IBDesignable class CodeImageView: UIView {
     var codeImage: CodeImage? { didSet { setNeedsDisplay() } }
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         codeImage?.draw(bounds)
     }
 }

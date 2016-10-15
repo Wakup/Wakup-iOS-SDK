@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 extension Store {
-    func distance(toLocation: CLLocation) -> CLLocationDistance? {
+    func distance(_ toLocation: CLLocation) -> CLLocationDistance? {
         return getDistance(toLocation) <^> location()
     }
     
@@ -18,11 +18,11 @@ extension Store {
         return getLocation <^> latitude <*> longitude
     }
     
-    private func getLocation(latitude: Float)(longitude: Float) -> CLLocation {
+    fileprivate func getLocation(_ latitude: Float, _ longitude: Float) -> CLLocation {
         return CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
     }
     
-    private func getDistance(loc1: CLLocation)(loc2: CLLocation) -> CLLocationDistance {
-        return loc1.distanceFromLocation(loc2)
+    fileprivate func getDistance(_ loc1: CLLocation, _ loc2: CLLocation) -> CLLocationDistance {
+        return loc1.distance(from: loc2)
     }
 }

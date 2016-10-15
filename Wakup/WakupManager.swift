@@ -9,12 +9,12 @@
 import Foundation
 
 @objc
-public class WakupManager: NSObject {
-    public static let manager = WakupManager()
+open class WakupManager: NSObject {
+    open static let manager = WakupManager()
     
     internal var options = WakupOptions()
     
-    public func setup(apiKey: String, options: WakupOptions = WakupOptions()) {
+    open func setup(_ apiKey: String, options: WakupOptions = WakupOptions()) {
         SearchService.sharedInstance.apiKey = apiKey
         OffersService.sharedInstance.apiKey = apiKey
         UserService.sharedInstance.apiKey = apiKey
@@ -23,34 +23,34 @@ public class WakupManager: NSObject {
         CodeIconLibrary.instance = options.iconLibrary
     }
     
-    public lazy var storyboard: UIStoryboard! = UIStoryboard(name: "Wakup", bundle: NSBundle(forClass: WakupManager.self))
+    open lazy var storyboard: UIStoryboard! = UIStoryboard(name: "Wakup", bundle: Bundle(for: WakupManager.self))
     
-    public func rootNavigationController() -> UINavigationController! {
+    open func rootNavigationController() -> UINavigationController! {
         return storyboard.instantiateInitialViewController() as? UINavigationController
     }
     
-    public func rootController() -> UIViewController! {
-        return storyboard.instantiateViewControllerWithIdentifier("couponWaterfall")
+    open func rootController() -> UIViewController! {
+        return storyboard.instantiateViewController(withIdentifier: "couponWaterfall")
     }
     
-    public func webViewController() -> WebViewController! {
-        return storyboard.instantiateViewControllerWithIdentifier("webViewController") as? WebViewController
+    open func webViewController() -> WebViewController! {
+        return storyboard.instantiateViewController(withIdentifier: "webViewController") as? WebViewController
     }
 }
 
 import CoreLocation
 @objc
-public class WakupOptions: NSObject {
-    public var iconLibrary: IconLibrary = DefaultIconLibrary()
+open class WakupOptions: NSObject {
+    open var iconLibrary: IconLibrary = DefaultIconLibrary()
     
     /// Default user location, used when there's no user location available
-    public var defaultLocation = CLLocation(latitude: 40.416944, longitude: -3.703611) // Puerta del Sol, Madrid
+    open var defaultLocation = CLLocation(latitude: 40.416944, longitude: -3.703611) // Puerta del Sol, Madrid
     
     /// Search country, will be appended to geolocation searches to narrow results
-    public var searchCountryCode: String? = "es" // NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as? String
+    open var searchCountryCode: String? = "es" // NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as? String
     
     /// Category definition. Used for search controller shortcuts. Set to nil to disable category search.
-    public var searchCategories: [OfferCategory]? = [
+    open var searchCategories: [OfferCategory]? = [
         OfferCategory(title: "Comida", icon: "restaurant", associatedTags: ["restaurants"]),
         OfferCategory(title: "Tiendas", icon: "shopping", associatedTags: ["shopping"]),
         OfferCategory(title: "Ocio", icon: "leisure", associatedTags: ["leisure"]),

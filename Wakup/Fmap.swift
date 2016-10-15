@@ -15,10 +15,10 @@ import Foundation
 infix operator <^> { associativity left }
 
 // Fmap: Applies function conditionaly if the element is not None, returns None otherwise
-func <^><A, B>(f: A -> B, a: A?) -> B? {
+func <^><A, B>(f: (A) -> B, a: A?) -> B? {
     switch a {
-    case .Some(let x): return f(x)
-    case .None: return .None
+    case .some(let x): return f(x)
+    case .none: return .none
     }
 }
 
@@ -26,9 +26,9 @@ func <^><A, B>(f: A -> B, a: A?) -> B? {
 infix operator <*> { associativity left }
 
 // Apply: Applies an optional function conditionally if both the element and the function are not None, returns None otherwise
-func <*><A, B>(f: (A -> B)?, a: A?) -> B? {
+func <*><A, B>(f: ((A) -> B)?, a: A?) -> B? {
     switch f {
-    case .Some(let fx): return fx <^> a
-    case .None: return .None
+    case .some(let fx): return fx <^> a
+    case .none: return .none
     }
 }

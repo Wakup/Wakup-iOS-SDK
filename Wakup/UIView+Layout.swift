@@ -13,7 +13,7 @@ extension UIView {
     /**
     - returns: true if v is in this view's super view chain
     */
-    public func isSuper(v : UIView) -> Bool
+    public func isSuper(_ v : UIView) -> Bool
     {
         for var s : UIView? = self; s != nil; s = s?.superview {
             if(v == s) {
@@ -23,17 +23,17 @@ extension UIView {
         return false
     }
     
-    func constraint(item1: UIView, _ attribute1: NSLayoutAttribute, _ relation: NSLayoutRelation, _ item2: UIView, _ attribute2: NSLayoutAttribute, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0) -> NSLayoutConstraint
+    func constraint(_ item1: UIView, _ attribute1: NSLayoutAttribute, _ relation: NSLayoutRelation, _ item2: UIView, _ attribute2: NSLayoutAttribute, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0) -> NSLayoutConstraint
     {
         return NSLayoutConstraint(item: item1, attribute: attribute1, relatedBy: relation, toItem: item2, attribute: attribute2, multiplier: multiplier, constant: constant)
     }
     
-    func constraint(item1: UIView, _ attribute1: NSLayoutAttribute, _ relation: NSLayoutRelation, constant: CGFloat = 0.0, multiplier : CGFloat = 1.0) -> NSLayoutConstraint
+    func constraint(_ item1: UIView, _ attribute1: NSLayoutAttribute, _ relation: NSLayoutRelation, constant: CGFloat = 0.0, multiplier : CGFloat = 1.0) -> NSLayoutConstraint
     {
-        return NSLayoutConstraint(item: item1, attribute: attribute1, relatedBy: relation, toItem: nil, attribute: .NotAnAttribute, multiplier: multiplier, constant: constant)
+        return NSLayoutConstraint(item: item1, attribute: attribute1, relatedBy: relation, toItem: nil, attribute: .notAnAttribute, multiplier: multiplier, constant: constant)
     }
     
-    public func constrain(attribute: NSLayoutAttribute, _ relation: NSLayoutRelation, _ otherView: UIView, _ otherAttribute: NSLayoutAttribute, constant: CGFloat = 0.0, multiplier : CGFloat = 1.0) -> UIView?
+    public func constrain(_ attribute: NSLayoutAttribute, _ relation: NSLayoutRelation, _ otherView: UIView, _ otherAttribute: NSLayoutAttribute, constant: CGFloat = 0.0, multiplier : CGFloat = 1.0) -> UIView?
     {
         let c = constraint(self, attribute, relation, otherView, otherAttribute, constant: constant, multiplier: multiplier)
         
@@ -50,7 +50,7 @@ extension UIView {
         return nil
     }
     
-    public func constrain(attribute: NSLayoutAttribute, _ relation: NSLayoutRelation, constant: CGFloat, multiplier : CGFloat = 1.0) -> UIView?
+    public func constrain(_ attribute: NSLayoutAttribute, _ relation: NSLayoutRelation, constant: CGFloat, multiplier : CGFloat = 1.0) -> UIView?
     {
         let c = constraint(self, attribute, relation, constant: constant, multiplier: multiplier)
         self.addConstraint(c)

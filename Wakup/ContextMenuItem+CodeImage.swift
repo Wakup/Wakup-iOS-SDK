@@ -9,8 +9,8 @@
 import Foundation
 
 extension ContextMenuItem {
-    convenience init(codeImage: CodeImage, size: CGSize, highlightedImage: CodeImage? = .None, titleText: String? = .None) {
-        let frame = CGRect(origin: CGPointZero, size: size)
+    convenience init(codeImage: CodeImage, size: CGSize, highlightedImage: CodeImage? = .none, titleText: String? = .none) {
+        let frame = CGRect(origin: CGPoint.zero, size: size)
         
         let itemView = UIImageView(image: codeImage.getImage(frame))
         itemView.frame = frame
@@ -24,18 +24,18 @@ extension ContextMenuItem {
         self.init(itemView: itemView, highlightedItemView: highlightedView, titleText: titleText)
     }
     
-    convenience init(codeIcon: CodeIcon, color: UIColor, size: CGSize, highlightedColor: UIColor? = .None, titleText: String? = .None) {
+    convenience init(codeIcon: CodeIcon, color: UIColor, size: CGSize, highlightedColor: UIColor? = .none, titleText: String? = .none) {
         let codeImage = codeIcon.getCodeImage(forColor: color)
         let highlightedImage = highlightedColor.map{ codeIcon.getCodeImage(forColor: $0) }
         self.init(codeImage: codeImage, size: size, highlightedImage: highlightedImage, titleText: titleText)
     }
     
-    convenience init(iconIdentifier: String, color: UIColor, size: CGSize, highlightedColor: UIColor? = .None, titleText: String? = .None) {
+    convenience init(iconIdentifier: String, color: UIColor, size: CGSize, highlightedColor: UIColor? = .none, titleText: String? = .none) {
         let codeIcon = CodeIcon(iconIdentifier: iconIdentifier)
         self.init(codeIcon: codeIcon, color: color, size: size, highlightedColor: highlightedColor, titleText: titleText)
     }
     
-    class func withCustomView(iconIdentifier: String, titleText: String? = .None) -> ContextMenuItem {
+    class func withCustomView(_ iconIdentifier: String, titleText: String? = .none) -> ContextMenuItem {
         let view = loadViewFromNib("ContextItemView") as! ContextItemView
         view.iconIdentifier = iconIdentifier
         

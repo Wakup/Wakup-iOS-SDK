@@ -12,9 +12,9 @@ class BaseService {
     var apiKey: String?
     var authHeaders: [String: String]? { return apiKey.map{ ["API-Token": $0] } }
     
-    let offerHostUrl = NSProcessInfo.processInfo().environment["OFFERS_SERVER_URL"] ?? "https://app.wakup.net/"
+    let offerHostUrl = ProcessInfo.processInfo.environment["OFFERS_SERVER_URL"] ?? "https://app.wakup.net/"
     
-    func userHeaders(userToken: String) -> [String: String] {
+    func userHeaders(_ userToken: String) -> [String: String] {
         var headers = authHeaders ?? [String: String]()
         headers["User-Token"] = userToken
         return headers

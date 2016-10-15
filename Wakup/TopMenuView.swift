@@ -9,24 +9,24 @@
 import UIKit
 
 protocol TopMenuViewDelegate {
-    func topMenuViewDidSelectOfferButton(view: TopMenuView)
-    func topMenuViewDidSelectMapButton(view: TopMenuView)
-    func topMenuViewDidSelectMyOffersButton(view: TopMenuView)
+    func topMenuViewDidSelectOfferButton(_ view: TopMenuView)
+    func topMenuViewDidSelectMapButton(_ view: TopMenuView)
+    func topMenuViewDidSelectMyOffersButton(_ view: TopMenuView)
 }
 
-public class TopMenuView: UIView {
+open class TopMenuView: UIView {
     
     var delegate: TopMenuViewDelegate?
 
-    @IBAction func offerButtonClicked(sender: AnyObject) {
+    @IBAction func offerButtonClicked(_ sender: AnyObject) {
         delegate?.topMenuViewDidSelectOfferButton(self)
     }
     
-    @IBAction func mapButtonClicked(sender: AnyObject) {
+    @IBAction func mapButtonClicked(_ sender: AnyObject) {
         delegate?.topMenuViewDidSelectMapButton(self)
     }
 
-    @IBAction func myOffersButtonClicked(sender: AnyObject) {
+    @IBAction func myOffersButtonClicked(_ sender: AnyObject) {
         delegate?.topMenuViewDidSelectMyOffersButton(self)
     }
 }

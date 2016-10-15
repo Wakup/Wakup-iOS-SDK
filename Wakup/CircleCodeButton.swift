@@ -14,13 +14,13 @@ import UIKit
     @IBOutlet var textLabel: UILabel?
     @IBOutlet var iconView: CodeIconView?
     
-    override var enabled: Bool { didSet { updateUI() } }
+    override var isEnabled: Bool { didSet { updateUI() } }
     
-    private var touchingInside: Bool = false { didSet { updateUI() } }
+    fileprivate var touchingInside: Bool = false { didSet { updateUI() } }
     
-    override var highlighted: Bool { didSet { updateUI() } }
+    override var isHighlighted: Bool { didSet { updateUI() } }
     
-    private var originalBackgroundColor: UIColor?
+    fileprivate var originalBackgroundColor: UIColor?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,31 +28,31 @@ import UIKit
     }
     
     func updateUI() {
-        let isHighlighted = highlighted || selected || touchingInside
+        let isHighlighted = self.isHighlighted || isSelected || touchingInside
         
-        textLabel?.highlighted = isHighlighted
+        textLabel?.isHighlighted = isHighlighted
         iconView?.highlighted = isHighlighted
         backgroundColor = isHighlighted ? borderColor : originalBackgroundColor
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         touchingInside = true
     }
     
-    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-        super.touchesCancelled(touches, withEvent: event)
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
         delay(0.1) {
             self.touchingInside = false
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesEnded(touches, withEvent: event)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         delay(0.1) {
             self.touchingInside = false
         }
-        sendActionsForControlEvents(.TouchUpInside)
+        sendActions(for: .touchUpInside)
     }
     
 }

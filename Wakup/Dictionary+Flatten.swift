@@ -9,7 +9,7 @@
 import Foundation
 
 protocol OptionalEquivalent {
-    typealias WrappedValueType
+    associatedtype WrappedValueType
     func toOptional() -> WrappedValueType?
 }
 

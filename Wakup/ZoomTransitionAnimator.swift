@@ -28,20 +28,20 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         self.presenting = !reversed
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return firstStepAnimationDuration + secondStepAnimationDuration
     }
     
-    private func substract(fromPoint p1: CGPoint, toPoint p2: CGPoint) -> CGPoint {
-        return CGPointMake(p1.x - p2.x, p1.y - p2.y)
+    fileprivate func substract(fromPoint p1: CGPoint, toPoint p2: CGPoint) -> CGPoint {
+        return CGPoint(x: p1.x - p2.x, y: p1.y - p2.y)
     }
     
-    private func setAnchorPoint(anchorPoint: CGPoint, forView view: UIView) {
-        var newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x, view.bounds.size.height * anchorPoint.y)
-        var oldPoint = CGPointMake(view.bounds.size.width * view.layer.anchorPoint.x, view.bounds.size.height * view.layer.anchorPoint.y)
+    fileprivate func setAnchorPoint(_ anchorPoint: CGPoint, forView view: UIView) {
+        var newPoint = CGPoint(x: view.bounds.size.width * anchorPoint.x, y: view.bounds.size.height * anchorPoint.y)
+        var oldPoint = CGPoint(x: view.bounds.size.width * view.layer.anchorPoint.x, y: view.bounds.size.height * view.layer.anchorPoint.y)
         
-        newPoint = CGPointApplyAffineTransform(newPoint, view.transform)
-        oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform)
+        newPoint = newPoint.applying(view.transform)
+        oldPoint = oldPoint.applying(view.transform)
         
         var position = view.layer.position
         position.x -= oldPoint.x
@@ -54,8 +54,8 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         view.layer.anchorPoint = anchorPoint
     }
     
-    private func getFromView(forTransitionContext transitionContext: UIViewControllerContextTransitioning) -> UIView {
-        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+    fileprivate func getFromView(forTransitionContext transitionContext: UIViewControllerContextTransitioning) -> UIView {
+        let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
         if presenting {
             return (fromViewController as! ZoomTransitionOrigin).zoomTransitionOriginView()
         }
@@ -64,8 +64,8 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         }
     }
     
-    private func getToView(forTransitionContext transitionContext: UIViewControllerContextTransitioning) -> UIView {
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+    fileprivate func getToView(forTransitionContext transitionContext: UIViewControllerContextTransitioning) -> UIView {
+        let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
         if presenting {
             return (toViewController as! ZoomTransitionDestination).zoomTransitionDestinationView()
         }
@@ -77,10 +77,10 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func getSnapshot(fromView view: UIView) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(view.frame.size, true, 0.0)
         let context = UIGraphicsGetCurrentContext()
-        view.layer.renderInContext(context!)
+        view.layer.render(in: context!)
         let snapshot = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext()
-        return snapshot
+        return snapshot!
     }
     
     func getSnapshotView(fromView view: UIView) -> UIImageView {
@@ -90,10 +90,10 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         return imageView
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        guard let containerView = transitionContext.containerView() else { return }
-        let fromMainView = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!.view!
-        let toMainView = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!.view!
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let containerView = transitionContext.containerView else { return }
+        let fromMainView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!.view!
+        let toMainView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!.view!
         fromMainView.frame = containerView.bounds
         toMainView.frame = containerView.bounds
         containerView.addSubview(fromMainView)
@@ -106,36 +106,36 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.addSubview(fromSnapshotView)
         
         // Center of the 'from' view relative to its view controller
-        let fromViewCenter = fromMainView.convertPoint(fromView.center, fromView: fromView.superview)
+        let fromViewCenter = fromMainView.convert(fromView.center, from: fromView.superview)
         // Center of the 'from' view relative to the container view
-        let fromSnapshotCenter = containerView.convertPoint(fromView.center, fromView: fromView.superview)
+        let fromSnapshotCenter = containerView.convert(fromView.center, from: fromView.superview)
         
         // Center of the 'to' view relative to its view controller
-        let toViewCenter = toMainView.convertPoint(toView.center, fromView: toView.superview)
+        let toViewCenter = toMainView.convert(toView.center, from: toView.superview)
         // Center of the 'to' view relative to the container view
-        let toSnapshotCenter = containerView.convertPoint(toView.center, fromView: toView.superview)
+        let toSnapshotCenter = containerView.convert(toView.center, from: toView.superview)
         
         // Distance of center of the 'from' view to the 'to' view relative to the container view
         let fromCenterOffset = substract(fromPoint: fromSnapshotCenter, toPoint: toSnapshotCenter)
-        let toCenterOffset = CGPointMake(-fromCenterOffset.x, -fromCenterOffset.y)
+        let toCenterOffset = CGPoint(x: -fromCenterOffset.x, y: -fromCenterOffset.y)
         
         // Translation transform of each view to the other
-        let fromTranslationTransform = CGAffineTransformMakeTranslation(-fromCenterOffset.x, -fromCenterOffset.y)
-        let toTranslationTransform = CGAffineTransformMakeTranslation(-toCenterOffset.x, -toCenterOffset.y)
+        let fromTranslationTransform = CGAffineTransform(translationX: -fromCenterOffset.x, y: -fromCenterOffset.y)
+        let toTranslationTransform = CGAffineTransform(translationX: -toCenterOffset.x, y: -toCenterOffset.y)
         
         // Image scale between the 'from' view and the 'to' view
-        let fromScale = CGRectGetWidth(toView.frame) / CGRectGetWidth(fromView.frame)
+        let fromScale = toView.frame.width / fromView.frame.width
         let toScale = 1 / fromScale
         // Translation and scale transform for each view to match the other's position
-        let fromScaleTransform = CGAffineTransformScale(fromTranslationTransform, fromScale, fromScale)
-        let toScaleTransform = CGAffineTransformScale(toTranslationTransform, toScale, toScale)
+        let fromScaleTransform = fromTranslationTransform.scaledBy(x: fromScale, y: fromScale)
+        let toScaleTransform = toTranslationTransform.scaledBy(x: toScale, y: toScale)
         
         // Background view to fill
         let backgroundView = UIView(frame: containerView.bounds)
         backgroundView.backgroundColor = toMainView.backgroundColor
         
-        let fromAnchorPoint = CGPointMake(fromViewCenter.x / CGRectGetWidth(fromMainView.bounds), fromViewCenter.y / CGRectGetHeight(fromMainView.bounds))
-        let toAnchorPoint = CGPointMake(toViewCenter.x / CGRectGetWidth(toMainView.bounds), toViewCenter.y / CGRectGetHeight(toMainView.bounds))
+        let fromAnchorPoint = CGPoint(x: fromViewCenter.x / fromMainView.bounds.width, y: fromViewCenter.y / fromMainView.bounds.height)
+        let toAnchorPoint = CGPoint(x: toViewCenter.x / toMainView.bounds.width, y: toViewCenter.y / toMainView.bounds.height)
 
         // Set the center of the animation in the center of the view the container view when the current view doesn't cover the screen or it's not opaque
         setAnchorPoint(fromAnchorPoint, forView: fromMainView)
@@ -143,14 +143,14 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         fromSnapshotView.center = fromSnapshotCenter
         
-        containerView.insertSubview(backgroundView, atIndex: 0)
+        containerView.insertSubview(backgroundView, at: 0)
         
         if presenting {
             // Two-step animation
             toMainView.alpha = 0
             // First step: Hide the 'from' main view while both the 'from' view and the snapshot
             // scale and re-position to match the 'to' view position
-            UIView.animateWithDuration(firstStepAnimationDuration, animations: { () -> Void in
+            UIView.animate(withDuration: firstStepAnimationDuration, animations: { () -> Void in
                 fromMainView.alpha = 0
                 fromMainView.transform = fromScaleTransform
                 fromSnapshotView.transform = fromScaleTransform
@@ -158,15 +158,15 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                     if finished {
                         // Second step: Show the 'to' main view, covering the still visible snapshot and
                         // showing the rest of the view
-                        UIView.animateWithDuration(self.secondStepAnimationDuration, animations: { () -> Void in
+                        UIView.animate(withDuration: self.secondStepAnimationDuration, animations: { () -> Void in
                             toMainView.alpha = 1
                             }, completion: { finished in
                                 if (finished) {
                                     // Animation finished, cleanup
-                                    self.setAnchorPoint(CGPointMake(0.5, 0.5), forView: fromMainView)
-                                    self.setAnchorPoint(CGPointMake(0.5, 0.5), forView: toMainView)
+                                    self.setAnchorPoint(CGPoint(x: 0.5, y: 0.5), forView: fromMainView)
+                                    self.setAnchorPoint(CGPoint(x: 0.5, y: 0.5), forView: toMainView)
                                     fromMainView.alpha = 1
-                                    fromMainView.transform = CGAffineTransformIdentity
+                                    fromMainView.transform = CGAffineTransform.identity
                                     fromMainView.removeFromSuperview()
                                     fromSnapshotView.removeFromSuperview()
                                     backgroundView.removeFromSuperview()
@@ -179,27 +179,27 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         }
         else {
             // Reverse animation is exactly the opposite steps
-            containerView.bringSubviewToFront(fromSnapshotView)
-            containerView.bringSubviewToFront(toMainView)
+            containerView.bringSubview(toFront: fromSnapshotView)
+            containerView.bringSubview(toFront: toMainView)
             toMainView.alpha = 0
             toMainView.transform = toScaleTransform
             
             // First step: Hide the 'from' main fiew to show the snapshot view in the same spot as the 'from' view
-            UIView.animateWithDuration(secondStepAnimationDuration, animations: { () -> Void in
+            UIView.animate(withDuration: secondStepAnimationDuration, animations: { () -> Void in
                 fromMainView.alpha = 0
                 }, completion: { finished in
                     if finished {
                         fromMainView.removeFromSuperview()
                         // Second step: Show the 'to' view, covering the snapshot view while it scales back to its original size and position
-                        UIView.animateWithDuration(self.firstStepAnimationDuration, animations: { () -> Void in
+                        UIView.animate(withDuration: self.firstStepAnimationDuration, animations: { () -> Void in
                             fromSnapshotView.transform = fromScaleTransform
-                            toMainView.transform = CGAffineTransformIdentity
+                            toMainView.transform = CGAffineTransform.identity
                             toMainView.alpha = 1
                             }, completion: { finished in
                                 if (finished) {
                                     // Animation finished, cleanup
-                                    self.setAnchorPoint(CGPointMake(0.5, 0.5), forView: fromMainView)
-                                    self.setAnchorPoint(CGPointMake(0.5, 0.5), forView: toMainView)
+                                    self.setAnchorPoint(CGPoint(x: 0.5, y: 0.5), forView: fromMainView)
+                                    self.setAnchorPoint(CGPoint(x: 0.5, y: 0.5), forView: toMainView)
                                     fromMainView.alpha = 1
                                     fromMainView.removeFromSuperview()
                                     fromSnapshotView.removeFromSuperview()

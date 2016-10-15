@@ -10,25 +10,25 @@ import Foundation
 import UIKit
 
 public protocol IconLibrary {
-    func drawMethodForIcon(iconIdentifier iconIdentifier: String) -> (drawMethod: IconDrawMethod, aspectRatio: CGFloat)
-    func getDefaultColor(iconIdentifier iconIdentifier: String) -> UIColor
+    func drawMethodForIcon(iconIdentifier: String) -> (drawMethod: IconDrawMethod, aspectRatio: CGFloat)
+    func getDefaultColor(iconIdentifier: String) -> UIColor
 }
 
-public class CodeIconLibrary {
+open class CodeIconLibrary {
     
     #if TARGET_INTERFACE_BUILDER
     public static var instance: IconLibrary? = DefaultIconLibrary()
     #else
-    public static var instance: IconLibrary?
+    open static var instance: IconLibrary?
     #endif
     
-    public class func drawMethodForIcon(iconIdentifier iconIdentifier: String) -> (drawMethod: IconDrawMethod, aspectRatio: CGFloat)  {
+    open class func drawMethodForIcon(iconIdentifier: String) -> (drawMethod: IconDrawMethod, aspectRatio: CGFloat)  {
         guard let instance = instance else { return ({ f, c in }, 1) }
         return instance.drawMethodForIcon(iconIdentifier: iconIdentifier)
     }
     
-    public class func getDefaultColor(iconIdentifier iconIdentifier: String) -> UIColor {
-        guard let instance = instance else { return UIColor.darkGrayColor() }
+    open class func getDefaultColor(iconIdentifier: String) -> UIColor {
+        guard let instance = instance else { return UIColor.darkGray }
         return instance.getDefaultColor(iconIdentifier: iconIdentifier)
     }
 }

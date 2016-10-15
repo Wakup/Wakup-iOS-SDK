@@ -15,7 +15,7 @@ class ContextMenuItem {
     var highlightedItemView: UIView?
     var titleText: String?
     
-    init(itemView: UIView, highlightedItemView: UIView? = .None, titleText: String? = .None) {
+    init(itemView: UIView, highlightedItemView: UIView? = .none, titleText: String? = .none) {
         self.itemView = itemView
         self.highlightedItemView = highlightedItemView
         self.titleText = titleText

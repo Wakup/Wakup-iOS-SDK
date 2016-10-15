@@ -14,11 +14,11 @@ import Alamofire
 class SearchService: BaseService {
     static let sharedInstance = SearchService()
     
-    private lazy var historyCache: Cache<NSString> = { try! Cache<NSString>(name: "searchHistory") }()
-    private let historyKey = "history"
-    private let maxHistory = 10
+    fileprivate lazy var historyCache: Cache<NSString> = { try! Cache<NSString>(name: "searchHistory") }()
+    fileprivate let historyKey = "history"
+    fileprivate let maxHistory = 10
     
-    func genericSearch(query: String, completion: (SearchResult?, ErrorType?) -> Void) {
+    func genericSearch(_ query: String, completion: @escaping (SearchResult?, Error?) -> Void) {
         let url = "\(offerHostUrl)search"
         let parameters = ["q": query]
         
@@ -45,22 +45,22 @@ class SearchService: BaseService {
         }
     }
     
-    private func parseCompany(json json: JSON) -> Company {
+    fileprivate func parseCompany(json: JSON) -> Company {
         let id = json["id"].intValue
         let name = json["name"].stringValue
-        return Company(id: id, name: name, logo: .None)
+        return Company(id: id, name: name, logo: .none)
     }
     
-    private func parseSearchResult(json json: JSON) -> SearchResult {
+    fileprivate func parseSearchResult(json: JSON) -> SearchResult {
         let companies = json["companies"].arrayValue.map { companyJson in self.parseCompany(json: companyJson) }
         let tags = json["tags"].arrayValue.map { $0.stringValue }
         return SearchResult(companies: companies, tags: tags)
     }
     
-    func addToHistory(element: SearchHistory) -> [SearchHistory] {
+    func addToHistory(_ element: SearchHistory) -> [SearchHistory] {
         let currentHistory = getSavedHistory() ?? [SearchHistory]()
         var newHistory = currentHistory.filter { e in e != element }
-        newHistory.insert(element, atIndex: 0)
+        newHistory.insert(element, at: 0)
         if newHistory.count > 10 {
             newHistory.removeLast()
         }
@@ -68,21 +68,21 @@ class SearchService: BaseService {
         return newHistory
     }
     
-    func saveHistory(searchHistory: [SearchHistory]) {
+    func saveHistory(_ searchHistory: [SearchHistory]) {
         let jsonArray = searchHistory.map { $0.toJson() }
         let json = JSON(jsonArray)
-        let jsonString = json.rawString(NSUTF8StringEncoding)
+        let jsonString = json.rawString(String.Encoding.utf8)
         historyCache.setObject(jsonString as NSString!, forKey: historyKey, expires: .Never)
     }
     
     func getSavedHistory() -> [SearchHistory]? {
         if let jsonString = historyCache[historyKey],
-            let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false),
+            let data = jsonString.dataUsingEncoding(String.Encoding.utf8, allowLossyConversion: false),
             let array = JSON(data: data).array
         {
             return mapSome(array) { SearchHistory.fromJson($0) }
         }
         
-        return .None
+        return .none
     }
 }

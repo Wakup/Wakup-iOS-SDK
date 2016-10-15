@@ -8,8 +8,8 @@
 
 import Foundation
 
-func mapSome<S: SequenceType, D: RangeReplaceableCollectionType>
-    (source: S, transform: (S.Generator.Element)->D.Generator.Element?)
+func mapSome<S: Sequence, D: RangeReplaceableCollection>
+    (_ source: S, transform: (S.Iterator.Element)->D.Iterator.Element?)
     -> D {
         var result = D()
         for x in source {
@@ -21,7 +21,7 @@ func mapSome<S: SequenceType, D: RangeReplaceableCollectionType>
 }
 
 // version that defaults to returning an array if unspecified
-func mapSome<S: SequenceType, T>
-    (source: S, transform: (S.Generator.Element)->T?) -> [T] {
+func mapSome<S: Sequence, T>
+    (_ source: S, transform: (S.Iterator.Element)->T?) -> [T] {
         return mapSome(source, transform: transform)
 }

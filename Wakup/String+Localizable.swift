@@ -11,6 +11,6 @@ import Foundation
 extension String {
     func i18n() -> String {
         let defaultValue = NSLocalizedString(self, tableName: "Wakup", bundle: CurrentBundle.currentBundle(), value: "", comment: "")
-        return NSLocalizedString(self, tableName: "Wakup", bundle: NSBundle.mainBundle(), value: defaultValue, comment: "")
+        return NSLocalizedString(self, tableName: "Wakup", bundle: Bundle.main, value: defaultValue, comment: "")
     }
 }

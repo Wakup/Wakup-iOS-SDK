@@ -9,12 +9,12 @@
 import Foundation
 
 @IBDesignable
-public class SearchFilterButton: CenteredCodeIconButton {
+open class SearchFilterButton: CenteredCodeIconButton {
     var category: OfferCategory? { didSet { reloadUI() } }
     
     func reloadUI() {
         guard let category = category else { return }
         iconIdentifier = category.icon
-        setTitle(category.title, forState: .Normal)
+        setTitle(category.title, for: UIControlState())
     }
 }

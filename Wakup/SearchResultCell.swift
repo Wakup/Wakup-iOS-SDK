@@ -8,18 +8,18 @@
 
 import Foundation
 
-public class SearchResultCell: UITableViewCell {
-    public dynamic var titleTextColor: UIColor?  { didSet { textLabel?.textColor = titleTextColor } }
-    public dynamic var titleFont: UIFont? { didSet { textLabel?.font = titleFont } }
-    public dynamic var detailTextColor: UIColor? { didSet { detailTextLabel?.textColor = detailTextColor } }
-    public dynamic var detailFont: UIFont? { didSet { detailTextLabel?.font = detailFont } }
+open class SearchResultCell: UITableViewCell {
+    open dynamic var titleTextColor: UIColor?  { didSet { textLabel?.textColor = titleTextColor } }
+    open dynamic var titleFont: UIFont? { didSet { textLabel?.font = titleFont } }
+    open dynamic var detailTextColor: UIColor? { didSet { detailTextLabel?.textColor = detailTextColor } }
+    open dynamic var detailFont: UIFont? { didSet { detailTextLabel?.font = detailFont } }
     
-    public dynamic var iconColor: UIColor? { didSet { updateIcon() } }
+    open dynamic var iconColor: UIColor? { didSet { updateIcon() } }
     
     var iconIdentifier: String? { didSet { updateIcon() } }
     
     func updateIcon() {
-        let iconFrame = CGRectMake(0, 0, 20, 20)
+        let iconFrame = CGRect(x: 0, y: 0, width: 20, height: 20)
         imageView?.image = iconIdentifier.map { CodeIcon(iconIdentifier: $0).getImage(iconFrame, color: self.iconColor) }
     }
 }

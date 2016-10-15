@@ -8,13 +8,13 @@
 
 import Foundation
 
-@IBDesignable public class CustomBorderButton: CustomBackgroundButton {
-    @IBInspectable public dynamic var normalBorderColor: UIColor?
-    @IBInspectable public dynamic var selectedBorderColor: UIColor?
-    @IBInspectable public dynamic var highlightedBorderColor: UIColor?
-    @IBInspectable public dynamic var disabledBorderColor: UIColor?
-    @IBInspectable public dynamic var highlightedDisabledBorderColor: UIColor?
-    @IBInspectable public dynamic var highlightedSelectedBorderColor: UIColor?
+@IBDesignable open class CustomBorderButton: CustomBackgroundButton {
+    @IBInspectable open dynamic var normalBorderColor: UIColor?
+    @IBInspectable open dynamic var selectedBorderColor: UIColor?
+    @IBInspectable open dynamic var highlightedBorderColor: UIColor?
+    @IBInspectable open dynamic var disabledBorderColor: UIColor?
+    @IBInspectable open dynamic var highlightedDisabledBorderColor: UIColor?
+    @IBInspectable open dynamic var highlightedSelectedBorderColor: UIColor?
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -30,7 +30,7 @@ import Foundation
     }
     
     func getCurrentBorderColor() -> UIColor? {
-        switch (enabled, highlighted, selected) {
+        switch (isEnabled, isHighlighted, isSelected) {
         case (false, true, _): return highlightedDisabledBorderColor ?? disabledBorderColor
         case (false, false, _): return disabledBorderColor ?? normalBorderColor?.colorWithAlpha(0.5)
         case (true, false, false): return normalBorderColor

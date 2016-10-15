@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class OfferCategory {
+open class OfferCategory {
     let title: String
     let icon: String
     let associatedTags: [String]

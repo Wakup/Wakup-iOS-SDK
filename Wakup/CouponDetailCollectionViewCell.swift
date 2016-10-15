@@ -26,33 +26,33 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     var coupon: Coupon! { didSet { refreshUI(); } }
     var userLocation: CLLocation? { didSet { couponCollectionHandler?.userLocation = userLocation } }
     
-    var showDetailsDelegate: ((cell: CouponDetailCollectionViewCell, coupons: [Coupon], selectedIndex: Int) -> Void)?
-    var showMapDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
-    var shareDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
-    var showDescriptionDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
-    var showCompanyDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
-    var showLinkDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
-    var showRedemptionCodeDelegate: ((cell: CouponDetailCollectionViewCell, coupon: Coupon) -> Void)?
-    var showTagDelegate: ((cell: CouponDetailCollectionViewCell, tag: String) -> Void)?
+    var showDetailsDelegate: ((_ cell: CouponDetailCollectionViewCell, _ coupons: [Coupon], _ selectedIndex: Int) -> Void)?
+    var showMapDelegate: ((_ cell: CouponDetailCollectionViewCell, _ coupon: Coupon) -> Void)?
+    var shareDelegate: ((_ cell: CouponDetailCollectionViewCell, _ coupon: Coupon) -> Void)?
+    var showDescriptionDelegate: ((_ cell: CouponDetailCollectionViewCell, _ coupon: Coupon) -> Void)?
+    var showCompanyDelegate: ((_ cell: CouponDetailCollectionViewCell, _ coupon: Coupon) -> Void)?
+    var showLinkDelegate: ((_ cell: CouponDetailCollectionViewCell, _ coupon: Coupon) -> Void)?
+    var showRedemptionCodeDelegate: ((_ cell: CouponDetailCollectionViewCell, _ coupon: Coupon) -> Void)?
+    var showTagDelegate: ((_ cell: CouponDetailCollectionViewCell, _ tag: String) -> Void)?
     
-    var selectedIndex: NSIndexPath!
+    var selectedIndex: IndexPath!
     
     let offersService = OffersService.sharedInstance
     
-    func selectionChanged(couponIndex couponIndex: Int) {
-        selectedIndex = NSIndexPath(forRow: couponIndex, inSection: selectedIndex?.section ?? 0)
+    func selectionChanged(couponIndex: Int) {
+        selectedIndex = IndexPath(row: couponIndex, section: (selectedIndex as NSIndexPath?)?.section ?? 0)
     }
     
     override func awakeFromNib() {
         prototypeHeaderView = PrototypeDataView(fromNib: couponHeaderNib, updateMethod: { (header, coupon) -> Void in
-            let width = UIApplication.sharedApplication().keyWindow!.bounds.size.width
+            let width = UIApplication.shared.keyWindow!.bounds.size.width
             header.userLocation = self.userLocation
             header.loadImages = false
             header.preferredWidth = width
             header.coupon = coupon
         })
         
-        collectionView.registerNib(couponHeaderNib, forSupplementaryViewOfKind: CHTCollectionElementKindSectionHeader, withReuseIdentifier: couponHeaderId)
+        collectionView.register(couponHeaderNib, forSupplementaryViewOfKind: CHTCollectionElementKindSectionHeader, withReuseIdentifier: couponHeaderId)
         
         couponCollectionHandler = CouponCollectionHandler(collectionView: collectionView, loadCouponMethod: { (page, perPage, onComplete) -> Void in
             if let coupon = self.coupon {
@@ -90,7 +90,7 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        collectionView?.contentOffset = CGPointZero
+        collectionView?.contentOffset = CGPoint.zero
         couponCollectionHandler?.clear()
     }
     
@@ -98,87 +98,87 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         return prototypeHeaderView.getUpdatedSize(data: coupon).height
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if (kind == CHTCollectionElementKindSectionHeader) {
-            couponHeaderView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: couponHeaderId, forIndexPath: indexPath) as! CouponDetailHeaderView
+            couponHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: couponHeaderId, for: indexPath) as! CouponDetailHeaderView
             couponHeaderView.userLocation = userLocation
             couponHeaderView.coupon = coupon
             couponHeaderView.delegate = self
             return couponHeaderView
         }
-        return couponCollectionHandler!.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, atIndexPath: indexPath)
+        return couponCollectionHandler!.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath)
     }
     
-    func collectionView (collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return couponCollectionHandler!.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAtIndexPath: indexPath)
+    func collectionView (_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return couponCollectionHandler!.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return couponCollectionHandler!.collectionView(collectionView, numberOfItemsInSection: section)
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        return couponCollectionHandler!.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
+        return couponCollectionHandler!.collectionView(collectionView, cellForItemAt: indexPath)
     }
     
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        couponCollectionHandler?.collectionView(collectionView, willDisplayCell: cell, forItemAtIndexPath: indexPath)
+        couponCollectionHandler?.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath
         
         if let showDetailsDelegate = self.showDetailsDelegate {
-            showDetailsDelegate(cell: self, coupons: couponCollectionHandler!.coupons, selectedIndex: selectedIndex?.row ?? 0)
+            showDetailsDelegate(self, couponCollectionHandler!.coupons, (selectedIndex as NSIndexPath?)?.row ?? 0)
         }
     }
     
     func showMap(forOffer offer: Coupon) {
-        showMapDelegate?(cell: self, coupon: offer)
+        showMapDelegate?(self, offer)
     }
     
     func showLink(forOffer offer: Coupon) {
         if let link = offer.link {
             // TODO: Ask for confirmation?
-            UIApplication.sharedApplication().openURL(link)
+            UIApplication.shared.openURL(link as URL)
         }
     }
     
-    func share(offer offer: Coupon) {
-        shareDelegate?(cell: self, coupon: offer)
+    func share(offer: Coupon) {
+        shareDelegate?(self, offer)
     }
     
     func showDescription(forOffer offer: Coupon) {
-        showDescriptionDelegate?(cell: self, coupon: offer)
+        showDescriptionDelegate?(self, offer)
     }
     
     func showCompanyView(forOffer offer: Coupon) {
-        showCompanyDelegate?(cell: self, coupon: offer)
+        showCompanyDelegate?(self, offer)
     }
     
     func showCodeView(forOffer offer: Coupon) {
-        showRedemptionCodeDelegate?(cell: self, coupon: offer)
+        showRedemptionCodeDelegate?(self, offer)
     }
     
-    func showTagResults(tag: String) {
-        showTagDelegate?(cell: self, tag: tag)
+    func showTagResults(_ tag: String) {
+        showTagDelegate?(self, tag)
     }
     
     func getSelectedCell() -> CouponCollectionViewCell {
         return self.collectionView.scrollToAndGetCell(atIndexPath: selectedIndex) as! CouponCollectionViewCell
     }
     
-    func headerViewDidSelectAction(action: HeaderViewAction, headerView: CouponDetailHeaderView) {
+    func headerViewDidSelectAction(_ action: HeaderViewAction, headerView: CouponDetailHeaderView) {
         switch action {
-        case .ShowMap: showMap(forOffer: headerView.coupon)
-        case .Share: share(offer: headerView.coupon)
-        case .ShowDescription: showDescription(forOffer: headerView.coupon)
-        case .ShowCompany: showCompanyView(forOffer: headerView.coupon)
-        case .ShowLink: showLink(forOffer: headerView.coupon)
-        case .ShowCode: showCodeView(forOffer: headerView.coupon)
-        case .ShowTag(let tag): showTagResults(tag)
+        case .showMap: showMap(forOffer: headerView.coupon)
+        case .share: share(offer: headerView.coupon)
+        case .showDescription: showDescription(forOffer: headerView.coupon)
+        case .showCompany: showCompanyView(forOffer: headerView.coupon)
+        case .showLink: showLink(forOffer: headerView.coupon)
+        case .showCode: showCodeView(forOffer: headerView.coupon)
+        case .showTag(let tag): showTagResults(tag)
         }
     }
 

@@ -8,11 +8,11 @@
 
 import UIKit
 
-@IBDesignable public class ContextItemView: UIView {
+@IBDesignable open class ContextItemView: UIView {
 
-    @IBInspectable public dynamic var iconColor: UIColor? { get { return codeIconView?.iconColor } set { codeIconView?.iconColor = newValue } }
-    @IBInspectable public dynamic var highlightedIconColor: UIColor?
-    @IBInspectable public dynamic var highlightedBackgroundColor: UIColor?
+    @IBInspectable open dynamic var iconColor: UIColor? { get { return codeIconView?.iconColor } set { codeIconView?.iconColor = newValue } }
+    @IBInspectable open dynamic var highlightedIconColor: UIColor?
+    @IBInspectable open dynamic var highlightedBackgroundColor: UIColor?
     
     var iconIdentifier: String? { get { return codeIconView?.iconIdentifier } set(value) { codeIconView?.iconIdentifier = value ?? "" } }
     
@@ -20,7 +20,7 @@ import UIKit
     
     @IBOutlet weak var codeIconView: CodeIconView!
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         if highlighted {
             iconColor = highlightedIconColor ?? iconColor

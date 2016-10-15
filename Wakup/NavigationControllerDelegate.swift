@@ -9,23 +9,23 @@
 import Foundation
 import UIKit
 
-public class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
-    public func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+open class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
+    open func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         switch (operation, fromVC, toVC) {
-        case (.Push, is ZoomTransitionOrigin, is ZoomTransitionDestination):
+        case (.push, is ZoomTransitionOrigin, is ZoomTransitionDestination):
             return ZoomTransitionAnimator()
-        case (.Pop, let destination as ZoomTransitionDestination, is ZoomTransitionOrigin) where isViewVisible(destination.zoomTransitionDestinationView()):
+        case (.pop, let destination as ZoomTransitionDestination, is ZoomTransitionOrigin) where isViewVisible(destination.zoomTransitionDestinationView()):
             return ZoomTransitionAnimator(reversed: true)
         default:
             return nil
         }
     }
     
-    func isViewVisible(view: UIView) -> Bool {
+    func isViewVisible(_ view: UIView) -> Bool {
         if let window = view.window {
-            let viewFrame = window.convertRect(view.frame, fromView: view.superview)
-            return CGRectIntersectsRect(window.bounds, viewFrame)
+            let viewFrame = window.convert(view.frame, from: view.superview)
+            return window.bounds.intersects(viewFrame)
         }
         return false
     }

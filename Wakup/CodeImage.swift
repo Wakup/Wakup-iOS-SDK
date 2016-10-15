@@ -9,24 +9,24 @@
 import Foundation
 import UIKit
 
-public typealias DrawMethod = (frame: CGRect) -> Void
+public typealias DrawMethod = (_ frame: CGRect) -> Void
 
-public class CodeImage {
+open class CodeImage {
     
     let drawMethod: DrawMethod
     let aspectRatio: CGFloat
     
-    public init(drawMethod: DrawMethod, aspectRatio: CGFloat) {
+    public init(drawMethod: @escaping DrawMethod, aspectRatio: CGFloat) {
         self.drawMethod = drawMethod
         self.aspectRatio = aspectRatio
     }
     
-    func draw(frame: CGRect) {
+    func draw(_ frame: CGRect) {
         let adjustedFrame = CodeImage.getFrame(forFrame: frame, withAspectRatio: aspectRatio)
-        drawMethod(frame: adjustedFrame)
+        drawMethod(adjustedFrame)
     }
     
-    func getImage(frame: CGRect) -> UIImage {
+    func getImage(_ frame: CGRect) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
         
         draw(frame)
@@ -34,7 +34,7 @@ public class CodeImage {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return image
+        return image!
     }
     
     // Obtains a frame to draw the icon without distortion with the specified aspect ratio
@@ -44,14 +44,14 @@ public class CodeImage {
         let sizeToAdjustRatio = size.width / size.height
         var adjustedSize: CGSize!
         if sizeToAdjustRatio > aspectRatio {
-            adjustedSize = CGSizeMake(size.height * aspectRatio, size.height)
+            adjustedSize = CGSize(width: size.height * aspectRatio, height: size.height)
         }
         else {
-            adjustedSize = CGSizeMake(size.width, size.width / aspectRatio)
+            adjustedSize = CGSize(width: size.width, height: size.width / aspectRatio)
         }
         
-        let adjustedOrigin = CGPointMake(fabs(size.width - adjustedSize.width) / 2 + frame.origin.x, fabs(size.height - adjustedSize.height) / 2 + frame.origin.y)
+        let adjustedOrigin = CGPoint(x: fabs(size.width - adjustedSize.width) / 2 + frame.origin.x, y: fabs(size.height - adjustedSize.height) / 2 + frame.origin.y)
         
-        return CGRectMake(adjustedOrigin.x, adjustedOrigin.y, adjustedSize.width, adjustedSize.height)
+        return CGRect(x: adjustedOrigin.x, y: adjustedOrigin.y, width: adjustedSize.width, height: adjustedSize.height)
     }
 }

@@ -9,27 +9,27 @@
 import Foundation
 import iOSContextualMenu
 
-typealias OnContextMenuItemSelected = (selectedItem: ContextMenuItem?, atIndex: Int) -> Void
+typealias OnContextMenuItemSelected = (_ selectedItem: ContextMenuItem?, _ atIndex: Int) -> Void
 
 class ContextMenuSource: NSObject, BAMContextualMenuDataSource, BAMContextualMenuDelegate {
     
     var menuItems: [ContextMenuItem]?
     var onSelection: OnContextMenuItemSelected?
     
-    func contextualMenu(contextualMenu: BAMContextualMenu!, didSelectItemAtIndex index: UInt) {
-        onSelection?(selectedItem: menuItems?[Int(index)], atIndex: Int(index))
+    func contextualMenu(_ contextualMenu: BAMContextualMenu!, didSelectItemAt index: UInt) {
+        onSelection?(menuItems?[Int(index)], Int(index))
     }
     
-    func contextualMenu(contextualMenu: BAMContextualMenu!, titleForMenuItemAtIndex index: UInt) -> String! {
-        return menuItems?[Int(index)].titleText ?? .None
+    func contextualMenu(_ contextualMenu: BAMContextualMenu!, titleForMenuItemAt index: UInt) -> String! {
+        return menuItems?[Int(index)].titleText ?? .none
     }
     
-    func contextualMenu(contextualMenu: BAMContextualMenu!, viewForMenuItemAtIndex index: UInt) -> UIView! {
+    func contextualMenu(_ contextualMenu: BAMContextualMenu!, viewForMenuItemAt index: UInt) -> UIView! {
         return menuItems?[Int(index)].itemView
     }
     
-    func contextualMenu(contextualMenu: BAMContextualMenu!, viewForHighlightedMenuItemAtIndex index: UInt) -> UIView! {
-        return menuItems?[Int(index)].highlightedItemView ?? .None
+    func contextualMenu(_ contextualMenu: BAMContextualMenu!, viewForHighlightedMenuItemAt index: UInt) -> UIView! {
+        return menuItems?[Int(index)].highlightedItemView ?? .none
     }
     
     func numberOfContextualMenuItems() -> UInt {

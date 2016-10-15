@@ -14,9 +14,9 @@ class UserService: BaseService {
     
     var userToken: String?
     
-    var deviceId = UIDevice.currentDevice().identifierForVendor!.UUIDString
+    var deviceId = UIDevice.current.identifierForVendor!.uuidString
     
-    func fetchUserToken(completion: (String?, ErrorType?) -> Void) {
+    func fetchUserToken(_ completion: @escaping (String?, Error?) -> Void) {
         if let userToken = userToken {
             completion(userToken, nil)
         }
@@ -25,7 +25,7 @@ class UserService: BaseService {
         }
     }
     
-    func register(completion: (String?, ErrorType?) -> Void) {
+    func register(_ completion: @escaping (String?, Error?) -> Void) {
         let url = "\(offerHostUrl)register"
         let parameters = deviceParameters()
         
@@ -47,36 +47,36 @@ class UserService: BaseService {
     }
     
     
-    private func deviceParameters() -> [String: AnyObject] {
+    fileprivate func deviceParameters() -> [String: AnyObject] {
         var param = [String: AnyObject?]()
         
-        param["deviceId"] = deviceId
-        param["appId"] = NSBundle.mainBundle().bundleIdentifier
-        param["appVersion"] = appVersion
-        param["sdkVersion"] = sdkVersion
-        param["osName"] = UIDevice.currentDevice().systemName
-        param["osVersion"] = UIDevice.currentDevice().systemVersion
-        param["platform"] = "ios"
-        param["deviceManufacturer"] = "Apple"
-        param["deviceModel"] = UIDevice.currentDevice().model
-        param["deviceCode"] = Diagnostics.platform
-        param["locale"] = NSLocale.currentLocale().localeIdentifier
+        param["deviceId"] = deviceId as AnyObject??
+        param["appId"] = Bundle.main.bundleIdentifier as AnyObject??
+        param["appVersion"] = appVersion as AnyObject??
+        param["sdkVersion"] = sdkVersion as AnyObject??
+        param["osName"] = UIDevice.current.systemName as AnyObject??
+        param["osVersion"] = UIDevice.current.systemVersion as AnyObject??
+        param["platform"] = "ios" as AnyObject??
+        param["deviceManufacturer"] = "Apple" as AnyObject??
+        param["deviceModel"] = UIDevice.current.model as AnyObject??
+        param["deviceCode"] = Diagnostics.platform as AnyObject??
+        param["locale"] = Locale.current.identifier as AnyObject??
         
         return param.flatten()
     }
 
-    private var appVersion: String {
-        return NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
+    fileprivate var appVersion: String {
+        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     }
     
-    private var sdkVersion: String? {
-        return NSBundle(forClass: self.dynamicType).infoDictionary?["CFBundleShortVersionString"] as? String
+    fileprivate var sdkVersion: String? {
+        return Bundle(for: type(of: self)).infoDictionary?["CFBundleShortVersionString"] as? String
     }
     
-    private var modelCode: String {
+    fileprivate var modelCode: String {
         var systemInfo = utsname()
         uname(&systemInfo)
         
-        return NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN), encoding: NSASCIIStringEncoding) as! String
+        return NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN), encoding: String.Encoding.ascii.rawValue) as! String
     }
 }

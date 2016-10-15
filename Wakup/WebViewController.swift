@@ -8,10 +8,10 @@
 
 import UIKit
 
-public class WebViewController: LoadingPresenterViewController, UIWebViewDelegate {
+open class WebViewController: LoadingPresenterViewController, UIWebViewDelegate {
     
-    public var url: NSURL?
-    public var showRefreshButton = false
+    open var url: URL?
+    open var showRefreshButton = false
     
     var isModal: Bool {
         guard let navigationController = navigationController else { return false }
@@ -20,20 +20,20 @@ public class WebViewController: LoadingPresenterViewController, UIWebViewDelegat
     
     @IBOutlet var webView: UIWebView!
     
-    public func loadUrl(url: NSURL, animated: Bool = true) {
+    open func loadUrl(_ url: URL, animated: Bool = true) {
         self.url = url
         showLoadingView()
-        webView?.loadRequest(NSURLRequest(URL: url))
+        webView?.loadRequest(URLRequest(url: url))
     }
     
     // MARK: View lifecycle
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         setupLoadingView()
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if self.presentedViewController == nil {
             if let url = self.url {
@@ -43,47 +43,47 @@ public class WebViewController: LoadingPresenterViewController, UIWebViewDelegat
         
         // Auto-detect modal and add close button
         if isModal && navigationItem.leftBarButtonItem == nil {
-            let closeButton = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "dismissAction:")
+            let closeButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(WebViewController.dismissAction(_:)))
             navigationItem.leftBarButtonItem = closeButton
         }
         
         if showRefreshButton && navigationItem.rightBarButtonItem == nil {
-            let refreshButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "refreshAction:")
+            let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(WebViewController.refreshAction(_:)))
             navigationItem.rightBarButtonItem = refreshButton
         }
     }
     
-    public func openInSafari() -> Bool {
+    open func openInSafari() -> Bool {
         guard let url = url else { return false }
-        return UIApplication.sharedApplication().openURL(url)
+        return UIApplication.shared.openURL(url)
     }
     
-    public func closeController(animated: Bool = true) {
+    open func closeController(_ animated: Bool = true) {
         if let navigationController = navigationController {
-            navigationController.popViewControllerAnimated(animated)
+            navigationController.popViewController(animated: animated)
         }
         if let presentingViewController = presentingViewController {
-            presentingViewController.dismissViewControllerAnimated(animated, completion: nil)
+            presentingViewController.dismiss(animated: animated, completion: nil)
         }
     }
     
     // MARK: Actions
-    func dismissAction(sender: NSObject!) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func dismissAction(_ sender: NSObject!) {
+        dismiss(animated: true, completion: nil)
     }
     
-    func refreshAction(sender: NSObject!) {
+    func refreshAction(_ sender: NSObject!) {
         webView.reload()
     }
     
     // MARK: UIWebViewDelegate
-    public func webViewDidStartLoad(webView: UIWebView) {
+    open func webViewDidStartLoad(_ webView: UIWebView) {
         showLoadingView()
     }
-    public func webViewDidFinishLoad(webView: UIWebView) {
+    open func webViewDidFinishLoad(_ webView: UIWebView) {
         dismissLoadingView()
     }
-    public func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+    open func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         dismissLoadingView()
         
         guard let error = error else { return }

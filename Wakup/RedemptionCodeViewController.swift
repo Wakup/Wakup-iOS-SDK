@@ -24,12 +24,12 @@ class RedemptionCodeViewController: UIViewController, UIScrollViewDelegate, UITe
     override func viewDidLoad() {
         super.viewDidLoad()
         codeField.text = redemptionCode.displayCode
-        codeField.inputView = UIView(frame: CGRectZero) // Disable keyboard
+        codeField.inputView = UIView(frame: CGRect.zero) // Disable keyboard
         pageControl.numberOfPages = redemptionCode.formats.count
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let imageSize = imagesScrollView.frame.size
@@ -41,12 +41,12 @@ class RedemptionCodeViewController: UIViewController, UIScrollViewDelegate, UITe
             
             for format in redemptionCode.formats {
                 let imageView = UIImageView()
-                imageView.contentMode = .ScaleAspectFit
+                imageView.contentMode = .scaleAspectFit
                 imagesScrollView.addSubview(imageView)
                 imageViews.append(imageView)
                 
                 let imageUrl = OffersService.sharedInstance.redemptionCodeImageUrl(offer.id, format: format, width: Int(imageSize.width), height: Int(imageSize.height))
-                imageView.sd_setImageWithURL(NSURL(string: imageUrl ?? ""))
+                imageView.sd_setImage(with: URL(string: imageUrl ?? ""))
             }
         }
         
@@ -68,22 +68,22 @@ class RedemptionCodeViewController: UIViewController, UIScrollViewDelegate, UITe
     
     
     // MARK: IBActions
-    @IBAction func actionButtonTapped(sender: UIButton) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func actionButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: UIScrollViewDelegate
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = Int(0.5 + scrollView.contentOffset.x / scrollView.frame.width)
         pageControl.currentPage = page
     }
     
     // MARK: UITextFieldDelegate
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return false
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         delay(0) {
             textField.selectAll(self)
         }

@@ -9,20 +9,20 @@
 import Foundation
 import UIKit
 
-@IBDesignable public class CustomBackgroundButton: UIButton {
+@IBDesignable open class CustomBackgroundButton: UIButton {
     @IBOutlet var highlightedElements: Array<UIView>?
-    @IBInspectable public dynamic var selectedBackgroundColor: UIColor?
-    @IBInspectable public dynamic var highlightedBackgroundColor: UIColor?
-    @IBInspectable public dynamic var disabledBackgroundColor: UIColor?
-    @IBInspectable public dynamic var highlightedDisabledBackgroundColor: UIColor?
-    @IBInspectable public dynamic var highlightedSelectedBackgroundColor: UIColor?
-    @IBInspectable public var toggleButton: Bool = false
+    @IBInspectable open dynamic var selectedBackgroundColor: UIColor?
+    @IBInspectable open dynamic var highlightedBackgroundColor: UIColor?
+    @IBInspectable open dynamic var disabledBackgroundColor: UIColor?
+    @IBInspectable open dynamic var highlightedDisabledBackgroundColor: UIColor?
+    @IBInspectable open dynamic var highlightedSelectedBackgroundColor: UIColor?
+    @IBInspectable open var toggleButton: Bool = false
     var originalBackgroundColor: UIColor?
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setTitleColor(titleColorForState(.Selected), forState: [.Highlighted, .Selected])
-        setTitle(titleForState(.Selected), forState: [.Highlighted, .Selected])
+        setTitleColor(titleColor(for: .selected), for: [.highlighted, .selected])
+        setTitle(title(for: .selected), for: [.highlighted, .selected])
         configureToggle()
     }
     
@@ -31,32 +31,32 @@ import UIKit
         configureToggle()
     }
     
-    override public var highlighted: Bool {
-        get { return super.highlighted }
-        set { super.highlighted = newValue; setNeedsLayout() }
+    override open var isHighlighted: Bool {
+        get { return super.isHighlighted }
+        set { super.isHighlighted = newValue; setNeedsLayout() }
     }
     
-    override public var selected: Bool {
-        get { return super.selected }
-        set { super.selected = newValue; setNeedsLayout() }
+    override open var isSelected: Bool {
+        get { return super.isSelected }
+        set { super.isSelected = newValue; setNeedsLayout() }
     }
     
-    override public var enabled: Bool {
-        get { return super.enabled }
-        set { super.enabled = newValue; setNeedsLayout() }
+    override open var isEnabled: Bool {
+        get { return super.isEnabled }
+        set { super.isEnabled = newValue; setNeedsLayout() }
     }
     
-    private func configureToggle() {
-        addTarget(self, action: "buttonAction:", forControlEvents: .TouchUpInside)
+    fileprivate func configureToggle() {
+        addTarget(self, action: #selector(CustomBackgroundButton.buttonAction(_:)), for: .touchUpInside)
     }
     
-    func buttonAction(sender: UIButton!) {
+    func buttonAction(_ sender: UIButton!) {
         if toggleButton {
-            selected = !selected
+            isSelected = !isSelected
         }
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         refreshUI()
     }
@@ -71,7 +71,7 @@ import UIKit
     
     func updateElements() {
         if let highlightedElements = highlightedElements {
-            let highlighted = self.selected || self.highlighted
+            let highlighted = self.isSelected || self.isHighlighted
             for element in highlightedElements {
                 if let element = element as? Highlightable {
                     var e = element
@@ -82,13 +82,13 @@ import UIKit
     }
     
     func getCurrentBackgroundColor() -> UIColor? {
-        switch (enabled, highlighted, selected) {
+        switch (isEnabled, isHighlighted, isSelected) {
         case (false, true, _): return highlightedDisabledBackgroundColor ?? disabledBackgroundColor
         case (false, false, _): return disabledBackgroundColor ?? originalBackgroundColor?.colorWithAlpha(0.5)
         case (true, true, true): return highlightedSelectedBackgroundColor ?? highlightedBackgroundColor
         case (true, true, false): return highlightedBackgroundColor
         case (true, false, true): return selectedBackgroundColor ?? highlightedBackgroundColor
-        default: return .None
+        default: return .none
         }
     }
 }

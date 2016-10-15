@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-public class CouponImage {
-    public let sourceUrl: NSURL
-    public let width, height: Float
-    public let color: UIColor
+open class CouponImage {
+    open let sourceUrl: URL
+    open let width, height: Float
+    open let color: UIColor
     
-    public init(sourceUrl: NSURL, width: Float, height: Float, color: UIColor) {
+    public init(sourceUrl: URL, width: Float, height: Float, color: UIColor) {
         self.sourceUrl = sourceUrl
         self.width = width
         self.height = height

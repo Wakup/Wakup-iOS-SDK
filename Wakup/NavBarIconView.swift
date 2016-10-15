@@ -9,6 +9,6 @@
 import Foundation
 
 @IBDesignable
-public class NavBarIconView: CodeIconView {
+open class NavBarIconView: CodeIconView {
     
 }

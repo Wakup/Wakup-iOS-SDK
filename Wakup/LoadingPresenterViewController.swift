@@ -10,35 +10,35 @@ import Foundation
 
 
 protocol LoadingViewProtocol {
-    func showLoadingView(animated animated: Bool)
-    func dismissLoadingView(animated animated: Bool, completion: (() -> Void)?)
+    func showLoadingView(animated: Bool)
+    func dismissLoadingView(animated: Bool, completion: (() -> Void)?)
 }
 
-public class LoadingPresenterViewController: UIViewController, LoadingViewProtocol {
+open class LoadingPresenterViewController: UIViewController, LoadingViewProtocol {
     var showingLoadingView = false
     
     var loadingController: UIViewController?
     
-    private var loading = false
+    fileprivate var loading = false
     
     func setupLoadingView() {
-        loadingController = self.storyboard?.instantiateViewControllerWithIdentifier("loadingViewController")
+        loadingController = self.storyboard?.instantiateViewController(withIdentifier: "loadingViewController")
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if loading {
             showLoadingView(animated: true)
         }
     }
     
-    public override func viewDidDisappear(animated: Bool) {
+    open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.loadingController?.view.removeFromSuperview()
         showingLoadingView = false
     }
     
-    func showLoadingView(animated animated: Bool = true) {
+    func showLoadingView(animated: Bool = true) {
         loading = true
         if (loadingController == nil) {
             setupLoadingView()
@@ -49,12 +49,12 @@ public class LoadingPresenterViewController: UIViewController, LoadingViewProtoc
         
         showingLoadingView = true;
         if let loadingController = loadingController {
-            if let window = UIApplication.sharedApplication().keyWindow {
+            if let window = UIApplication.shared.keyWindow {
                 loadingController.view.frame = window.bounds
                 if animated {
                     loadingController.view.alpha = 0
                     window.addSubview(loadingController.view)
-                    UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    UIView.animate(withDuration: 0.3, animations: { () -> Void in
                         loadingController.view.alpha = 1
                     })
                 }
@@ -65,7 +65,7 @@ public class LoadingPresenterViewController: UIViewController, LoadingViewProtoc
         }
     }
     
-    func dismissLoadingView(animated animated: Bool = true, completion: (() -> Void)? = nil) {
+    func dismissLoadingView(animated: Bool = true, completion: (() -> Void)? = nil) {
         loading = false
         if (loadingController == nil) {
             setupLoadingView()
@@ -75,7 +75,7 @@ public class LoadingPresenterViewController: UIViewController, LoadingViewProtoc
         }
         showingLoadingView = false;
         if animated {
-            UIView.animateWithDuration(0.3, delay: 0.3, options: .BeginFromCurrentState, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, delay: 0.3, options: .beginFromCurrentState, animations: { () -> Void in
                 self.loadingController?.view.alpha = 0
                 return
                 }, completion: { (finished) -> Void in

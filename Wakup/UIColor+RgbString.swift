@@ -10,15 +10,15 @@ import Foundation
 
 extension UIColor {
     convenience public init(fromHexString hex: String) {
-        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
+        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercased()
         
         if (cString.hasPrefix("#")) {
-            cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
+            cString = cString.substring(from: cString.characters.index(cString.startIndex, offsetBy: 1))
         }
         
         if (cString.characters.count == 6) {
             var rgbValue:UInt32 = 0
-            NSScanner(string: cString).scanHexInt(&rgbValue)
+            Scanner(string: cString).scanHexInt32(&rgbValue)
             
             self.init(
                 red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,

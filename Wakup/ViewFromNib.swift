@@ -9,11 +9,11 @@
 import Foundation
 
 class CurrentBundle {
-    static func currentBundle() -> NSBundle {
-        return NSBundle(forClass: self)
+    static func currentBundle() -> Bundle {
+        return Bundle(for: self)
     }
 }
 
-func loadViewFromNib(nibName: String) -> UIView! {
-    return CurrentBundle.currentBundle().loadNibNamed(nibName, owner: nil, options: nil)[0] as! UIView
+func loadViewFromNib(_ nibName: String) -> UIView! {
+    return CurrentBundle.currentBundle().loadNibNamed(nibName, owner: nil, options: nil)![0] as! UIView
 }

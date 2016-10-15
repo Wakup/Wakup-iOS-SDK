@@ -14,12 +14,12 @@ class LoadingViewController: UIViewController {
         super.viewDidLoad()
         
         if #available(iOS 8.0, *) {
-            view.backgroundColor = UIColor.clearColor()
+            view.backgroundColor = UIColor.clear
             
-            let blurEffect = UIBlurEffect(style: .Dark)
+            let blurEffect = UIBlurEffect(style: .dark)
             let blurView = UIVisualEffectView(effect: blurEffect)
             blurView.frame = view.bounds
-            view.insertSubview(blurView, atIndex: 0)
+            view.insertSubview(blurView, at: 0)
         }
     }
 }

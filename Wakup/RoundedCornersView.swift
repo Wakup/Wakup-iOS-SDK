@@ -20,11 +20,11 @@ extension UIView {
     
     @IBInspectable public dynamic var borderColor: UIColor? {
         get {
-            return layer.borderColor.map { UIColor(CGColor: $0) }
+            return layer.borderColor.map { UIColor(cgColor: $0) }
         }
         set {
             if let color = newValue {
-                self.layer.borderColor = color.CGColor
+                self.layer.borderColor = color.cgColor
             }
         }
     }

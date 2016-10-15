@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 extension UICollectionView {
-    func scrollToIndexPathIfNotVisible(indexPath: NSIndexPath) {
-        let visibleIndexPaths = self.indexPathsForVisibleItems() 
+    func scrollToIndexPathIfNotVisible(_ indexPath: IndexPath) {
+        let visibleIndexPaths = self.indexPathsForVisibleItems 
         if (!visibleIndexPaths.contains(indexPath)) {
-            self.scrollToItemAtIndexPath(indexPath, atScrollPosition: [.CenteredVertically, .CenteredHorizontally], animated: false)
+            self.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: false)
         }
     }
     
-    func scrollToAndGetCell(atIndexPath indexPath: NSIndexPath) -> UICollectionViewCell! {
+    func scrollToAndGetCell(atIndexPath indexPath: IndexPath) -> UICollectionViewCell! {
         scrollToIndexPathIfNotVisible(indexPath)
         self.layoutIfNeeded()
-        return self.cellForItemAtIndexPath(indexPath)
+        return self.cellForItem(at: indexPath)
     }
 }

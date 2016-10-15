@@ -14,7 +14,7 @@ extension CLLocationCoordinate2D {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
-    func isEqualTo(other: CLLocationCoordinate2D) -> Bool {
+    func isEqualTo(_ other: CLLocationCoordinate2D) -> Bool {
         return latitude == other.latitude && longitude == other.longitude
     }
 }

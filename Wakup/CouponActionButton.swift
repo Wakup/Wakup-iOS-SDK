@@ -9,6 +9,6 @@
 import Foundation
 
 @IBDesignable
-public class CouponActionButton: CenteredCodeIconButton {
+open class CouponActionButton: CenteredCodeIconButton {
     
 }

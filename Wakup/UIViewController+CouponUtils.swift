@@ -11,39 +11,39 @@ import SDWebImage
 
 extension UIViewController {
     func showMap(forOffer offer: Coupon) {
-        let mapVC = self.storyboard?.instantiateViewControllerWithIdentifier("couponMap") as! CouponMapViewController
+        let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "couponMap") as! CouponMapViewController
         mapVC.coupons = [offer]
         mapVC.selectedCoupon = offer
         
         self.navigationController?.pushViewController(mapVC, animated: true)
     }
 
-    func shareTextImageAndURL(sharingText sharingText: String?, sharingImage: UIImage?, sharingURL: NSURL?) {
+    func shareTextImageAndURL(sharingText: String?, sharingImage: UIImage?, sharingURL: URL?) {
         var sharingItems = [AnyObject]()
         
         if let text = sharingText {
-            sharingItems.append(text)
+            sharingItems.append(text as AnyObject)
         }
         if let image = sharingImage {
             sharingItems.append(image)
         }
         if let url = sharingURL {
-            sharingItems.append(url)
+            sharingItems.append(url as AnyObject)
         }
         
         let activityViewController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
-        activityViewController.excludedActivityTypes = [UIActivityTypeAddToReadingList, UIActivityTypePrint, UIActivityTypeAssignToContact]
-        self.presentViewController(activityViewController, animated: true, completion: nil)
+        activityViewController.excludedActivityTypes = [UIActivityType.addToReadingList, UIActivityType.print, UIActivityType.assignToContact]
+        self.present(activityViewController, animated: true, completion: nil)
     }
 }
 
-private func shareCouponInPresenter(coupon: Coupon, presenter: UIViewController, loadViewPresenter: LoadingViewProtocol) {
-    let url: NSURL! = nil
+private func shareCouponInPresenter(_ coupon: Coupon, presenter: UIViewController, loadViewPresenter: LoadingViewProtocol) {
+    let url: URL! = nil
     let text = coupon.shortDescription ?? coupon.description ?? ""
     let shareText = coupon.company.name + " - " + text + "\n" + "ShareOfferFooter".i18n()
     if let imageUrl = coupon.image?.sourceUrl {
         loadViewPresenter.showLoadingView(animated: true)
-        SDWebImageManager.sharedManager().downloadImageWithURL(imageUrl, options: .HighPriority, progress: nil, completed: { (image, error, cacheType, finished, imageUrl) -> Void in
+        SDWebImageManager.shared().downloadImage(with: imageUrl as URL!, options: .highPriority, progress: nil, completed: { (image, error, cacheType, finished, imageUrl) -> Void in
             
             loadViewPresenter.dismissLoadingView(animated: true, completion: {
                 presenter.shareTextImageAndURL(sharingText: shareText, sharingImage: image, sharingURL: url)
@@ -56,7 +56,7 @@ private func shareCouponInPresenter(coupon: Coupon, presenter: UIViewController,
 }
 
 extension LoadingPresenterViewController {
-    func shareCoupon(coupon: Coupon) {
+    func shareCoupon(_ coupon: Coupon) {
         let presenter = self.navigationController ?? self
         shareCouponInPresenter(coupon, presenter: presenter, loadViewPresenter: self)
     }

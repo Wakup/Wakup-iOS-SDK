@@ -13,11 +13,11 @@ import CoreLocation
 class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
 
     enum Section: Int {
-        case UserLocation
-        case Companies
-        case Tags
-        case Locations
-        case History
+        case userLocation
+        case companies
+        case tags
+        case locations
+        case history
     }
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -26,31 +26,31 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     @IBOutlet weak var filterButtonsScrollView: UIScrollView!
     
     var categoryButtons: [SearchFilterButton]?
-    var categoryButtonNib = UINib(nibName: "SearchFilterButton", bundle: NSBundle(forClass: SearchViewController.self))
+    var categoryButtonNib = UINib(nibName: "SearchFilterButton", bundle: Bundle(for: SearchViewController.self))
     
     let geocoder = CLGeocoder()
     let locationManager = CLLocationManager()
     let searchService = SearchService.sharedInstance
     
-    var searchCountry: String? { return WakupManager.manager.options.searchCountryCode.flatMap { NSLocale.currentLocale().displayNameForKey(NSLocaleCountryCode, value: $0) } }
+    var searchCountry: String? { return WakupManager.manager.options.searchCountryCode.flatMap { (Locale.current as NSLocale).displayName(forKey: NSLocale.Key.countryCode, value: $0) } }
     var searchComplement: String? { return searchCountry.map{", " + $0} }
     
-    var userLocation: CLLocation? { didSet { reloadData([.UserLocation]) } }
-    var searchResult: SearchResult? { didSet { reloadData([.UserLocation, .Companies, .Tags]) } }
-    var placemarks: [CLPlacemark]? { didSet { reloadData([.UserLocation, .Locations]) } }
-    var searchHistory: [SearchHistory]? { didSet { reloadData([.History]); } }
+    var userLocation: CLLocation? { didSet { reloadData([.userLocation]) } }
+    var searchResult: SearchResult? { didSet { reloadData([.userLocation, .companies, .tags]) } }
+    var placemarks: [CLPlacemark]? { didSet { reloadData([.userLocation, .locations]) } }
+    var searchHistory: [SearchHistory]? { didSet { reloadData([.history]); } }
     
     let buttonsPadding: CGFloat = 8
     let buttonsSeparation: CGFloat = 8
     
     func configureFilterButtons() {
         categoryButtons = WakupManager.manager.options.searchCategories?.map { category in
-            let button = categoryButtonNib.instantiateWithOwner(self, options: nil)[0] as! SearchFilterButton
+            let button = categoryButtonNib.instantiate(withOwner: self, options: nil)[0] as! SearchFilterButton
             button.category = category
             return button
         }
         
-        guard let buttons = categoryButtons where !buttons.isEmpty else {
+        guard let buttons = categoryButtons , !buttons.isEmpty else {
             tableView.tableHeaderView = nil
             return
         }
@@ -59,27 +59,27 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         for button in buttons {
             filterButtonsScrollView.addSubview(button)
             if let previousButton = previousButton {
-                filterButtonsScrollView.addConstraint(NSLayoutConstraint(item: button, attribute: .Left, relatedBy: .Equal, toItem: previousButton, attribute: .Right, multiplier: 1, constant: buttonsSeparation))
+                filterButtonsScrollView.addConstraint(NSLayoutConstraint(item: button, attribute: .left, relatedBy: .equal, toItem: previousButton, attribute: .right, multiplier: 1, constant: buttonsSeparation))
             }
             else {
-                filterButtonsScrollView.addConstraint(NSLayoutConstraint(item: button, attribute: .Left, relatedBy: .Equal, toItem: filterButtonsScrollView, attribute: .Left, multiplier: 1, constant: 0))
+                filterButtonsScrollView.addConstraint(NSLayoutConstraint(item: button, attribute: .left, relatedBy: .equal, toItem: filterButtonsScrollView, attribute: .left, multiplier: 1, constant: 0))
             }
-            filterButtonsScrollView.addConstraint(NSLayoutConstraint(item: button, attribute: .CenterY, relatedBy: .Equal, toItem: filterButtonsScrollView, attribute: .CenterY, multiplier: 1, constant: 0))
+            filterButtonsScrollView.addConstraint(NSLayoutConstraint(item: button, attribute: .centerY, relatedBy: .equal, toItem: filterButtonsScrollView, attribute: .centerY, multiplier: 1, constant: 0))
             
             previousButton = button
         }
         if let lastButton = previousButton {
-            filterButtonsScrollView.addConstraint(NSLayoutConstraint(item: lastButton, attribute: .Right, relatedBy: .Equal, toItem: filterButtonsScrollView, attribute: .Right, multiplier: 1, constant: 0))
+            filterButtonsScrollView.addConstraint(NSLayoutConstraint(item: lastButton, attribute: .right, relatedBy: .equal, toItem: filterButtonsScrollView, attribute: .right, multiplier: 1, constant: 0))
         }
     }
     
-    func reloadData(sections: [Section]?) {
-        if let sections = sections where sections.count > 0 {
+    func reloadData(_ sections: [Section]?) {
+        if let sections = sections , sections.count > 0 {
             let indexSet = NSMutableIndexSet()
             for section in sections {
-                indexSet.addIndex(section.rawValue)
+                indexSet.add(section.rawValue)
             }
-            self.tableView.reloadSections(indexSet, withRowAnimation: .None)
+            self.tableView.reloadSections(indexSet as IndexSet, with: .none)
         }
         else {
             self.tableView.reloadData()
@@ -87,7 +87,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     }
     
     func getSelectedCategories() -> [OfferCategory]? {
-        let categories = categoryButtons?.filter{$0.selected}.flatMap{$0.category}
+        let categories = categoryButtons?.filter{$0.isSelected}.flatMap{$0.category}
         return categories?.isEmpty ?? true ? nil : categories
     }
     
@@ -95,7 +95,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        searchBar.barTintColor = UIColor.clearColor()
+        searchBar.barTintColor = UIColor.clear
         searchBar.backgroundImage = UIImage()
         searchBar.scopeBarBackgroundImage = UIImage()
         
@@ -104,13 +104,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         configureFilterButtons()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         locationManager.startUpdatingLocation()
         searchHistory = searchService.getSavedHistory()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         locationManager.stopUpdatingLocation()
     }
@@ -122,10 +122,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     }
 
     // MARK: UISearchBarDelegate
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
-            searchResult = .None
-            placemarks = .None
+            searchResult = .none
+            placemarks = .none
             return
         }
         
@@ -141,7 +141,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                 if let error = error {
                     // TODO: Show error to user
                     NSLog("Received error searching: \(error)")
-                    self.searchResult = .None
+                    self.searchResult = .none
                 }
                 else if let result = result {
                     NSLog("Received companies \(result.companies.map { $0.name })")
@@ -157,7 +157,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                 if let error = error {
                     // TODO: Show error to user
                     NSLog("Received error searching placemarks: %@", error)
-                    self.placemarks = .None
+                    self.placemarks = .none
                 }
                 else if let results = results {
                     NSLog("Received placemarks \(results.map { $0.name })")
@@ -167,75 +167,75 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         })
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(false)
     }
     
     // MARK: UITableViewDataSource
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return Section.History.rawValue + 1
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return Section.history.rawValue + 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let section = Section(rawValue: section) {
             switch section {
-            case .Companies:
+            case .companies:
                 return searchResult?.companies.count ?? 0
-            case .Tags:
+            case .tags:
                 return searchResult?.tags.count ?? 0
-            case .Locations:
+            case .locations:
                 return placemarks?.count ?? 0
-            case .UserLocation:
-                if userLocation != .None && placemarks?.count ?? 0 == 0 && searchResult?.companies.count ?? 0 == 0 {
+            case .userLocation:
+                if userLocation != .none && placemarks?.count ?? 0 == 0 && searchResult?.companies.count ?? 0 == 0 {
                     return 1
                 }
-            case .History:
+            case .history:
                 return searchHistory?.count ?? 0
             }
         }
         return 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: SearchResultCell!
-        if let section = Section(rawValue: indexPath.section) {
+        if let section = Section(rawValue: (indexPath as NSIndexPath).section) {
             switch section {
-            case .Companies:
-                cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! SearchResultCell
-                let company = searchResult?.companies[indexPath.row]
+            case .companies:
+                cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchResultCell
+                let company = searchResult?.companies[(indexPath as NSIndexPath).row]
                 cell.textLabel?.text = company?.name
                 cell.iconIdentifier = "star"
-            case .Tags:
-                cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! SearchResultCell
-                let tag = searchResult?.tags[indexPath.row]
+            case .tags:
+                cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchResultCell
+                let tag = searchResult?.tags[(indexPath as NSIndexPath).row]
                 cell.textLabel?.text = "#" + tag!
                 cell.iconIdentifier = "tag"
-            case .Locations:
-                cell = tableView.dequeueReusableCellWithIdentifier("SubtitleCell") as! SearchResultCell
-                let placemark = placemarks?[indexPath.row]
+            case .locations:
+                cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell") as! SearchResultCell
+                let placemark = placemarks?[(indexPath as NSIndexPath).row]
                 let name = placemark?.name ?? ""
                 let address = ABCreateStringWithAddressDictionary((placemark?.addressDictionary)!, false)
                 cell.textLabel?.text = name
                 cell.detailTextLabel?.text = address
                 cell.iconIdentifier = "location"
-            case .UserLocation:
-                cell = tableView.dequeueReusableCellWithIdentifier("FeaturedCell") as! SearchResultCell
+            case .userLocation:
+                cell = tableView.dequeueReusableCell(withIdentifier: "FeaturedCell") as! SearchResultCell
                 cell.textLabel?.text = "SearchCellUserLocation".i18n()
                 cell.iconIdentifier = "location"
-            case .History:
-                if let history = searchHistory?[indexPath.row] {
+            case .history:
+                if let history = searchHistory?[(indexPath as NSIndexPath).row] {
                     switch history {
-                    case .Location(let name, let address, _, _):
-                        cell = tableView.dequeueReusableCellWithIdentifier("SubtitleCell") as! SearchResultCell
+                    case .location(let name, let address, _, _):
+                        cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell") as! SearchResultCell
                         cell.textLabel?.text = name
                         cell.detailTextLabel?.text = address
                         cell.iconIdentifier = "location"
-                    case .Company(_, let name):
-                        cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! SearchResultCell
+                    case .company(_, let name):
+                        cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchResultCell
                         cell.textLabel?.text = name
                         cell.iconIdentifier = "star"
-                    case .Tag(let tag):
-                        cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! SearchResultCell
+                    case .tag(let tag):
+                        cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchResultCell
                         cell.textLabel?.text = "#" + tag
                         cell.iconIdentifier = "tag"
                     }
@@ -246,34 +246,34 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         return cell
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let section = Section(rawValue: section) {
             switch section {
-            case .Companies:
+            case .companies:
                 if (searchResult?.companies.count ?? 0) > 0 {
                     return "SearchHeaderCompanies".i18n()
                 }
-            case .Tags:
+            case .tags:
                 if (searchResult?.tags.count ?? 0) > 0 {
                     return "SearchHeaderTags".i18n()
                 }
-            case .Locations:
+            case .locations:
                 if (placemarks?.count ?? 0) > 0 {
                     return "SearchHeaderLocations".i18n()
                 }
-            case .UserLocation:
+            case .userLocation:
                 break
-            case .History:
+            case .history:
                 if searchHistory?.count ?? 0 > 0 {
                     return "SearchHeaderHistory".i18n()
                 }
                 break
             }
         }
-        return .None
+        return .none
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let searchTerm: String? = nil
         var companyId: Int?
         var companyName: String?
@@ -281,40 +281,40 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         var locationName: String?
         var selectedTag: String?
         
-        var newHistory: SearchHistory? = .None
-        if let section = Section(rawValue: indexPath.section) {
+        var newHistory: SearchHistory? = .none
+        if let section = Section(rawValue: (indexPath as NSIndexPath).section) {
             switch section {
-            case .Companies:
-                if let company = searchResult?.companies[indexPath.row] {
+            case .companies:
+                if let company = searchResult?.companies[(indexPath as NSIndexPath).row] {
                     companyId = company.id
                     companyName = company.name
-                    newHistory = .Company(id: company.id, name: company.name)
+                    newHistory = .company(id: company.id, name: company.name)
                 }
-            case .Tags:
-                if let tag = searchResult?.tags[indexPath.row] {
+            case .tags:
+                if let tag = searchResult?.tags[(indexPath as NSIndexPath).row] {
                     selectedTag = tag
-                    newHistory = .Tag(tag: tag)
+                    newHistory = .tag(tag: tag)
                 }
-            case .Locations:
-                if let placemark = placemarks?[indexPath.row], let coord = placemark.location?.coordinate {
+            case .locations:
+                if let placemark = placemarks?[(indexPath as NSIndexPath).row], let coord = placemark.location?.coordinate {
                     location = placemark.location
                     locationName = placemark.name
                     let address = ABCreateStringWithAddressDictionary(placemark.addressDictionary!, false)
-                    newHistory = SearchHistory.Location(name: placemark.name!, address: address, latitude: coord.latitude, longitude: coord.longitude)
+                    newHistory = SearchHistory.location(name: placemark.name!, address: address, latitude: coord.latitude, longitude: coord.longitude)
                 }
-            case .UserLocation:
+            case .userLocation:
                 break
-            case .History:
-                if let history = searchHistory?[indexPath.row] {
+            case .history:
+                if let history = searchHistory?[(indexPath as NSIndexPath).row] {
                     newHistory = history
                     switch history {
-                    case .Location(let name, _, let latitude, let longitude):
+                    case .location(let name, _, let latitude, let longitude):
                         locationName = name
                         location = CLLocation(latitude: latitude, longitude: longitude)
-                    case .Company(let id, let name):
+                    case .company(let id, let name):
                         companyId = id
                         companyName = name
-                    case .Tag(let tag):
+                    case .tag(let tag):
                         selectedTag = tag
                     }
                 }
@@ -333,7 +333,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         }
         let filterOptions = FilterOptions(searchTerm: searchTerm, tags: tags, companyId: companyId)
         
-        if let couponVC = storyboard?.instantiateViewControllerWithIdentifier(CouponWaterfallViewController.storyboardId) as? CouponWaterfallViewController {
+        if let couponVC = storyboard?.instantiateViewController(withIdentifier: CouponWaterfallViewController.storyboardId) as? CouponWaterfallViewController {
             couponVC.forcedLocation = location
             couponVC.filterOptions = filterOptions
             couponVC.filterTitle = companyName ?? locationName ?? selectedTag.map{"#\($0)"} ?? "SearchResults".i18n()
@@ -341,13 +341,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         }
         
         Async.main(after: 0.1) {
-            tableView.deselectRowAtIndexPath(indexPath, animated: false)
+            tableView.deselectRow(at: indexPath, animated: false)
         }
 
     }
     
     // MARK: CLLocationManagerDelegate
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+    func locationManager(_ manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         NSLog("Received new location: %@", newLocation)
         self.userLocation = newLocation
         locationManager.stopUpdatingLocation()

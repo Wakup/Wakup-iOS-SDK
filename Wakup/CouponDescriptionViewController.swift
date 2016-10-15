@@ -17,22 +17,22 @@ class CouponDescriptionViewController: UIViewController {
         super.viewDidLoad()
 
         if #available(iOS 8.0, *) {
-            view.backgroundColor = UIColor.clearColor()
+            view.backgroundColor = UIColor.clear
             
-            let blurEffect = UIBlurEffect(style: .Dark)
+            let blurEffect = UIBlurEffect(style: .dark)
             let blurView = UIVisualEffectView(effect: blurEffect)
             blurView.frame = view.bounds
-            view.insertSubview(blurView, atIndex: 0)
+            view.insertSubview(blurView, at: 0)
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         descriptionLabel?.text = descriptionText
     }
 
-    @IBAction func actionButtonTapped(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func actionButtonTapped(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
 }

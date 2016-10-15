@@ -12,21 +12,21 @@ import UIKit
 class PrototypeView<T: UIView> {
     let view: T
     
-    convenience init(fromNibName nibName: String, bundle: NSBundle? = nil) {
-        let nib = UINib(nibName: nibName, bundle: bundle ?? NSBundle(forClass: T.self))
+    convenience init(fromNibName nibName: String, bundle: Bundle? = nil) {
+        let nib = UINib(nibName: nibName, bundle: bundle ?? Bundle(for: T.self))
         self.init(fromNib: nib)
     }
     
     init(fromNib nib: UINib) {
-        view = nib.instantiateWithOwner(nil, options: nil)[0] as! T
+        view = nib.instantiate(withOwner: nil, options: nil)[0] as! T
     }
     
     class func loadPrototype(fromNibName nibName: String) -> T {
-        return NSBundle(forClass: T.self).loadNibNamed(nibName, owner: nil, options: nil)[0] as! T
+        return Bundle(for: T.self).loadNibNamed(nibName, owner: nil, options: nil)![0] as! T
     }
     
     func getFittingSize() -> CGSize {
         view.layoutIfNeeded()
-        return view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        return view.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
     }
 }

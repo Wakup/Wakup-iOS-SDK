@@ -9,9 +9,9 @@
 import Foundation
 
 extension UIButton {
-    func centerVerticallyWithPadding(padding: CGFloat) {
-        let imageSize = self.imageView?.frame.size ?? CGSizeZero
-        let titleSize = self.titleLabel?.frame.size ?? CGSizeZero
+    func centerVerticallyWithPadding(_ padding: CGFloat) {
+        let imageSize = self.imageView?.frame.size ?? CGSize.zero
+        let titleSize = self.titleLabel?.frame.size ?? CGSize.zero
         
         let totalHeight = imageSize.height + titleSize.height + padding
         imageEdgeInsets = UIEdgeInsets(top: imageSize.height - totalHeight, left: 0, bottom: 0, right: -titleSize.width)

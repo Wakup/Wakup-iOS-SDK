@@ -33,43 +33,43 @@ class OffersService: BaseService {
         return url
     }
     
-    func redemptionCodeImageUrl(offerId: Int, format: String, width: Int, height: Int) -> String? {
-        guard let userToken = UserService.sharedInstance.userToken else { return .None }
+    func redemptionCodeImageUrl(_ offerId: Int, format: String, width: Int, height: Int) -> String? {
+        guard let userToken = UserService.sharedInstance.userToken else { return .none }
         return "\(offerHostUrl)offers/\(offerId)/code/\(format)/\(width)/\(height)?userToken=\(userToken)"
     }
     
-    func findOffers(usingLocation location: CLLocationCoordinate2D, sensor: Bool, filterOptions: FilterOptions? = nil, pagination: PaginationInfo? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
+    func findOffers(usingLocation location: CLLocationCoordinate2D, sensor: Bool, filterOptions: FilterOptions? = nil, pagination: PaginationInfo? = nil, completion: ([Coupon]?, Error?) -> Void) {
         
         let url = "\(offerHostUrl)offers/find"
-        let locationParameters: [String: AnyObject] = ["latitude": location.latitude, "longitude": location.longitude, "sensor": "\(sensor)"]
+        let locationParameters: [String: AnyObject] = ["latitude": location.latitude as AnyObject, "longitude": location.longitude as AnyObject, "sensor": "\(sensor)" as AnyObject]
         var parameters = getPaginationParams(pagination: pagination, combinedWith: locationParameters)
         parameters = getFilterParams(filter: filterOptions, combinedWith: parameters)
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    func findRelatedOffer(toOffer offer: Coupon, pagination: PaginationInfo? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
+    func findRelatedOffer(toOffer offer: Coupon, pagination: PaginationInfo? = nil, completion: ([Coupon]?, Error?) -> Void) {
         
         let url = "\(offerHostUrl)offers/related"
         let offerParameters = ["storeId": offer.store?.id ?? -1, "offerId": offer.id]
-        let parameters = getPaginationParams(pagination: pagination, combinedWith: offerParameters)
+        let parameters = getPaginationParams(pagination: pagination, combinedWith: offerParameters as [String : AnyObject]?)
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    func findStoreOffers(nearLocation location: CLLocationCoordinate2D, radius: CLLocationDistance, sensor: Bool, filterOptions: FilterOptions? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
+    func findStoreOffers(nearLocation location: CLLocationCoordinate2D, radius: CLLocationDistance, sensor: Bool, filterOptions: FilterOptions? = nil, completion: ([Coupon]?, Error?) -> Void) {
         let url = "\(offerHostUrl)offers/find"
-        var parameters: [String: AnyObject] = ["latitude": location.latitude, "longitude": location.longitude, "sensor": "\(sensor)", "radiusInKm": radius / 1000, "includeOnline": false,  "perPage": 50]
+        var parameters: [String: AnyObject] = ["latitude": location.latitude as AnyObject, "longitude": location.longitude as AnyObject, "sensor": "\(sensor)" as AnyObject, "radiusInKm": radius / 1000, "includeOnline": false,  "perPage": 50]
         parameters = getFilterParams(filter: filterOptions, combinedWith: parameters)
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    func getOfferDetails(ids: [Int], location: CLLocationCoordinate2D, sensor: Bool, completion: ([Coupon]?, ErrorType?) -> Void) {
+    func getOfferDetails(_ ids: [Int], location: CLLocationCoordinate2D, sensor: Bool, completion: ([Coupon]?, Error?) -> Void) {
         let url = "\(offerHostUrl)offers/get"
-        let idsStr = ids.map(String.init).joinWithSeparator(",")
-        let parameters: [String: AnyObject] = ["ids": idsStr, "latitude": location.latitude, "longitude": location.longitude, "sensor": "\(sensor)", "includeOnline": false]
+        let idsStr = ids.map(String.init).joined(separator: ",")
+        let parameters: [String: AnyObject] = ["ids": idsStr as AnyObject, "latitude": location.latitude as AnyObject, "longitude": location.longitude as AnyObject, "sensor": "\(sensor)" as AnyObject, "includeOnline": false as AnyObject]
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    func getRedemptionCode(forOffer offer: Coupon, completion: (RedemptionCode?, ErrorType?) -> Void) {
+    func getRedemptionCode(forOffer offer: Coupon, completion: @escaping (RedemptionCode?, Error?) -> Void) {
         let url = "\(offerHostUrl)offers/\(offer.id)/code"
         createRequest(.GET, url) { (json, error) in
             // TODO: Process error codes
@@ -86,14 +86,14 @@ class OffersService: BaseService {
         return url
     }
     
-    private func getOffersFromURL(url url: String, parameters: [String: AnyObject]? = nil, completion: ([Coupon]?, ErrorType?) -> Void) {
+    fileprivate func getOffersFromURL(url: String, parameters: [String: AnyObject]? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
         createRequest(.GET, url, parameters: parameters) { (json, error) in
             let coupons = json.map { $0.arrayValue.map { json in self.parseCoupon(json: json) } }
             completion(coupons, error)
         }
     }
     
-    private func createRequest(method: Alamofire.Method, _ url: URLStringConvertible, parameters: [String: AnyObject]? = nil, completion: (JSON?, ErrorType?) -> Void) {
+    fileprivate func createRequest(_ method: Alamofire.Method, _ url: URLStringConvertible, parameters: [String: AnyObject]? = nil, completion: @escaping (JSON?, Error?) -> Void) {
         UserService.sharedInstance.fetchUserToken { (userToken, error) in
             guard let userToken = userToken else {
                 completion(nil, error!)
@@ -116,38 +116,38 @@ class OffersService: BaseService {
         }
     }
     
-    private func getPaginationParams(pagination pagination: PaginationInfo?, combinedWith parameters: [String: AnyObject]? = nil) -> [String: AnyObject] {
+    fileprivate func getPaginationParams(pagination: PaginationInfo?, combinedWith parameters: [String: AnyObject]? = nil) -> [String: AnyObject] {
         var result = parameters ?? [String: AnyObject]()
         if let pagination = pagination {
             if let page = pagination.page {
-                result["page"] = page
+                result["page"] = page as AnyObject?
             }
             if let perPage = pagination.perPage {
-                result["perPage"] = perPage
+                result["perPage"] = perPage as AnyObject?
             }
         }
         return result
     }
     
-    private func getFilterParams(filter filter: FilterOptions?, combinedWith parameters: [String: AnyObject]? = nil) -> [String: AnyObject] {
+    fileprivate func getFilterParams(filter: FilterOptions?, combinedWith parameters: [String: AnyObject]? = nil) -> [String: AnyObject] {
         var result = parameters ?? [String: AnyObject]()
         if let filter = filter {
             if let query = filter.searchTerm {
-                result["query"] = query
+                result["query"] = query as AnyObject?
             }
-            if let tags = filter.tags where tags.count > 0 {
-                result["tags"] = tags.joinWithSeparator(",")
+            if let tags = filter.tags , tags.count > 0 {
+                result["tags"] = tags.joined(separator: ",") as AnyObject?
             }
             if let companyId = filter.companyId {
-                result["companyId"] = companyId
+                result["companyId"] = companyId as AnyObject?
             }
         }
         return result
     }
     
-    private func parseImage(json json: JSON) -> CouponImage? {
+    fileprivate func parseImage(json: JSON) -> CouponImage? {
         if (json.isEmpty) { return nil }
-        let sourceUrl = NSURL(string: json["url"].stringValue)
+        let sourceUrl = URL(string: json["url"].stringValue)
         let width = json["width"].float ?? 100
         let height = json["height"].float ?? 100
         let color = UIColor(fromHexString: json["rgbColor"].stringValue)
@@ -155,25 +155,25 @@ class OffersService: BaseService {
             return CouponImage(sourceUrl: sourceUrl, width: width, height: height, color: color)
         }
         else {
-            return .None
+            return .none
         }
     }
     
-    private func parseCompany(json json: JSON) -> Company {
+    fileprivate func parseCompany(json: JSON) -> Company {
         let id = json["id"].intValue
         let name = json["name"].stringValue
         let logo = parseImage(json: json["logo"])
         return Company(id: id, name: name, logo: logo)
     }
     
-    private func parseDate(string string: String) -> NSDate? {
-        let dateFormatter = NSDateFormatter()
+    fileprivate func parseDate(string: String) -> Date? {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.dateFromString(string)
+        return dateFormatter.date(from: string)
     }
     
-    private func parseStore(json json: JSON) -> Store? {
-        if (json.type == .Null) { return .None }
+    fileprivate func parseStore(json: JSON) -> Store? {
+        if (json.type == .Null) { return .none }
         let id = json["id"].intValue
         let name = json["name"].string
         let address = json["address"].string
@@ -182,8 +182,8 @@ class OffersService: BaseService {
         return Store(id: id, name: name, address: address, latitude: latitude, longitude: longitude)
     }
     
-    private func parseRedemptionCodeInfo(json json: JSON) -> RedemptionCodeInfo? {
-        if (json.type == .Null) { return .None }
+    fileprivate func parseRedemptionCodeInfo(json: JSON) -> RedemptionCodeInfo? {
+        if (json.type == .Null) { return .none }
         let totalCodes = json["totalCodes"].int
         let availableCodes = json["availableCodes"].int
         let limited = json["limited"].boolValue
@@ -191,7 +191,7 @@ class OffersService: BaseService {
         return RedemptionCodeInfo(limited: limited, totalCodes: totalCodes, availableCodes: availableCodes, alreadyAssigned: alreadyAssigned)
     }
     
-    private func parseCoupon(json json: JSON) -> Coupon {
+    fileprivate func parseCoupon(json: JSON) -> Coupon {
         let id = json["id"].intValue
         let shortText = json["shortOffer"].stringValue
         let shortDescription = json["shortDescription"].stringValue
@@ -199,7 +199,7 @@ class OffersService: BaseService {
         let tags = json["tags"].arrayValue.map { $0.stringValue }
         let online = json["isOnline"].boolValue
         let link = json["link"].URL
-        let expirationDate: NSDate? = json["expirationDate"].string.map { self.parseDate(string: $0) } ?? .None
+        let expirationDate: Date? = json["expirationDate"].string.map { self.parseDate(string: $0) } ?? .none
         let thumbnail = parseImage(json: json["thumbnail"])
         let image = parseImage(json: json["image"])
         let store = parseStore(json: json["store"])
@@ -209,8 +209,8 @@ class OffersService: BaseService {
         return Coupon(id: id, shortText: shortText, shortDescription: shortDescription, description: description, tags: tags, online: online, link: link, expirationDate: expirationDate, thumbnail: thumbnail, image: image, store: store, company: company, redemptionCode: redemptionCodeInfo)
     }
     
-    private func parseRedemptionCode(json json: JSON) -> RedemptionCode? {
-        if (json.type == .Null) { return .None }
+    fileprivate func parseRedemptionCode(json: JSON) -> RedemptionCode? {
+        if (json.type == .Null) { return .none }
         let code = json["code"].stringValue
         let displayCode = json["displayCode"].stringValue
         let formats = json["formats"].array?.map { $0.stringValue } ?? []

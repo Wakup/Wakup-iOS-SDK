@@ -8,7 +8,7 @@
 
 import Foundation
 
-func synced(lock: AnyObject, closure: () -> ()) {
+func synced(_ lock: AnyObject, closure: () -> ()) {
     objc_sync_enter(lock)
     closure()
     objc_sync_exit(lock)

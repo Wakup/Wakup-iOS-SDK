@@ -9,6 +9,6 @@
 import Foundation
 
 @IBDesignable
-public class TopMenuButton: CodeIconButton {
+open class TopMenuButton: CodeIconButton {
 
 }

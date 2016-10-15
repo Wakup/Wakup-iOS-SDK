@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class RedemptionCodeInfo {
-    public let limited: Bool
-    public let totalCodes: Int?
-    public let availableCodes: Int?
-    public let alreadyAssigned: Bool
+open class RedemptionCodeInfo {
+    open let limited: Bool
+    open let totalCodes: Int?
+    open let availableCodes: Int?
+    open let alreadyAssigned: Bool
     
     public init(limited: Bool, totalCodes: Int?, availableCodes: Int?, alreadyAssigned: Bool) {
         self.limited = limited

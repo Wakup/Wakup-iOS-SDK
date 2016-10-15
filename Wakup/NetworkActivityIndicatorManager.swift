@@ -17,16 +17,16 @@ class NetworkActivityIndicatorManager {
         return Static.instance
     }
     
-    private let application = UIApplication.sharedApplication()
-    private var tasks = 0
+    fileprivate let application = UIApplication.shared
+    fileprivate var tasks = 0
     
     func startActivity() {
-        if application.statusBarHidden {
+        if application.isStatusBarHidden {
             return
         }
         synced(self, closure: {
-            if !self.application.networkActivityIndicatorVisible {
-                self.application.networkActivityIndicatorVisible = true
+            if !self.application.isNetworkActivityIndicatorVisible {
+                self.application.isNetworkActivityIndicatorVisible = true
                 self.tasks = 0
             }
             self.tasks += 1
@@ -34,25 +34,25 @@ class NetworkActivityIndicatorManager {
     }
     
     func endActivity() {
-        if application.statusBarHidden {
+        if application.isStatusBarHidden {
             return
         }
         synced(self, closure: {
             self.tasks -= 1
             
             if (self.tasks <= 0) {
-                self.application.networkActivityIndicatorVisible = false
+                self.application.isNetworkActivityIndicatorVisible = false
                 self.tasks = 0
             }
         })
     }
     
     func endAllActivities() {
-        if application.statusBarHidden {
+        if application.isStatusBarHidden {
             return
         }
         synced(self, closure: {
-            self.application.networkActivityIndicatorVisible = false
+            self.application.isNetworkActivityIndicatorVisible = false
             self.tasks = 0
         })
     }

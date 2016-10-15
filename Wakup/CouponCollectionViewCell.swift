@@ -17,20 +17,20 @@ enum CouponContextAction: String {
     case Remove = "remove"
 }
 
-typealias OnContextMenuAction = (action: CouponContextAction, forCoupon: Coupon) -> Void
+typealias OnContextMenuAction = (_ action: CouponContextAction, _ forCoupon: Coupon) -> Void
 
-public class CouponCollectionViewCell: UICollectionViewCell {
+open class CouponCollectionViewCell: UICollectionViewCell {
 
-    public dynamic var storeNameFont: UIFont! { get { return storeNameLabel?.font } set { storeNameLabel?.font = newValue } }
-    public dynamic var storeNameTextColor: UIColor! { get { return storeNameLabel?.textColor } set { storeNameLabel?.textColor = newValue } }
-    public dynamic var descriptionTextFont: UIFont! { get { return offerDescriptionLabel?.font } set { offerDescriptionLabel?.font = newValue } }
-    public dynamic var descriptionTextColor: UIColor! { get { return offerDescriptionLabel?.textColor } set { offerDescriptionLabel?.textColor = newValue } }
-    public dynamic var distanceFont: UIFont! { get { return distanceLabel?.font } set { distanceLabel?.font = newValue } }
-    public dynamic var distanceTextColor: UIColor! { get { return distanceLabel?.textColor } set { distanceLabel?.textColor = newValue } }
-    public dynamic var distanceIconColor: UIColor! { get { return distanceIconView?.iconColor } set { distanceIconView?.iconColor = newValue } }
-    public dynamic var expirationFont: UIFont! { get { return expirationLabel?.font } set { expirationLabel?.font = newValue } }
-    public dynamic var expirationTextColor: UIColor! { get { return expirationLabel?.textColor } set { expirationLabel?.textColor = newValue } }
-    public dynamic var expirationIconColor: UIColor! { get { return expirationIconView?.iconColor } set { expirationIconView?.iconColor = newValue } }
+    open dynamic var storeNameFont: UIFont! { get { return storeNameLabel?.font } set { storeNameLabel?.font = newValue } }
+    open dynamic var storeNameTextColor: UIColor! { get { return storeNameLabel?.textColor } set { storeNameLabel?.textColor = newValue } }
+    open dynamic var descriptionTextFont: UIFont! { get { return offerDescriptionLabel?.font } set { offerDescriptionLabel?.font = newValue } }
+    open dynamic var descriptionTextColor: UIColor! { get { return offerDescriptionLabel?.textColor } set { offerDescriptionLabel?.textColor = newValue } }
+    open dynamic var distanceFont: UIFont! { get { return distanceLabel?.font } set { distanceLabel?.font = newValue } }
+    open dynamic var distanceTextColor: UIColor! { get { return distanceLabel?.textColor } set { distanceLabel?.textColor = newValue } }
+    open dynamic var distanceIconColor: UIColor! { get { return distanceIconView?.iconColor } set { distanceIconView?.iconColor = newValue } }
+    open dynamic var expirationFont: UIFont! { get { return expirationLabel?.font } set { expirationLabel?.font = newValue } }
+    open dynamic var expirationTextColor: UIColor! { get { return expirationLabel?.textColor } set { expirationLabel?.textColor = newValue } }
+    open dynamic var expirationIconColor: UIColor! { get { return expirationIconView?.iconColor } set { expirationIconView?.iconColor = newValue } }
     
     @IBOutlet weak var couponImageView: UIImageView!
     @IBOutlet weak var shortTextLabel: UILabel!
@@ -41,7 +41,7 @@ public class CouponCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var distanceIconView: CodeIconView!
     @IBOutlet weak var expirationIconView: CodeIconView!
     
-    private var imageAspectRatioConstraint: NSLayoutConstraint?
+    fileprivate var imageAspectRatioConstraint: NSLayoutConstraint?
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     
     public required init?(coder aDecoder: NSCoder) {
@@ -56,8 +56,8 @@ public class CouponCollectionViewCell: UICollectionViewCell {
     
     var loadImages = true
     
-    private var menuDelegate = ContextMenuSource()
-    private var contextualMenu: BAMContextualMenu?
+    fileprivate var menuDelegate = ContextMenuSource()
+    fileprivate var contextualMenu: BAMContextualMenu?
     
     func refreshUI() {
         if (loadImages) {
@@ -80,7 +80,7 @@ public class CouponCollectionViewCell: UICollectionViewCell {
     func setupContextualMenu() {
         var menuItems = [ContextMenuItem]()
         let location: CLLocation? = coupon?.store?.location()
-        if location != .None {
+        if location != .none {
             menuItems.append(ContextMenuItem.withCustomView(CouponContextAction.ShowMap.rawValue, titleText: "ActionShowMap".i18n()))
         }
         
@@ -103,15 +103,15 @@ public class CouponCollectionViewCell: UICollectionViewCell {
         return false
     }
     
-    override public func awakeFromNib() {
-        contextualMenu = BAMContextualMenu.addContextualMenuToView(contentView, delegate: menuDelegate, dataSource: menuDelegate, activateOption: kBAMContextualMenuActivateOptionLongPress)
+    override open func awakeFromNib() {
+        contextualMenu = BAMContextualMenu.add(to: contentView, delegate: menuDelegate, dataSource: menuDelegate, activateOption: kBAMContextualMenuActivateOptionLongPress)
         menuDelegate.onSelection = { menuItem, index in
-            if let actionId = menuItem?.identifier ?? .None {
+            if let actionId = menuItem?.identifier ?? .none {
                 let action = CouponContextAction(rawValue: actionId)
                 if let action = action {
                     if let coupon = self.coupon {
                         NSLog("Selected action %@ for coupon %d", action.rawValue, coupon.id)
-                        self.onContextMenuAction?(action: action, forCoupon: coupon)
+                        self.onContextMenuAction?(action, coupon)
                         self.refreshUI()
                     }
                 }
@@ -123,7 +123,7 @@ public class CouponCollectionViewCell: UICollectionViewCell {
         distanceLabel.text = coupon?.distanceText <*> userLocation
     }
     
-    override public func updateConstraints() {
+    override open func updateConstraints() {
         if let constraint = imageAspectRatioConstraint {
             couponImageView?.removeConstraint(constraint)
             imageAspectRatioConstraint = nil
@@ -142,14 +142,14 @@ public class CouponCollectionViewCell: UICollectionViewCell {
         super.updateConstraints()
     }
     
-    override public func prepareForReuse() {
+    override open func prepareForReuse() {
         super.prepareForReuse()
-        couponImageView?.backgroundColor = UIColor.clearColor()
+        couponImageView?.backgroundColor = UIColor.clear
         couponImageView?.image = nil
     }
     
     func aspectRatioConstraint(forView view: UIView, ratio: Float) -> NSLayoutConstraint {
-        let constraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Height, multiplier: CGFloat(ratio), constant: CGFloat(0))
+        let constraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.height, multiplier: CGFloat(ratio), constant: CGFloat(0))
         return constraint
     }
     
