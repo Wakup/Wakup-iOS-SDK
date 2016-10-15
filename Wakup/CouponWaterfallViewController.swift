@@ -163,7 +163,7 @@ import DZNEmptyDataSet
         let viewControllers = navigationController?.viewControllers ?? [UIViewController]()
         
         if let vc = viewControllers.filter({ $0 is SearchViewController }).first {
-            navigationController?.popToViewController(vc, animated: true)
+            _ = navigationController?.popToViewController(vc, animated: true)
         }
         else {
             performSegue(withIdentifier: "search", sender: self)
@@ -207,7 +207,9 @@ import DZNEmptyDataSet
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         NSLog("AuthorizationStatusChanged: %d", status.rawValue)
         switch status {
-        case .authorizedAlways, .authorizedWhenInUse where locationExpired || isDefaultLocation: reload()
+        case .authorizedAlways where locationExpired || isDefaultLocation,
+             .authorizedWhenInUse where locationExpired || isDefaultLocation:
+            reload()
         default: break
         }
     }
@@ -226,10 +228,14 @@ import DZNEmptyDataSet
                 present(alert, animated: true, completion: nil)
             }
             else {
-                UIAlertView(title: "GeolocationDeniedTitle".i18n(), message: "GeolocationDeniedMsg".i18n(), delegate: nil, cancelButtonTitle: "CloseDialogButton".i18n()).show()
+                let alert = UIAlertController(title: "GeolocationDeniedTitle".i18n(), message: "GeolocationDeniedMsg".i18n(), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "CloseDialogButton".i18n(), style: .cancel, handler: nil))
+                present(alert, animated: true, completion: nil)
             }
         default:
-            UIAlertView(title: "GeolocationErrorTitle".i18n(), message: "GeolocationErrorMsg".i18n(), delegate: nil, cancelButtonTitle: "CloseDialogButton".i18n()).show()
+            let alert = UIAlertController(title: "GeolocationErrorTitle".i18n(), message: "GeolocationErrorMsg".i18n(), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "CloseDialogButton".i18n(), style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
         }
         
         self.location = defaultLocation

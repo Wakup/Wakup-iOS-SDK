@@ -157,7 +157,10 @@ class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfallLayou
                     self.onErrorReceived?(error)
                 }
                 else {
-                    UIAlertView(title: "ConnectionErrorTitle".i18n(), message: "ConnectionErrorMsg".i18n(), delegate: nil, cancelButtonTitle: "CloseDialogButton".i18n()).show()
+                    guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
+                    let alert = UIAlertController(title: "ConnectionErrorTitle".i18n(), message: "ConnectionErrorMsg".i18n(), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "CloseDialogButton".i18n(), style: .cancel, handler: nil))
+                    rootVC.present(alert, animated: true, completion: nil)
                 }
             }
             else {
