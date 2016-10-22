@@ -12,7 +12,7 @@ import CHTCollectionViewWaterfallLayout
 import CoreLocation
 import DZNEmptyDataSet
 
-typealias LoadCouponMethod = (_ page: Int, _ perPage: Int, _ onComplete: (_ result: [Coupon]?, _ error: Error?) -> Void) -> Void
+typealias LoadCouponMethod = (_ page: Int, _ perPage: Int, _ onComplete: @escaping (_ result: [Coupon]?, _ error: Error?) -> Void) -> Void
 
 class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfallLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     

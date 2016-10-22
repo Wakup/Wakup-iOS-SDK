@@ -142,7 +142,7 @@ open class CouponDetailHeaderView: UICollectionReusableView {
         for tag in coupon.tags {
             let tagView = tagListView.addTag(tagPrefix + tag)
             tagView.onTap = { [unowned self] _ in
-                self.delegate?.headerViewDidSelectAction(.ShowTag(tag: tag), headerView: self)
+                self.delegate?.headerViewDidSelectAction(.showTag(tag: tag), headerView: self)
             }
         }
     }
@@ -158,7 +158,7 @@ open class CouponDetailHeaderView: UICollectionReusableView {
                 self.couponDetailImageView?.isHidden = true
                 if let image = coupon.image {
                     couponDetailImageView?.setImageAnimated(url: image.sourceUrl) { (_, error, _, _) -> Void in
-                        if (error as! _? == .none) {
+                        if (error == nil) {
                             self.couponDetailImageView?.isHidden = false
                         }
                     }
@@ -181,7 +181,7 @@ open class CouponDetailHeaderView: UICollectionReusableView {
             companyNameLabel?.text = coupon.company.name
             storeAddressLabel?.text = coupon.store?.address
             
-            storeDistanceLabel?.text = coupon.distanceText <*> userLocation
+            storeDistanceLabel?.text = userLocation.map { location in coupon.distanceText(location) }
             
             if hasLink {
                 showInMapButton?.iconIdentifier = "link"

@@ -11,23 +11,17 @@ import SDWebImage
 
 extension UIImageView {
     func setImageAnimated(url: URL!, completed: SDWebImageCompletionBlock? = nil) {
-        sd_setImage(with: url, completed: onLoadComplete(completed))
-    }
-    
-    func setImageAnimated(url: URL!, placeholder: UIImage!, completed: SDWebImageCompletionBlock? = nil) {
-        sd_setImage(with: url, placeholderImage: placeholder, completed: onLoadComplete(completed))
-    }
-    
-    fileprivate func onLoadComplete(_ completed: SDWebImageCompletionBlock?, _ image: UIImage?, error: NSError?, cacheType: SDImageCacheType, url: URL!) {
-        if (cacheType ==  .none) {
-            let animation = CATransition()
-            animation.duration = 0.3
-            animation.type = kCATransitionFade
-            
-            self.layer.add(animation, forKey: "image-load")
-        }
-        if let completeBlock = completed {
-            completeBlock(image, error, cacheType, url)
+        sd_setImage(with: url) { (image, error, cacheType, url) in
+            if (cacheType ==  .none) {
+                let animation = CATransition()
+                animation.duration = 0.3
+                animation.type = kCATransitionFade
+                
+                self.layer.add(animation, forKey: "image-load")
+            }
+            if let completeBlock = completed {
+                completeBlock(image, error, cacheType, url)
+            }
         }
     }
 }

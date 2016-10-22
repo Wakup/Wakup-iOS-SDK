@@ -15,9 +15,12 @@ extension UIView {
     */
     public func isSuper(_ v : UIView) -> Bool
     {
-        for var s : UIView? = self; s != nil; s = s?.superview {
-            if(v == s) {
-                return true;
+        var s = self
+        while (s.superview != nil) {
+            s = s.superview!
+            if (v == s) {
+                return true
+
             }
         }
         return false

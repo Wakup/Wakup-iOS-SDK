@@ -245,8 +245,8 @@ import DZNEmptyDataSet
         reload()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        NSLog("Received location update %@", newLocation)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let newLocation = locations.first else { return }
         self.location = newLocation
         self.locationTimestamp = Date()
         self.locationManager.stopUpdatingLocation()

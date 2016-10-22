@@ -11,11 +11,15 @@ import CoreLocation
 
 extension Store {
     func distance(_ toLocation: CLLocation) -> CLLocationDistance? {
-        return getDistance(toLocation) <^> location()
+        return location().map { self.getDistance($0, toLocation) }
     }
     
     func location() -> CLLocation? {
-        return getLocation <^> latitude <*> longitude
+        if let latitude = latitude, let longitude = longitude {
+            return getLocation(latitude, longitude)
+        }
+        return nil
+
     }
     
     fileprivate func getLocation(_ latitude: Float, _ longitude: Float) -> CLLocation {

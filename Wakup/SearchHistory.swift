@@ -29,11 +29,11 @@ enum SearchHistory: Equatable {
     static func fromJson(_ json: JSON) -> SearchHistory? {
         switch (json["type"].string) {
         case .some("Company"):
-            return .Company(id: json["id"].intValue, name: json["name"].stringValue)
+            return .company(id: json["id"].intValue, name: json["name"].stringValue)
         case .some("Location"):
-            return .Location(name: json["name"].stringValue, address: json["address"].string, latitude: json["lat"].doubleValue, longitude: json["lng"].doubleValue)
+            return .location(name: json["name"].stringValue, address: json["address"].string, latitude: json["lat"].doubleValue, longitude: json["lng"].doubleValue)
         case .some("Tag"):
-            return .Tag(tag: json["tag"].stringValue)
+            return .tag(tag: json["tag"].stringValue)
         default:
             return .none
         }

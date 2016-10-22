@@ -8,40 +8,42 @@
 
 import Foundation
 import SwiftyJSON
-import AwesomeCache
 import Alamofire
 
 class SearchService: BaseService {
     static let sharedInstance = SearchService()
     
-    fileprivate lazy var historyCache: Cache<NSString> = { try! Cache<NSString>(name: "searchHistory") }()
-    fileprivate let historyKey = "history"
     fileprivate let maxHistory = 10
+    
+    func searchHistoryFile() -> URL {
+        let cacheDir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        return cacheDir.appendingPathComponent("searchHistory.plist")
+    }
     
     func genericSearch(_ query: String, completion: @escaping (SearchResult?, Error?) -> Void) {
         let url = "\(offerHostUrl)search"
         let parameters = ["q": query]
         
         UserService.sharedInstance.fetchUserToken { (userToken, error) in
-            guard let userToken = userToken else {
-                completion(nil, error!)
+            if let error = error {
+                completion(nil, error)
                 return
             }
             
             NetworkActivityIndicatorManager.sharedInstance.startActivity()
-            let r = request(.GET, url, parameters: parameters, headers: self.userHeaders(userToken)).validate().responseSwiftyJSON({ (req, res, result, error) in
+            let r = request(url, parameters: parameters, headers: self.authHeaders).validate().responseSwiftyJSON { result in
                 NetworkActivityIndicatorManager.sharedInstance.endActivity()
-                if let error = error {
-                    NSLog("Error in request with URL \(req.URLString): \(error)")
+                switch result.result {
+                case .failure(let error):
+                    print("Error in request with URL \(result.request?.url): \(error)")
                     completion(nil, error)
-                }
-                else  {
-                    NSLog("Success %@: %@)", req.URLString, result.rawString()!)
-                    let searchResult = self.parseSearchResult(json: result)
+                case .success(let json):
+                    NSLog("Success \(result.request?.url): \(result.data.map { String(data: $0, encoding: .utf8) })")
+                    let searchResult = self.parseSearchResult(json: json)
                     completion(searchResult, nil)
                 }
-            })
-            NSLog("Performing search with URL: %@", r.request!.URLString)
+            }
+            NSLog("Performing search with URL: \(r.request?.url)")
         }
     }
     
@@ -64,20 +66,21 @@ class SearchService: BaseService {
         if newHistory.count > 10 {
             newHistory.removeLast()
         }
-        saveHistory(newHistory)
+        try? saveHistory(newHistory)
         return newHistory
     }
     
-    func saveHistory(_ searchHistory: [SearchHistory]) {
+    func saveHistory(_ searchHistory: [SearchHistory]) throws {
         let jsonArray = searchHistory.map { $0.toJson() }
         let json = JSON(jsonArray)
-        let jsonString = json.rawString(String.Encoding.utf8)
-        historyCache.setObject(jsonString as NSString!, forKey: historyKey, expires: .Never)
+        let jsonString = json.rawString(String.Encoding.utf8)!
+        
+        try jsonString.write(to: searchHistoryFile(), atomically: true, encoding: String.Encoding.utf8)
     }
     
     func getSavedHistory() -> [SearchHistory]? {
-        if let jsonString = historyCache[historyKey],
-            let data = jsonString.dataUsingEncoding(String.Encoding.utf8, allowLossyConversion: false),
+        if let jsonString = try? String(contentsOf: searchHistoryFile(), encoding: String.Encoding.utf8),
+            let data = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false),
             let array = JSON(data: data).array
         {
             return mapSome(array) { SearchHistory.fromJson($0) }

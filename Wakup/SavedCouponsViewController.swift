@@ -163,7 +163,9 @@ class SavedCouponsViewController: LoadingPresenterViewController, CHTCollectionV
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         NSLog("AuthorizationStatusChanged: %d", status.rawValue)
         switch status {
-        case .authorizedAlways, .authorizedWhenInUse where locationExpired: reload()
+        case .authorizedAlways where locationExpired,
+             .authorizedWhenInUse where locationExpired:
+            reload()
         default: break
         }
     }
@@ -173,7 +175,8 @@ class SavedCouponsViewController: LoadingPresenterViewController, CHTCollectionV
         couponCollectionHandler?.cancel()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let newLocation = locations.last else { return }
         NSLog("Received location update %@", newLocation)
         self.location = newLocation
         self.locationTimestamp = Date()

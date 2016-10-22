@@ -91,7 +91,7 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let containerView = transitionContext.containerView else { return }
+        let containerView = transitionContext.containerView
         let fromMainView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!.view!
         let toMainView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!.view!
         fromMainView.frame = containerView.bounds

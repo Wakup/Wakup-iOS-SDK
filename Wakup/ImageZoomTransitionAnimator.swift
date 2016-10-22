@@ -20,7 +20,7 @@ class ImageZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioni
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let containerView = transitionContext.containerView else { return }
+        let containerView = transitionContext.containerView
         let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
         let fromMainView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
         let fromView = (fromViewController as! ZoomTransitionOrigin).zoomTransitionOriginView()

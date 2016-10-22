@@ -156,7 +156,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                 }
                 if let error = error {
                     // TODO: Show error to user
-                    NSLog("Received error searching placemarks: %@", error)
+                    NSLog("Received error searching placemarks: \(error)")
                     self.placemarks = .none
                 }
                 else if let results = results {
@@ -347,10 +347,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     }
     
     // MARK: CLLocationManagerDelegate
-    func locationManager(_ manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let newLocation = locations.last else { return }
         NSLog("Received new location: %@", newLocation)
         self.userLocation = newLocation
-        locationManager.stopUpdatingLocation()
+        manager.stopUpdatingLocation()
     }
 
 }

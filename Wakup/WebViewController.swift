@@ -86,7 +86,7 @@ open class WebViewController: LoadingPresenterViewController, UIWebViewDelegate 
     open func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         dismissLoadingView()
         
-        guard let error = error else { return }
+        let error = error as NSError
         if error.domain == "WebKitErrorDomain" && error.code == 204 {
             return
         }
@@ -98,7 +98,10 @@ open class WebViewController: LoadingPresenterViewController, UIWebViewDelegate 
                 }
             }
         }
-        UIAlertView(title: "WebViewError".i18n(), message: error.localizedDescription, delegate: nil, cancelButtonTitle: "CloseDialogButton".i18n()).show()
+        let alert = UIAlertController(title: "WebViewError".i18n(), message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "CloseDialogButton".i18n(), style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+
         
     }
 }

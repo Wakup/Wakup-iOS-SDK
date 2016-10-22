@@ -15,7 +15,6 @@
 		69431BB41C3C1D7300A42139 /* CouponActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69431BB31C3C1D7300A42139 /* CouponActionButton.swift */; };
 		694C68241C73328A0062C730 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C68231C73328A0062C730 /* UserService.swift */; };
 		694C68261C7346E00062C730 /* Dictionary+Flatten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C68251C7346E00062C730 /* Dictionary+Flatten.swift */; };
-		694C68281C7358100062C730 /* Diagnostics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C68271C7358100062C730 /* Diagnostics.swift */; };
 		695660511C7239420067918C /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695660501C7239420067918C /* BaseService.swift */; };
 		695D7A491C21B66F0083132B /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A421C21B66F0083132B /* Coupon.swift */; };
 		695D7A4A1C21B66F0083132B /* CouponImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A431C21B66F0083132B /* CouponImage.swift */; };
@@ -29,7 +28,6 @@
 		695D7A571C21BDB10083132B /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A531C21BDB10083132B /* SearchService.swift */; };
 		695D7A581C21BDB10083132B /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A541C21BDB10083132B /* NetworkActivityIndicatorManager.swift */; };
 		695D7A631C21BEE50083132B /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A5A1C21BEE50083132B /* String+Localizable.swift */; };
-		695D7A641C21BEE50083132B /* Fmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A5B1C21BEE50083132B /* Fmap.swift */; };
 		695D7A651C21BEE50083132B /* NSDate+EndOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A5C1C21BEE50083132B /* NSDate+EndOfDay.swift */; };
 		695D7A661C21BEE50083132B /* NSDate+HumanFriendly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A5D1C21BEE50083132B /* NSDate+HumanFriendly.swift */; };
 		695D7A671C21BEE50083132B /* Store+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A5E1C21BEE50083132B /* Store+Distance.swift */; };
@@ -116,7 +114,6 @@
 		69431BB31C3C1D7300A42139 /* CouponActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponActionButton.swift; sourceTree = "<group>"; };
 		694C68231C73328A0062C730 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		694C68251C7346E00062C730 /* Dictionary+Flatten.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Flatten.swift"; sourceTree = "<group>"; };
-		694C68271C7358100062C730 /* Diagnostics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diagnostics.swift; sourceTree = "<group>"; };
 		695660501C7239420067918C /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		695D7A421C21B66F0083132B /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		695D7A431C21B66F0083132B /* CouponImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponImage.swift; sourceTree = "<group>"; };
@@ -130,7 +127,6 @@
 		695D7A531C21BDB10083132B /* SearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		695D7A541C21BDB10083132B /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		695D7A5A1C21BEE50083132B /* String+Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
-		695D7A5B1C21BEE50083132B /* Fmap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fmap.swift; sourceTree = "<group>"; };
 		695D7A5C1C21BEE50083132B /* NSDate+EndOfDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+EndOfDay.swift"; sourceTree = "<group>"; };
 		695D7A5D1C21BEE50083132B /* NSDate+HumanFriendly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+HumanFriendly.swift"; sourceTree = "<group>"; };
 		695D7A5E1C21BEE50083132B /* Store+Distance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+Distance.swift"; sourceTree = "<group>"; };
@@ -310,9 +306,7 @@
 				695D7A611C21BEE50083132B /* AsyncLegacy.swift */,
 				695D7A5F1C21BEE50083132B /* Coupon+FriendlyDistance.swift */,
 				69D999D41C22F630000892B1 /* Delay.swift */,
-				694C68271C7358100062C730 /* Diagnostics.swift */,
 				694C68251C7346E00062C730 /* Dictionary+Flatten.swift */,
-				695D7A5B1C21BEE50083132B /* Fmap.swift */,
 				695D7A621C21BEE50083132B /* MapSome.swift */,
 				695D7A5C1C21BEE50083132B /* NSDate+EndOfDay.swift */,
 				695D7A5D1C21BEE50083132B /* NSDate+HumanFriendly.swift */,
@@ -571,7 +565,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -612,7 +606,6 @@
 				695D7A4F1C21B66F0083132B /* SearchHistory.swift in Sources */,
 				69D99A101C22FE59000892B1 /* CouponMapViewController.swift in Sources */,
 				69E6C1C51D21916C0051FDE0 /* RedemptionCodeViewController.swift in Sources */,
-				694C68281C7358100062C730 /* Diagnostics.swift in Sources */,
 				694C68241C73328A0062C730 /* UserService.swift in Sources */,
 				695D7A551C21BDB10083132B /* OffersService.swift in Sources */,
 				695D7A741C21CE710083132B /* ViewFromNib.swift in Sources */,
@@ -630,7 +623,6 @@
 				69D999E51C22F6A4000892B1 /* UIImageView+Fade.swift in Sources */,
 				695D7A6D1C21BF5F0083132B /* UIColor+RgbString.swift in Sources */,
 				69D99A001C22FDC8000892B1 /* UIViewController+CouponUtils.swift in Sources */,
-				695D7A641C21BEE50083132B /* Fmap.swift in Sources */,
 				69D999D71C22F668000892B1 /* UIView+Layout.swift in Sources */,
 				69E3BE1A1D1AEC1C0005E817 /* RedemptionCodeInfo.swift in Sources */,
 				6986D6881C3A864B00C46531 /* DefaultIconLibrary.swift in Sources */,
@@ -710,7 +702,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -752,7 +744,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

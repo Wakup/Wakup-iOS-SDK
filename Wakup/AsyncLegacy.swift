@@ -130,25 +130,25 @@ extension Async { // Static methods
         }
         return asyncBlock
     }
-    class final func main(after: Double, block: @escaping ()->()) -> Async {
+    @discardableResult class final func main(after: Double, block: @escaping ()->()) -> Async {
         return Async.after(after, block: block, inQueue: GCD.mainQueue())
     }
-    class final func userInteractive(after: Double, block: @escaping ()->()) -> Async {
+    @discardableResult class final func userInteractive(after: Double, block: @escaping ()->()) -> Async {
         return Async.after(after, block: block, inQueue: GCD.userInteractiveQueue())
     }
-    class final func userInitiated(after: Double, block: @escaping ()->()) -> Async {
+    @discardableResult class final func userInitiated(after: Double, block: @escaping ()->()) -> Async {
         return Async.after(after, block: block, inQueue: GCD.userInitiatedQueue())
     }
-    class final func default_(after: Double, block: @escaping ()->()) -> Async {
+    @discardableResult class final func default_(after: Double, block: @escaping ()->()) -> Async {
         return Async.after(after, block: block, inQueue: GCD.defaultQueue())
     }
-    class final func utility(after: Double, block: @escaping ()->()) -> Async {
+    @discardableResult class final func utility(after: Double, block: @escaping ()->()) -> Async {
         return Async.after(after, block: block, inQueue: GCD.utilityQueue())
     }
-    class final func background(after: Double, block: @escaping ()->()) -> Async {
+    @discardableResult class final func background(after: Double, block: @escaping ()->()) -> Async {
         return Async.after(after, block: block, inQueue: GCD.backgroundQueue())
     }
-    class final func customQueue(after: Double, queue: DispatchQueue, block: @escaping ()->()) -> Async {
+    @discardableResult class final func customQueue(after: Double, queue: DispatchQueue, block: @escaping ()->()) -> Async {
         return Async.after(after, block: block, inQueue: queue)
     }
 }

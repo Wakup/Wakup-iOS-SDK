@@ -30,37 +30,37 @@ class UserService: BaseService {
         let parameters = deviceParameters()
         
         NetworkActivityIndicatorManager.sharedInstance.startActivity()
-        let r = request(.POST, url, parameters: parameters, encoding: .JSON, headers: authHeaders).validate().responseSwiftyJSON({ (req, res, result, error) -> Void in
+        let r = request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders).validate().responseSwiftyJSON { result in
             NetworkActivityIndicatorManager.sharedInstance.endActivity()
-            if let error = error {
-                print("Error in request with URL \(req.URLString): \(error)")
+            switch result.result {
+            case .failure(let error):
+                print("Error in request with URL \(result.request?.url): \(error)")
                 completion(nil, error)
-            }
-            else  {
-                NSLog("Success %@: %@)", req.URLString, result.rawString()!)
-                let userToken = result["userToken"].stringValue
+            case .success(let json):
+                NSLog("Success \(result.request?.url): \(result.data.map { String(data: $0, encoding: .utf8) })")
+                let userToken = json["userToken"].stringValue
                 self.userToken = userToken
                 completion(userToken, nil)
             }
-        })
-        NSLog("Registering with URL: %@", r.request!.URLString)
+        }
+        NSLog("Registering with URL: \(r.request?.url)")
     }
     
     
-    fileprivate func deviceParameters() -> [String: AnyObject] {
-        var param = [String: AnyObject?]()
+    fileprivate func deviceParameters() -> [String: Any] {
+        var param = [String: Any?]()
         
-        param["deviceId"] = deviceId as AnyObject??
-        param["appId"] = Bundle.main.bundleIdentifier as AnyObject??
-        param["appVersion"] = appVersion as AnyObject??
-        param["sdkVersion"] = sdkVersion as AnyObject??
-        param["osName"] = UIDevice.current.systemName as AnyObject??
-        param["osVersion"] = UIDevice.current.systemVersion as AnyObject??
-        param["platform"] = "ios" as AnyObject??
-        param["deviceManufacturer"] = "Apple" as AnyObject??
-        param["deviceModel"] = UIDevice.current.model as AnyObject??
-        param["deviceCode"] = Diagnostics.platform as AnyObject??
-        param["locale"] = Locale.current.identifier as AnyObject??
+        param["deviceId"] = deviceId
+        param["appId"] = Bundle.main.bundleIdentifier
+        param["appVersion"] = appVersion
+        param["sdkVersion"] = sdkVersion
+        param["osName"] = UIDevice.current.systemName
+        param["osVersion"] = UIDevice.current.systemVersion
+        param["platform"] = "ios"
+        param["deviceManufacturer"] = "Apple"
+        param["deviceModel"] = UIDevice.current.model
+        param["deviceCode"] = modelCode
+        param["locale"] = Locale.current.identifier
         
         return param.flatten()
     }

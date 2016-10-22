@@ -1,32 +1,29 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target 'Wakup' do
 
     # Background image load and cache
-    pod 'SDWebImage', '~> 3.7'
+    pod 'SDWebImage', '~> 3.8'
 
     # An easy-to-plug-in Contextual Menu for iOS inspired by Pinterest.
     pod 'iOSContextualMenu', '~> 1.1'
 
     # A drop-in superclass category for showing empty datasets whenever the view has no content to display.
-    pod 'DZNEmptyDataSet', '~> 1.7'
+    pod 'DZNEmptyDataSet', '~> 1.8'
 
     # SwiftyJSON makes it easy to deal with JSON data in Swift
-    pod 'SwiftyJSON', '~> 2.3'
+    pod 'SwiftyJSON', '~> 3.1'
 
     # Elegant HTTP Networking in Swift
-    pod 'Alamofire', '~> 3.1'
-
-    # Delightful on-disk cache
-    pod 'AwesomeCache', '~> 2.0'
+    pod 'Alamofire', '~> 4.0'
 
     # The waterfall (i.e., Pinterest-like) layout for UICollectionView.
     pod 'CHTCollectionViewWaterfallLayout', '~> 0.9'
 
     # Simple and highly customizable tag list view
-    pod 'TagListView', '~> 1.0'
+    pod 'TagListView', '~> 1.1'
 
 end
 

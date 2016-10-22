@@ -10,7 +10,7 @@ import Foundation
 
 extension UIColor {
     convenience public init(fromHexString hex: String) {
-        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercased()
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if (cString.hasPrefix("#")) {
             cString = cString.substring(from: cString.characters.index(cString.startIndex, offsetBy: 1))

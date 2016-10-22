@@ -45,7 +45,7 @@ class PersistenceService {
         return getSavedOfferIds().index(of: id) != .none
     }
     
-    func toggle(_ id: Int) -> Bool {
+    @discardableResult func toggle(_ id: Int) -> Bool {
         let saved = isSaved(id)
         if saved {
             removeOfferId(id)

@@ -120,7 +120,7 @@ open class CouponCollectionViewCell: UICollectionViewCell {
     }
     
     func refreshDistance() {
-        distanceLabel.text = coupon?.distanceText <*> userLocation
+        distanceLabel.text = userLocation.flatMap { coupon?.distanceText($0) }
     }
     
     override open func updateConstraints() {
