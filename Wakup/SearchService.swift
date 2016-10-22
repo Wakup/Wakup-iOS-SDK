@@ -59,7 +59,7 @@ class SearchService: BaseService {
         return SearchResult(companies: companies, tags: tags)
     }
     
-    func addToHistory(_ element: SearchHistory) -> [SearchHistory] {
+    @discardableResult func addToHistory(_ element: SearchHistory) -> [SearchHistory] {
         let currentHistory = getSavedHistory() ?? [SearchHistory]()
         var newHistory = currentHistory.filter { e in e != element }
         newHistory.insert(element, at: 0)

@@ -39,7 +39,7 @@ extension UIViewController {
 
 private func shareCouponInPresenter(_ coupon: Coupon, presenter: UIViewController, loadViewPresenter: LoadingViewProtocol) {
     let url: URL! = nil
-    let text = coupon.shortDescription ?? coupon.description ?? ""
+    let text = coupon.shortDescription
     let shareText = coupon.company.name + " - " + text + "\n" + "ShareOfferFooter".i18n()
     if let imageUrl = coupon.image?.sourceUrl {
         loadViewPresenter.showLoadingView(animated: true)

@@ -45,20 +45,20 @@ private class GCD {
     }
     class final func userInteractiveQueue() -> DispatchQueue {
         //return dispatch_get_global_queue(+QOS_CLASS_USER_INTERACTIVE, 0)
-        return DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high)
+        return DispatchQueue.global(qos: DispatchQoS.userInteractive.qosClass)
     }
     class final func userInitiatedQueue() -> DispatchQueue {
         //return dispatch_get_global_queue(+QOS_CLASS_USER_INITIATED, 0)
-        return DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high)
+        return DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass)
     }
     class final func defaultQueue() -> DispatchQueue {
-        return DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
+        return DispatchQueue.global(qos: DispatchQoS.default.qosClass)
     }
     class final func utilityQueue() -> DispatchQueue {
-        return DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low)
+        return DispatchQueue.global(qos: DispatchQoS.utility.qosClass)
     }
     class final func backgroundQueue() -> DispatchQueue {
-        return DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.background)
+        return DispatchQueue.global(qos: DispatchQoS.background.qosClass)
     }
 }
 
@@ -89,25 +89,25 @@ extension Async { // Static methods
         return asyncBlock
         
     }
-    class final func main(_ block: @escaping ()->()) -> Async {
+    @discardableResult class final func main(_ block: @escaping ()->()) -> Async {
         return Async.async(block, inQueue: GCD.mainQueue())
     }
-    class final func userInteractive(_ block: @escaping ()->()) -> Async {
+    @discardableResult class final func userInteractive(_ block: @escaping ()->()) -> Async {
         return Async.async(block, inQueue: GCD.userInteractiveQueue())
     }
-    class final func userInitiated(_ block: @escaping ()->()) -> Async {
+    @discardableResult class final func userInitiated(_ block: @escaping ()->()) -> Async {
         return Async.async(block, inQueue: GCD.userInitiatedQueue())
     }
-    class final func default_(_ block: @escaping ()->()) -> Async {
+    @discardableResult class final func default_(_ block: @escaping ()->()) -> Async {
         return Async.async(block, inQueue: GCD.defaultQueue())
     }
-    class final func utility(_ block: @escaping ()->()) -> Async {
+    @discardableResult class final func utility(_ block: @escaping ()->()) -> Async {
         return Async.async(block, inQueue: GCD.utilityQueue())
     }
-    class final func background(_ block: @escaping ()->()) -> Async {
+    @discardableResult class final func background(_ block: @escaping ()->()) -> Async {
         return Async.async(block, inQueue: GCD.backgroundQueue())
     }
-    class final func customQueue(_ queue: DispatchQueue, block: @escaping ()->()) -> Async {
+    @discardableResult class final func customQueue(_ queue: DispatchQueue, block: @escaping ()->()) -> Async {
         return Async.async(block, inQueue: queue)
     }
     
@@ -261,9 +261,9 @@ extension Async { // Regualar methods matching static once
         if seconds != 0.0 {
             let nanoSeconds = Int64(seconds * Double(NSEC_PER_SEC))
             let time = DispatchTime.now() + Double(nanoSeconds) / Double(NSEC_PER_SEC)
-            dgroup.wait(timeout: time)
+            _ = dgroup.wait(timeout: time)
         } else {
-            dgroup.wait(timeout: DispatchTime.distantFuture)
+            _ = dgroup.wait(timeout: DispatchTime.distantFuture)
         }
     }
 }

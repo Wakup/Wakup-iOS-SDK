@@ -11,7 +11,7 @@ import Foundation
 extension Date {
     func beginningOfDay() -> Date {
         let calendar = Calendar.current
-        let components = (calendar as NSCalendar).components([NSCalendar.Unit.NSYearCalendarUnit, NSCalendar.Unit.NSMonthCalendarUnit, NSCalendar.Unit.NSDayCalendarUnit], from: self)
+        let components = (calendar as NSCalendar).components([.year, .month, .day], from: self)
         return calendar.date(from: components)!
     }
     
