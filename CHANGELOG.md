@@ -7,6 +7,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Tag list view can now be hidden in the offer details view by setting the `hideTagsView` property of the `CouponDetailHeadersView` appearance proxy to `false`
 
 ### Changed
+- Migrated code to Swift 3 and XCode 8
+- Updated most dependencies for Swift 3
 - Updated WakupDemo `Podspec` to use a different version of `iOSContextualMenu` that works correctly on modal controllers
 
 ## [1.0.0] - 2016-07-11
