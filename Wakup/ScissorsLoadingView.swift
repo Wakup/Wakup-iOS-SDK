@@ -49,6 +49,11 @@ import UIKit
         }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupLayerFrames()
+    }
+    
     func setupColors() {
         circle.fillColor = fillColor.cgColor
         up.fillColor   = fillColor.cgColor
