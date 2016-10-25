@@ -34,16 +34,16 @@ class UserService: BaseService {
             NetworkActivityIndicatorManager.sharedInstance.endActivity()
             switch result.result {
             case .failure(let error):
-                print("Error in request with URL \(result.request?.url): \(error)")
+                print("Error in request with URL", result.request!.url!, error)
                 completion(nil, error)
             case .success(let json):
-                NSLog("Success \(result.request?.url): \(result.data.map { String(data: $0, encoding: .utf8) })")
+                print("Success", result.request!.url!, result.data.flatMap { String(data: $0, encoding: .utf8) } ?? "")
                 let userToken = json["userToken"].stringValue
                 self.userToken = userToken
                 completion(userToken, nil)
             }
         }
-        NSLog("Registering with URL: \(r.request?.url)")
+        print("Registering with URL", r.request!.url!)
     }
     
     

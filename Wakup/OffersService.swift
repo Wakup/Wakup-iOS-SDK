@@ -105,14 +105,14 @@ class OffersService: BaseService {
                 NetworkActivityIndicatorManager.sharedInstance.endActivity()
                 switch result.result {
                 case .failure(let error):
-                    print("Error in request with URL \(result.request?.url): \(error)")
+                    print("Error in request with URL", result.request!.url!, error)
                     completion(nil, error)
                 case .success(let json):
-                    NSLog("Success \(result.request?.url): \(result.data.map { String(data: $0, encoding: .utf8) })")
+                    print("Success", result.request!.url!, result.data.flatMap { String(data: $0, encoding: .utf8) } ?? "")
                     completion(json, nil)
                 }
             }
-            NSLog("Creating request with URL: \(r.request!.url)")
+            print("Creating request with URL", r.request!.url!)
         }
     }
     
