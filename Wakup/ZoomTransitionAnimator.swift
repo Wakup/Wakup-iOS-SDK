@@ -92,12 +92,13 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        let fromMainView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!.view!
-        let toMainView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!.view!
+        let fromMainView = transitionContext.view(forKey: .from)!
+        let toMainView = transitionContext.view(forKey: .to)!
         fromMainView.frame = containerView.bounds
         toMainView.frame = containerView.bounds
         containerView.addSubview(fromMainView)
         containerView.addSubview(toMainView)
+        toMainView.layoutIfNeeded()
         
         let fromView = getFromView(forTransitionContext: transitionContext)
         let toView = getToView(forTransitionContext: transitionContext)
@@ -106,12 +107,12 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.addSubview(fromSnapshotView)
         
         // Center of the 'from' view relative to its view controller
-        let fromViewCenter = fromMainView.convert(fromView.center, from: fromView.superview)
+        let fromViewCenter = containerView.convert(fromView.center, from: fromView.superview)
         // Center of the 'from' view relative to the container view
         let fromSnapshotCenter = containerView.convert(fromView.center, from: fromView.superview)
         
         // Center of the 'to' view relative to its view controller
-        let toViewCenter = toMainView.convert(toView.center, from: toView.superview)
+        let toViewCenter = containerView.convert(toView.center, from: toView.superview)
         // Center of the 'to' view relative to the container view
         let toSnapshotCenter = containerView.convert(toView.center, from: toView.superview)
         
@@ -130,14 +131,14 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let fromScaleTransform = fromTranslationTransform.scaledBy(x: fromScale, y: fromScale)
         let toScaleTransform = toTranslationTransform.scaledBy(x: toScale, y: toScale)
         
-        // Background view to fill
+        // Background view to fill the container view when the current view doesn't cover the screen or it's not opaque
         let backgroundView = UIView(frame: containerView.bounds)
         backgroundView.backgroundColor = toMainView.backgroundColor
         
         let fromAnchorPoint = CGPoint(x: fromViewCenter.x / fromMainView.bounds.width, y: fromViewCenter.y / fromMainView.bounds.height)
         let toAnchorPoint = CGPoint(x: toViewCenter.x / toMainView.bounds.width, y: toViewCenter.y / toMainView.bounds.height)
 
-        // Set the center of the animation in the center of the view the container view when the current view doesn't cover the screen or it's not opaque
+        // Set the center of the animation in the center of the view
         setAnchorPoint(fromAnchorPoint, forView: fromMainView)
         setAnchorPoint(toAnchorPoint, forView: toMainView)
         
