@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,23 +15,21 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfE-sU-mgW" userLabel="Company View">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aq2-aA-R10" userLabel="Company Button" customClass="CustomBackgroundButton" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="160" y="0.0" width="160" height="77"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                    <color key="value" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="0.5" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.83514869213104248" green="0.83512365818023682" blue="0.83513784408569336" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
-                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
-                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -39,32 +37,27 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="900" translatesAutoresizingMaskIntoConstraints="NO" id="Vwo-ky-dUd">
-                            <rect key="frame" x="0.0" y="1" width="160" height="76"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Vwo-ky-dUd" secondAttribute="height" multiplier="187:89" placeholder="YES" id="D2K-IE-YGU"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000000000000009" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UTM-k5-oAV" customClass="HUILabel" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="168" y="6" width="143" height="22"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <color key="textColor" red="0.29019609093666077" green="0.29019609093666077" blue="0.29019609093666077" alpha="1" colorSpace="deviceRGB"/>
-                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.22546875476837158" green="0.22546195983886719" blue="0.22546583414077759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C.C Xanadu Local 5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000027" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aex-D0-Jzp" customClass="HUILabel" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="168" y="31" width="126" height="17"/>
                             <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                            <color key="textColor" red="0.61176472902297974" green="0.61176472902297974" blue="0.61176472902297974" alpha="1" colorSpace="deviceRGB"/>
-                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.54236966371536255" green="0.54235345125198364" blue="0.54236263036727905" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Estás a 20 m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZQK-c5-DDe" customClass="HUILabel" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="188" y="54" width="68" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <color key="textColor" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
-                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4LU-fb-cxZ" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="168" y="54" width="15" height="17"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="5og-h5-lEI"/>
                                 <constraint firstAttribute="height" constant="17" id="IJN-eL-O2f"/>
@@ -72,16 +65,15 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="location"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                    <color key="value" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Yg-b2-3HR" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="301" y="30" width="15" height="17"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="17" id="2jo-Ee-YxO"/>
                                 <constraint firstAttribute="width" constant="15" id="L9N-Hf-9jB"/>
@@ -89,15 +81,15 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="disclosure"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                    <color key="value" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" priority="990" constant="320" id="0HS-pt-BOd"/>
                         <constraint firstAttribute="centerY" secondItem="1Yg-b2-3HR" secondAttribute="centerY" id="9Az-NH-1Gi"/>
@@ -128,35 +120,28 @@
                     </constraints>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Hck-kz-slI" userLabel="Thumbnail Image View">
-                    <rect key="frame" x="0.0" y="78" width="320" height="90"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Hck-kz-slI" secondAttribute="height" multiplier="507:142" placeholder="YES" id="RX5-lA-pmM"/>
                     </constraints>
                 </imageView>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b3h-gT-bhV" userLabel="Detail Image View">
-                    <rect key="frame" x="0.0" y="78" width="320" height="90"/>
-                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b3h-gT-bhV" userLabel="Detail Image View"/>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYn-HB-390" userLabel="Coupon Info View">
-                    <rect key="frame" x="0.0" y="168" width="320" height="106"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="220" translatesAutoresizingMaskIntoConstraints="NO" id="Mlt-OT-wdG">
-                            <rect key="frame" x="16" y="8" width="224" height="69"/>
                             <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu magna sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque blandit ex sed auctor sagittis. Nulla luctus est in ante gravida, et consequat ante luctus. Donec eu quam fringilla, condimentum ligula vitae, dapibus arcu. Morbi euismod lacus nec mauris ultrices, et lacinia mauris pulvinar. In euismod iaculis justo. In hac habitasse platea dictumst. Ut laoreet mi et leo molestie viverra. Praesent imperdiet pulvinar euismod. Aenean in tincidunt turpis, eu fermentum purus. Mauris eget leo non sem tempor suscipit ac in augue.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                            <color key="textColor" red="0.46274513006210327" green="0.46274513006210327" blue="0.46274513006210327" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="textColor" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="999" translatesAutoresizingMaskIntoConstraints="NO" id="WWZ-dj-rhf" customClass="DiscountTagView" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="248" y="33" width="56" height="39"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" text="30%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="S2A-2E-SwX">
-                                    <rect key="frame" x="6" y="6" width="44" height="27"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.57254904510000004" green="0.64705884459999996" blue="0.12549020350000001" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.50316601991653442" green="0.59301298856735229" blue="0.098653778433799744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="S2A-2E-SwX" secondAttribute="bottom" constant="6" id="24u-eD-BOb"/>
                                 <constraint firstItem="S2A-2E-SwX" firstAttribute="leading" secondItem="WWZ-dj-rhf" secondAttribute="leading" constant="6" id="EC0-Nk-mGT"/>
@@ -173,14 +158,12 @@
                             </connections>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Caduca en 5 días" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7F-eD-mZ7">
-                            <rect key="frame" x="36" y="81" width="105" height="16"/>
                             <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
-                            <color key="textColor" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="textColor" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oo4-GF-23H" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="16" y="81" width="15" height="17"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="5s2-bM-MG5"/>
                                 <constraint firstAttribute="height" constant="17" id="7hI-Gq-nHc"/>
@@ -188,12 +171,12 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="clock"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                    <color key="value" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Oo4-GF-23H" secondAttribute="bottom" constant="8" id="5mI-MW-2ZQ"/>
                         <constraint firstAttribute="trailing" secondItem="WWZ-dj-rhf" secondAttribute="trailing" constant="16" id="8Z1-nk-BYq"/>
@@ -209,31 +192,27 @@
                     </constraints>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YT9-5r-lan" userLabel="Description View">
-                    <rect key="frame" x="0.0" y="274" width="320" height="65"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hil-C3-Dzk" userLabel="Bottom Separator">
-                            <rect key="frame" x="0.0" y="64" width="320" height="1"/>
-                            <color key="backgroundColor" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.83514869213104248" green="0.83512365818023682" blue="0.83513784408569336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="AZD-du-huh"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXb-MX-KHm" userLabel="Top Separator">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
-                            <color key="backgroundColor" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.83514869213104248" green="0.83512365818023682" blue="0.83513784408569336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="Pa1-s3-eB9"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8S0-nj-aZZ" userLabel="Description Button" customClass="CustomBackgroundButton" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                    <color key="value" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="0.5" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.83514869213104248" green="0.83512365818023682" blue="0.83513784408569336" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -241,15 +220,13 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="273" translatesAutoresizingMaskIntoConstraints="NO" id="38F-LK-AOM" customClass="HUILabel" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="16" y="9" width="273" height="47"/>
                             <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu magna sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque blandit ex sed auctor sagittis. Nulla luctus est in ante gravida, et consequat ante luctus. Donec eu quam fringilla, condimentum ligula vitae, dapibus arcu. Morbi euismod lacus nec mauris ultrices, et lacinia mauris pulvinar. In euismod iaculis justo. In hac habitasse platea dictumst. Ut laoreet mi et leo molestie viverra. Praesent imperdiet pulvinar euismod. Aenean in tincidunt turpis, eu fermentum purus. Mauris eget leo non sem tempor suscipit ac in augue.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
-                            <color key="highlightedColor" red="0.5647059083" green="0.3803921938" blue="0.56862747670000002" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="textColor" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="highlightedColor" red="0.48765212297439575" green="0.29448765516281128" blue="0.49583432078361511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krW-lZ-rRi" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="297" y="24" width="15" height="17"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="2H8-aa-DEC"/>
                                 <constraint firstAttribute="height" constant="17" id="ufJ-2l-Zwy"/>
@@ -257,15 +234,15 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="disclosure"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                    <color key="value" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
-                                    <color key="value" red="0.5647059083" green="0.3803921938" blue="0.56862747670000002" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.48765212297439575" green="0.29448765516281128" blue="0.49583432078361511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="jXb-MX-KHm" firstAttribute="top" secondItem="YT9-5r-lan" secondAttribute="top" id="12m-Na-Iqt"/>
                         <constraint firstAttribute="trailing" secondItem="jXb-MX-KHm" secondAttribute="trailing" id="1dG-OM-4Gp"/>
@@ -287,11 +264,9 @@
                     </constraints>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTr-l1-5gn" userLabel="Tags View">
-                    <rect key="frame" x="0.0" y="339" width="320" height="41"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5J-rM-hll" customClass="TagListView" customModule="TagListView">
-                            <rect key="frame" x="16" y="8" width="288" height="24"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" priority="1" constant="18" id="jBd-sa-8tT"/>
                             </constraints>
@@ -306,10 +281,10 @@
                                     <real key="value" value="4"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
-                                    <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="tagHighlightedBackgroundColor">
-                                    <color key="value" cyan="0.34395813941955566" magenta="0.54871714115142822" yellow="0.045257799327373505" black="0.10760698931895805" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                    <color key="value" red="0.4978233277797699" green="0.347176194190979" blue="0.50849699974060059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="4"/>
@@ -318,7 +293,7 @@
                                     <real key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                    <color key="value" cyan="0.34395813939999997" magenta="0.54871714120000004" yellow="0.045257799330000001" black="0.10554829002432434" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                    <color key="value" red="0.49890384078025818" green="0.34784024953842163" blue="0.50958806276321411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="marginX">
                                     <real key="value" value="8"/>
@@ -326,14 +301,13 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6a8-hV-qIJ" userLabel="Bottom Separator">
-                            <rect key="frame" x="0.0" y="40" width="320" height="1"/>
-                            <color key="backgroundColor" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.83514869213104248" green="0.83512365818023682" blue="0.83513784408569336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="ewk-Mc-6JU"/>
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="b5J-rM-hll" firstAttribute="top" secondItem="BTr-l1-5gn" secondAttribute="top" priority="900" constant="8" id="Gi6-IB-rR8"/>
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="Ja2-kJ-4bI"/>
@@ -342,32 +316,30 @@
                         <constraint firstAttribute="trailing" secondItem="b5J-rM-hll" secondAttribute="trailing" constant="16" id="dgS-rW-adt"/>
                         <constraint firstAttribute="trailing" secondItem="6a8-hV-qIJ" secondAttribute="trailing" id="hrN-iU-wI3"/>
                         <constraint firstItem="6a8-hV-qIJ" firstAttribute="leading" secondItem="BTr-l1-5gn" secondAttribute="leading" id="tBC-Cg-ptG"/>
-                        <constraint firstAttribute="bottom" secondItem="6a8-hV-qIJ" secondAttribute="bottom" id="uub-lm-DEP"/>
+                        <constraint firstAttribute="bottom" secondItem="6a8-hV-qIJ" secondAttribute="bottom" priority="900" id="uub-lm-DEP"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTs-kh-DIn" userLabel="Buttons View">
-                    <rect key="frame" x="0.0" y="380" width="320" height="100"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8c7-oL-rxR" customClass="CouponActionButton" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="23" y="12" width="76" height="76"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="76" id="Bdi-C3-Z4p"/>
                                 <constraint firstAttribute="height" constant="76" id="kaR-aL-WMt"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <state key="normal" title="ubicar">
-                                <color key="titleColor" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="selected">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -375,17 +347,17 @@
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="location"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                    <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
                                     <size key="value" width="30" height="32"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="iconFillsButton" value="NO"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="normalBorderColor">
-                                    <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="38"/>
@@ -394,19 +366,19 @@
                                     <real key="value" value="2"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                    <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="disabledIconColor">
-                                    <color key="value" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="selectedIconColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="disabledBorderColor">
-                                    <color key="value" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedSelectedIconColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -414,25 +386,24 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="281-uz-Yx1" customClass="CouponActionButton" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="122" y="12" width="76" height="76"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="76" id="k9m-cl-R63"/>
                                 <constraint firstAttribute="height" constant="76" id="yUI-w6-C1l"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <state key="normal" title="guardar">
-                                <color key="titleColor" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="selected" title="guardada">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -440,17 +411,17 @@
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="save"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                    <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
                                     <size key="value" width="30" height="32"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="iconFillsButton" value="NO"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="normalBorderColor">
-                                    <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="38"/>
@@ -459,19 +430,19 @@
                                     <real key="value" value="2"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                    <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="disabledIconColor">
-                                    <color key="value" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="selectedIconColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="disabledBorderColor">
-                                    <color key="value" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedSelectedIconColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -479,25 +450,24 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzU-Wf-0z5" customClass="CouponActionButton" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="221" y="12" width="76" height="76"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="76" id="0Ci-aY-PRY"/>
                                 <constraint firstAttribute="height" constant="76" id="Ipx-CI-fxZ"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <state key="normal" title="compartir">
-                                <color key="titleColor" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled">
-                                <color key="titleColor" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleColor" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="selected">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -505,17 +475,17 @@
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="share"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                    <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
                                     <size key="value" width="30" height="32"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="iconFillsButton" value="NO"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="normalBorderColor">
-                                    <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="38"/>
@@ -524,19 +494,19 @@
                                     <real key="value" value="2"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                    <color key="value" red="0.63529413940000001" green="0.46666669849999998" blue="0.63529413940000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="disabledIconColor">
-                                    <color key="value" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="selectedIconColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="disabledBorderColor">
-                                    <color key="value" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedSelectedIconColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -544,7 +514,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="SzU-Wf-0z5" firstAttribute="width" secondItem="281-uz-Yx1" secondAttribute="width" id="5It-NN-oT8"/>
                         <constraint firstItem="8c7-oL-rxR" firstAttribute="leading" secondItem="aTs-kh-DIn" secondAttribute="leading" constant="23" id="7NM-9o-OvN"/>
@@ -560,24 +530,20 @@
                     </constraints>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAB-Tr-GRL" userLabel="Redemption Code View">
-                    <rect key="frame" x="0.0" y="480" width="320" height="42"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ah-OF-NVr" userLabel="Top Separator">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
-                            <color key="backgroundColor" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.83514869213104248" green="0.83512365818023682" blue="0.83513784408569336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="cs2-ju-wHi"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noa-ad-vKK">
-                            <rect key="frame" x="0.0" y="1" width="320" height="41"/>
                             <connections>
                                 <action selector="codeButtonTapped:" destination="pzf-Sc-kNF" eventType="touchUpInside" id="gE8-Ee-eyr"/>
                             </connections>
                         </button>
                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afo-uk-8wT" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="16" y="9" width="30" height="24"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="GQR-tT-rf0"/>
                                 <constraint firstAttribute="width" constant="30" id="eOO-nr-XZl"/>
@@ -585,19 +551,17 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="barcode"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                    <color key="value" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Quedan 100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RC0-eD-Bif">
-                            <rect key="frame" x="225" y="14" width="64" height="14"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <color key="textColor" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="textColor" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fT-ah-ctX" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="297" y="12" width="15" height="17"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="SYw-j2-MIO"/>
                                 <constraint firstAttribute="height" constant="17" id="h11-m3-cBa"/>
@@ -605,21 +569,20 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="disclosure"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                    <color key="value" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
-                                    <color key="value" red="0.5647059083" green="0.3803921938" blue="0.56862747670000002" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="value" red="0.48765212297439575" green="0.29448765516281128" blue="0.49583432078361511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="900" text="Obtener código" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBD-Pt-IKn">
-                            <rect key="frame" x="62" y="13" width="155" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="textColor" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="0ah-OF-NVr" secondAttribute="trailing" id="1Mw-GU-XlY"/>
                         <constraint firstItem="afo-uk-8wT" firstAttribute="centerY" secondItem="aAB-Tr-GRL" secondAttribute="centerY" id="1Ta-NC-U19"/>
@@ -628,7 +591,7 @@
                         <constraint firstItem="1fT-ah-ctX" firstAttribute="trailing" secondItem="aAB-Tr-GRL" secondAttribute="trailingMargin" id="Azs-ci-R1H"/>
                         <constraint firstItem="afo-uk-8wT" firstAttribute="leading" secondItem="aAB-Tr-GRL" secondAttribute="leadingMargin" constant="8" id="Gll-uM-sZn"/>
                         <constraint firstItem="noa-ad-vKK" firstAttribute="leading" secondItem="aAB-Tr-GRL" secondAttribute="leading" id="IYS-Ml-6mu"/>
-                        <constraint firstItem="0ah-OF-NVr" firstAttribute="top" secondItem="aAB-Tr-GRL" secondAttribute="top" id="LIw-el-jhZ"/>
+                        <constraint firstItem="0ah-OF-NVr" firstAttribute="top" secondItem="aAB-Tr-GRL" secondAttribute="top" priority="900" id="LIw-el-jhZ"/>
                         <constraint firstItem="nBD-Pt-IKn" firstAttribute="centerY" secondItem="aAB-Tr-GRL" secondAttribute="centerY" id="OOk-0O-rQ0"/>
                         <constraint firstAttribute="trailing" secondItem="noa-ad-vKK" secondAttribute="trailing" id="ZEj-KM-Ysa"/>
                         <constraint firstItem="afo-uk-8wT" firstAttribute="top" secondItem="0ah-OF-NVr" secondAttribute="bottom" priority="900" constant="8" id="bjh-gV-a3O"/>
@@ -643,23 +606,20 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6u-0E-oK6" userLabel="Related Coupons Separator">
-                    <rect key="frame" x="0.0" y="522" width="320" height="1"/>
-                    <color key="backgroundColor" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="backgroundColor" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="5QF-94-JoW"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxL-No-eka" userLabel="Related Coupons Header View">
-                    <rect key="frame" x="0.0" y="523" width="320" height="28"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ofertas relacionadas:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGa-6f-XRI">
-                            <rect key="frame" x="81" y="8" width="158" height="18"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <color key="textColor" red="0.46274513010000001" green="0.46274513010000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="textColor" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="centerX" secondItem="gGa-6f-XRI" secondAttribute="centerX" id="hF0-Bo-WnF"/>
                         <constraint firstItem="gGa-6f-XRI" firstAttribute="top" secondItem="vxL-No-eka" secondAttribute="top" constant="8" id="nxB-es-Wyd"/>
@@ -667,7 +627,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.86666673419999996" green="0.86666673419999996" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
+            <color key="backgroundColor" red="0.83514869213104248" green="0.83512365818023682" blue="0.83513784408569336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="WYn-HB-390" firstAttribute="top" secondItem="Hck-kz-slI" secondAttribute="bottom" id="1eM-Yc-SZb"/>
                 <constraint firstItem="aAB-Tr-GRL" firstAttribute="top" secondItem="aTs-kh-DIn" secondAttribute="bottom" id="3ry-sC-aZE"/>
@@ -734,4 +694,9 @@
             <point key="canvasLocation" x="139" y="310"/>
         </collectionReusableView>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>
