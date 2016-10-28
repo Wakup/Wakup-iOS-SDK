@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RedemptionCode {
+public class RedemptionCode {
     let code: String
     let displayCode: String
     let formats: [String]

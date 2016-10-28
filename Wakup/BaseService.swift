@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BaseService {
+public class BaseService {
     var apiKey: String?
     var authHeaders: [String: String]? { return apiKey.map{ ["API-Token": $0] } }
     

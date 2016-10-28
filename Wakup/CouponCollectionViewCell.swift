@@ -10,14 +10,14 @@ import UIKit
 import CoreLocation
 import iOSContextualMenu
 
-enum CouponContextAction: String {
+public enum CouponContextAction: String {
     case ShowMap = "show-map"
     case Share = "share"
     case Save = "save"
     case Remove = "remove"
 }
 
-typealias OnContextMenuAction = (_ action: CouponContextAction, _ forCoupon: Coupon) -> Void
+public typealias OnContextMenuAction = (_ action: CouponContextAction, _ forCoupon: Coupon) -> Void
 
 open class CouponCollectionViewCell: UICollectionViewCell {
 
@@ -32,17 +32,17 @@ open class CouponCollectionViewCell: UICollectionViewCell {
     open dynamic var expirationTextColor: UIColor! { get { return expirationLabel?.textColor } set { expirationLabel?.textColor = newValue } }
     open dynamic var expirationIconColor: UIColor! { get { return expirationIconView?.iconColor } set { expirationIconView?.iconColor = newValue } }
     
-    @IBOutlet weak var couponImageView: UIImageView!
-    @IBOutlet weak var shortTextLabel: UILabel!
-    @IBOutlet weak var storeNameLabel: UILabel!
-    @IBOutlet weak var offerDescriptionLabel: UILabel!
-    @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var expirationLabel: UILabel!
-    @IBOutlet weak var distanceIconView: CodeIconView!
-    @IBOutlet weak var expirationIconView: CodeIconView!
+    @IBOutlet open weak var couponImageView: UIImageView!
+    @IBOutlet open weak var shortTextLabel: UILabel!
+    @IBOutlet open weak var storeNameLabel: UILabel!
+    @IBOutlet open weak var offerDescriptionLabel: UILabel!
+    @IBOutlet open weak var distanceLabel: UILabel!
+    @IBOutlet open weak var expirationLabel: UILabel!
+    @IBOutlet open weak var distanceIconView: CodeIconView!
+    @IBOutlet open weak var expirationIconView: CodeIconView!
     
     fileprivate var imageAspectRatioConstraint: NSLayoutConstraint?
-    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    @IBOutlet open weak var widthConstraint: NSLayoutConstraint!
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -50,9 +50,9 @@ open class CouponCollectionViewCell: UICollectionViewCell {
     
     var preferredWidth: CGFloat? { didSet { setNeedsUpdateConstraints() } }
     
-    var coupon: Coupon? { didSet { refreshUI() } }
-    var userLocation: CLLocation? { didSet { refreshDistance() } }
-    var onContextMenuAction: OnContextMenuAction?
+    open var coupon: Coupon? { didSet { refreshUI() } }
+    open var userLocation: CLLocation? { didSet { refreshDistance() } }
+    open var onContextMenuAction: OnContextMenuAction? { didSet { refreshMenuActivation() } }
     
     var loadImages = true
     
@@ -94,6 +94,11 @@ open class CouponCollectionViewCell: UICollectionViewCell {
         
         menuDelegate.menuItems = menuItems
         contextualMenu?.reloadDataAndRelayoutSubviews()
+        refreshMenuActivation()
+    }
+        
+    func refreshMenuActivation() {
+        contextualMenu?.shouldActivateMenu = onContextMenuAction != nil
     }
     
     func isSaved() -> Bool {
@@ -117,10 +122,12 @@ open class CouponCollectionViewCell: UICollectionViewCell {
                 }
             }
         }
+        setupContextualMenu()
     }
     
     func refreshDistance() {
-        distanceLabel.text = userLocation.flatMap { coupon?.distanceText($0) }
+        guard let userLocation = userLocation else { return }
+        distanceLabel.text = coupon?.distanceText(userLocation)
     }
     
     override open func updateConstraints() {

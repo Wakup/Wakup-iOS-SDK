@@ -11,21 +11,32 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-struct FilterOptions {
-    let searchTerm: String?
-    let tags: [String]?
-    let companyId: Int?
-}
-
-struct PaginationInfo {
-    let page: Int?
-    let perPage: Int?
-}
-
-class OffersService: BaseService {
-    static let sharedInstance = OffersService()
+public struct FilterOptions {
+    public let searchTerm: String?
+    public let tags: [String]?
+    public let companyId: Int?
     
-    var highlightedOfferUrl: String {
+    public init(searchTerm: String? = nil, tags: [String]? = nil, companyId: Int? = nil) {
+        self.searchTerm = searchTerm
+        self.tags = tags
+        self.companyId = companyId
+    }
+}
+
+public struct PaginationInfo {
+    public let page: Int?
+    public let perPage: Int?
+    
+    public init(page: Int? = nil, perPage: Int? = nil) {
+        self.page = page
+        self.perPage = perPage
+    }
+}
+
+public class OffersService: BaseService {
+    public static let sharedInstance = OffersService()
+    
+    public var highlightedOfferUrl: String {
         let url = "\(offerHostUrl)offers/highlighted"
         if let apiKey = apiKey {
             return url + "/" + apiKey
@@ -33,12 +44,12 @@ class OffersService: BaseService {
         return url
     }
     
-    func redemptionCodeImageUrl(_ offerId: Int, format: String, width: Int, height: Int) -> String? {
+    public func redemptionCodeImageUrl(_ offerId: Int, format: String, width: Int, height: Int) -> String? {
         guard let userToken = UserService.sharedInstance.userToken else { return .none }
         return "\(offerHostUrl)offers/\(offerId)/code/\(format)/\(width)/\(height)?userToken=\(userToken)"
     }
     
-    func findOffers(usingLocation location: CLLocationCoordinate2D, sensor: Bool, filterOptions: FilterOptions? = nil, pagination: PaginationInfo? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
+    public func findOffers(usingLocation location: CLLocationCoordinate2D, sensor: Bool, filterOptions: FilterOptions? = nil, pagination: PaginationInfo? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
         
         let url = "\(offerHostUrl)offers/find"
         let locationParameters: [String: Any] = ["latitude": location.latitude, "longitude": location.longitude, "sensor": "\(sensor)"]
@@ -47,7 +58,7 @@ class OffersService: BaseService {
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    func findRelatedOffer(toOffer offer: Coupon, pagination: PaginationInfo? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
+    public func findRelatedOffer(toOffer offer: Coupon, pagination: PaginationInfo? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
         
         let url = "\(offerHostUrl)offers/related"
         let offerParameters = ["storeId": offer.store?.id ?? -1, "offerId": offer.id]
@@ -55,21 +66,21 @@ class OffersService: BaseService {
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    func findStoreOffers(nearLocation location: CLLocationCoordinate2D, radius: CLLocationDistance, sensor: Bool, filterOptions: FilterOptions? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
+    public func findStoreOffers(nearLocation location: CLLocationCoordinate2D, radius: CLLocationDistance, sensor: Bool, filterOptions: FilterOptions? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
         let url = "\(offerHostUrl)offers/find"
         var parameters: [String: Any] = ["latitude": location.latitude , "longitude": location.longitude , "sensor": "\(sensor)" , "radiusInKm": radius / 1000, "includeOnline": false,  "perPage": 50]
         parameters = getFilterParams(filter: filterOptions, combinedWith: parameters)
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    func getOfferDetails(_ ids: [Int], location: CLLocationCoordinate2D, sensor: Bool, completion: @escaping ([Coupon]?, Error?) -> Void) {
+    public func getOfferDetails(_ ids: [Int], location: CLLocationCoordinate2D, sensor: Bool, completion: @escaping ([Coupon]?, Error?) -> Void) {
         let url = "\(offerHostUrl)offers/get"
         let idsStr = ids.map(String.init).joined(separator: ",")
         let parameters: [String: Any] = ["ids": idsStr , "latitude": location.latitude , "longitude": location.longitude , "sensor": "\(sensor)" , "includeOnline": false ]
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
-    func getRedemptionCode(forOffer offer: Coupon, completion: @escaping (RedemptionCode?, Error?) -> Void) {
+    public func getRedemptionCode(forOffer offer: Coupon, completion: @escaping (RedemptionCode?, Error?) -> Void) {
         let url = "\(offerHostUrl)offers/\(offer.id)/code"
         createRequest(.get, url) { (json, error) in
             // TODO: Process error codes
