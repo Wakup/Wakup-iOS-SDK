@@ -37,7 +37,7 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
         if #available(iOS 8.0, *) {
             vc.modalPresentationStyle = .overFullScreen
         }
-        presenter.present(vc, animated: true, completion: nil)
+        presenter.present(vc, animated: false, completion: nil)
     }
     
     func showCompanyView(forOffer offer: Coupon) {
