@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+
+## [2.1.0] - 2016-11-03
 ### Changed
 - Some classes are now public to allow better UI customization
 - Fixed blur effect animation on coupon description modal view
@@ -95,7 +98,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.5...v1.0.0
 [0.3.5]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.4...v0.3.5
