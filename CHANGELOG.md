@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Some classes are now public to allow better UI customization
+- Fixed blur effect animation on coupon description modal view
+
+### Added
+- Offer details controller will now show a dismiss button when presented modally
 
 ## [2.0.0] - 2016-10-26
 ### Added

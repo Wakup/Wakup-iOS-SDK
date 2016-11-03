@@ -73,6 +73,10 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
         presenter.present(vc, animated: true, completion: nil)
     }
     
+    func dismissAction(_ sender: AnyObject) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: View lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -90,12 +94,18 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
             menuButton.iconColor = navBarTintColor
             menuButton.highlightedIconColor = navBarTintColor.colorWithAlpha(0.5)
         }
+        
+        if let navigationController = navigationController , navigationController.presentingViewController != nil && navigationController.viewControllers.first == self && navigationItem.leftBarButtonItem == nil {
+            
+            let closeButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(CouponDetailsViewController.dismissAction(_:)))
+            navigationItem.leftBarButtonItem = closeButton
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.register(UINib(nibName: "CouponDetailCollectionViewCell", bundle: CurrentBundle.currentBundle()), forCellWithReuseIdentifier: couponCellId)
-        self.view.backgroundColor = collectionView?.backgroundColor
+        view.backgroundColor = collectionView?.backgroundColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
