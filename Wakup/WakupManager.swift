@@ -36,6 +36,21 @@ open class WakupManager: NSObject {
     open func webViewController() -> WebViewController! {
         return storyboard.instantiateViewController(withIdentifier: "webViewController") as? WebViewController
     }
+    
+    open func offerDetailsController(forOffer offer: Coupon, userLocation: CLLocation?, offers: [Coupon]? = nil) -> UIViewController! {
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "couponDetails") as? CouponDetailsViewController else { return nil }
+        vc.userLocation = userLocation
+        if let offers = offers, !offers.isEmpty {
+            vc.coupons = offers
+            vc.selectedIndex = offers.index(of: offer) ?? 0
+        }
+        else {
+            vc.coupons = [offer]
+            vc.selectedIndex = 0
+        }
+        
+        return vc
+    }
 }
 
 import CoreLocation
