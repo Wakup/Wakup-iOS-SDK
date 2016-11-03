@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Offer details controller will now show a dismiss button when presented modally
 - `WakupManager` now provides access to the offer details controller
+- SDK Demo now includes a offer carrousel widget sample to show how to integrate `WakupManager` and `CouponDetailsViewController` directly in the application
 
 ## [2.0.0] - 2016-10-26
 ### Added

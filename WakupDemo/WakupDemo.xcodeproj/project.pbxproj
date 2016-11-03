@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		697AB51E1DC10FB100070376 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697AB51D1DC10FB100070376 /* HomeViewController.swift */; };
+		697AB5221DC225C600070376 /* OffersWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697AB5211DC225C600070376 /* OffersWidgetView.swift */; };
+		697AB5241DC3689500070376 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 697AB5231DC3689500070376 /* Main.storyboard */; };
+		697AB5291DCB4D3200070376 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 697AB5281DCB4D3200070376 /* Localizable.strings */; };
 		69D99A341C231D4C000892B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A331C231D4C000892B1 /* AppDelegate.swift */; };
 		69D99A3B1C231D4C000892B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69D99A3A1C231D4C000892B1 /* Assets.xcassets */; };
 		69D99A3E1C231D4C000892B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D99A3C1C231D4C000892B1 /* LaunchScreen.storyboard */; };
@@ -16,6 +20,10 @@
 /* Begin PBXFileReference section */
 		3AF6014B0113D184874638D6 /* Pods-WakupDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WakupDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WakupDemo/Pods-WakupDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		5BD3CF1E4C95C88285206617 /* Pods_WakupDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WakupDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		697AB51D1DC10FB100070376 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		697AB5211DC225C600070376 /* OffersWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersWidgetView.swift; sourceTree = "<group>"; };
+		697AB5231DC3689500070376 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		697AB5281DCB4D3200070376 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		69D99A301C231D4C000892B1 /* WakupDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakupDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D99A331C231D4C000892B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69D99A3A1C231D4C000892B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,9 +67,13 @@
 			isa = PBXGroup;
 			children = (
 				69D99A331C231D4C000892B1 /* AppDelegate.swift */,
+				697AB51D1DC10FB100070376 /* HomeViewController.swift */,
+				697AB5211DC225C600070376 /* OffersWidgetView.swift */,
 				69D99A3A1C231D4C000892B1 /* Assets.xcassets */,
 				69D99A3C1C231D4C000892B1 /* LaunchScreen.storyboard */,
 				69D99A3F1C231D4C000892B1 /* Info.plist */,
+				697AB5231DC3689500070376 /* Main.storyboard */,
+				697AB5281DCB4D3200070376 /* Localizable.strings */,
 			);
 			path = WakupDemo;
 			sourceTree = "<group>";
@@ -147,7 +159,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				69D99A3E1C231D4C000892B1 /* LaunchScreen.storyboard in Resources */,
+				697AB5291DCB4D3200070376 /* Localizable.strings in Resources */,
 				69D99A3B1C231D4C000892B1 /* Assets.xcassets in Resources */,
+				697AB5241DC3689500070376 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +221,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				69D99A341C231D4C000892B1 /* AppDelegate.swift in Sources */,
+				697AB5221DC225C600070376 /* OffersWidgetView.swift in Sources */,
+				697AB51E1DC10FB100070376 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

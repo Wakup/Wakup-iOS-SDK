@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  WakupDemo
+
+  Created by Guillermo Gutiérrez Doral on 3/11/16.
+  Copyright © 2016 Yellow Pineapple. All rights reserved.
+*/
+
+"LOCATION_ERROR_TITLE" = "Location unavailable";
+"LOCATION_ERROR_DESC" = "Location is currently unavailable";
+"LOCATION_ERROR_ACTION" = "Try again";
+
+"LOCATION_PERMISSION_ERROR_TITLE" = "Location services unavailable";
+"LOCATION_PERMISSION_ERROR_DESC" = "This application has no access to your location. Enable location services and try again later";
+"LOCATION_PERMISSION_ERROR_ACTION" = "Open Settings";
+
+"OFFERS_SERVER_ERROR_TITLE" = "Connection error";
+"OFFERS_SERVER_ERROR_DESC" = "Error connecting to the offers server. Check your internet connection and try again later";
+"OFFERS_SERVER_ERROR_TITLE" = "Try again";
+
+"AWAITING_PERMISSION_TITLE" = "Find offers around you";
+"AWAITING_PERMISSION_DESC" = "Enable your location to find offers around you";
+"AWAITING_PERMISSION_ACTION" = "Enable location";
+
+"NO_OFFERS_TITLE" = "No offers found";
+"NO_OFFERS_DESC" = "No offers have been found around your location";
+"NO_OFFERS_ACTION" = "Try again";
