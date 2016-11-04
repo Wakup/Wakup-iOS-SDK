@@ -58,6 +58,14 @@ public class OffersService: BaseService {
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
+    public func getRecommendedOffers(usingLocation location: CLLocationCoordinate2D, sensor: Bool, pagination: PaginationInfo? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
+        
+        let url = "\(offerHostUrl)offers/recommended"
+        let locationParameters: [String: Any] = ["latitude": location.latitude, "longitude": location.longitude, "sensor": "\(sensor)"]
+        var parameters = getPaginationParams(pagination: pagination, combinedWith: locationParameters)
+        getOffersFromURL(url: url, parameters: parameters, completion: completion)
+    }
+    
     public func findRelatedOffer(toOffer offer: Coupon, pagination: PaginationInfo? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
         
         let url = "\(offerHostUrl)offers/related"
