@@ -18,18 +18,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         offersWidgetView.fetchLocationIfAvailable()
-        offersWidgetView.onOfferSelected = { [unowned self] offer in
-            print("Selected offer \(offer)")
-            let offers = self.offersWidgetView.offers
-            let location = self.offersWidgetView.location
-            let detailsVC = WakupManager.manager.offerDetailsController(forOffer: offer, userLocation: location, offers: offers)!
-            detailsVC.automaticallyAdjustsScrollViewInsets = false
-            
-            let navicationController = WakupManager.manager.rootNavigationController()!
-            navicationController.viewControllers = [detailsVC]
-            
-            self.present(navicationController, animated: true, completion: nil)
-        }
+        offersWidgetView.configure(withParentController: self)
     }
     
     @IBAction func viewAllOffersAction(_ sender: AnyObject) {

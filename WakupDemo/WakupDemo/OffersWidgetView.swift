@@ -29,28 +29,27 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
     @IBInspectable public var offerCellId = "cellId"
     
     @IBOutlet open var collectionView: UICollectionView!
+    @IBOutlet open var pageControl: UIPageControl!
     
     var onOfferSelected: ((Coupon) -> Void)?
     
-    public var offers = [Coupon]()
+    public var offers = [Coupon]() { didSet { pageControl?.numberOfPages = offers.count } }
     var location: CLLocation?
+    var locationTimestamp: Date?
+    var locationExpirationTime: TimeInterval = 5 * 60
+    var locationExpired: Bool {
+        get {
+            if let timestamp = locationTimestamp {
+                let elapsedTime = -timestamp.timeIntervalSinceNow
+                return elapsedTime > locationExpirationTime
+            }
+            return true
+        }
+    }
     
     var status: Status = .idle { didSet { self.collectionView?.reloadEmptyDataSet() } }
     
     private let locationManager = CLLocationManager()
-    
-    open override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        if let offerCellNib = offerCellNib {
-            let bundle = Bundle(for: type(of: self))
-            let nib = UINib(nibName: offerCellNib, bundle: bundle)
-            collectionView.register(nib, forCellWithReuseIdentifier: offerCellId)
-        }
-        collectionView.emptyDataSetSource = self
-        collectionView.emptyDataSetDelegate = self
-        collectionView.reloadData()
-    }
     
     func fetchOffers() {
         guard let location = location else { return }
@@ -75,10 +74,12 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
         self.status = .fetchingLocation
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
+        locationManager.stopUpdatingLocation()
         locationManager.startUpdatingLocation()
     }
     
     func fetchLocationIfAvailable() {
+        guard offers.isEmpty || locationExpired else { return }
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways, .authorizedWhenInUse:
             fetchLocation()
@@ -87,6 +88,39 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
         case .denied, .restricted:
             status = .permissionDenied
         }
+    }
+    
+    func configure(withParentController parentVC: UIViewController) {
+        onOfferSelected = { [unowned parentVC] offer in
+            print("Selected offer \(offer)")
+            let detailsVC = WakupManager.manager.offerDetailsController(forOffer: offer, userLocation: self.location, offers: self.offers)!
+            detailsVC.automaticallyAdjustsScrollViewInsets = false
+            
+            let navicationController = WakupManager.manager.rootNavigationController()!
+            navicationController.viewControllers = [detailsVC]
+            
+            parentVC.present(navicationController, animated: true, completion: nil)
+        }
+    }
+    
+    func openAppSettings() {
+        guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else { return }
+        UIApplication.shared.openURL(settingsUrl)
+    }
+    
+    // MARK: - UIView
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        if let offerCellNib = offerCellNib {
+            let bundle = Bundle(for: type(of: self))
+            let nib = UINib(nibName: offerCellNib, bundle: bundle)
+            collectionView.register(nib, forCellWithReuseIdentifier: offerCellId)
+        }
+        collectionView.emptyDataSetSource = self
+        collectionView.emptyDataSetDelegate = self
+        collectionView.reloadData()
+        pageControl?.numberOfPages = 0
     }
     
     override open func layoutSubviews() {
@@ -98,15 +132,7 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
         layout.itemSize = CGSize(width: width, height: height)
     }
     
-    func openAppSettings() {
-        guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
-            return
-        }
-        
-        UIApplication.shared.openURL(settingsUrl)
-    }
-    
-    // MARK: UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -123,15 +149,21 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
-    // MARK: UICollectionViewDelegate
+    // MARK: - UICollectionViewDelegate
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let offer = offers[indexPath.row]
         onOfferSelected?(offer)
     }
     
-    // MARK: CLLocationManagerDelegate
+    // MARK: - UIScrollViewDelegate
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        pageControl?.currentPage = Int(Double(scrollView.contentOffset.x / scrollView.frame.width) + 0.5)
+    }
+    
+    // MARK: - CLLocationManagerDelegate
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.last
+        locationTimestamp = Date()
         fetchOffers()
         manager.delegate = nil
         manager.stopUpdatingLocation()
@@ -142,8 +174,8 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
         let locationDenied = CLLocationManager.authorizationStatus() == .denied
         status = locationDenied ? .permissionDenied : .locationFailed(error: error)
     }
-
-    // MARK: DZNEmptyDataSetSource
+    
+    // MARK: - DZNEmptyDataSetSource
     public func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         var text: String?
         switch status {
@@ -214,7 +246,7 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
         }
     }
     
-    // MARK: DZNEmptyDataSetDelegate
+    // MARK: - DZNEmptyDataSetDelegate
     public func emptyDataSet(_ scrollView: UIScrollView!, didTap view: UIView!) {
         switch status {
         case .permissionDenied, .awaitingPermission, .locationFailed, .idle,
