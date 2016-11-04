@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - Added public method to fetch recommended offers. Used in the demo application for the home offers widget
+- Added `IBOutlet` and customization properties for a full description label in offer collection view cell 
 
 ### Fixed
 - Offer details view will now scroll to selected offer correctly when presented in a modal view

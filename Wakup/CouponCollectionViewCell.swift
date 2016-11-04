@@ -25,6 +25,8 @@ open class CouponCollectionViewCell: UICollectionViewCell {
     open dynamic var storeNameTextColor: UIColor! { get { return storeNameLabel?.textColor } set { storeNameLabel?.textColor = newValue } }
     open dynamic var descriptionTextFont: UIFont! { get { return offerDescriptionLabel?.font } set { offerDescriptionLabel?.font = newValue } }
     open dynamic var descriptionTextColor: UIColor! { get { return offerDescriptionLabel?.textColor } set { offerDescriptionLabel?.textColor = newValue } }
+    open dynamic var fullDescriptionTextFont: UIFont! { get { return fullDescriptionLabel?.font } set { fullDescriptionLabel?.font = newValue } }
+    open dynamic var fullDescriptionTextColor: UIColor! { get { return fullDescriptionLabel?.textColor } set { fullDescriptionLabel?.textColor = newValue } }
     open dynamic var distanceFont: UIFont! { get { return distanceLabel?.font } set { distanceLabel?.font = newValue } }
     open dynamic var distanceTextColor: UIColor! { get { return distanceLabel?.textColor } set { distanceLabel?.textColor = newValue } }
     open dynamic var distanceIconColor: UIColor! { get { return distanceIconView?.iconColor } set { distanceIconView?.iconColor = newValue } }
@@ -36,6 +38,7 @@ open class CouponCollectionViewCell: UICollectionViewCell {
     @IBOutlet open weak var shortTextLabel: UILabel!
     @IBOutlet open weak var storeNameLabel: UILabel!
     @IBOutlet open weak var offerDescriptionLabel: UILabel!
+    @IBOutlet open weak var fullDescriptionLabel: UILabel!
     @IBOutlet open weak var distanceLabel: UILabel!
     @IBOutlet open weak var expirationLabel: UILabel!
     @IBOutlet open weak var distanceIconView: CodeIconView!
@@ -62,14 +65,15 @@ open class CouponCollectionViewCell: UICollectionViewCell {
     func refreshUI() {
         if (loadImages) {
             if let image = coupon?.thumbnail {
-                couponImageView.backgroundColor = image.color
-                couponImageView.setImageAnimated(url: image.sourceUrl)
+                couponImageView?.backgroundColor = image.color
+                couponImageView?.setImageAnimated(url: image.sourceUrl)
             }
         }
-        shortTextLabel.text = coupon?.shortText
-        offerDescriptionLabel.text = coupon?.shortDescription
-        storeNameLabel.text = coupon?.company.name
-        expirationLabel.text = coupon?.expirationDate?.humanFriendlyDate() ?? "ExpiresUndefined".i18n()
+        shortTextLabel?.text = coupon?.shortText
+        offerDescriptionLabel?.text = coupon?.shortDescription
+        fullDescriptionLabel?.text = coupon?.description
+        storeNameLabel?.text = coupon?.company.name
+        expirationLabel?.text = coupon?.expirationDate?.humanFriendlyDate() ?? "ExpiresUndefined".i18n()
         
         refreshDistance()
         setupContextualMenu()
@@ -127,7 +131,7 @@ open class CouponCollectionViewCell: UICollectionViewCell {
     
     func refreshDistance() {
         guard let userLocation = userLocation else { return }
-        distanceLabel.text = coupon?.distanceText(userLocation)
+        distanceLabel?.text = coupon?.distanceText(userLocation)
     }
     
     override open func updateConstraints() {
