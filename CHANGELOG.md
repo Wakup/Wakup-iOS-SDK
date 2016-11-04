@@ -3,11 +3,17 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-- No changes
+### Added
+- Added public method to fetch recommended offers. Used in the demo application for the home offers widget
+
+### Fixed
+- Offer details view will now scroll to selected offer correctly when presented in a modal view
 
 ## [2.1.0] - 2016-11-03
 ### Changed
 - Some classes are now public to allow better UI customization
+
+### Fixed
 - Fixed blur effect animation on coupon description modal view
 
 ### Added

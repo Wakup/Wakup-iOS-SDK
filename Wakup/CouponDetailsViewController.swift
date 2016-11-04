@@ -81,9 +81,6 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView?.layoutIfNeeded()
-        if navigationController?.viewControllers.contains(self) ?? false {
-            self.collectionView?.scrollToIndexPathIfNotVisible(selectedIndexPath())
-        }
         
         for cell in collectionView?.visibleCells ?? [] {
             guard let cell = cell as? CouponDetailCollectionViewCell else { continue }
@@ -106,6 +103,11 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
         super.viewDidLoad()
         collectionView?.register(UINib(nibName: "CouponDetailCollectionViewCell", bundle: CurrentBundle.currentBundle()), forCellWithReuseIdentifier: couponCellId)
         view.backgroundColor = collectionView?.backgroundColor
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView?.scrollToIndexPathIfNotVisible(selectedIndexPath())
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
