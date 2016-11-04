@@ -3,7 +3,7 @@
 //  TSales
 //
 //  Created by Guillermo Gutiérrez on 8/10/15.
-//  Copyright © 2015 TwinCoders. All rights reserved.
+//  Copyright © 2015 Yellow Pineapple. All rights reserved.
 //
 
 import Foundation
