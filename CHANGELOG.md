@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+
+## [2.2.0] - 2016-11-04
 ### Added
 - Added public method to fetch recommended offers. Used in the demo application for the home offers widget
 - Added `IBOutlet` and customization properties for a full description label in offer collection view cell 
@@ -105,7 +108,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v0.3.5...v1.0.0
