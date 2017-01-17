@@ -217,7 +217,7 @@ public class OffersService: BaseService {
         let description = json["description"].stringValue
         let tags = json["tags"].arrayValue.map { $0.stringValue }
         let online = json["isOnline"].boolValue
-        let link = json["link"].URL
+        let link = json["link"].url
         let expirationDate: Date? = json["expirationDate"].string.map { self.parseDate(string: $0) } ?? .none
         let thumbnail = parseImage(json: json["thumbnail"])
         let image = parseImage(json: json["image"])
