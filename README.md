@@ -478,6 +478,6 @@ Run the App and you'll see your new icon, pixel perfect regardless the size and 
 
 ### Adding additional languages or replacing strings
 
-Addint additional languages or replacing strings in an already existing language is very easy. Wakup SDK will find strings in a `Wakup.strings` file for the current language or fall back to embedded SDK strings if the file or the specific string is not found.
+Adding additional languages or replacing strings in an already existing language is very easy. Wakup SDK will find strings in a `Wakup.strings` file for the current language or fall back to embedded SDK strings if the file or the specific string is not found.
 
 Copy [`Wakup.strings`](https://github.com/Wakup/Wakup-iOS-SDK/blob/master/Wakup/Wakup.strings) file from the SDK sources into your project. You can now replace the strings that you want and internationalize that file to your supported languages.
