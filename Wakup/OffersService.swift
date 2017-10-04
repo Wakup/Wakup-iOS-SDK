@@ -62,7 +62,7 @@ public class OffersService: BaseService {
         
         let url = "\(offerHostUrl)offers/recommended"
         let locationParameters: [String: Any] = ["latitude": location.latitude, "longitude": location.longitude, "sensor": "\(sensor)"]
-        var parameters = getPaginationParams(pagination: pagination, combinedWith: locationParameters)
+        let parameters = getPaginationParams(pagination: pagination, combinedWith: locationParameters)
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     

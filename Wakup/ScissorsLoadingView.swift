@@ -146,7 +146,7 @@ import UIKit
     func CircleAnimation() -> CABasicAnimation{
         let transformAnim         = CABasicAnimation(keyPath:"transform.rotation")
         transformAnim.fromValue   = 0;
-        transformAnim.toValue     = 360 * CGFloat(M_PI/180);
+        transformAnim.toValue     = 360 * CGFloat.pi/180;
         transformAnim.duration    = 6
         transformAnim.repeatCount = Float.infinity
         transformAnim.fillMode = kCAFillModeBoth
@@ -157,7 +157,7 @@ import UIKit
     
     func ScissorsAnimation() -> CAKeyframeAnimation{
         let transformAnim         = CAKeyframeAnimation(keyPath:"transform.rotation.z")
-        let radian                = CGFloat(M_PI/180)
+        let radian                = CGFloat.pi/180
         transformAnim.values = [0,
             0,
             90 * radian,
@@ -178,7 +178,7 @@ import UIKit
     
     func DownAnimation() -> CAKeyframeAnimation{
         let transformAnim         = CAKeyframeAnimation(keyPath:"transform.rotation.z")
-        let radian                = CGFloat(M_PI/180)
+        let radian                = CGFloat.pi/180
         transformAnim.values = [-25 * radian,
             -25 * radian,
             0,
@@ -212,7 +212,7 @@ import UIKit
     
     func UpAnimation() -> CAKeyframeAnimation{
         let transformAnim         = CAKeyframeAnimation(keyPath:"transform.rotation.z")
-        let radian                = CGFloat(M_PI/180)
+        let radian                = CGFloat.pi/180
         transformAnim.values = [25 * radian,
             25 * radian,
             0,

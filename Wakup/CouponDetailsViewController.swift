@@ -172,7 +172,7 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
                     }
                 }
                 else {
-                    let msg = (error as? NSError)?.localizedDescription ?? "ErrorGettingRedemptionCodeMsg".i18n()
+                    let msg = (error as NSError?)?.localizedDescription ?? "ErrorGettingRedemptionCodeMsg".i18n()
                     let alert = UIAlertController(title: "ErrorGettingRedemptionCodeTitle".i18n(), message: msg, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "CloseDialogButton".i18n(), style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
