@@ -51,6 +51,10 @@ open class WakupManager: NSObject {
         
         return vc
     }
+    
+    open func setAlias(alias: String, _ completion: ((Error?) -> Void)? = nil) {
+        UserService.sharedInstance.setAlias(alias: alias, completion ?? { _ in })
+    }
 }
 
 import CoreLocation

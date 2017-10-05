@@ -32,12 +32,12 @@ Pod::Spec.new do |s|
   s.dependency 'SwiftyJSON', '~> 3.1'
 
   # Elegant HTTP Networking in Swift
-  s.dependency 'Alamofire', '~> 4.0'
+  s.dependency 'Alamofire', '~> 4.5'
 
   # The waterfall (i.e., Pinterest-like) layout for UICollectionView.
   s.dependency 'CHTCollectionViewWaterfallLayout', '~> 0.9'
 
   # Simple and highly customizable tag list view
-  s.dependency 'TagListView', '~> 1.1'
+  s.dependency 'TagListView', '~> 1.2'
 
 end

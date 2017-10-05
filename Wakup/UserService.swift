@@ -46,6 +46,28 @@ class UserService: BaseService {
         print("Registering with URL", r.request!.url!)
     }
     
+    func setAlias(alias: String, _ completion: @escaping (Error?) -> Void) {
+        UserService.sharedInstance.fetchUserToken { (userToken, error) in
+            guard let userToken = userToken else {
+                completion(error!)
+                return
+            }
+            
+            let url = "\(self.offerHostUrl)setAlias"
+            let parameters = ["alias": alias]
+            
+            NetworkActivityIndicatorManager.sharedInstance.startActivity()
+            request(url, method: .post, parameters: parameters, encoding: URLEncoding.queryString, headers: self.userHeaders(userToken)).validate().response { result in
+                NetworkActivityIndicatorManager.sharedInstance.endActivity()
+                if let error = result.error {
+                    print("Error in request with URL", result.request!.url!, error)
+                }
+                completion(result.error)
+            }
+            print("Registering alias", alias)
+        }
+    }
+    
     
     fileprivate func deviceParameters() -> [String: Any] {
         var param = [String: Any?]()

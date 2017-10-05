@@ -58,6 +58,15 @@ WakupManager.manager.setup("WAKUP_API_KEY")
 
 Replace `WAKUP_API_KEY ` with the configuration values for your application in [app.wakup.net](https://app.wakup.com). The method `setup` must be called before presenting any Wakup view controller.
 
+#### Setting user alias
+
+To report the user alias (or user identifier) to the server, you can use the `setAlias` method.
+
+~~~swift
+WakupManager.manager.setAlias("example@mycompany.com".lowercased())
+~~~
+
+User aliases are case sensitive by default. If your aliases are case insensitive, they can be lower-cased to prevent case sensitivity issues.
 
 ### Present root Wakup Controller
 

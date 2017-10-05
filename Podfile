@@ -23,7 +23,7 @@ target 'Wakup' do
     pod 'CHTCollectionViewWaterfallLayout', '~> 0.9'
 
     # Simple and highly customizable tag list view
-    pod 'TagListView', '~> 1.1'
+    pod 'TagListView', '1.2.0'
 
 end
 
