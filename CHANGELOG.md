@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+ 
+## [2.3.0] - 2017-10-05
 ### Added
 - Implemented `setAlias` method in `WakupManager`.
 
@@ -113,7 +116,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.2.1...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.3.0...HEAD
+[2.3.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.2.1...v2.3.0
 [2.2.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.0.0...v2.1.0

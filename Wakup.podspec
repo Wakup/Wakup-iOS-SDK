@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   # Meta data
   s.name         = "Wakup"
-  s.version      = "2.2.1"
+  s.version      = "2.3.0"
   s.summary      = "Wakup allows you to find offers near your location"
   s.homepage     = "http://wakup.net"
   s.license      = { :type => "MIT", :file => "LICENSE" }
@@ -38,6 +38,6 @@ Pod::Spec.new do |s|
   s.dependency 'CHTCollectionViewWaterfallLayout', '~> 0.9'
 
   # Simple and highly customizable tag list view
-  s.dependency 'TagListView', '~> 1.2'
+  s.dependency 'TagListView', '1.2'
 
 end
