@@ -55,6 +55,13 @@ open class WakupManager: NSObject {
     open func setAlias(alias: String, _ completion: ((Error?) -> Void)? = nil) {
         UserService.sharedInstance.setAlias(alias: alias, completion ?? { _ in })
     }
+    
+    open func mapController(for offer: Coupon) -> CouponMapViewController {
+        let mapVC = storyboard.instantiateViewController(withIdentifier: "couponMap") as! CouponMapViewController
+        mapVC.coupons = [offer]
+        mapVC.selectedCoupon = offer
+        return mapVC
+    }
 }
 
 import CoreLocation

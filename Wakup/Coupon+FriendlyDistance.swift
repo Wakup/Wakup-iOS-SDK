@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 extension Coupon {
-    func distanceText(_ toLocation: CLLocation) -> String {
+    open func distanceText(_ toLocation: CLLocation) -> String {
         switch (store?.distance(toLocation) ?? .none, online) {
         case (.some(let d), _) where d < 1_000: return String(format: "%.0f m", d)
         case (.some(let d), _) where d < 10_000: return String(format: "%.2f km", d / 1000)

@@ -10,11 +10,11 @@ import Foundation
 import CoreLocation
 
 extension Store {
-    func distance(_ toLocation: CLLocation) -> CLLocationDistance? {
+    public func distance(_ toLocation: CLLocation) -> CLLocationDistance? {
         return location().map { self.getDistance($0, toLocation) }
     }
     
-    func location() -> CLLocation? {
+    public func location() -> CLLocation? {
         if let latitude = latitude, let longitude = longitude {
             return getLocation(latitude, longitude)
         }

@@ -12,11 +12,11 @@ import CHTCollectionViewWaterfallLayout
 import CoreLocation
 import DZNEmptyDataSet
 
-@IBDesignable class CouponWaterfallViewController: LoadingPresenterViewController, UICollectionViewDataSource, UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout, ZoomTransitionOrigin, CLLocationManagerDelegate, TopMenuViewDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+@IBDesignable open class CouponWaterfallViewController: LoadingPresenterViewController, UICollectionViewDataSource, UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout, ZoomTransitionOrigin, CLLocationManagerDelegate, TopMenuViewDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
 
-    @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var topMenuView: TopMenuView?
-    @IBOutlet weak var searchButton: CodeIconButton!
+    @IBOutlet open var collectionView: UICollectionView!
+    @IBOutlet open var topMenuView: TopMenuView?
+    @IBOutlet open weak var searchButton: CodeIconButton!
     
     static let storyboardId = "couponWaterfall"
     
@@ -27,7 +27,7 @@ import DZNEmptyDataSet
     var selectedRow: Int = 0
     
     let layout = CHTCollectionViewWaterfallLayout()
-    var couponCollectionHandler: CouponCollectionHandler?
+    open var couponCollectionHandler: CouponCollectionHandler?
     
     let locationManager = CLLocationManager()
     var location: CLLocation? { didSet { couponCollectionHandler?.userLocation = location } }
@@ -65,11 +65,11 @@ import DZNEmptyDataSet
     var filterTitle: String?
     
     
-    func reload() {
+    open func reload() {
         couponCollectionHandler?.reloadCoupons()
     }
     
-    func fetchLocation() {
+    open func fetchLocation() {
         locationManager.delegate = self
         if #available(iOS 8.0, *) {
             locationManager.requestWhenInUseAuthorization()
@@ -84,7 +84,7 @@ import DZNEmptyDataSet
     }
     
     // MARK: View lifecycle methods
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         topMenuView?.delegate = self
@@ -142,7 +142,7 @@ import DZNEmptyDataSet
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         couponCollectionHandler?.refreshControl.endRefreshing() // iOS 9 UIRefreshControl issue
         
@@ -159,7 +159,7 @@ import DZNEmptyDataSet
     }
     
     // MARK: IBActions
-    @IBAction func searchButtonTapped(_ sender: AnyObject) {
+    @IBAction open func searchButtonTapped(_ sender: AnyObject) {
         let viewControllers = navigationController?.viewControllers ?? [UIViewController]()
         
         if let vc = viewControllers.filter({ $0 is SearchViewController }).first {
@@ -170,41 +170,41 @@ import DZNEmptyDataSet
         }
     }
     
-    func dismissAction(_ sender: AnyObject) {
+    open func dismissAction(_ sender: AnyObject) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     // MARK: Collection View methods
-    func collectionView (_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    open func collectionView (_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return couponCollectionHandler!.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return couponCollectionHandler!.collectionView(collectionView, numberOfItemsInSection: section)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         return couponCollectionHandler!.collectionView(collectionView, cellForItemAt: indexPath)
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         couponCollectionHandler?.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    open func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         return couponCollectionHandler!.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         couponCollectionHandler?.collectionView(collectionView, didSelectItemAt: indexPath)
         selectedRow = (indexPath as NSIndexPath).row
         performSegue(withIdentifier: showDetailsSegueId, sender: self)
     }
     
     // MARK: CLLocationManagerDelegate methods
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    open func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         NSLog("AuthorizationStatusChanged: %d", status.rawValue)
         switch status {
         case .authorizedAlways where locationExpired || isDefaultLocation,
@@ -214,7 +214,7 @@ import DZNEmptyDataSet
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    open func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog("Error obtaining location: %@", error.localizedDescription)
         
         switch CLLocationManager.authorizationStatus() {
@@ -245,7 +245,7 @@ import DZNEmptyDataSet
         reload()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    open func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let newLocation = locations.first else { return }
         self.location = newLocation
         self.locationTimestamp = Date()
@@ -255,7 +255,7 @@ import DZNEmptyDataSet
     }
     
     // MARK: Transition methods
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == showDetailsSegueId) {
             let vc = segue.destination as! CouponDetailsViewController
             vc.userLocation = couponCollectionHandler?.userLocation
@@ -276,18 +276,18 @@ import DZNEmptyDataSet
         }
     }
     
-    func zoomTransitionOriginView() -> UIView {
+    open func zoomTransitionOriginView() -> UIView {
         let indexPath = IndexPath(row: selectedRow, section: 0)
         let cell = self.collectionView?.scrollToAndGetCell(atIndexPath: indexPath) as! CouponCollectionViewCell
         return cell.couponImageView
     }
     
     // MARK: TopMenuViewDelegate
-    func topMenuViewDidSelectOfferButton(_ view: TopMenuView) {
+    open func topMenuViewDidSelectOfferButton(_ view: TopMenuView) {
         self.performSegue(withIdentifier: highlightedOfferSegueId, sender: self)
     }
     
-    func topMenuViewDidSelectMapButton(_ view: TopMenuView) {
+    open func topMenuViewDidSelectMapButton(_ view: TopMenuView) {
         let mapVC = self.storyboard?.instantiateViewController(withIdentifier: self.mapStoryboardId) as! CouponMapViewController
         mapVC.coupons = couponCollectionHandler?.coupons.filter{ $0.store?.location() != nil } ?? [Coupon]()
         mapVC.filterOptions = filterOptions
@@ -298,14 +298,14 @@ import DZNEmptyDataSet
         self.navigationController?.pushViewController(mapVC, animated: true)
     }
     
-    func topMenuViewDidSelectMyOffersButton(_ view: TopMenuView) {
+    open func topMenuViewDidSelectMyOffersButton(_ view: TopMenuView) {
         self.performSegue(withIdentifier: savedOffersSegueId, sender: self)
     }
     
     // MARK: DZNEmptyDataSetDelegate and DZNEmptyDataSetSource
     var lastRequestFailed: Bool { get { return couponCollectionHandler?.lastRequestFailed ?? false } }
     let emptyViewColor = UIColor(fromHexString: "#908E90")
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    open func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [
             NSFontAttributeName: UIFont.systemFont(ofSize: 18),
             NSForegroundColorAttributeName: emptyViewColor
@@ -314,7 +314,7 @@ import DZNEmptyDataSet
         return NSAttributedString(string: title, attributes: attributes)
     }
     
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+    open func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         if lastRequestFailed {
             return CodeIcon(iconIdentifier: "cloud-alert").getImage(CGRect(x: 0, y: 0, width: 150, height: 100))
         }
@@ -323,7 +323,7 @@ import DZNEmptyDataSet
         }
     }
     
-    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    open func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [
             NSFontAttributeName: UIFont.systemFont(ofSize: 14),
             NSForegroundColorAttributeName: emptyViewColor
@@ -332,17 +332,17 @@ import DZNEmptyDataSet
         return NSAttributedString(string: description, attributes: attributes)
     }
     
-    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+    open func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
         return lastRequestFailed || !(couponCollectionHandler?.loading ?? false)
     }
     
-    func emptyDataSetDidTap(_ scrollView: UIScrollView!) {
+    open func emptyDataSetDidTap(_ scrollView: UIScrollView!) {
         if lastRequestFailed {
             reload()
         }
     }
     
-    func offset(forEmptyDataSet scrollView: UIScrollView!) -> CGPoint {
+    open func offset(forEmptyDataSet scrollView: UIScrollView!) -> CGPoint {
         if #available(iOS 8.0, *) {
             // This tweak is somehow required when mixing ShyBar and DZNEmptyDataSet
             return CGPoint(x: scrollView.frame.width / 2, y: scrollView.frame.height / 4)

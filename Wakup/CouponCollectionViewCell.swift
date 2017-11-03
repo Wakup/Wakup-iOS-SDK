@@ -51,13 +51,13 @@ open class CouponCollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
-    var preferredWidth: CGFloat? { didSet { setNeedsUpdateConstraints() } }
+    open var preferredWidth: CGFloat? { didSet { setNeedsUpdateConstraints() } }
     
     open var coupon: Coupon? { didSet { refreshUI() } }
     open var userLocation: CLLocation? { didSet { refreshDistance() } }
     open var onContextMenuAction: OnContextMenuAction? { didSet { refreshMenuActivation() } }
     
-    var loadImages = true
+    open var loadImages = true
     
     fileprivate var menuDelegate = ContextMenuSource()
     fileprivate var contextualMenu: BAMContextualMenu?

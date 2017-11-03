@@ -11,10 +11,7 @@ import SDWebImage
 
 extension UIViewController {
     func showMap(forOffer offer: Coupon) {
-        let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "couponMap") as! CouponMapViewController
-        mapVC.coupons = [offer]
-        mapVC.selectedCoupon = offer
-        
+        let mapVC = WakupManager.manager.mapController(for: offer)
         self.navigationController?.pushViewController(mapVC, animated: true)
     }
 

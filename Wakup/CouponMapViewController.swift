@@ -17,16 +17,16 @@ open class CouponMapViewController: UIViewController, MKMapViewDelegate {
     
     let numberOfCouponsToCenter = 5
     
-    var coupons: [Coupon] = [Coupon]()
-    var selectedCoupon: Coupon?
+    open var coupons: [Coupon] = [Coupon]()
+    open var selectedCoupon: Coupon?
+    open var userLocation: CLLocation?
+    open var allowDetailsNavigation = false
     var selectedAnnotation: CouponAnnotation? { get { return selectedCoupon.map{ self.annotations[$0.id] } ?? .none } }
-    var userLocation: CLLocation?
-    var allowDetailsNavigation = false
     
     // Used to customize and filter the offer query
-    var filterOptions: FilterOptions?
+    open var filterOptions: FilterOptions?
     
-    var loadCouponsOnRegionChange = false
+    open var loadCouponsOnRegionChange = false
     fileprivate var shouldLoad = false
     fileprivate var lastRequestCenter: CLLocationCoordinate2D?
     
