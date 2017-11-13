@@ -90,7 +90,7 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
         collectionView?.alwaysBounceVertical = true
     }
     
-    open func forceRefresh() {
+    @objc open func forceRefresh() {
         reloadCoupons()
         refreshControl.endRefreshing()
     }

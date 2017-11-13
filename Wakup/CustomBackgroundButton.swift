@@ -50,7 +50,7 @@ import UIKit
         addTarget(self, action: #selector(CustomBackgroundButton.buttonAction(_:)), for: .touchUpInside)
     }
     
-    func buttonAction(_ sender: UIButton!) {
+    @objc func buttonAction(_ sender: UIButton!) {
         if toggleButton {
             isSelected = !isSelected
         }
@@ -71,11 +71,11 @@ import UIKit
     
     func updateElements() {
         if let highlightedElements = highlightedElements {
-            let highlighted = self.isSelected || self.isHighlighted
+            let isHighlighted = self.isSelected || self.isHighlighted
             for element in highlightedElements {
                 if let element = element as? Highlightable {
                     var e = element
-                    e.highlighted = highlighted
+                    e.isHighlighted = isHighlighted
                 }
             }
         }

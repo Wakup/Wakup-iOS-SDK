@@ -68,11 +68,11 @@ open class WebViewController: LoadingPresenterViewController, UIWebViewDelegate 
     }
     
     // MARK: Actions
-    func dismissAction(_ sender: NSObject!) {
+    @objc func dismissAction(_ sender: NSObject!) {
         dismiss(animated: true, completion: nil)
     }
     
-    func refreshAction(_ sender: NSObject!) {
+    @objc func refreshAction(_ sender: NSObject!) {
         webView.reload()
     }
     

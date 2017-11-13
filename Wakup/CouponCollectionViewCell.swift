@@ -21,18 +21,18 @@ public typealias OnContextMenuAction = (_ action: CouponContextAction, _ forCoup
 
 open class CouponCollectionViewCell: UICollectionViewCell {
 
-    open dynamic var storeNameFont: UIFont! { get { return storeNameLabel?.font } set { storeNameLabel?.font = newValue } }
-    open dynamic var storeNameTextColor: UIColor! { get { return storeNameLabel?.textColor } set { storeNameLabel?.textColor = newValue } }
-    open dynamic var descriptionTextFont: UIFont! { get { return offerDescriptionLabel?.font } set { offerDescriptionLabel?.font = newValue } }
-    open dynamic var descriptionTextColor: UIColor! { get { return offerDescriptionLabel?.textColor } set { offerDescriptionLabel?.textColor = newValue } }
-    open dynamic var fullDescriptionTextFont: UIFont! { get { return fullDescriptionLabel?.font } set { fullDescriptionLabel?.font = newValue } }
-    open dynamic var fullDescriptionTextColor: UIColor! { get { return fullDescriptionLabel?.textColor } set { fullDescriptionLabel?.textColor = newValue } }
-    open dynamic var distanceFont: UIFont! { get { return distanceLabel?.font } set { distanceLabel?.font = newValue } }
-    open dynamic var distanceTextColor: UIColor! { get { return distanceLabel?.textColor } set { distanceLabel?.textColor = newValue } }
-    open dynamic var distanceIconColor: UIColor! { get { return distanceIconView?.iconColor } set { distanceIconView?.iconColor = newValue } }
-    open dynamic var expirationFont: UIFont! { get { return expirationLabel?.font } set { expirationLabel?.font = newValue } }
-    open dynamic var expirationTextColor: UIColor! { get { return expirationLabel?.textColor } set { expirationLabel?.textColor = newValue } }
-    open dynamic var expirationIconColor: UIColor! { get { return expirationIconView?.iconColor } set { expirationIconView?.iconColor = newValue } }
+    @objc open dynamic var storeNameFont: UIFont! { get { return storeNameLabel?.font } set { storeNameLabel?.font = newValue } }
+    @objc open dynamic var storeNameTextColor: UIColor! { get { return storeNameLabel?.textColor } set { storeNameLabel?.textColor = newValue } }
+    @objc open dynamic var descriptionTextFont: UIFont! { get { return offerDescriptionLabel?.font } set { offerDescriptionLabel?.font = newValue } }
+    @objc open dynamic var descriptionTextColor: UIColor! { get { return offerDescriptionLabel?.textColor } set { offerDescriptionLabel?.textColor = newValue } }
+    @objc open dynamic var fullDescriptionTextFont: UIFont! { get { return fullDescriptionLabel?.font } set { fullDescriptionLabel?.font = newValue } }
+    @objc open dynamic var fullDescriptionTextColor: UIColor! { get { return fullDescriptionLabel?.textColor } set { fullDescriptionLabel?.textColor = newValue } }
+    @objc open dynamic var distanceFont: UIFont! { get { return distanceLabel?.font } set { distanceLabel?.font = newValue } }
+    @objc open dynamic var distanceTextColor: UIColor! { get { return distanceLabel?.textColor } set { distanceLabel?.textColor = newValue } }
+    @objc open dynamic var distanceIconColor: UIColor! { get { return distanceIconView?.iconColor } set { distanceIconView?.iconColor = newValue } }
+    @objc open dynamic var expirationFont: UIFont! { get { return expirationLabel?.font } set { expirationLabel?.font = newValue } }
+    @objc open dynamic var expirationTextColor: UIColor! { get { return expirationLabel?.textColor } set { expirationLabel?.textColor = newValue } }
+    @objc open dynamic var expirationIconColor: UIColor! { get { return expirationIconView?.iconColor } set { expirationIconView?.iconColor = newValue } }
     
     @IBOutlet open weak var couponImageView: UIImageView!
     @IBOutlet open weak var shortTextLabel: UILabel!

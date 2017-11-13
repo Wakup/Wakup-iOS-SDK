@@ -5,7 +5,7 @@ use_frameworks!
 target 'Wakup' do
 
     # Background image load and cache
-    pod 'SDWebImage', '~> 3.8'
+    pod 'SDWebImage', '~> 4.2'
 
     # An easy-to-plug-in Contextual Menu for iOS inspired by Pinterest.
     pod 'iOSContextualMenu', '~> 1.1'
@@ -14,16 +14,16 @@ target 'Wakup' do
     pod 'DZNEmptyDataSet', '~> 1.8'
 
     # SwiftyJSON makes it easy to deal with JSON data in Swift
-    pod 'SwiftyJSON', '~> 3.1'
+    pod 'SwiftyJSON', '~> 4.0'
 
     # Elegant HTTP Networking in Swift
-    pod 'Alamofire', '~> 4.0'
+    pod 'Alamofire', '~> 4.5'
 
     # The waterfall (i.e., Pinterest-like) layout for UICollectionView.
     pod 'CHTCollectionViewWaterfallLayout', '~> 0.9'
 
     # Simple and highly customizable tag list view
-    pod 'TagListView', '1.2.0'
+    pod 'TagListView', '1.3'
 
 end
 

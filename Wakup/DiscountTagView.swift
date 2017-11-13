@@ -13,6 +13,6 @@ open class DiscountTagView: UIView {
     
     @IBOutlet var label: UILabel?
     
-    open dynamic var labelFont: UIFont? { get { return label?.font } set { label?.font = newValue } }
-    open dynamic var labelColor: UIColor? { get { return label?.textColor } set { label?.textColor = newValue } }
+    @objc open dynamic var labelFont: UIFont? { get { return label?.font } set { label?.font = newValue } }
+    @objc open dynamic var labelColor: UIColor? { get { return label?.textColor } set { label?.textColor = newValue } }
 }

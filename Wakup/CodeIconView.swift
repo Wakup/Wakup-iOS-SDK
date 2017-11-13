@@ -13,7 +13,7 @@ import UIKit
     
     @IBInspectable open dynamic var iconColor: UIColor? { didSet { setNeedsDisplay() } }
     @IBInspectable open dynamic var highlightedIconColor: UIColor? { didSet { setNeedsDisplay() } }
-    @IBInspectable open var highlighted: Bool = false { didSet { setNeedsDisplay() } }
+    @IBInspectable open var isHighlighted: Bool = false { didSet { setNeedsDisplay() } }
     
     @IBInspectable open dynamic var iconIdentifier: String = "" { didSet { codeIcon = CodeIcon(iconIdentifier: iconIdentifier) } }
     
@@ -21,7 +21,7 @@ import UIKit
     
     override open func draw(_ rect: CGRect) {
         super.draw(rect)
-        let color = highlighted && highlightedIconColor != nil ? highlightedIconColor! : iconColor
+        let color = isHighlighted && highlightedIconColor != nil ? highlightedIconColor! : iconColor
         codeIcon?.draw(bounds, color: color)
     }
 }

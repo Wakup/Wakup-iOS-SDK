@@ -9,12 +9,12 @@
 import Foundation
 
 open class SearchResultCell: UITableViewCell {
-    open dynamic var titleTextColor: UIColor?  { didSet { textLabel?.textColor = titleTextColor } }
-    open dynamic var titleFont: UIFont? { didSet { textLabel?.font = titleFont } }
-    open dynamic var detailTextColor: UIColor? { didSet { detailTextLabel?.textColor = detailTextColor } }
-    open dynamic var detailFont: UIFont? { didSet { detailTextLabel?.font = detailFont } }
+    @objc open dynamic var titleTextColor: UIColor?  { didSet { textLabel?.textColor = titleTextColor } }
+    @objc open dynamic var titleFont: UIFont? { didSet { textLabel?.font = titleFont } }
+    @objc open dynamic var detailTextColor: UIColor? { didSet { detailTextLabel?.textColor = detailTextColor } }
+    @objc open dynamic var detailFont: UIFont? { didSet { detailTextLabel?.font = detailFont } }
     
-    open dynamic var iconColor: UIColor? { didSet { updateIcon() } }
+    @objc open dynamic var iconColor: UIColor? { didSet { updateIcon() } }
     
     var iconIdentifier: String? { didSet { updateIcon() } }
     

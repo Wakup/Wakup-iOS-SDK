@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   # Dependencies
 
   # Background image load and cache
-  s.dependency 'SDWebImage', '~> 3.8'
+  s.dependency 'SDWebImage', '~> 4.2'
 
   # An easy-to-plug-in Contextual Menu for iOS inspired by Pinterest.
   s.dependency 'iOSContextualMenu', '~> 1.1'
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.dependency 'DZNEmptyDataSet', '~> 1.8'
 
   # SwiftyJSON makes it easy to deal with JSON data in Swift
-  s.dependency 'SwiftyJSON', '~> 3.1'
+  s.dependency 'SwiftyJSON', '~> 4.0'
 
   # Elegant HTTP Networking in Swift
   s.dependency 'Alamofire', '~> 4.5'
@@ -38,6 +38,6 @@ Pod::Spec.new do |s|
   s.dependency 'CHTCollectionViewWaterfallLayout', '~> 0.9'
 
   # Simple and highly customizable tag list view
-  s.dependency 'TagListView', '1.2'
+  s.dependency 'TagListView', '1.3'
 
 end

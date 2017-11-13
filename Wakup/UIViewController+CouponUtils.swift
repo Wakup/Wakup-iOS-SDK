@@ -40,7 +40,7 @@ private func shareCouponInPresenter(_ coupon: Coupon, presenter: UIViewControlle
     let shareText = coupon.company.name + " - " + text + "\n" + "ShareOfferFooter".i18n()
     if let imageUrl = coupon.image?.sourceUrl {
         loadViewPresenter.showLoadingView(animated: true)
-        SDWebImageManager.shared().downloadImage(with: imageUrl as URL!, options: .highPriority, progress: nil, completed: { (image, error, cacheType, finished, imageUrl) -> Void in
+        SDWebImageManager.shared().imageDownloader?.downloadImage(with: imageUrl as URL!, options: .highPriority, progress: nil, completed: { (image, error, cacheType, imageUrl) -> Void in
             
             loadViewPresenter.dismissLoadingView(animated: true, completion: {
                 presenter.shareTextImageAndURL(sharingText: shareText, sharingImage: image, sharingURL: url)

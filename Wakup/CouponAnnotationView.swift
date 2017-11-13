@@ -24,9 +24,9 @@ open class ColorForTags: NSObject {
 
 open class CouponAnnotationView: MKAnnotationView {
     
-    open dynamic var mapPinSize = CGSize(width: 46, height: 60)
+    @objc open dynamic var mapPinSize = CGSize(width: 46, height: 60)
     
-    open dynamic var iconAndColorForTags: [ColorForTags] = [
+    @objc open dynamic var iconAndColorForTags: [ColorForTags] = [
         ColorForTags(tags: ["restaurants"], mapIcon: "map-restaurant-pin", color: StyleKit.restaurantCategoryColor),
         ColorForTags(tags: ["leisure"], mapIcon: "map-leisure-pin", color: StyleKit.leisureCategoryColor),
         ColorForTags(tags: ["services"], mapIcon: "map-services-pin", color: StyleKit.servicesCategoryColor),

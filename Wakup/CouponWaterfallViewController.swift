@@ -170,7 +170,7 @@ import DZNEmptyDataSet
         }
     }
     
-    open func dismissAction(_ sender: AnyObject) {
+    @objc open func dismissAction(_ sender: AnyObject) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -307,8 +307,8 @@ import DZNEmptyDataSet
     let emptyViewColor = UIColor(fromHexString: "#908E90")
     open func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [
-            NSFontAttributeName: UIFont.systemFont(ofSize: 18),
-            NSForegroundColorAttributeName: emptyViewColor
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18),
+            NSAttributedStringKey.foregroundColor: emptyViewColor
         ]
         let title = lastRequestFailed ? "ConnectionErrorViewTitle".i18n() : "EmptyOfferSearchTitle".i18n()
         return NSAttributedString(string: title, attributes: attributes)
@@ -325,8 +325,8 @@ import DZNEmptyDataSet
     
     open func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [
-            NSFontAttributeName: UIFont.systemFont(ofSize: 14),
-            NSForegroundColorAttributeName: emptyViewColor
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14),
+            NSAttributedStringKey.foregroundColor: emptyViewColor
         ]
         let description = lastRequestFailed ? "ConnectionErrorViewMsg".i18n() : "EmptyOfferSearchDescription".i18n()
         return NSAttributedString(string: description, attributes: attributes)

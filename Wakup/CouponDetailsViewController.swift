@@ -73,7 +73,7 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
         presenter.present(vc, animated: true, completion: nil)
     }
     
-    func dismissAction(_ sender: AnyObject) {
+    @objc func dismissAction(_ sender: AnyObject) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     

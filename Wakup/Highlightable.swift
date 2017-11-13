@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Highlightable {
-     var highlighted: Bool { get set }
+     var isHighlighted: Bool { get set }
 }
 
 class HUILabel: UILabel, Highlightable {

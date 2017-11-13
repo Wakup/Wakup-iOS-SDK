@@ -10,7 +10,7 @@ import Foundation
 import SDWebImage
 
 extension UIImageView {
-    func setImageAnimated(url: URL!, completed: SDWebImageCompletionBlock? = nil) {
+    func setImageAnimated(url: URL!, completed: SDExternalCompletionBlock? = nil) {
         sd_setImage(with: url) { (image, error, cacheType, url) in
             if (cacheType ==  .none) {
                 let animation = CATransition()

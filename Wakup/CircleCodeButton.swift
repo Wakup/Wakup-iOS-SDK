@@ -31,7 +31,7 @@ import UIKit
         let isHighlighted = self.isHighlighted || isSelected || touchingInside
         
         textLabel?.isHighlighted = isHighlighted
-        iconView?.highlighted = isHighlighted
+        iconView?.isHighlighted = isHighlighted
         backgroundColor = isHighlighted ? borderColor : originalBackgroundColor
     }
     

@@ -47,29 +47,29 @@ protocol CouponDetailHeaderViewDelegate {
 open class CouponDetailHeaderView: UICollectionReusableView {
 
     // MARK: UIAppearance proxy customization
-    open dynamic var companyNameFont: UIFont? { get { return companyNameLabel?.font } set { companyNameLabel?.font = newValue } }
-    open dynamic var companyNameTextColor: UIColor? { get { return companyNameLabel?.textColor } set { companyNameLabel?.textColor = newValue } }
-    open dynamic var storeAddressFont: UIFont? { get { return storeAddressLabel?.font } set { storeAddressLabel?.font = newValue } }
-    open dynamic var storeAddressTextColor: UIColor? { get { return storeAddressLabel?.textColor } set { storeAddressLabel?.textColor = newValue } }
-    open dynamic var storeDistanceFont: UIFont? { get { return storeDistanceLabel?.font } set { storeDistanceLabel?.font = newValue } }
-    open dynamic var storeDistanceTextColor: UIColor? { get { return storeDistanceLabel?.textColor } set { storeDistanceLabel?.textColor = newValue } }
-    open dynamic var storeDistanceIconColor: UIColor? { get { return distanceIconView?.iconColor } set { distanceIconView?.iconColor = newValue } }
-    open dynamic var couponNameFont: UIFont? { get { return couponNameLabel?.font } set { couponNameLabel?.font = newValue } }
-    open dynamic var couponNameTextColor: UIColor? { get { return couponNameLabel?.textColor } set { couponNameLabel?.textColor = newValue } }
-    open dynamic var couponDescriptionFont: UIFont? { get { return couponDescriptionLabel?.font } set { couponDescriptionLabel?.font = newValue } }
-    open dynamic var couponDescriptionTextColor: UIColor? { get { return couponDescriptionLabel?.textColor } set { couponDescriptionLabel?.textColor = newValue } }
-    open dynamic var expirationFont: UIFont? { get { return storeDistanceLabel?.font } set { storeDistanceLabel?.font = newValue } }
-    open dynamic var expirationTextColor: UIColor? { get { return couponExpirationLabel?.textColor } set { couponExpirationLabel?.textColor = newValue } }
-    open dynamic var expirationIconColor: UIColor? { get { return expirationIconView?.iconColor } set { expirationIconView?.iconColor = newValue } }
-    open dynamic var companyDisclosureColor: UIColor? { get { return companyDisclosureIconView?.iconColor } set { companyDisclosureIconView?.iconColor = newValue } }
-    open dynamic var couponDescriptionDisclosureColor: UIColor? { get { return couponDescriptionDisclosureView?.iconColor } set { couponDescriptionDisclosureView?.iconColor = newValue } }
-    open dynamic var redemptionCodeDisclosureColor: UIColor? { get { return redemptionCodeDisclosureView?.iconColor } set { redemptionCodeDisclosureView?.iconColor = newValue } }
-    open dynamic var redemptionCodeIconColor: UIColor? { get { return barcodeIconView?.iconColor } set { barcodeIconView?.iconColor = newValue } }
-    open dynamic var redemptionCodeTitleColor: UIColor? { get { return redemptionCodeTitleLabel?.textColor } set { redemptionCodeTitleLabel?.textColor = newValue } }
-    open dynamic var redemptionCodeTitleFont: UIFont? { get { return redemptionCodeTitleLabel?.font } set { redemptionCodeTitleLabel?.font = newValue } }
-    open dynamic var redemptionCodeSubtitleColor: UIColor? { get { return redemptionCodeSubtitleLabel?.textColor } set { redemptionCodeSubtitleLabel?.textColor = newValue } }
-    open dynamic var redemptionCodeSubtitleFont: UIFont? { get { return redemptionCodeSubtitleLabel?.font } set { redemptionCodeSubtitleLabel?.font = newValue } }
-    open dynamic var hideTagsView: Bool = false
+    @objc open dynamic var companyNameFont: UIFont? { get { return companyNameLabel?.font } set { companyNameLabel?.font = newValue } }
+    @objc open dynamic var companyNameTextColor: UIColor? { get { return companyNameLabel?.textColor } set { companyNameLabel?.textColor = newValue } }
+    @objc open dynamic var storeAddressFont: UIFont? { get { return storeAddressLabel?.font } set { storeAddressLabel?.font = newValue } }
+    @objc open dynamic var storeAddressTextColor: UIColor? { get { return storeAddressLabel?.textColor } set { storeAddressLabel?.textColor = newValue } }
+    @objc open dynamic var storeDistanceFont: UIFont? { get { return storeDistanceLabel?.font } set { storeDistanceLabel?.font = newValue } }
+    @objc open dynamic var storeDistanceTextColor: UIColor? { get { return storeDistanceLabel?.textColor } set { storeDistanceLabel?.textColor = newValue } }
+    @objc open dynamic var storeDistanceIconColor: UIColor? { get { return distanceIconView?.iconColor } set { distanceIconView?.iconColor = newValue } }
+    @objc open dynamic var couponNameFont: UIFont? { get { return couponNameLabel?.font } set { couponNameLabel?.font = newValue } }
+    @objc open dynamic var couponNameTextColor: UIColor? { get { return couponNameLabel?.textColor } set { couponNameLabel?.textColor = newValue } }
+    @objc open dynamic var couponDescriptionFont: UIFont? { get { return couponDescriptionLabel?.font } set { couponDescriptionLabel?.font = newValue } }
+    @objc open dynamic var couponDescriptionTextColor: UIColor? { get { return couponDescriptionLabel?.textColor } set { couponDescriptionLabel?.textColor = newValue } }
+    @objc open dynamic var expirationFont: UIFont? { get { return storeDistanceLabel?.font } set { storeDistanceLabel?.font = newValue } }
+    @objc open dynamic var expirationTextColor: UIColor? { get { return couponExpirationLabel?.textColor } set { couponExpirationLabel?.textColor = newValue } }
+    @objc open dynamic var expirationIconColor: UIColor? { get { return expirationIconView?.iconColor } set { expirationIconView?.iconColor = newValue } }
+    @objc open dynamic var companyDisclosureColor: UIColor? { get { return companyDisclosureIconView?.iconColor } set { companyDisclosureIconView?.iconColor = newValue } }
+    @objc open dynamic var couponDescriptionDisclosureColor: UIColor? { get { return couponDescriptionDisclosureView?.iconColor } set { couponDescriptionDisclosureView?.iconColor = newValue } }
+    @objc open dynamic var redemptionCodeDisclosureColor: UIColor? { get { return redemptionCodeDisclosureView?.iconColor } set { redemptionCodeDisclosureView?.iconColor = newValue } }
+    @objc open dynamic var redemptionCodeIconColor: UIColor? { get { return barcodeIconView?.iconColor } set { barcodeIconView?.iconColor = newValue } }
+    @objc open dynamic var redemptionCodeTitleColor: UIColor? { get { return redemptionCodeTitleLabel?.textColor } set { redemptionCodeTitleLabel?.textColor = newValue } }
+    @objc open dynamic var redemptionCodeTitleFont: UIFont? { get { return redemptionCodeTitleLabel?.font } set { redemptionCodeTitleLabel?.font = newValue } }
+    @objc open dynamic var redemptionCodeSubtitleColor: UIColor? { get { return redemptionCodeSubtitleLabel?.textColor } set { redemptionCodeSubtitleLabel?.textColor = newValue } }
+    @objc open dynamic var redemptionCodeSubtitleFont: UIFont? { get { return redemptionCodeSubtitleLabel?.font } set { redemptionCodeSubtitleLabel?.font = newValue } }
+    @objc open dynamic var hideTagsView: Bool = false
     
     // MARK: IBOutlets
     @IBOutlet weak var companyNameLabel: UILabel!
@@ -118,7 +118,7 @@ open class CouponDetailHeaderView: UICollectionReusableView {
     var hasLocation: Bool { return coupon?.store?.location() != nil }
     var hasLink: Bool { return coupon?.online ?? false && coupon?.link != nil }
     
-    open dynamic var tagPrefix = "#"
+    @objc open dynamic var tagPrefix = "#"
     
     // MARK: UIView
     override open func awakeFromNib() {
@@ -166,7 +166,7 @@ open class CouponDetailHeaderView: UICollectionReusableView {
                 
                 if let logo = coupon.company.logo {
                     logoImageView.backgroundColor = logo.color
-                    logoImageView.setImageAnimated(url: logo.sourceUrl) { _ -> Void in
+                    logoImageView.setImageAnimated(url: logo.sourceUrl) { _, _, _, _ -> Void in
                         // Restore background color just in case the logo is transparent
                         self.logoImageView.backgroundColor = UIColor.white
                     }
@@ -174,7 +174,7 @@ open class CouponDetailHeaderView: UICollectionReusableView {
             }
 
             couponDescriptionLabel?.text = coupon.description
-            descriptionViewConstraint?.constant = coupon.description.characters.count > 0 ? 1000 : 0
+            descriptionViewConstraint?.constant = coupon.description.count > 0 ? 1000 : 0
             couponNameLabel?.text = coupon.shortDescription
             shortTextLabel?.text = coupon.shortText
             couponExpirationLabel?.text = coupon.expirationDate?.humanFriendlyDate() ?? "ExpiresUndefined".i18n()

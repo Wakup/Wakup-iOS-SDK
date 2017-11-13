@@ -230,7 +230,7 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
         default:
             break
         }
-        let attrs = [NSForegroundColorAttributeName: UIColor.lightGray]
+        let attrs = [NSAttributedStringKey.foregroundColor: UIColor.lightGray]
         return text.map { NSAttributedString(string: NSLocalizedString($0, comment: ""), attributes: attrs) }
     }
     
