@@ -13,10 +13,10 @@ extension UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if (cString.hasPrefix("#")) {
-            cString = cString.substring(from: cString.characters.index(cString.startIndex, offsetBy: 1))
+            cString = String(cString[cString.index(cString.startIndex, offsetBy: 1)...])
         }
         
-        if (cString.characters.count == 6) {
+        if (cString.count == 6) {
             var rgbValue:UInt32 = 0
             Scanner(string: cString).scanHexInt32(&rgbValue)
             
