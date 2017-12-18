@@ -11,6 +11,7 @@ import Foundation
 @objc
 open class WakupManager: NSObject {
     open static let manager = WakupManager()
+    open static let appearance = WakupAppearance()
     
     internal var options = WakupOptions()
     

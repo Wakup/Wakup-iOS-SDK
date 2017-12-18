@@ -110,8 +110,27 @@ Most application colors, fonts and icons are easily customizable. If not customi
 
 ### Customize colors
 
-Most component colors are configurable using `UIAppearance` proxies, the same way native components are customized. This customization must be applied before presenting any Wakup controller.
+Wakup SDK provides some convenience methods for configuring the appearance using `WakupAppearance` class. For fine tuning, most component colors are configurable using `UIAppearance` proxies, the same way native components are customized. This customization must be applied before presenting any Wakup controller.
 
+#### Main and secondary tint colors
+
+In order to make color customization easier, Wakup provides a convenience method that change the color of the entire application using a main tint color and an optional secondary tint color.
+
+It will use derived colors (darker or lighter versions of the same color) to tint the application. If the color is light, a darker color will be used as contrast, and the opposite if it's a dark color. This contrast color can also be passed as parameter.
+
+For example, this call:
+
+~~~swift
+WakupManager.appearance.setTint(mainColor: UIColor(fromHexString: "#5788a9"))
+~~~
+
+
+Would result in the following tinted result:
+
+[![](https://i.imgur.com/OEeP8WOm.png)](https://i.imgur.com/OEeP8WO.png)
+[![](https://i.imgur.com/MSF2EdRm.png)](https://i.imgur.com/MSF2EdR.png)
+
+You can then configure components one by one if required.
 
 #### Navigation bar
 
@@ -123,14 +142,17 @@ Navigation bar can be customized using `UINavigationBar` appearance proxy like a
 let navBarColor = UIColor(red:0.26, green:0.07, blue:0.25, alpha:1)
 let tintColor = UIColor(red:0.56, green:0.38, blue:0.57, alpha:1)
 
+// Using convenience method
+WakupManager.appearance.setNavigationBarTint(navBarColor: navBarColor, tintColor: tintColor)
+
+// Using UIAppearance proxy
 UINavigationBar.appearance().barTintColor = navBarColor
 UINavigationBar.appearance().tintColor = tintColor
 UINavigationBar.appearance().titleTextAttributes = [
-    NSForegroundColorAttributeName: tintColor
+    NSAttributedStringKey.foregroundColor: tintColor
 ]
+NavBarIconView.appearance().iconColor = tintColor
 ~~~
-    
-    
 
 
 #### Offer list top bar
@@ -144,9 +166,13 @@ let backgroundColor = UIColor(red:0.26, green:0.15, blue:0.26, alpha:1)
 let buttonBackgroundColor = UIColor(red:0.23, green:0.12, blue:0.24, alpha:1)
 let buttonColor = UIColor(red:0.56, green:0.38, blue:0.57, alpha:1)
 let highlightedButtonColor = buttonColor.colorWithAlphaComponent(0.5)
+
+// Using convenience method
+WakupManager.appearance.setTopBarTint(buttonColor, buttonColor: buttonBackgroundColor, backgroundColor: backgroundColor)
     
-TopMenuButton.appearance().setTitleColor(buttonColor, forState: .Normal)
-TopMenuButton.appearance().setTitleColor(highlightedButtonColor, forState: .Highlighted)
+// Using UIAppearance proxy
+TopMenuButton.appearance().setTitleColor(buttonColor, for: [])
+TopMenuButton.appearance().setTitleColor(highlightedButtonColor, for: .highlighted)
 TopMenuButton.appearance().iconColor = buttonColor
 TopMenuButton.appearance().highlightedIconColor = highlightedButtonColor
 TopMenuButton.appearance().backgroundColor = buttonBackgroundColor
@@ -185,8 +211,12 @@ CouponCollectionViewCell.appearance().expirationTextColor = detailsColor
 CouponCollectionViewCell.appearance().expirationIconColor = detailsColor
 
 let tagColor = UIColor(red:0.5, green:0.59, blue:0.1, alpha:1)
+// Using convenience method
+WakupManager.appearance.setDiscountTagTint(tagColor)
+
+// Using UIAppearance proxy
 DiscountTagView.appearance().backgroundColor = tagColor
-DiscountTagView.appearance().labelColor = UIColor.whiteColor()
+DiscountTagView.appearance().labelColor = .white
 ~~~
 
 
@@ -201,6 +231,10 @@ Quick actions appear when a offer view is pressed for a few seconds. They can be
 let quickActionColor = UIColor(red:0.56, green:0.39, blue:0.56, alpha:1)
 let quickActionHighlightedColor = UIColor(red:0.7, green:0.42, blue:0.71, alpha:1)
 
+// Using convenience method
+WakupManager.appearance.setQuickActionsTint(quickActionColor, secondaryColor: quickActionHighlightedColor)
+
+// Using UIAppearance proxy
 ContextItemView.appearance().backgroundColor = quickActionColor
 ContextItemView.appearance().highlightedBackgroundColor = quickActionHighlightedColor
 ContextItemView.appearance().iconColor = UIColor.whiteColor()
@@ -234,8 +268,12 @@ CouponDetailHeaderView.appearance().couponDescriptionDisclosureColor = detailsCo
 CouponDetailHeaderView.appearance().companyNameTextColor = detailsColor
 
 let tagColor = UIColor(red:0.5, green:0.59, blue:0.1, alpha:1)
+// Using convenience method
+WakupManager.appearance.setDiscountTagTint(tagColor)
+
+// Using UIAppearance proxy
 DiscountTagView.appearance().backgroundColor = tagColor
-DiscountTagView.appearance().labelColor = UIColor.whiteColor()
+DiscountTagView.appearance().labelColor = .white
 ~~~
 
 
@@ -250,33 +288,37 @@ Offer action buttons appear below the offer details and can be customized using 
 
 ~~~swift
 let actionColor = UIColor(red:0.56, green:0.38, blue:0.57, alpha:1)
+
+// Using convenience method
+WakupManager.appearance.setOfferActionButtonsTint(secondaryColor)
+
+// Using UIAppearance proxy
 CouponActionButton.appearance().iconColor = actionColor
 CouponActionButton.appearance().highlightedBackgroundColor = actionColor
-CouponActionButton.appearance().setTitleColor(actionColor, forState: .Normal)
+CouponActionButton.appearance().setTitleColor(actionColor, for: [])
 CouponActionButton.appearance().normalBorderColor = actionColor
 ~~~
 
 
 #### Offer tag cloud
 
-Tag cloud appearance can be customized using `TagListView` appearance proxy:
+Tag cloud appearance can be customized using `WakupTagListView` appearance proxy:
 
 [![](https://i.imgur.com/tISlQgQl.png)](https://i.imgur.com/tISlQgQ.png)
 
 ~~~swift
-using TagListView
-
 let darkColor = UIColor(red:0.26, green:0.07, blue:0.25, alpha:1)
 let lightColor = UIColor(red:0.56, green:0.38, blue:0.57, alpha:1)
-        
-TagListView.appearance().tagBackgroundColor = lightColor
-TagListView.appearance().tagHighlightedBackgroundColor = darkColor
-TagListView.appearance().borderColor = darkColor
-TagListView.appearance().cornerRadius = 4
-TagListView.appearance().borderWidth = 1
+
+// Using convenience method        
+WakupManager.appearance.setTagListTint(tintColor)
+
+// Using UIAppearance proxy
+WakupTagListView.appearance().tagBackgroundColor = lightColor
+WakupTagListView.appearance().tagHighlightedBackgroundColor = darkColor
+WakupTagListView.appearance().wakupBorderColor = darkColor
 ~~~
 
-`TagListView` is a third party library that declares some properties already declared in `Wakup` module. To avoid conflict errors, don't import `TagListView` and `Wakup` in the same file if you're modifying `borderColor`, `cornerRadius` or `borderWidth`.
 
 The tag list view can be hidden by setting the `hideTagsView` property of the `CouponDetailHeadersView` appearance proxy to `false`:
 
@@ -294,14 +336,17 @@ Offer finder allows customization of filter icons through `SearchFilterButton` a
 
 ~~~swift
 let searchButtonColor = UIColor(red:0.56, green:0.38, blue:0.57, alpha:1)
-let iconTintColor = UIColor(red:0.56, green:0.38, blue:0.57, alpha:1)
 
+// Using convenience method        
+WakupManager.appearance.setSearchTint(searchButtonColor)
+
+// Using UIAppearance proxy
 SearchFilterButton.appearance().iconColor = searchButtonColor
 SearchFilterButton.appearance().highlightedBackgroundColor = searchButtonColor
-SearchFilterButton.appearance().setTitleColor(searchButtonColor, forState: .Normal)
+SearchFilterButton.appearance().setTitleColor(searchButtonColor, for: [])
 SearchFilterButton.appearance().normalBorderColor = searchButtonColor
     
-SearchResultCell.appearance().iconColor = iconTintColor
+SearchResultCell.appearance().iconColor = searchButtonColor
 ~~~
 
 -
@@ -366,7 +411,7 @@ This example shows how to replace most of the application fonts with the [Aller 
 ~~~swift
 // Navigation bar
 UINavigationBar.appearance().titleTextAttributes = [
-    NSFontAttributeName: UIFont(name: "Aller", size: 18)!
+    NSAttributedStringKey.font: UIFont(name: "Aller", size: 18)!
 ]
 
 // Top menu and search bar

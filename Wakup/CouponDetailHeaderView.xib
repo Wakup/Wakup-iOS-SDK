@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -15,8 +19,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfE-sU-mgW" userLabel="Company View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aq2-aA-R10" userLabel="Company Button" customClass="CustomBackgroundButton" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="160" y="0.0" width="160" height="77"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal">
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -37,26 +43,31 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="900" translatesAutoresizingMaskIntoConstraints="NO" id="Vwo-ky-dUd">
+                            <rect key="frame" x="0.0" y="0.5" width="160" height="76"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Vwo-ky-dUd" secondAttribute="height" multiplier="187:89" placeholder="YES" id="D2K-IE-YGU"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000000000000009" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UTM-k5-oAV" customClass="HUILabel" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="168" y="6" width="143" height="21.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <color key="textColor" red="0.22546875476837158" green="0.22546195983886719" blue="0.22546583414077759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C.C Xanadu Local 5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000027" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aex-D0-Jzp" customClass="HUILabel" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="168" y="30.5" width="126" height="17"/>
                             <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                             <color key="textColor" red="0.54236966371536255" green="0.54235345125198364" blue="0.54236263036727905" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Estás a 20 m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZQK-c5-DDe" customClass="HUILabel" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="188" y="53.5" width="67.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4LU-fb-cxZ" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="168" y="53.5" width="15" height="17"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="5og-h5-lEI"/>
@@ -73,6 +84,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Yg-b2-3HR" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="301" y="30" width="15" height="17"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="17" id="2jo-Ee-YxO"/>
@@ -120,22 +132,29 @@
                     </constraints>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Hck-kz-slI" userLabel="Thumbnail Image View">
+                    <rect key="frame" x="0.0" y="78" width="320" height="89.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Hck-kz-slI" secondAttribute="height" multiplier="507:142" placeholder="YES" id="RX5-lA-pmM"/>
                     </constraints>
                 </imageView>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b3h-gT-bhV" userLabel="Detail Image View"/>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b3h-gT-bhV" userLabel="Detail Image View">
+                    <rect key="frame" x="0.0" y="78" width="320" height="89.5"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYn-HB-390" userLabel="Coupon Info View">
+                    <rect key="frame" x="0.0" y="167.5" width="320" height="105.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="220" translatesAutoresizingMaskIntoConstraints="NO" id="Mlt-OT-wdG">
+                            <rect key="frame" x="16" y="8" width="223" height="68.5"/>
                             <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu magna sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque blandit ex sed auctor sagittis. Nulla luctus est in ante gravida, et consequat ante luctus. Donec eu quam fringilla, condimentum ligula vitae, dapibus arcu. Morbi euismod lacus nec mauris ultrices, et lacinia mauris pulvinar. In euismod iaculis justo. In hac habitasse platea dictumst. Ut laoreet mi et leo molestie viverra. Praesent imperdiet pulvinar euismod. Aenean in tincidunt turpis, eu fermentum purus. Mauris eget leo non sem tempor suscipit ac in augue.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <color key="textColor" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="999" translatesAutoresizingMaskIntoConstraints="NO" id="WWZ-dj-rhf" customClass="DiscountTagView" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="247" y="33.5" width="57" height="38.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" text="30%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="S2A-2E-SwX">
+                                    <rect key="frame" x="6" y="6" width="45" height="26.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -158,11 +177,13 @@
                             </connections>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Caduca en 5 días" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7F-eD-mZ7">
+                            <rect key="frame" x="36" y="81" width="104.5" height="16"/>
                             <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
                             <color key="textColor" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oo4-GF-23H" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="16" y="80.5" width="15" height="17"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="5s2-bM-MG5"/>
@@ -192,20 +213,24 @@
                     </constraints>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YT9-5r-lan" userLabel="Description View">
+                    <rect key="frame" x="0.0" y="273" width="320" height="65"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hil-C3-Dzk" userLabel="Bottom Separator">
+                            <rect key="frame" x="0.0" y="64" width="320" height="1"/>
                             <color key="backgroundColor" red="0.83514869213104248" green="0.83512365818023682" blue="0.83513784408569336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="AZD-du-huh"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXb-MX-KHm" userLabel="Top Separator">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
                             <color key="backgroundColor" red="0.83514869213104248" green="0.83512365818023682" blue="0.83513784408569336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="Pa1-s3-eB9"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8S0-nj-aZZ" userLabel="Description Button" customClass="CustomBackgroundButton" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal">
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -220,12 +245,14 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="273" translatesAutoresizingMaskIntoConstraints="NO" id="38F-LK-AOM" customClass="HUILabel" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="16" y="9" width="273" height="47"/>
                             <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu magna sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque blandit ex sed auctor sagittis. Nulla luctus est in ante gravida, et consequat ante luctus. Donec eu quam fringilla, condimentum ligula vitae, dapibus arcu. Morbi euismod lacus nec mauris ultrices, et lacinia mauris pulvinar. In euismod iaculis justo. In hac habitasse platea dictumst. Ut laoreet mi et leo molestie viverra. Praesent imperdiet pulvinar euismod. Aenean in tincidunt turpis, eu fermentum purus. Mauris eget leo non sem tempor suscipit ac in augue.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="0.48765212297439575" green="0.29448765516281128" blue="0.49583432078361511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krW-lZ-rRi" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="297" y="24" width="15" height="17"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="2H8-aa-DEC"/>
@@ -264,8 +291,10 @@
                     </constraints>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTr-l1-5gn" userLabel="Tags View">
+                    <rect key="frame" x="0.0" y="338" width="320" height="41"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5J-rM-hll" customClass="TagListView" customModule="TagListView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5J-rM-hll" customClass="WakupTagListView" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="16" y="8" width="288" height="24"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" priority="1" constant="18" id="jBd-sa-8tT"/>
@@ -301,6 +330,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6a8-hV-qIJ" userLabel="Bottom Separator">
+                            <rect key="frame" x="0.0" y="40" width="320" height="1"/>
                             <color key="backgroundColor" red="0.83514869213104248" green="0.83512365818023682" blue="0.83513784408569336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="ewk-Mc-6JU"/>
@@ -320,8 +350,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTs-kh-DIn" userLabel="Buttons View">
+                    <rect key="frame" x="0.0" y="379" width="320" height="100"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8c7-oL-rxR" customClass="CouponActionButton" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="23" y="12" width="76" height="76"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="76" id="Bdi-C3-Z4p"/>
@@ -386,6 +418,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="281-uz-Yx1" customClass="CouponActionButton" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="122" y="12" width="76" height="76"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="76" id="k9m-cl-R63"/>
@@ -450,6 +483,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzU-Wf-0z5" customClass="CouponActionButton" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="221" y="12" width="76" height="76"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="76" id="0Ci-aY-PRY"/>
@@ -530,19 +564,23 @@
                     </constraints>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAB-Tr-GRL" userLabel="Redemption Code View">
+                    <rect key="frame" x="0.0" y="479" width="320" height="42"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ah-OF-NVr" userLabel="Top Separator">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
                             <color key="backgroundColor" red="0.83514869213104248" green="0.83512365818023682" blue="0.83513784408569336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="cs2-ju-wHi"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noa-ad-vKK">
+                            <rect key="frame" x="0.0" y="1" width="320" height="41"/>
                             <connections>
                                 <action selector="codeButtonTapped:" destination="pzf-Sc-kNF" eventType="touchUpInside" id="gE8-Ee-eyr"/>
                             </connections>
                         </button>
                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afo-uk-8wT" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="16" y="9" width="30" height="24"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="GQR-tT-rf0"/>
@@ -556,11 +594,13 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Quedan 100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RC0-eD-Bif">
+                            <rect key="frame" x="225.5" y="14.5" width="63.5" height="13.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fT-ah-ctX" customClass="CodeIconView" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="297" y="12.5" width="15" height="17"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="SYw-j2-MIO"/>
@@ -577,6 +617,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="900" text="Obtener código" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBD-Pt-IKn">
+                            <rect key="frame" x="62" y="13" width="155.5" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -606,14 +647,17 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6u-0E-oK6" userLabel="Related Coupons Separator">
+                    <rect key="frame" x="0.0" y="521" width="320" height="1"/>
                     <color key="backgroundColor" red="0.55944907665252686" green="0.55943232774734497" blue="0.55944180488586426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="5QF-94-JoW"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxL-No-eka" userLabel="Related Coupons Header View">
+                    <rect key="frame" x="0.0" y="522" width="320" height="28"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ofertas relacionadas:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGa-6f-XRI">
+                            <rect key="frame" x="81" y="8" width="158" height="18"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="textColor" red="0.3870970606803894" green="0.38708546757698059" blue="0.3870919942855835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -694,9 +738,4 @@
             <point key="canvasLocation" x="139" y="310"/>
         </collectionReusableView>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>

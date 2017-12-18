@@ -53,6 +53,9 @@
 		695F7C4A1C3EC44700D61415 /* SearchFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F7C491C3EC44700D61415 /* SearchFilterButton.swift */; };
 		695F7C4C1C3ED51000D61415 /* CouponAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F7C4B1C3ED51000D61415 /* CouponAnnotationView.swift */; };
 		6986D6881C3A864B00C46531 /* DefaultIconLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986D6871C3A864B00C46531 /* DefaultIconLibrary.swift */; };
+		6996C0121FE29ABA002F7448 /* WakupAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6996C0111FE29ABA002F7448 /* WakupAppearance.swift */; };
+		6996C0151FE40A49002F7448 /* UIColor+Variations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6996C0141FE40A49002F7448 /* UIColor+Variations.swift */; };
+		6996C0171FE44349002F7448 /* WakupTagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6996C0161FE44349002F7448 /* WakupTagListView.swift */; };
 		69D999D11C22E635000892B1 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */; };
 		69D999D21C22E635000892B1 /* ZoomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */; };
 		69D999D31C22E635000892B1 /* ImageZoomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999D01C22E635000892B1 /* ImageZoomTransitionAnimator.swift */; };
@@ -156,6 +159,9 @@
 		695F7C4B1C3ED51000D61415 /* CouponAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponAnnotationView.swift; sourceTree = "<group>"; };
 		6986D6871C3A864B00C46531 /* DefaultIconLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultIconLibrary.swift; sourceTree = "<group>"; };
 		69966C4A1CE2191E001AB97F /* Madrid.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Madrid.gpx; sourceTree = "<group>"; };
+		6996C0111FE29ABA002F7448 /* WakupAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakupAppearance.swift; sourceTree = "<group>"; };
+		6996C0141FE40A49002F7448 /* UIColor+Variations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Variations.swift"; sourceTree = "<group>"; };
+		6996C0161FE44349002F7448 /* WakupTagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakupTagListView.swift; sourceTree = "<group>"; };
 		69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitionAnimator.swift; sourceTree = "<group>"; };
 		69D999D01C22E635000892B1 /* ImageZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -266,6 +272,8 @@
 				69F485BB1C3FE47A006BCDE5 /* SearchResultCell.swift */,
 				69D999DD1C22F6A4000892B1 /* TopMenuView.swift */,
 				69431BA81C3BDA8800A42139 /* TopMenuButton.swift */,
+				6996C0111FE29ABA002F7448 /* WakupAppearance.swift */,
+				6996C0161FE44349002F7448 /* WakupTagListView.swift */,
 			);
 			name = Appearance;
 			sourceTree = "<group>";
@@ -317,6 +325,7 @@
 				695D7A601C21BEE50083132B /* SyncUtils.swift */,
 				695D7A731C21CE710083132B /* UICollectionView+CellUtils.swift */,
 				695D7A6C1C21BF5F0083132B /* UIColor+RgbString.swift */,
+				6996C0141FE40A49002F7448 /* UIColor+Variations.swift */,
 				69D999D61C22F668000892B1 /* UIView+Layout.swift */,
 				695D7A701C21CE710083132B /* ViewFromNib.swift */,
 			);
@@ -578,6 +587,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6996C0121FE29ABA002F7448 /* WakupAppearance.swift in Sources */,
 				694C68261C7346E00062C730 /* Dictionary+Flatten.swift in Sources */,
 				69D999EE1C22F6A4000892B1 /* UIButton+VerticalLayout.swift in Sources */,
 				69D99A1F1C22FF98000892B1 /* ContextMenuSource.swift in Sources */,
@@ -604,6 +614,7 @@
 				695D7A4D1C21B66F0083132B /* SearchResult.swift in Sources */,
 				69D999D21C22E635000892B1 /* ZoomTransitionAnimator.swift in Sources */,
 				695D7A881C21DB200083132B /* CodeImageView.swift in Sources */,
+				6996C0151FE40A49002F7448 /* UIColor+Variations.swift in Sources */,
 				69D999D51C22F630000892B1 /* Delay.swift in Sources */,
 				695F7C4C1C3ED51000D61415 /* CouponAnnotationView.swift in Sources */,
 				695D7A4F1C21B66F0083132B /* SearchHistory.swift in Sources */,
@@ -645,6 +656,7 @@
 				695D7A861C21DB200083132B /* CodeIconLibrary.swift in Sources */,
 				69431BB41C3C1D7300A42139 /* CouponActionButton.swift in Sources */,
 				69431BA91C3BDA8800A42139 /* TopMenuButton.swift in Sources */,
+				6996C0171FE44349002F7448 /* WakupTagListView.swift in Sources */,
 				695D7A751C21CE710083132B /* PrototypeView.swift in Sources */,
 				695D7A661C21BEE50083132B /* NSDate+HumanFriendly.swift in Sources */,
 				69D99A151C22FE59000892B1 /* LoadingPresenterViewController.swift in Sources */,
