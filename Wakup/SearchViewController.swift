@@ -129,7 +129,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             return
         }
         
-        Async.background(after: 0.2, block: {
+        delay(0.2) {
             if (searchBar.text ?? "") != searchText {
                 return
             }
@@ -164,7 +164,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                     self.placemarks = results
                 }
             })
-        })
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

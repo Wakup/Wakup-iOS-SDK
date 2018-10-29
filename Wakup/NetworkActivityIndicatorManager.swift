@@ -21,40 +21,40 @@ class NetworkActivityIndicatorManager {
     fileprivate var tasks = 0
     
     func startActivity() {
-        if application.isStatusBarHidden {
-            return
-        }
-        synced(self, closure: {
+        DispatchQueue.main.async {
+            if self.application.isStatusBarHidden {
+                return
+            }
             if !self.application.isNetworkActivityIndicatorVisible {
                 self.application.isNetworkActivityIndicatorVisible = true
                 self.tasks = 0
             }
             self.tasks += 1
-        })
+        }
     }
     
     func endActivity() {
-        if application.isStatusBarHidden {
-            return
-        }
-        synced(self, closure: {
+        DispatchQueue.main.async {
+            if self.application.isStatusBarHidden {
+                return
+            }
             self.tasks -= 1
             
             if (self.tasks <= 0) {
                 self.application.isNetworkActivityIndicatorVisible = false
                 self.tasks = 0
             }
-        })
+        }
     }
     
     func endAllActivities() {
-        if application.isStatusBarHidden {
-            return
-        }
-        synced(self, closure: {
+        DispatchQueue.main.async {
+            if self.application.isStatusBarHidden {
+                return
+            }
             self.application.isNetworkActivityIndicatorVisible = false
             self.tasks = 0
-        })
+        }
     }
     
 }
