@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NBd-7t-Z4K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NBd-7t-Z4K">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -159,31 +156,20 @@
                     <navigationItem key="navigationItem" id="S4Z-9a-4so">
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="Ihq-fx-SK2"/>
-                        <view key="titleView" contentMode="scaleToFill" id="dde-Ot-EGu">
-                            <rect key="frame" x="57.5" y="0.0" width="260" height="44"/>
+                        <view key="titleView" contentMode="scaleToFill" id="8YD-YC-2Id" customClass="NavBarIconView" customModule="Wakup" customModuleProvider="target">
+                            <rect key="frame" x="187.5" y="22" width="0.0" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <searchBar contentMode="redraw" placeholder="Buscar" translatesAutoresizingMaskIntoConstraints="NO" id="8QL-dc-m50">
-                                    <rect key="frame" x="0.0" y="-6" width="260" height="56"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="nb0-iV-9fB" id="Lie-NN-esZ"/>
-                                    </connections>
-                                </searchBar>
-                            </subviews>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="centerY" secondItem="8QL-dc-m50" secondAttribute="centerY" id="Xnl-F5-AzE"/>
-                                <constraint firstItem="8QL-dc-m50" firstAttribute="leading" secondItem="dde-Ot-EGu" secondAttribute="leading" id="Zob-5O-1iB"/>
-                                <constraint firstAttribute="trailing" secondItem="8QL-dc-m50" secondAttribute="trailing" id="sYR-NY-pew"/>
-                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                    <color key="value" red="0.56380760669999996" green="0.37957167629999999" blue="0.56779015060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="navbar-logo"/>
+                            </userDefinedRuntimeAttributes>
                         </view>
                     </navigationItem>
                     <connections>
                         <outlet property="filterButtonsScrollView" destination="Prb-qa-SWu" id="n6c-Wl-3OS"/>
-                        <outlet property="searchBar" destination="8QL-dc-m50" id="23S-RQ-AZX"/>
                         <outlet property="tableView" destination="IVs-eI-FP3" id="Epq-Vo-BDU"/>
                     </connections>
                 </viewController>
@@ -749,10 +735,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onE-jd-TI3" customClass="RoundedCornerView" customModule="Wakup" customModuleProvider="target">
-                                <rect key="frame" x="12" y="94.5" width="351" height="367.5"/>
+                                <rect key="frame" x="12" y="94" width="351" height="367.5"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mm-FZ-Z1P">
-                                        <rect key="frame" x="0.0" y="46.5" width="351" height="292.5"/>
+                                        <rect key="frame" x="0.0" y="46" width="351" height="292.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0mm-FZ-Z1P" secondAttribute="height" multiplier="3:2.5" priority="999" id="Gxh-2s-hL8"/>
                                         </constraints>
@@ -761,12 +747,12 @@
                                         </connections>
                                     </scrollView>
                                     <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2aZ-d5-oTe">
-                                        <rect key="frame" x="16" y="339" width="319" height="37"/>
+                                        <rect key="frame" x="16" y="338.5" width="319" height="37"/>
                                         <color key="pageIndicatorTintColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </pageControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="JzD-hk-3Nj">
-                                        <rect key="frame" x="8" y="8.5" width="335" height="30"/>
+                                        <rect key="frame" x="8" y="8" width="335" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                         <connections>
@@ -822,6 +808,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kvQ-Wf-ikU"/>
-        <segue reference="McD-Bl-rTj"/>
+        <segue reference="lcF-LL-qe2"/>
     </inferredMetricsTieBreakers>
 </document>

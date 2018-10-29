@@ -10,7 +10,7 @@ import UIKit
 import AddressBookUI
 import CoreLocation
 
-class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, UISearchResultsUpdating {
 
     enum Section: Int {
         case userLocation
@@ -32,6 +32,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     let locationManager = CLLocationManager()
     let searchService = SearchService.sharedInstance
     
+    let searchController = UISearchController(searchResultsController: nil)
     var searchCountry: String? { return WakupManager.manager.options.searchCountryCode.flatMap { (Locale.current as NSLocale).displayName(forKey: NSLocale.Key.countryCode, value: $0) } }
     var searchComplement: String? { return searchCountry.map{", " + $0} }
     
@@ -87,21 +88,50 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     }
     
     func getSelectedCategories() -> [OfferCategory]? {
-        let categories = categoryButtons?.filter{$0.isSelected}.flatMap{$0.category}
+        let categories = categoryButtons?.filter{$0.isSelected}.compactMap{$0.category}
         return categories?.isEmpty ?? true ? nil : categories
+    }
+    
+    func configureSearchBar() {
+        if #available(iOS 11.0, *) {
+            // Setup the Search Controller
+            searchController.searchResultsUpdater = self
+            searchController.obscuresBackgroundDuringPresentation = false
+            searchController.searchBar.placeholder = "SearchBarPlaceholder".i18n()
+            
+            navigationItem.titleView = nil
+            navigationItem.searchController = searchController
+            navigationItem.hidesSearchBarWhenScrolling = false
+            
+            definesPresentationContext = true
+            searchBar = searchController.searchBar
+        }
+        else {
+            // Setup the Search Bar
+            let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 260, height: 44))
+            searchBar.placeholder = "SearchBarPlaceholder".i18n()
+            searchBar.barTintColor = UIColor.clear
+            searchBar.backgroundImage = UIImage()
+            searchBar.scopeBarBackgroundImage = UIImage()
+            searchBar.delegate = self
+            navigationItem.titleView = searchBar
+            self.searchBar = searchBar
+        }
+    }
+    
+    // MARK: UISearchResultsUpdating
+    func updateSearchResults(for searchController: UISearchController) {
+        searchBar(searchController.searchBar, textDidChange: searchController.searchBar.text ?? "")
     }
     
     // MARK: UIView Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        searchBar.barTintColor = UIColor.clear
-        searchBar.backgroundImage = UIImage()
-        searchBar.scopeBarBackgroundImage = UIImage()
         
         locationManager.delegate = self
         
         configureFilterButtons()
+        configureSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {

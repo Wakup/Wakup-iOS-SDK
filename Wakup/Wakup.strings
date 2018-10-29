@@ -69,6 +69,7 @@
 "SearchHeaderLocations" = "Ubicaciones";
 "SearchHeaderHistory" = "Últimas búsquedas";
 "SearchCellUserLocation" = "Cerca de mí";
+"SearchBarPlaceholder" = "Buscar";
 
 "EmptyMyOffersTitle" = "No tienes ninguna oferta guardada";
 "EmptyMyOffersDescription" = "Añade a tus favoritos aquellas ofertas que quieras tener siempre a mano";
