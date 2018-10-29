@@ -5,6 +5,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 - No changes
 
+## [3.2.0] - 2018-10-29
+### Changed
+- Serch controller will now use UISearchController for iOS 10+ devices and will use the legacy UISearchBar embedded in the navigation bar for older OS versions.
+
+### Fixed
+- Fixed warnings for accessing UI elements from background threads
+- Fixed ambiguity errors in XCode 10
+
 ## [3.1.1] - 2017-12-18
 ### Changed
 - Adapted string operations to Swift 4 to remove compilation warnings
@@ -136,7 +144,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.1.1...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.2.0...HEAD
+[3.2.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.1.1...v3.2.0
 [3.1.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v2.3.1...v3.0.0

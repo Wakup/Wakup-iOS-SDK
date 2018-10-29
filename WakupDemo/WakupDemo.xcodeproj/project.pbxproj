@@ -20,6 +20,7 @@
 /* Begin PBXFileReference section */
 		3BDDF1A28D567515799DD5C0 /* Pods-WakupDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WakupDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WakupDemo/Pods-WakupDemo.release.xcconfig"; sourceTree = "<group>"; };
 		65F9D68BA14407B68153D072 /* Pods_WakupDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WakupDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6966E338207F4422006CB599 /* Madrid.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Madrid.gpx; path = ../../Wakup/Madrid.gpx; sourceTree = "<group>"; };
 		697AB51D1DC10FB100070376 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		697AB5211DC225C600070376 /* OffersWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersWidgetView.swift; sourceTree = "<group>"; };
 		697AB5231DC3689500070376 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 				69D99A3F1C231D4C000892B1 /* Info.plist */,
 				697AB5231DC3689500070376 /* Main.storyboard */,
 				697AB5281DCB4D3200070376 /* Localizable.strings */,
+				6966E338207F4422006CB599 /* Madrid.gpx */,
 			);
 			path = WakupDemo;
 			sourceTree = "<group>";
@@ -108,7 +110,6 @@
 				69D99A2D1C231D4C000892B1 /* Frameworks */,
 				69D99A2E1C231D4C000892B1 /* Resources */,
 				A621D631FA0CA7C9431EE949 /* [CP] Embed Pods Frameworks */,
-				D4607DC0772E114D64CF8EBB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +132,7 @@
 				TargetAttributes = {
 					69D99A2F1C231D4C000892B1 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = LFH7L32UGS;
 						LastSwiftMigration = 0910;
 					};
 				};
@@ -216,21 +218,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WakupDemo/Pods-WakupDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D4607DC0772E114D64CF8EBB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WakupDemo/Pods-WakupDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -353,6 +340,7 @@
 			baseConfigurationReference = 80F99F886A60C2714187CA28 /* Pods-WakupDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LFH7L32UGS;
 				INFOPLIST_FILE = WakupDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.yellow.WakupDemo;
@@ -368,6 +356,7 @@
 			baseConfigurationReference = 3BDDF1A28D567515799DD5C0 /* Pods-WakupDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LFH7L32UGS;
 				INFOPLIST_FILE = WakupDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.yellow.WakupDemo;
