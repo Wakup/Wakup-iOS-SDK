@@ -12,17 +12,17 @@ import TagListView
 
 class WakupTagListView: TagListView {
     @IBInspectable open dynamic var wakupCornerRadius: CGFloat {
-        get { return cornerRadius }
-        set { cornerRadius = newValue }
+        get { return (self as RoundedCorners).cornerRadius }
+        set { var r = (self as RoundedCorners); r.cornerRadius = newValue }
     }
     @IBInspectable open dynamic var wakupBorderWidth: CGFloat {
-        get { return borderWidth }
-        set { borderWidth = newValue }
+        get { return (self as RoundedCorners).borderWidth }
+        set { var r = (self as RoundedCorners); r.borderWidth = newValue }
     }
     
     @IBInspectable open dynamic var wakupBorderColor: UIColor? {
-        get { return borderColor }
-        set { borderColor = newValue }
+        get { return (self as RoundedCorners).borderColor }
+        set { var r = (self as RoundedCorners); r.borderColor = newValue }
     }
     
     @IBInspectable open dynamic var wakupSelectedBorderColor: UIColor? {

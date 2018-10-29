@@ -8,7 +8,13 @@
 
 import UIKit
 
-extension UIView {
+protocol RoundedCorners {
+    var cornerRadius: CGFloat { get set }
+    var borderColor: UIColor? { get set }
+    var borderWidth: CGFloat { get set }
+}
+
+extension UIView: RoundedCorners {
     
     @IBInspectable public dynamic var cornerRadius: CGFloat {
         get { return self.layer.cornerRadius }
