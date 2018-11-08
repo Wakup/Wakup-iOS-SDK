@@ -157,8 +157,8 @@
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="Ihq-fx-SK2"/>
                         <view key="titleView" contentMode="scaleToFill" id="8YD-YC-2Id" customClass="NavBarIconView" customModule="Wakup" customModuleProvider="target">
-                            <rect key="frame" x="187.5" y="22" width="0.0" height="0.0"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <rect key="frame" x="135" y="6" width="105" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
