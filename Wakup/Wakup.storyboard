@@ -363,7 +363,7 @@
                         </view>
                         <barButtonItem key="rightBarButtonItem" id="Ora-Lo-NuL">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="feQ-Mm-SY9" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
-                                <rect key="frame" x="329" y="5" width="30" height="34"/>
+                                <rect key="frame" x="329" y="5" width="26" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
@@ -448,7 +448,7 @@
                         </view>
                         <barButtonItem key="rightBarButtonItem" id="YFX-1p-3Q4">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TDX-y2-zlA" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
-                                <rect key="frame" x="329" y="5" width="30" height="34"/>
+                                <rect key="frame" x="329" y="5" width="26" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
