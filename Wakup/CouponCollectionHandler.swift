@@ -16,9 +16,9 @@ public typealias LoadCouponMethod = (_ page: Int, _ perPage: Int, _ onComplete: 
 
 open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfallLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    open let layout = CHTCollectionViewWaterfallLayout()
+    public let layout = CHTCollectionViewWaterfallLayout()
     open weak var collectionView: UICollectionView?
-    open let refreshControl = UIRefreshControl()
+    public let refreshControl = UIRefreshControl()
     
     let defaultBundle = Bundle(for: CouponCollectionHandler.self)
     lazy var loadingFooterId = "LoadingFooterView"
@@ -219,7 +219,7 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
     
     open func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        loadingFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: loadingFooterId, for: indexPath) as! LoadingFooterView
+        loadingFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: loadingFooterId, for: indexPath) as? LoadingFooterView
         loadingFooterView?.isHidden = !(loadingMore || (showFooterWhenReloading && loading))
         return loadingFooterView
     }

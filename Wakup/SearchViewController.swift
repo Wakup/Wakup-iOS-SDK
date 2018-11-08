@@ -231,17 +231,17 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         if let section = Section(rawValue: (indexPath as NSIndexPath).section) {
             switch section {
             case .companies:
-                cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchResultCell
+                cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? SearchResultCell
                 let company = searchResult?.companies[(indexPath as NSIndexPath).row]
                 cell.textLabel?.text = company?.name
                 cell.iconIdentifier = "star"
             case .tags:
-                cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchResultCell
+                cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? SearchResultCell
                 let tag = searchResult?.tags[(indexPath as NSIndexPath).row]
                 cell.textLabel?.text = "#" + tag!
                 cell.iconIdentifier = "tag"
             case .locations:
-                cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell") as! SearchResultCell
+                cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell") as? SearchResultCell
                 let placemark = placemarks?[(indexPath as NSIndexPath).row]
                 let name = placemark?.name ?? ""
                 let address = (placemark?.addressDictionary?["FormattedAddressLines"] as? Array<String>)?.joined(separator: ", ")
@@ -249,23 +249,23 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                 cell.detailTextLabel?.text = address
                 cell.iconIdentifier = "location"
             case .userLocation:
-                cell = tableView.dequeueReusableCell(withIdentifier: "FeaturedCell") as! SearchResultCell
+                cell = tableView.dequeueReusableCell(withIdentifier: "FeaturedCell") as? SearchResultCell
                 cell.textLabel?.text = "SearchCellUserLocation".i18n()
                 cell.iconIdentifier = "location"
             case .history:
                 if let history = searchHistory?[(indexPath as NSIndexPath).row] {
                     switch history {
                     case .location(let name, let address, _, _):
-                        cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell") as! SearchResultCell
+                        cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell") as? SearchResultCell
                         cell.textLabel?.text = name
                         cell.detailTextLabel?.text = address
                         cell.iconIdentifier = "location"
                     case .company(_, let name):
-                        cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchResultCell
+                        cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? SearchResultCell
                         cell.textLabel?.text = name
                         cell.iconIdentifier = "star"
                     case .tag(let tag):
-                        cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SearchResultCell
+                        cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? SearchResultCell
                         cell.textLabel?.text = "#" + tag
                         cell.iconIdentifier = "tag"
                     }

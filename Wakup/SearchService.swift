@@ -83,7 +83,7 @@ class SearchService: BaseService {
             let data = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false),
             let array = try? JSON(data: data).array
         {
-            return array.map { $0.flatMap(SearchHistory.fromJson) }
+            return array.map { $0.compactMap(SearchHistory.fromJson) }
         }
         
         return .none

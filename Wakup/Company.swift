@@ -9,9 +9,9 @@
 import Foundation
 
 open class Company {
-    open let id: Int
-    open let name: String
-    open let logo: CouponImage?
+    public let id: Int
+    public let name: String
+    public let logo: CouponImage?
     
     public init(id: Int, name: String, logo: CouponImage?) {
         self.id = id

@@ -9,10 +9,10 @@
 import Foundation
 
 open class Store {
-    open let id: Int
-    open let name: String?
-    open let address: String?
-    open let latitude, longitude: Float?
+    public let id: Int
+    public let name: String?
+    public let address: String?
+    public let latitude, longitude: Float?
     
     public init(id: Int, name: String?, address: String?, latitude: Float?, longitude: Float?) {
         self.id = id

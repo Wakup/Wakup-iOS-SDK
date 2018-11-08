@@ -215,7 +215,7 @@ open class CouponMapViewController: UIViewController, MKMapViewDelegate {
             let imageView = view.leftCalloutAccessoryView as? UIImageView,
             let logoUrl = annotation.coupon.company.logo?.sourceUrl else { return }
         
-        imageView.sd_setImage(with: logoUrl as URL!)
+        imageView.sd_setImage(with: logoUrl)
     }
     
     open func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {

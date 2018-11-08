@@ -9,17 +9,17 @@
 import Foundation
 
 open class Coupon: Equatable {
-    open let id: Int
-    open let shortText: String
-    open let shortDescription: String
-    open let description: String
-    open let tags: [String]
-    open let expirationDate: Date?
-    open let thumbnail, image: CouponImage?
-    open let store: Store?
-    open let company: Company
-    open let online: Bool
-    open let link: URL?
+    public let id: Int
+    public let shortText: String
+    public let shortDescription: String
+    public let description: String
+    public let tags: [String]
+    public let expirationDate: Date?
+    public let thumbnail, image: CouponImage?
+    public let store: Store?
+    public let company: Company
+    public let online: Bool
+    public let link: URL?
     open var redemptionCode: RedemptionCodeInfo?
     
     public init(id: Int, shortText: String, shortDescription: String, description: String, tags: [String], online: Bool, link: URL?, expirationDate: Date?, thumbnail: CouponImage?, image: CouponImage?, store: Store?, company: Company, redemptionCode: RedemptionCodeInfo?) {

@@ -100,7 +100,7 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if (kind == CHTCollectionElementKindSectionHeader) {
-            couponHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: couponHeaderId, for: indexPath) as! CouponDetailHeaderView
+            couponHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: couponHeaderId, for: indexPath) as? CouponDetailHeaderView
             couponHeaderView.userLocation = userLocation
             couponHeaderView.coupon = coupon
             couponHeaderView.delegate = self

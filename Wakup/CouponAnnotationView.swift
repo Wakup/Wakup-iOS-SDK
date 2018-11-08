@@ -11,9 +11,9 @@ import MapKit
 
 @objc
 open class ColorForTags: NSObject {
-    open let tags: Set<String>
-    open let color: UIColor
-    open let mapIcon: String
+    public let tags: Set<String>
+    public let color: UIColor
+    public let mapIcon: String
     
     public init(tags: Set<String>, mapIcon: String, color: UIColor) {
         self.tags = tags
