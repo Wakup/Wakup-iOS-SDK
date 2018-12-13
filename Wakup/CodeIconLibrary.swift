@@ -14,21 +14,32 @@ public protocol IconLibrary {
     func getDefaultColor(iconIdentifier: String) -> UIColor
 }
 
-open class CodeIconLibrary {
+public class CodeIconLibrary {
     
     #if TARGET_INTERFACE_BUILDER
     public static var instance: IconLibrary? = DefaultIconLibrary()
     #else
-    open static var instance: IconLibrary?
+    public static var instance: IconLibrary?
     #endif
     
-    open class func drawMethodForIcon(iconIdentifier: String) -> (drawMethod: IconDrawMethod, aspectRatio: CGFloat)  {
+    public class func drawMethodForIcon(iconIdentifier: String) -> (drawMethod: IconDrawMethod, aspectRatio: CGFloat)  {
         guard let instance = instance else { return ({ f, c in }, 1) }
         return instance.drawMethodForIcon(iconIdentifier: iconIdentifier)
     }
     
-    open class func getDefaultColor(iconIdentifier: String) -> UIColor {
+    public class func getDefaultColor(iconIdentifier: String) -> UIColor {
         guard let instance = instance else { return UIColor.darkGray }
         return instance.getDefaultColor(iconIdentifier: iconIdentifier)
+    }
+    
+    /** Creates a draw method for the specified image, allowing it to be used instead of vector icons */
+    public class func drawMethodForImage(_ image: UIImage, tinted: Bool = true) -> (drawMethod: IconDrawMethod, aspectRatio: CGFloat) {
+        let aspectRatio = image.size.width / image.size.height;
+        let drawMethod: IconDrawMethod = { (frame, color) in
+            let tintedImage = image.withRenderingMode(tinted ? .alwaysTemplate : .alwaysOriginal)
+            color.set()
+            tintedImage.draw(in: frame)
+        }
+        return (drawMethod: drawMethod, aspectRatio: aspectRatio)
     }
 }

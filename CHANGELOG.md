@@ -3,7 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-- No changes
+### Added
+- Non-vectorial images can now be used instead of vectorial icons anywhere in the application.
 
 ## [3.2.0] - 2018-10-29
 ### Changed

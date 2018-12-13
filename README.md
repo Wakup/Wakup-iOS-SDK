@@ -461,6 +461,7 @@ with a new paper plane version:
 ![](https://i.imgur.com/FerbLaJ.png)
 
 
+#### Using vectorial icons with PaintCode
 
 First convert the icon to CoreGraphics format using [PaintCode](http://www.paintcodeapp.com) or any other vectorial to CoreGraphics application. Remember to set the resizing mask so the icon size is relative to the frame. The generated code would look like this:
 
@@ -500,11 +501,13 @@ class CustomDrawMethods {
 }
 ~~~
 
+#### Configure Icon library
+
 Then, subclass `DefaultIconLibrary` and override `drawMethodForIcon` to return the new draw method for the `share` identifier (full list of available identifiers in the [`DefaultIconLibrary` sources](https://github.com/Wakup/Wakup-iOS-SDK/blob/master/Wakup/DefaultIconLibrary.swift))
 
 ~~~swift
 class CustomIconLibrary: DefaultIconLibrary {
-    override func drawMethodForIcon(iconIdentifier iconIdentifier: String) -> (drawMethod: IconDrawMethod, aspectRatio: CGFloat) {
+    override func drawMethodForIcon(iconIdentifier: String) -> (drawMethod: IconDrawMethod, aspectRatio: CGFloat) {
         switch iconIdentifier {
         case "share":
             // Replace share icon with a paper plane
@@ -529,6 +532,36 @@ Run the App and you'll see your new icon, pixel perfect regardless the size and 
 
 [![](https://i.imgur.com/JcCkce9l.png)](https://i.imgur.com/JcCkce9.png)
 
+
+#### Using non-vectorial images
+
+Although highly recommended, converting images to vectorial format is not always available. In this case, you can fall back to using standard `UIImage` images. It's recommended that you use transparent background PNG files.
+
+They are configured exactly like vectorial code-drawn icons in your implementation of `IconLibrary`, with the help of `CodeIconLibrary.drawMethodForImage` utility method:
+
+~~~swift
+class CustomIconLibrary: DefaultIconLibrary {
+    override func drawMethodForIcon(iconIdentifier: String) -> (drawMethod: IconDrawMethod, aspectRatio: CGFloat) {
+        switch iconIdentifier {
+        case "share":
+            // Replace share icon with a paper plane
+            return CodeIconLibrary.drawMethodForImage(UIImage(named: "paper_plane.png")!)
+        default:
+            // For any other method, return default draw method
+            return super.drawMethodForIcon(iconIdentifier: iconIdentifier)
+        }
+    }
+}
+~~~
+
+The provided image will be colored using the designated tint color for that icon.
+If the logo should not be tinted (for example, multi-color company logos), make sure to set the `tinted` parameter of `drawMethodForImage` to `false`:
+
+~~~
+return CodeIconLibrary.drawMethodForImage(UIImage(named: "my-logo")!, tinted: false)
+~~~
+
+Vectorial and non-vectorial images can be mixed in the same IconLibrary. But for better results, use vectorial images whenver possible.
 
 ### Adding additional languages or replacing strings
 
