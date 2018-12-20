@@ -56,6 +56,10 @@
 		6996C0121FE29ABA002F7448 /* WakupAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6996C0111FE29ABA002F7448 /* WakupAppearance.swift */; };
 		6996C0151FE40A49002F7448 /* UIColor+Variations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6996C0141FE40A49002F7448 /* UIColor+Variations.swift */; };
 		6996C0171FE44349002F7448 /* WakupTagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6996C0161FE44349002F7448 /* WakupTagListView.swift */; };
+		69A0A76C21C3D1EE0017D7DE /* CompanyCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A76B21C3D1EE0017D7DE /* CompanyCategory.swift */; };
+		69A0A76E21C3D33A0017D7DE /* CompanyWithCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A76D21C3D33A0017D7DE /* CompanyWithCount.swift */; };
+		69A0A77121C421330017D7DE /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A77021C421330017D7DE /* CategorySelectionView.swift */; };
+		69A0A77521C7C2230017D7DE /* BarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A77421C7C2230017D7DE /* BarButtonView.swift */; };
 		69D999D11C22E635000892B1 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */; };
 		69D999D21C22E635000892B1 /* ZoomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */; };
 		69D999D31C22E635000892B1 /* ImageZoomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999D01C22E635000892B1 /* ImageZoomTransitionAnimator.swift */; };
@@ -162,6 +166,10 @@
 		6996C0111FE29ABA002F7448 /* WakupAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakupAppearance.swift; sourceTree = "<group>"; };
 		6996C0141FE40A49002F7448 /* UIColor+Variations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Variations.swift"; sourceTree = "<group>"; };
 		6996C0161FE44349002F7448 /* WakupTagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakupTagListView.swift; sourceTree = "<group>"; };
+		69A0A76B21C3D1EE0017D7DE /* CompanyCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCategory.swift; sourceTree = "<group>"; };
+		69A0A76D21C3D33A0017D7DE /* CompanyWithCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyWithCount.swift; sourceTree = "<group>"; };
+		69A0A77021C421330017D7DE /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
+		69A0A77421C7C2230017D7DE /* BarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonView.swift; sourceTree = "<group>"; };
 		69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitionAnimator.swift; sourceTree = "<group>"; };
 		69D999D01C22E635000892B1 /* ImageZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -283,6 +291,8 @@
 			children = (
 				695D7A471C21B66F0083132B /* Category.swift */,
 				695D7A451C21B66F0083132B /* Company.swift */,
+				69A0A76B21C3D1EE0017D7DE /* CompanyCategory.swift */,
+				69A0A76D21C3D33A0017D7DE /* CompanyWithCount.swift */,
 				695D7A421C21B66F0083132B /* Coupon.swift */,
 				695D7A431C21B66F0083132B /* CouponImage.swift */,
 				69E3BE1B1D1AEC330005E817 /* RedemptionCode.swift */,
@@ -298,8 +308,8 @@
 			isa = PBXGroup;
 			children = (
 				695660501C7239420067918C /* BaseService.swift */,
-				695D7A541C21BDB10083132B /* NetworkActivityIndicatorManager.swift */,
 				695D7A511C21BDB10083132B /* OffersService.swift */,
+				695D7A541C21BDB10083132B /* NetworkActivityIndicatorManager.swift */,
 				695D7A521C21BDB10083132B /* PersistenceService.swift */,
 				695D7A531C21BDB10083132B /* SearchService.swift */,
 				694C68231C73328A0062C730 /* UserService.swift */,
@@ -353,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				69431BA71C3BD9F600A42139 /* Appearance */,
+				69A0A76F21C4210D0017D7DE /* Categories */,
 				69D999CC1C22E60A000892B1 /* Common */,
 				69D99A171C22FF8B000892B1 /* ContextMenu */,
 				69D999F01C22FDB5000892B1 /* Coupon */,
@@ -361,11 +372,20 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		69A0A76F21C4210D0017D7DE /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				69A0A77021C421330017D7DE /* CategorySelectionView.swift */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		69D999CC1C22E60A000892B1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				695D7A781C21CFE70083132B /* CodeIcons */,
 				69D999CD1C22E616000892B1 /* Transition */,
+				69A0A77421C7C2230017D7DE /* BarButtonView.swift */,
 				69D999E11C22F6A4000892B1 /* CenteredIconButton.swift */,
 				69D999DF1C22F6A4000892B1 /* CustomBackgroundButton.swift */,
 				69D999E01C22F6A4000892B1 /* CustomBorderButton.swift */,
@@ -601,6 +621,7 @@
 				69D99A201C22FF98000892B1 /* ContextItemView.swift in Sources */,
 				69D999FD1C22FDC8000892B1 /* CouponDetailHeaderView.swift in Sources */,
 				695D7A491C21B66F0083132B /* Coupon.swift in Sources */,
+				69A0A77521C7C2230017D7DE /* BarButtonView.swift in Sources */,
 				695D7A6F1C21BFAE0083132B /* AlamofireSwiftyJSON.swift in Sources */,
 				69D999D11C22E635000892B1 /* NavigationControllerDelegate.swift in Sources */,
 				69D99A131C22FE59000892B1 /* SavedCouponsViewController.swift in Sources */,
@@ -610,10 +631,12 @@
 				695D7A8A1C21DB200083132B /* CodeIconButton.swift in Sources */,
 				695D7A851C21DB200083132B /* CodeImage.swift in Sources */,
 				69D99A121C22FE59000892B1 /* LoadingViewController.swift in Sources */,
+				69A0A77121C421330017D7DE /* CategorySelectionView.swift in Sources */,
 				695F7C481C3E8EA000D61415 /* DiscountTagView.swift in Sources */,
 				695D7A4D1C21B66F0083132B /* SearchResult.swift in Sources */,
 				69D999D21C22E635000892B1 /* ZoomTransitionAnimator.swift in Sources */,
 				695D7A881C21DB200083132B /* CodeImageView.swift in Sources */,
+				69A0A76E21C3D33A0017D7DE /* CompanyWithCount.swift in Sources */,
 				6996C0151FE40A49002F7448 /* UIColor+Variations.swift in Sources */,
 				69D999D51C22F630000892B1 /* Delay.swift in Sources */,
 				695F7C4C1C3ED51000D61415 /* CouponAnnotationView.swift in Sources */,
@@ -652,6 +675,7 @@
 				69D999F91C22FDC8000892B1 /* CouponCollectionViewCell.swift in Sources */,
 				69D99A141C22FE59000892B1 /* WebViewController.swift in Sources */,
 				695D7A681C21BEE50083132B /* Coupon+FriendlyDistance.swift in Sources */,
+				69A0A76C21C3D1EE0017D7DE /* CompanyCategory.swift in Sources */,
 				69D999E41C22F6A4000892B1 /* RoundedCornersView.swift in Sources */,
 				695D7A861C21DB200083132B /* CodeIconLibrary.swift in Sources */,
 				69431BB41C3C1D7300A42139 /* CouponActionButton.swift in Sources */,

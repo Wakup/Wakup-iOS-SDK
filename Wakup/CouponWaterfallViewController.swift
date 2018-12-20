@@ -16,6 +16,7 @@ import DZNEmptyDataSet
 
     @IBOutlet open var collectionView: UICollectionView!
     @IBOutlet open var topMenuView: TopMenuView?
+    @IBOutlet open var categorySelectionView: CategorySelectionView?
     @IBOutlet open weak var searchButton: CodeIconButton!
     
     static let storyboardId = "couponWaterfall"
@@ -89,6 +90,12 @@ import DZNEmptyDataSet
         
         topMenuView?.delegate = self
         collectionView?.collectionViewLayout = layout
+        
+        // Configure category and company selector
+        categorySelectionView?.onCategorySelected = { [weak self] category, company in
+            self?.filterOptions = FilterOptions(companyId: company?.id, categoryId: category?.id)
+            self?.reload()
+        }
         
         // Initialize CouponCollectionHandler with the load coupon method
         couponCollectionHandler = CouponCollectionHandler(collectionView: collectionView, loadCouponMethod: { (page, perPage, onComplete) -> Void in
