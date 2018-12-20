@@ -18,6 +18,7 @@ import DZNEmptyDataSet
     @IBOutlet open var topMenuView: TopMenuView?
     @IBOutlet open var categorySelectionView: CategorySelectionView?
     @IBOutlet open weak var searchButton: CodeIconButton!
+    @IBInspectable open var categoryFilterEnabled: Bool = true
     
     static let storyboardId = "couponWaterfall"
     
@@ -95,6 +96,9 @@ import DZNEmptyDataSet
         categorySelectionView?.onCategorySelected = { [weak self] category, company in
             self?.filterOptions = FilterOptions(companyId: company?.id, categoryId: category?.id)
             self?.reload()
+        }
+        if filterOptions == nil && categoryFilterEnabled {
+            categorySelectionView?.fetchCategories()
         }
         
         // Initialize CouponCollectionHandler with the load coupon method

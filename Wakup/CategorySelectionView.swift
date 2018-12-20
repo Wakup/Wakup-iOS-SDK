@@ -34,6 +34,13 @@ open class CategorySelectionView: UIView {
     var categoriesHeightConstraint: NSLayoutConstraint?
     var companiesHeightConstraint: NSLayoutConstraint?
     
+    open func fetchCategories() {
+        guard categories == nil else { return }
+        offerService.getCategories { [weak self] categories, error in
+            self?.categories = categories
+        }
+    }
+    
     open func reloadCategories() {
         categoryHelper?.items = self.categories ?? []
         selectedCategory = nil
@@ -65,10 +72,6 @@ open class CategorySelectionView: UIView {
     
     open override func awakeFromNib() {
         super.awakeFromNib()
-        
-        offerService.getCategories { [weak self] categories, error in
-            self?.categories = categories
-        }
         
         categoryHelper = BarButtonView.Helper(view: categorySelector, onSelection: categorySelected, configureButton: configureCategoryButton)
         companyHelper = BarButtonView.Helper(view: companySelector, onSelection: companySelected, configureButton: configureCompanyButton)
