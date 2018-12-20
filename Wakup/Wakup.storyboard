@@ -408,12 +408,44 @@
                                     <outlet property="companySelector" destination="bEg-g5-B5v" id="yYZ-9b-j8V"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdv-bH-hbr" userLabel="Location Button" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
+                                <rect key="frame" x="295" y="587" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.49762970210000002" green="0.33670049909999999" blue="0.49032086130000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mdv-bH-hbr" secondAttribute="height" multiplier="1:1" id="7sg-fy-tHB"/>
+                                    <constraint firstAttribute="width" constant="60" id="gtu-ml-9O5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="iconFillsButton" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
+                                        <size key="value" width="30" height="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="location"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                        <color key="value" cyan="0.51141822338104248" magenta="0.71281462907791138" yellow="0.1764119416475296" black="0.27665033916088" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="mapButtonTapped:" destination="8uP-JE-fId" eventType="touchUpInside" id="n42-t6-pWK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="aDA-Ph-LTD" firstAttribute="top" secondItem="Syx-YK-c9n" secondAttribute="bottom" id="3dN-UF-sdr"/>
                             <constraint firstItem="Syx-YK-c9n" firstAttribute="leading" secondItem="bz5-dF-2bW" secondAttribute="leading" id="8TY-On-7v6"/>
                             <constraint firstItem="aDA-Ph-LTD" firstAttribute="leading" secondItem="bz5-dF-2bW" secondAttribute="leading" id="UFI-DS-NwA"/>
+                            <constraint firstItem="Tbx-G9-jCi" firstAttribute="top" secondItem="Mdv-bH-hbr" secondAttribute="bottom" constant="20" id="WRf-gY-ze7"/>
+                            <constraint firstAttribute="trailing" secondItem="Mdv-bH-hbr" secondAttribute="trailing" constant="20" id="Zi6-eJ-rGh"/>
                             <constraint firstItem="Syx-YK-c9n" firstAttribute="top" secondItem="HgN-Yy-xIW" secondAttribute="bottom" id="bJQ-ah-fgz"/>
                             <constraint firstAttribute="trailing" secondItem="aDA-Ph-LTD" secondAttribute="trailing" id="csZ-Po-ZQI"/>
                             <constraint firstAttribute="trailing" secondItem="Syx-YK-c9n" secondAttribute="trailing" id="nf6-T7-VrU"/>

@@ -18,6 +18,7 @@ import DZNEmptyDataSet
     @IBOutlet open var topMenuView: TopMenuView?
     @IBOutlet open var categorySelectionView: CategorySelectionView?
     @IBOutlet open weak var searchButton: CodeIconButton!
+    @IBOutlet open weak var mapButton: CodeIconButton!
     @IBInspectable open var categoryFilterEnabled: Bool = true
     
     static let storyboardId = "couponWaterfall"
@@ -181,6 +182,17 @@ import DZNEmptyDataSet
         }
     }
     
+    @IBAction open func mapButtonTapped(_ sender: AnyObject) {
+        let mapVC = self.storyboard?.instantiateViewController(withIdentifier: self.mapStoryboardId) as! CouponMapViewController
+        mapVC.coupons = couponCollectionHandler?.coupons.filter{ $0.store?.location() != nil } ?? [Coupon]()
+        mapVC.filterOptions = filterOptions
+        mapVC.loadCouponsOnRegionChange = true
+        mapVC.userLocation = couponCollectionHandler?.userLocation
+        mapVC.allowDetailsNavigation = true
+        
+        self.navigationController?.pushViewController(mapVC, animated: true)
+    }
+    
     @objc open func dismissAction(_ sender: AnyObject) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
@@ -299,14 +311,7 @@ import DZNEmptyDataSet
     }
     
     open func topMenuViewDidSelectMapButton(_ view: TopMenuView) {
-        let mapVC = self.storyboard?.instantiateViewController(withIdentifier: self.mapStoryboardId) as! CouponMapViewController
-        mapVC.coupons = couponCollectionHandler?.coupons.filter{ $0.store?.location() != nil } ?? [Coupon]()
-        mapVC.filterOptions = filterOptions
-        mapVC.loadCouponsOnRegionChange = true
-        mapVC.userLocation = couponCollectionHandler?.userLocation
-        mapVC.allowDetailsNavigation = true
-        
-        self.navigationController?.pushViewController(mapVC, animated: true)
+        mapButtonTapped(view)
     }
     
     open func topMenuViewDidSelectMyOffersButton(_ view: TopMenuView) {
