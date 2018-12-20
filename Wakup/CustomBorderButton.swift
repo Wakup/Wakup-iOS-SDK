@@ -32,7 +32,7 @@ import Foundation
     func getCurrentBorderColor() -> UIColor? {
         switch (isEnabled, isHighlighted, isSelected) {
         case (false, true, _): return highlightedDisabledBorderColor ?? disabledBorderColor
-        case (false, false, _): return disabledBorderColor ?? normalBorderColor?.colorWithAlpha(0.5)
+        case (false, false, _): return disabledBorderColor ?? normalBorderColor?.withAlpha(0.5)
         case (true, false, false): return normalBorderColor
         case (true, true, true): return highlightedSelectedBorderColor ?? highlightedBorderColor
         case (true, true, false): return highlightedBorderColor

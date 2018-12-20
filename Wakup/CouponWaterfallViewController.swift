@@ -148,7 +148,7 @@ import DZNEmptyDataSet
         
         if let navBarTintColor = navigationController?.navigationBar.tintColor {
             searchButton.iconColor = navBarTintColor
-            searchButton.highlightedIconColor = navBarTintColor.colorWithAlpha(0.5)
+            searchButton.highlightedIconColor = navBarTintColor.withAlpha(0.5)
         }
         
         if let navigationController = navigationController , navigationController.presentingViewController != nil && navigationController.viewControllers.first == self && navigationItem.leftBarButtonItem == nil {

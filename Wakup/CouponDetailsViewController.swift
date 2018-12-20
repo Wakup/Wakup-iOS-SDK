@@ -89,7 +89,7 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
         
         if let navBarTintColor = navigationController?.navigationBar.tintColor {
             menuButton.iconColor = navBarTintColor
-            menuButton.highlightedIconColor = navBarTintColor.colorWithAlpha(0.5)
+            menuButton.highlightedIconColor = navBarTintColor.withAlpha(0.5)
         }
         
         if let navigationController = navigationController , navigationController.presentingViewController != nil && navigationController.viewControllers.first == self && navigationItem.leftBarButtonItem == nil {

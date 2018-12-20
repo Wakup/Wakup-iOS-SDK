@@ -50,6 +50,7 @@ open class DefaultIconLibrary: IconLibrary {
         case "document-copy": return (StyleKit.drawDocumentCopyIcon, 52/63)
         case "add-clipboard": return (StyleKit.drawAddClipboardIcon, 49/68)
         case "barcode": return (StyleKit.drawBarcodeIcon, 46/31)
+        case "company-selector": return (StyleKit.drawCompanySelectorIcon, 56/36)
         default: return ({ f, c in }, 1)
         }
     }

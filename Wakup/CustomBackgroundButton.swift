@@ -84,7 +84,7 @@ import UIKit
     func getCurrentBackgroundColor() -> UIColor? {
         switch (isEnabled, isHighlighted, isSelected) {
         case (false, true, _): return highlightedDisabledBackgroundColor ?? disabledBackgroundColor
-        case (false, false, _): return disabledBackgroundColor ?? originalBackgroundColor?.colorWithAlpha(0.5)
+        case (false, false, _): return disabledBackgroundColor ?? originalBackgroundColor?.withAlpha(0.5)
         case (true, true, true): return highlightedSelectedBackgroundColor ?? highlightedBackgroundColor
         case (true, true, false): return highlightedBackgroundColor
         case (true, false, true): return selectedBackgroundColor ?? highlightedBackgroundColor
