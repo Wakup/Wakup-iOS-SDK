@@ -15,5 +15,5 @@ class CurrentBundle {
 }
 
 func loadViewFromNib(_ nibName: String) -> UIView! {
-    return CurrentBundle.currentBundle().loadNibNamed(nibName, owner: nil, options: nil)![0] as! UIView
+    return CurrentBundle.currentBundle().loadNibNamed(nibName, owner: nil, options: nil)![0] as? UIView
 }
