@@ -15,11 +15,13 @@ public struct FilterOptions {
     public let searchTerm: String?
     public let tags: [String]?
     public let companyId: Int?
+    public let categoryId: Int?
     
-    public init(searchTerm: String? = nil, tags: [String]? = nil, companyId: Int? = nil) {
+    public init(searchTerm: String? = nil, tags: [String]? = nil, companyId: Int? = nil, categoryId: Int? = nil) {
         self.searchTerm = searchTerm
         self.tags = tags
         self.companyId = companyId
+        self.categoryId = categoryId
     }
 }
 
@@ -144,6 +146,9 @@ public class OffersService: BaseService {
             }
             if let companyId = filter.companyId {
                 result["companyId"] = companyId
+            }
+            if let categoryId = filter.categoryId {
+                result["categoryId"] = categoryId
             }
         }
         return result
