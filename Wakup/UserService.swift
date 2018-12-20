@@ -29,43 +29,25 @@ class UserService: BaseService {
         let url = "\(offerHostUrl)register"
         let parameters = deviceParameters()
         
-        NetworkActivityIndicatorManager.sharedInstance.startActivity()
-        let r = request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders).validate().responseSwiftyJSON { result in
-            NetworkActivityIndicatorManager.sharedInstance.endActivity()
-            switch result.result {
-            case .failure(let error):
-                print("Error in request with URL", result.request!.url!, error)
-                completion(nil, error)
-            case .success(let json):
-                print("Success", result.request!.url!, result.data.flatMap { String(data: $0, encoding: .utf8) } ?? "")
-                let userToken = json["userToken"].stringValue
-                self.userToken = userToken
-                completion(userToken, nil)
+        createRequest(.post, url, parameters: parameters, encoding: JSONEncoding.default, withUserToken: false) { json, error in
+            let result = json.map { json in json["userToken"].stringValue }
+            
+            if let token = result {
+                self.userToken = token
             }
+            completion(result, error)
         }
-        print("Registering with URL", r.request!.url!)
+        print("Registering with URL", url)
     }
     
     func setAlias(alias: String, _ completion: @escaping (Error?) -> Void) {
-        UserService.sharedInstance.fetchUserToken { (userToken, error) in
-            guard let userToken = userToken else {
-                completion(error!)
-                return
-            }
-            
-            let url = "\(self.offerHostUrl)setAlias"
-            let parameters = ["alias": alias]
-            
-            NetworkActivityIndicatorManager.sharedInstance.startActivity()
-            request(url, method: .post, parameters: parameters, encoding: URLEncoding.queryString, headers: self.userHeaders(userToken)).validate().response { result in
-                NetworkActivityIndicatorManager.sharedInstance.endActivity()
-                if let error = result.error {
-                    print("Error in request with URL", result.request!.url!, error)
-                }
-                completion(result.error)
-            }
-            print("Registering alias", alias)
+        let url = "\(self.offerHostUrl)setAlias"
+        let parameters = ["alias": alias]
+        
+        createRequest(.post, url, parameters: parameters, encoding: URLEncoding.queryString) { _, error in
+            completion(error)
         }
+        print("Registering alias", alias)
     }
     
     

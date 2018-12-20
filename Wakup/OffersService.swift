@@ -90,14 +90,14 @@ public class OffersService: BaseService {
     
     public func getRedemptionCode(forOffer offer: Coupon, completion: @escaping (RedemptionCode?, Error?) -> Void) {
         let url = "\(offerHostUrl)offers/\(offer.id)/code"
-        createRequest(.get, url) { (json, error) in
+        self.createRequest(.get, url) { (json, error) in
             // TODO: Process error codes
             let redemptionCode = json.flatMap { self.parseRedemptionCode(json: $0) }
             completion(redemptionCode, error)
         }
     }
     
-    func reportErrorUrl(forOffer offer: Coupon) -> String {
+    public func reportErrorUrl(forOffer offer: Coupon) -> String {
         let url = "\(offerHostUrl)offers/\(offer.id)/report"
         if let store = offer.store {
             return "\(url)?storeId=\(store.id)"
@@ -106,32 +106,9 @@ public class OffersService: BaseService {
     }
     
     fileprivate func getOffersFromURL(url: String, parameters: [String: Any]? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
-        createRequest(.get, url, parameters: parameters) { (json, error) in
+        self.createRequest(.get, url, parameters: parameters) { (json, error) in
             let coupons = json.map { $0.arrayValue.map { json in self.parseCoupon(json: json) } }
             completion(coupons, error)
-        }
-    }
-    
-    fileprivate func createRequest(_ method: HTTPMethod, _ url: URLConvertible, parameters: [String: Any]? = nil, completion: @escaping (JSON?, Error?) -> Void) {
-        UserService.sharedInstance.fetchUserToken { (userToken, error) in
-            guard let userToken = userToken else {
-                completion(nil, error!)
-                return
-            }
-            
-            NetworkActivityIndicatorManager.sharedInstance.startActivity()
-            let r = request(url, method: method, parameters: parameters, headers: self.userHeaders(userToken)).validate().responseSwiftyJSON { result in
-                NetworkActivityIndicatorManager.sharedInstance.endActivity()
-                switch result.result {
-                case .failure(let error):
-                    print("Error in request with URL", result.request!.url!, error)
-                    completion(nil, error)
-                case .success(let json):
-                    print("Success", result.request!.url!, result.data.flatMap { String(data: $0, encoding: .utf8) } ?? "")
-                    completion(json, nil)
-                }
-            }
-            print("Creating request with URL", r.request!.url!)
         }
     }
     

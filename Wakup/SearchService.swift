@@ -30,20 +30,11 @@ class SearchService: BaseService {
                 return
             }
             
-            NetworkActivityIndicatorManager.sharedInstance.startActivity()
-            let r = request(url, parameters: parameters, headers: self.authHeaders).validate().responseSwiftyJSON { result in
-                NetworkActivityIndicatorManager.sharedInstance.endActivity()
-                switch result.result {
-                case .failure(let error):
-                    print("Error in request with URL", result.request!.url!, error)
-                    completion(nil, error)
-                case .success(let json):
-                    print("Success", result.request!.url!, result.data.flatMap { String(data: $0, encoding: .utf8) } ?? "")
-                    let searchResult = self.parseSearchResult(json: json)
-                    completion(searchResult, nil)
-                }
-            }
-            print("Performing search with URL", r.request!.url!)
+            self.createRequest(.get, url, parameters: parameters, completion: { json, error in
+                let result = json.map(self.parseSearchResult)
+                completion(result, error)
+            })
+            print("Performing search with URL", url)
         }
     }
     
