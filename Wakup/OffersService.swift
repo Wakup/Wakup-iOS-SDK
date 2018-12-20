@@ -88,6 +88,14 @@ public class OffersService: BaseService {
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
+    public func getCategories(completion: @escaping ([CompanyCategory]?, Error?) -> Void) -> Void {
+        let url = "\(offerHostUrl)categories"
+        self.createRequest(.get, url) { json, error in
+            let result = json?.arrayValue.map(self.parseCompanyCategory)
+            completion(result, error)
+        }
+    }
+    
     public func getRedemptionCode(forOffer offer: Coupon, completion: @escaping (RedemptionCode?, Error?) -> Void) {
         let url = "\(offerHostUrl)offers/\(offer.id)/code"
         self.createRequest(.get, url) { (json, error) in
@@ -162,6 +170,14 @@ public class OffersService: BaseService {
         return Company(id: id, name: name, logo: logo)
     }
     
+    fileprivate func parseCompanyWithCount(json: JSON) -> CompanyWithCount {
+        let id = json["id"].intValue
+        let name = json["name"].stringValue
+        let logo = parseImage(json: json["logo"])
+        let offerCount = json["offerCount"].intValue
+        return CompanyWithCount(id: id, name: name, logo: logo, offerCount: offerCount)
+    }
+    
     fileprivate func parseDate(string: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -211,6 +227,14 @@ public class OffersService: BaseService {
         let displayCode = json["displayCode"].stringValue
         let formats = json["formats"].array?.map { $0.stringValue } ?? []
         return RedemptionCode(code: code, displayCode: displayCode, formats: formats)
+    }
+    
+    fileprivate func parseCompanyCategory(json: JSON) -> CompanyCategory {
+        let id = json["id"].intValue
+        let name = json["name"].stringValue
+        let tags = json["tags"].arrayValue.map{ $0.stringValue }
+        let companies = json["companies"].arrayValue.map(parseCompanyWithCount)
+        return CompanyCategory(id: id, name: name, tags: tags, companies: companies)
     }
 
 }
