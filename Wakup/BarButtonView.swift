@@ -68,6 +68,7 @@ open class BarButtonView: UIScrollView {
         open func deselectItem(animated: Bool) {
             selectedItem = nil
             onItemSelected(nil)
+            updateSelectedItem()
             selectionBarView?.isHidden = true
         }
         
