@@ -12,10 +12,9 @@ import CHTCollectionViewWaterfallLayout
 import CoreLocation
 import DZNEmptyDataSet
 
-@IBDesignable open class CouponWaterfallViewController: LoadingPresenterViewController, UICollectionViewDataSource, UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout, ZoomTransitionOrigin, CLLocationManagerDelegate, TopMenuViewDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+@IBDesignable open class CouponWaterfallViewController: LoadingPresenterViewController, UICollectionViewDataSource, UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout, ZoomTransitionOrigin, CLLocationManagerDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
 
     @IBOutlet open var collectionView: UICollectionView!
-    @IBOutlet open var topMenuView: TopMenuView?
     @IBOutlet open var categorySelectionView: CategorySelectionView?
     @IBOutlet open weak var searchButton: CodeIconButton!
     @IBOutlet open weak var mapButton: CodeIconButton!
@@ -90,7 +89,6 @@ import DZNEmptyDataSet
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        topMenuView?.delegate = self
         collectionView?.collectionViewLayout = layout
         
         // Configure category and company selector
@@ -303,19 +301,6 @@ import DZNEmptyDataSet
         let indexPath = IndexPath(row: selectedRow, section: 0)
         let cell = self.collectionView?.scrollToAndGetCell(atIndexPath: indexPath) as! CouponCollectionViewCell
         return cell.couponImageView
-    }
-    
-    // MARK: TopMenuViewDelegate
-    open func topMenuViewDidSelectOfferButton(_ view: TopMenuView) {
-        self.performSegue(withIdentifier: highlightedOfferSegueId, sender: self)
-    }
-    
-    open func topMenuViewDidSelectMapButton(_ view: TopMenuView) {
-        mapButtonTapped(view)
-    }
-    
-    open func topMenuViewDidSelectMyOffersButton(_ view: TopMenuView) {
-        self.performSegue(withIdentifier: savedOffersSegueId, sender: self)
     }
     
     // MARK: DZNEmptyDataSetDelegate and DZNEmptyDataSetSource
