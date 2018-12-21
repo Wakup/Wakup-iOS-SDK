@@ -252,7 +252,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="3vl-8e-8kP">
                                                 <rect key="frame" x="12" y="0.0" width="351" height="41"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="999" verticalHuggingPriority="999" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3x9-k5-CBZ" customClass="CategoryFilterButton" customModule="Wakup" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="999" verticalHuggingPriority="999" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3x9-k5-CBZ" customClass="CategoryFilterButton" customModule="Wakup" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="351" height="41"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                         <inset key="contentEdgeInsets" minX="15" minY="12" maxX="15" maxY="12"/>
