@@ -64,6 +64,7 @@
 		69A0A77B21CD228B0017D7DE /* CategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A77A21CD228B0017D7DE /* CategoryFilterView.swift */; };
 		69A0A77D21CD22B30017D7DE /* CompanyFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A77C21CD22B30017D7DE /* CompanyFilterView.swift */; };
 		69A0A77F21CD237E0017D7DE /* CompanyFilterIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A77E21CD237E0017D7DE /* CompanyFilterIndicatorView.swift */; };
+		69A0A79821CD765E0017D7DE /* ShowMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A79721CD765E0017D7DE /* ShowMapButton.swift */; };
 		69D999D11C22E635000892B1 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */; };
 		69D999D21C22E635000892B1 /* ZoomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */; };
 		69D999D31C22E635000892B1 /* ImageZoomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999D01C22E635000892B1 /* ImageZoomTransitionAnimator.swift */; };
@@ -177,6 +178,7 @@
 		69A0A77A21CD228B0017D7DE /* CategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterView.swift; sourceTree = "<group>"; };
 		69A0A77C21CD22B30017D7DE /* CompanyFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyFilterView.swift; sourceTree = "<group>"; };
 		69A0A77E21CD237E0017D7DE /* CompanyFilterIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyFilterIndicatorView.swift; sourceTree = "<group>"; };
+		69A0A79721CD765E0017D7DE /* ShowMapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMapButton.swift; sourceTree = "<group>"; };
 		69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitionAnimator.swift; sourceTree = "<group>"; };
 		69D999D01C22E635000892B1 /* ImageZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				69F485BB1C3FE47A006BCDE5 /* SearchResultCell.swift */,
 				6996C0111FE29ABA002F7448 /* WakupAppearance.swift */,
 				6996C0161FE44349002F7448 /* WakupTagListView.swift */,
+				69A0A79721CD765E0017D7DE /* ShowMapButton.swift */,
 			);
 			name = Appearance;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				69D999FF1C22FDC8000892B1 /* CouponCollectionHandler.swift in Sources */,
 				69D99A111C22FE59000892B1 /* CouponDescriptionViewController.swift in Sources */,
 				695D7A841C21DB200083132B /* CodeIcon.swift in Sources */,
+				69A0A79821CD765E0017D7DE /* ShowMapButton.swift in Sources */,
 				69D999ED1C22F6A4000892B1 /* CenteredIconButton.swift in Sources */,
 				69D99A0F1C22FE59000892B1 /* CouponDetailsViewController.swift in Sources */,
 				69D999EC1C22F6A4000892B1 /* CustomBorderButton.swift in Sources */,

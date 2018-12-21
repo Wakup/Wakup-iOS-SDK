@@ -369,13 +369,9 @@
                                     <outlet property="companySelector" destination="bEg-g5-B5v" id="yYZ-9b-j8V"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdv-bH-hbr" userLabel="Location Button" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
-                                <rect key="frame" x="295" y="587" width="60" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdv-bH-hbr" userLabel="Location Button" customClass="ShowMapButton" customModule="Wakup" customModuleProvider="target">
+                                <rect key="frame" x="325" y="613" width="30" height="34"/>
                                 <color key="backgroundColor" red="0.49762970210000002" green="0.33670049909999999" blue="0.49032086130000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Mdv-bH-hbr" secondAttribute="height" multiplier="1:1" id="7sg-fy-tHB"/>
-                                    <constraint firstAttribute="width" constant="60" id="gtu-ml-9O5"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -393,6 +389,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="buttonSize">
+                                        <size key="value" width="60" height="60"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
