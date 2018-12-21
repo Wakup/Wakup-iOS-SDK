@@ -92,12 +92,12 @@ open class CategorySelectionView: UIView {
     }
     
     func configureCategoryButton(button: UIButton, category: CompanyCategory) {
-        button.setTitle(category.name, for: .normal)
+        button.setTitle(category.name, for: [])
     }
     
     func configureCompanyButton(button: UIButton, company: CompanyWithCount) {
         button.sd_cancelCurrentImageLoad()
-        button.setBackgroundImage(nil, for: .normal)
+        button.setBackgroundImage(nil, for: [])
         guard let logo = company.logo else { return }
         
         // Set aspect ratio
