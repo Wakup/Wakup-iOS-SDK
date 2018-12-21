@@ -229,7 +229,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aDA-Ph-LTD">
-                                <rect key="frame" x="0.0" y="157" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="173" width="375" height="494"/>
                                 <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ow7-ov-C8i">
                                     <size key="itemSize" width="50" height="50"/>
@@ -244,7 +244,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Syx-YK-c9n" customClass="CategorySelectionView" customModule="Wakup" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="93"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="109"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38t-mp-kxU" customClass="CategoryFilterView" customModule="Wakup" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="41"/>
@@ -256,7 +256,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="351" height="41"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                         <inset key="contentEdgeInsets" minX="15" minY="12" maxX="15" maxY="12"/>
-                                                        <state key="normal" title="informática">
+                                                        <state key="normal">
                                                             <color key="titleColor" red="0.56380760669999996" green="0.37957167629999999" blue="0.56779015060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -288,23 +288,23 @@
                                         </connections>
                                     </scrollView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEg-g5-B5v" customClass="CompanyFilterView" customModule="Wakup" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="41" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="41" width="375" height="66"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="center" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DpN-a3-fRY">
-                                                <rect key="frame" x="12" y="0.0" width="351" height="50"/>
+                                                <rect key="frame" x="12" y="0.0" width="351" height="66"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAZ-Tm-ldf" customClass="CompanyFilterButton" customModule="Wakup" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="8" width="351" height="34"/>
+                                                        <rect key="frame" x="0.0" y="16" width="351" height="34"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
-                                                                <color key="value" white="0.90288628472222221" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                                <color key="value" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="4Du-jI-SML"/>
+                                                    <constraint firstAttribute="height" constant="66" id="4Du-jI-SML"/>
                                                 </constraints>
                                             </stackView>
                                             <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wDe-k5-gLn" customClass="CompanyFilterIndicatorView" customModule="Wakup" customModuleProvider="target">
@@ -343,7 +343,7 @@
                                         </connections>
                                     </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hl-hP-wwJ">
-                                        <rect key="frame" x="0.0" y="91" width="375" height="2"/>
+                                        <rect key="frame" x="0.0" y="107" width="375" height="2"/>
                                         <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="ofg-Ky-Frd"/>

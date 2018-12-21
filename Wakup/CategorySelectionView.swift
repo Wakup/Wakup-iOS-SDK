@@ -31,6 +31,8 @@ open class CategorySelectionView: UIView {
     open var selectedCategory: CompanyCategory? { didSet { reloadCompanies() } }
     open var selectedCompany: CompanyWithCount?
     
+    open var allowedAspectRatio: ClosedRange<CGFloat> = (0.6 ... 1.0)
+    
     var categoriesHeightConstraint: NSLayoutConstraint?
     var companiesHeightConstraint: NSLayoutConstraint?
     
@@ -102,11 +104,12 @@ open class CategorySelectionView: UIView {
         
         // Set aspect ratio
         button.removeConstraints(button.constraints)
-        let aspectRatio = CGFloat(logo.height / logo.width)
+        button.imageView?.contentMode = .scaleAspectFit
+        let aspectRatio = allowedAspectRatio.clamp(CGFloat(logo.height / logo.width))
         let _ = button.constrain(.height, .equal, button, .width, constant: CGFloat(0), multiplier: aspectRatio)
         let _ = button.constrain(.height, .equal, constant: companySelector.stackView.frame.height - 10)
         
         // Load image
-        button.sd_setBackgroundImage(with: logo.sourceUrl, for: .normal, completed: nil)
+        button.sd_setImage(with: logo.sourceUrl, for: .normal, completed: nil)
     }
 }

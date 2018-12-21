@@ -64,6 +64,7 @@
 		69A0A77B21CD228B0017D7DE /* CategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A77A21CD228B0017D7DE /* CategoryFilterView.swift */; };
 		69A0A77D21CD22B30017D7DE /* CompanyFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A77C21CD22B30017D7DE /* CompanyFilterView.swift */; };
 		69A0A77F21CD237E0017D7DE /* CompanyFilterIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A77E21CD237E0017D7DE /* CompanyFilterIndicatorView.swift */; };
+		69A0A79621CD4C840017D7DE /* ClosedRange+Clamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A79521CD4C840017D7DE /* ClosedRange+Clamp.swift */; };
 		69A0A79821CD765E0017D7DE /* ShowMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A79721CD765E0017D7DE /* ShowMapButton.swift */; };
 		69D999D11C22E635000892B1 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */; };
 		69D999D21C22E635000892B1 /* ZoomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */; };
@@ -178,6 +179,7 @@
 		69A0A77A21CD228B0017D7DE /* CategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterView.swift; sourceTree = "<group>"; };
 		69A0A77C21CD22B30017D7DE /* CompanyFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyFilterView.swift; sourceTree = "<group>"; };
 		69A0A77E21CD237E0017D7DE /* CompanyFilterIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyFilterIndicatorView.swift; sourceTree = "<group>"; };
+		69A0A79521CD4C840017D7DE /* ClosedRange+Clamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClosedRange+Clamp.swift"; sourceTree = "<group>"; };
 		69A0A79721CD765E0017D7DE /* ShowMapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMapButton.swift; sourceTree = "<group>"; };
 		69D999CE1C22E635000892B1 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		69D999CF1C22E635000892B1 /* ZoomTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				6996C0141FE40A49002F7448 /* UIColor+Variations.swift */,
 				69D999D61C22F668000892B1 /* UIView+Layout.swift */,
 				695D7A701C21CE710083132B /* ViewFromNib.swift */,
+				69A0A79521CD4C840017D7DE /* ClosedRange+Clamp.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				6996C0151FE40A49002F7448 /* UIColor+Variations.swift in Sources */,
 				69D999D51C22F630000892B1 /* Delay.swift in Sources */,
 				695F7C4C1C3ED51000D61415 /* CouponAnnotationView.swift in Sources */,
+				69A0A79621CD4C840017D7DE /* ClosedRange+Clamp.swift in Sources */,
 				695D7A4F1C21B66F0083132B /* SearchHistory.swift in Sources */,
 				69D99A101C22FE59000892B1 /* CouponMapViewController.swift in Sources */,
 				69E6C1C51D21916C0051FDE0 /* RedemptionCodeViewController.swift in Sources */,
