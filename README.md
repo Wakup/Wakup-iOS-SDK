@@ -155,38 +155,25 @@ NavBarIconView.appearance().iconColor = tintColor
 ~~~
 
 
-#### Offer list top bar
+#### Category and company filter bar
 
-Top bar view can be customized by using `TopMenuButton` and `TopMenuView` appearance proxies. Change `TopMenuView` background color to change the separator colors and customize `TopMenuButton` as standard `UIButton` with some extension properties for changing icon color.
+The category and company filter located at the top of the main scene view can be customized by using appearance proxies for the different elements. For customizing the background scroll view colors use `CategoryFilterView` and `CompanyFilterView` classes. Category and company buttons can be customized using the `CategoryFilterButton` and `CompanyFilterButton` and lastly, the small selection indicator can be customized using `CompanyFilterIndicatorView`.
 
-[![](https://i.imgur.com/SPnJZdrl.png)](https://i.imgur.com/SPnJZdr.png)
+[![](https://i.imgur.com/e6DTAzj.png)](https://i.imgur.com/e6DTAzj.png)
 
 ~~~swift
 let backgroundColor = UIColor(red:0.26, green:0.15, blue:0.26, alpha:1)
-let buttonBackgroundColor = UIColor(red:0.23, green:0.12, blue:0.24, alpha:1)
 let buttonColor = UIColor(red:0.56, green:0.38, blue:0.57, alpha:1)
-let highlightedButtonColor = buttonColor.colorWithAlphaComponent(0.5)
-
+    
 // Using convenience method
-WakupManager.appearance.setTopBarTint(buttonColor, buttonColor: buttonBackgroundColor, backgroundColor: backgroundColor)
+WakupManager.appearance.setCategoryFilterTint(backgroundColor: backgroundColor, buttonColor: buttonColor)
     
 // Using UIAppearance proxy
-TopMenuButton.appearance().setTitleColor(buttonColor, for: [])
-TopMenuButton.appearance().setTitleColor(highlightedButtonColor, for: .highlighted)
-TopMenuButton.appearance().iconColor = buttonColor
-TopMenuButton.appearance().highlightedIconColor = highlightedButtonColor
-TopMenuButton.appearance().backgroundColor = buttonBackgroundColor
-TopMenuButton.appearance().highlightedBackgroundColor = buttonBackgroundColor
-TopMenuView.appearance().backgroundColor = backgroundColor
-~~~
-
-In addition, icons can be removed from the menu buttons by setting the `iconIdentifier` to `nil` and restoring the edge insets:
-
-~~~swift
-// Remove icons from menu buttons
-TopMenuButton.appearance().iconIdentifier = nil
-TopMenuButton.appearance().titleEdgeInsets = UIEdgeInsetsZero
-TopMenuButton.appearance().imageEdgeInsets = UIEdgeInsetsZero
+CategoryFilterButton.appearance().setTitleColor(buttonColor, for: [])
+CategoryFilterButton.appearance().setTitleColor(.white, for: .selected)
+CategoryFilterView.appearance().backgroundColor = backgroundColor
+CompanyFilterIndicatorView.appearance().iconColor = backgroundColor
+CompanyFilterView.appearance().backgroundColor = .white
 ~~~
 
 

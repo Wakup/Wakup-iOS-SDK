@@ -17,7 +17,7 @@ public class WakupAppearance {
         let secondaryContrastColor = secondaryColor.isLight() ? secondaryColor.darker(by: 80) : secondaryColor.lighter(by: 80)
         
         setNavigationBarTint(navBarColor: mainColor, tintColor: contrastColor)
-        setTopBarTint(contrastColor, buttonColor: mainColor, backgroundColor: secondaryColor)
+        setCategoryFilterTint(backgroundColor: contrastColor, buttonColor: mainColor)
         setDiscountTagTint(secondaryColor, labelColor: secondaryContrastColor)
         setQuickActionsTint(mainColor)
         setOfferActionButtonsTint(secondaryColor)
@@ -34,17 +34,11 @@ public class WakupAppearance {
         NavBarIconView.appearance().iconColor = tintColor
     }
     
-    public func setTopBarTint(_ tintColor: UIColor, buttonColor: UIColor, backgroundColor: UIColor? = nil) {
-        let highlightedButtonColor = buttonColor.lighter()
-        let highlightedTintColor = tintColor.lighter()
-        
-        TopMenuButton.appearance().setTitleColor(tintColor, for: [])
-        TopMenuButton.appearance().setTitleColor(highlightedTintColor, for: .highlighted)
-        TopMenuButton.appearance().iconColor = tintColor
-        TopMenuButton.appearance().highlightedIconColor = highlightedTintColor
-        TopMenuButton.appearance().backgroundColor = buttonColor
-        TopMenuButton.appearance().highlightedBackgroundColor = highlightedButtonColor
-        TopMenuView.appearance().backgroundColor = backgroundColor ?? buttonColor.lighter(by: 20)
+    public func setCategoryFilterTint(backgroundColor: UIColor, buttonColor: UIColor, highlightedButtonColor: UIColor = .white) {
+        CategoryFilterButton.appearance().setTitleColor(buttonColor, for: [])
+        CategoryFilterButton.appearance().setTitleColor(highlightedButtonColor, for: .selected)
+        CategoryFilterView.appearance().backgroundColor = backgroundColor
+        CompanyFilterIndicatorView.appearance().iconColor = backgroundColor
         
     }
     
