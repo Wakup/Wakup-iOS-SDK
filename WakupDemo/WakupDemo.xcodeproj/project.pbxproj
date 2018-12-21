@@ -11,8 +11,15 @@
 		697AB5221DC225C600070376 /* OffersWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697AB5211DC225C600070376 /* OffersWidgetView.swift */; };
 		697AB5241DC3689500070376 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 697AB5231DC3689500070376 /* Main.storyboard */; };
 		697AB5291DCB4D3200070376 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 697AB5281DCB4D3200070376 /* Localizable.strings */; };
+		69A0A78121CD40340017D7DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69A0A78021CD40340017D7DE /* Images.xcassets */; };
+		69A0A78D21CD41E10017D7DE /* Aller_Bd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69A0A78621CD41E00017D7DE /* Aller_Bd.ttf */; };
+		69A0A78E21CD41E10017D7DE /* Aller_Rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69A0A78721CD41E00017D7DE /* Aller_Rg.ttf */; };
+		69A0A78F21CD41E10017D7DE /* AllerDisplay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69A0A78821CD41E00017D7DE /* AllerDisplay.ttf */; };
+		69A0A79021CD41E10017D7DE /* Aller_BdIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69A0A78921CD41E00017D7DE /* Aller_BdIt.ttf */; };
+		69A0A79121CD41E10017D7DE /* Aller_LtIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69A0A78A21CD41E10017D7DE /* Aller_LtIt.ttf */; };
+		69A0A79221CD41E10017D7DE /* Aller_It.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69A0A78B21CD41E10017D7DE /* Aller_It.ttf */; };
+		69A0A79321CD41E10017D7DE /* Aller_Lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69A0A78C21CD41E10017D7DE /* Aller_Lt.ttf */; };
 		69D99A341C231D4C000892B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D99A331C231D4C000892B1 /* AppDelegate.swift */; };
-		69D99A3B1C231D4C000892B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69D99A3A1C231D4C000892B1 /* Assets.xcassets */; };
 		69D99A3E1C231D4C000892B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D99A3C1C231D4C000892B1 /* LaunchScreen.storyboard */; };
 		CCCF2E7ED212CDBE912AB53A /* Pods_WakupDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F9D68BA14407B68153D072 /* Pods_WakupDemo.framework */; };
 /* End PBXBuildFile section */
@@ -25,9 +32,16 @@
 		697AB5211DC225C600070376 /* OffersWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersWidgetView.swift; sourceTree = "<group>"; };
 		697AB5231DC3689500070376 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		697AB5281DCB4D3200070376 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		69A0A78021CD40340017D7DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		69A0A78621CD41E00017D7DE /* Aller_Bd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Aller_Bd.ttf; sourceTree = "<group>"; };
+		69A0A78721CD41E00017D7DE /* Aller_Rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Aller_Rg.ttf; sourceTree = "<group>"; };
+		69A0A78821CD41E00017D7DE /* AllerDisplay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AllerDisplay.ttf; sourceTree = "<group>"; };
+		69A0A78921CD41E00017D7DE /* Aller_BdIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Aller_BdIt.ttf; sourceTree = "<group>"; };
+		69A0A78A21CD41E10017D7DE /* Aller_LtIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Aller_LtIt.ttf; sourceTree = "<group>"; };
+		69A0A78B21CD41E10017D7DE /* Aller_It.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Aller_It.ttf; sourceTree = "<group>"; };
+		69A0A78C21CD41E10017D7DE /* Aller_Lt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Aller_Lt.ttf; sourceTree = "<group>"; };
 		69D99A301C231D4C000892B1 /* WakupDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakupDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D99A331C231D4C000892B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		69D99A3A1C231D4C000892B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69D99A3D1C231D4C000892B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69D99A3F1C231D4C000892B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80F99F886A60C2714187CA28 /* Pods-WakupDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WakupDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WakupDemo/Pods-WakupDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -55,6 +69,31 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		69A0A78421CD41A90017D7DE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				69D99A3C1C231D4C000892B1 /* LaunchScreen.storyboard */,
+				697AB5231DC3689500070376 /* Main.storyboard */,
+				69A0A78021CD40340017D7DE /* Images.xcassets */,
+				69A0A78521CD41B10017D7DE /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		69A0A78521CD41B10017D7DE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				69A0A78621CD41E00017D7DE /* Aller_Bd.ttf */,
+				69A0A78921CD41E00017D7DE /* Aller_BdIt.ttf */,
+				69A0A78B21CD41E10017D7DE /* Aller_It.ttf */,
+				69A0A78C21CD41E10017D7DE /* Aller_Lt.ttf */,
+				69A0A78A21CD41E10017D7DE /* Aller_LtIt.ttf */,
+				69A0A78721CD41E00017D7DE /* Aller_Rg.ttf */,
+				69A0A78821CD41E00017D7DE /* AllerDisplay.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		69D99A271C231D4C000892B1 = {
 			isa = PBXGroup;
 			children = (
@@ -76,13 +115,11 @@
 		69D99A321C231D4C000892B1 /* WakupDemo */ = {
 			isa = PBXGroup;
 			children = (
+				69A0A78421CD41A90017D7DE /* Resources */,
 				69D99A331C231D4C000892B1 /* AppDelegate.swift */,
 				697AB51D1DC10FB100070376 /* HomeViewController.swift */,
 				697AB5211DC225C600070376 /* OffersWidgetView.swift */,
-				69D99A3A1C231D4C000892B1 /* Assets.xcassets */,
-				69D99A3C1C231D4C000892B1 /* LaunchScreen.storyboard */,
 				69D99A3F1C231D4C000892B1 /* Info.plist */,
-				697AB5231DC3689500070376 /* Main.storyboard */,
 				697AB5281DCB4D3200070376 /* Localizable.strings */,
 				6966E338207F4422006CB599 /* Madrid.gpx */,
 			);
@@ -132,8 +169,8 @@
 				TargetAttributes = {
 					69D99A2F1C231D4C000892B1 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = LFH7L32UGS;
 						LastSwiftMigration = 0910;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -160,9 +197,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69A0A78F21CD41E10017D7DE /* AllerDisplay.ttf in Resources */,
 				69D99A3E1C231D4C000892B1 /* LaunchScreen.storyboard in Resources */,
+				69A0A79221CD41E10017D7DE /* Aller_It.ttf in Resources */,
+				69A0A78121CD40340017D7DE /* Images.xcassets in Resources */,
+				69A0A79321CD41E10017D7DE /* Aller_Lt.ttf in Resources */,
+				69A0A78D21CD41E10017D7DE /* Aller_Bd.ttf in Resources */,
+				69A0A79021CD41E10017D7DE /* Aller_BdIt.ttf in Resources */,
 				697AB5291DCB4D3200070376 /* Localizable.strings in Resources */,
-				69D99A3B1C231D4C000892B1 /* Assets.xcassets in Resources */,
+				69A0A78E21CD41E10017D7DE /* Aller_Rg.ttf in Resources */,
+				69A0A79121CD41E10017D7DE /* Aller_LtIt.ttf in Resources */,
 				697AB5241DC3689500070376 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,11 +384,14 @@
 			baseConfigurationReference = 80F99F886A60C2714187CA28 /* Pods-WakupDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LFH7L32UGS;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WakupDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = es.yellow.WakupDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = es.yellowpineapple.Wakup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -356,11 +403,14 @@
 			baseConfigurationReference = 3BDDF1A28D567515799DD5C0 /* Pods-WakupDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LFH7L32UGS;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WakupDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = es.yellow.WakupDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = es.yellowpineapple.Wakup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

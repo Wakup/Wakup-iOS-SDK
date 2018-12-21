@@ -16,14 +16,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupCustomFonts()
         
         WakupManager.manager.setup("1223b89c-ca0b-4c40-bc87-6fce7f7d1ad7")  // Sample project API Key, don't use this in a production environment
-        WakupManager.appearance.setTint(mainColor: UIColor(fromHexString: "#5788a9"))
-        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        //WakupManager.appearance.setTint(mainColor: UIColor(fromHexString: "#5788a9"))
+        
+        // Sample of offer carousel view with modal integration
+        //window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        
+        // Sample of direct integration as root controller
+        window?.rootViewController = WakupManager.manager.rootNavigationController()
+        
         window?.makeKeyAndVisible()
         
         return true
     }
 
+    
+    func setupCustomFonts() {
+        CategoryFilterButton.appearance().titleFont = UIFont(name: "Aller-Bold", size: 14)
+        SearchFilterButton.appearance().titleFont = UIFont(name: "Aller", size: 10)
+        
+        CouponCollectionViewCell.appearance().storeNameFont = UIFont(name: "Aller-Bold", size: 17)
+        CouponCollectionViewCell.appearance().descriptionTextFont = UIFont(name: "Aller-Italic", size: 15)
+        CouponCollectionViewCell.appearance().distanceFont = UIFont(name: "Aller-Italic", size: 11)
+        CouponCollectionViewCell.appearance().expirationFont = UIFont(name: "Aller-Italic", size: 11)
+        DiscountTagView.appearance().labelFont = UIFont(name: "AllerDisplay", size: 17)
+        
+        CouponActionButton.appearance().titleFont = UIFont(name: "Aller", size: 10)
+        CouponDetailHeaderView.appearance().companyNameFont = UIFont(name: "Aller", size: 18)
+        CouponDetailHeaderView.appearance().storeAddressFont = UIFont(name: "Aller-LightItalic", size: 14)
+        CouponDetailHeaderView.appearance().storeDistanceFont = UIFont(name: "Aller-Italic", size: 11)
+        CouponDetailHeaderView.appearance().couponNameFont = UIFont(name: "Aller", size: 19)
+        CouponDetailHeaderView.appearance().couponDescriptionFont = UIFont(name: "Aller", size: 14)
+        CouponDetailHeaderView.appearance().expirationFont = UIFont(name: "Aller-Italic", size: 13)
+        
+        if #available(iOS 9.0, *) {
+            let headerTitle = UILabel.appearance(whenContainedInInstancesOf:[UITableViewHeaderFooterView.self])
+            headerTitle.font = UIFont(name: "Aller", size: 16)
+            
+            let searchBarTextField = UITextField.appearance(whenContainedInInstancesOf:[UISearchBar.self])
+            searchBarTextField.defaultTextAttributes = [
+                NSAttributedStringKey.font.rawValue: UIFont(name: "Aller", size: 14)!
+            ]
+        }
+    }
+}
+
+// Required to set title font 
+extension UIButton {
+    var titleFont: UIFont? {
+        get { return titleLabel?.font }
+        set { titleLabel?.font = newValue }
+    }
 }
 
