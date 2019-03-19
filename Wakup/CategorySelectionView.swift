@@ -51,7 +51,7 @@ open class CategorySelectionView: UIView {
             categorySelector.removeConstraint(constraint)
             categoriesHeightConstraint = nil
         }
-        if categories?.isEmpty ?? true {
+        if categories?.count ?? 0 <= 1 {
             categoriesHeightConstraint = categorySelector.heightAnchor.constraint(equalToConstant: 0)
             categorySelector.addConstraint(categoriesHeightConstraint!)
         }
