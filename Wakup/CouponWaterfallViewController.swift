@@ -80,6 +80,15 @@ import DZNEmptyDataSet
         locationManager.startUpdatingLocation()
     }
     
+    func getCategoryForCompany(company: Company) -> CompanyCategory? {
+        let categories = categorySelectionView?.categories ?? []
+        return categories.first { category -> Bool in
+            category.companies.contains(where: { c -> Bool in
+                c.id == company.id
+            })
+        }
+    }
+    
     deinit {
         collectionView?.emptyDataSetDelegate = nil
         collectionView?.emptyDataSetSource = nil
@@ -95,7 +104,7 @@ import DZNEmptyDataSet
         categorySelectionView?.onCategorySelected = { [weak self] category, company in
             self?.filterOptions = FilterOptions(companyId: company?.id, categoryId: category?.id)
             self?.reload()
-            if let company = company, let category = category {
+            if let company = company, let category = category ?? self?.getCategoryForCompany(company: company) {
                 // Setup related offers for company and category filters
                 self?.couponCollectionHandler?.setRelatedCouponsLoadMethod(loadMethod: { (page, perPage, onComplete) -> Void in
                     guard let wself = self else { return }
