@@ -29,6 +29,9 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
     lazy var couponCellNib: UINib = { UINib(nibName: "CouponCollectionViewCell", bundle: self.defaultBundle) }()
     var prototypeCouponCell: PrototypeDataView<CouponCollectionViewCell, Coupon>!
     
+    lazy var sectionHeaderId = "SectionHeaderView"
+    lazy var sectionHeaderNib: UINib = { UINib(nibName: "SectionHeaderView", bundle: self.defaultBundle) }()
+    
     fileprivate var requestId = arc4random()
     fileprivate var nextPage = 0
     fileprivate var hasMore = true
@@ -63,6 +66,12 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
     open var lastRequestError: Error?
     open var lastRequestFailed: Bool { get { return lastRequestError != nil } }
     
+    fileprivate var relatedNextPage = 0
+    fileprivate var relatedHasMore = true
+    open var relatedCoupons = [Coupon]()
+    open var loadRelatedCouponsMethod: LoadCouponMethod?
+    open var shouldLoadRelatedCoupons: ((_ page: Int) -> Bool)?
+    
     
     public init(collectionView: UICollectionView?, loadCouponMethod: @escaping LoadCouponMethod) {
         self.loadCouponsMethod = loadCouponMethod
@@ -71,6 +80,7 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
         
         layout.sectionInset = UIEdgeInsetsMake(10, 6, 10, 6)
         layout.footerHeight = 80
+        layout.headerHeight = 50
         
         prototypeCouponCell = PrototypeDataView(fromNib: couponCellNib, updateMethod: { cell, coupon in
             cell.loadImages = false
@@ -80,6 +90,7 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
         })
         
         collectionView?.register(loadingFooterNib, forSupplementaryViewOfKind: CHTCollectionElementKindSectionFooter, withReuseIdentifier: loadingFooterId)
+        collectionView?.register(sectionHeaderNib, forSupplementaryViewOfKind: CHTCollectionElementKindSectionHeader, withReuseIdentifier: sectionHeaderId)
         
         collectionView?.register(couponCellNib, forCellWithReuseIdentifier: couponCellId)
         
@@ -90,21 +101,35 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
         collectionView?.alwaysBounceVertical = true
     }
     
+    open func setRelatedCouponsLoadMethod(loadMethod: @escaping LoadCouponMethod) {
+        loadRelatedCouponsMethod = loadMethod
+    }
+    
+    open func resetRelatedCouponsLoadMethod() {
+        loadRelatedCouponsMethod = nil
+    }
+    
     @objc open func forceRefresh() {
         reloadCoupons()
         refreshControl.endRefreshing()
     }
     
     open func reloadCoupons() {
-        nextPage = 0
+        clear()
         loading = true;
         loadCoupons()
     }
     
     open func loadMoreCoupons() {
-        if (enablePagination && hasMore && !loadingMore && !loading) {
-            loadingMore = true;
-            loadCoupons(appendResults: true)
+        if (enablePagination && !loadingMore && !loading) {
+            if (hasMore) {
+                loadingMore = true;
+                loadCoupons(appendResults: true)
+            }
+            else if (loadRelatedCouponsMethod != nil && relatedHasMore) {
+                loadingMore = true;
+                loadRelatedCoupons(appendResults: true)
+            }
         }
     }
     
@@ -116,8 +141,15 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
     
     open func clear() {
         cancel()
+        
         nextPage = 0
+        hasMore = true
         coupons = [Coupon]()
+        
+        relatedNextPage = 0
+        relatedHasMore = true
+        relatedCoupons = [Coupon]()
+        
         collectionView?.reloadData()
     }
     
@@ -135,70 +167,133 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
         }
     }
     
-    open func loadCoupons(appendResults append: Bool = false) {
-        if shouldLoadCoupons != nil && !shouldLoadCoupons!(nextPage) {
-            return
-        }
+    open func loadRelatedCoupons(appendResults append: Bool = false) {
+        guard let loadMethod = loadRelatedCouponsMethod, shouldLoadRelatedCoupons?(relatedNextPage) ?? true else { return }
         
         let requestId = arc4random()
         self.requestId = requestId
         
+        if (append) {
+            self.loadingMore = true
+        }
+        else {
+            self.loading = true
+        }
+        
+        loadMethod(relatedNextPage, elementsPerPage, ({ result, error in
+            self.processRequestResults(requestId: requestId, result: result, error: error, append: append, relatedSection: true)
+        }))
+    }
+    
+    open func loadCoupons(appendResults append: Bool = false) {
+        guard shouldLoadCoupons?(nextPage) ?? true else { return }
+        
+        let requestId = arc4random()
+        self.requestId = requestId
+        
+        if (append) {
+            self.loadingMore = true
+        }
+        else {
+            self.loading = true
+        }
+        
         loadCouponsMethod(nextPage, elementsPerPage, ({ result, error in
-            if (self.requestId != requestId) {
-                NSLog("Discarding request")
-                return
-            }
-            self.lastRequestError = error
-            self.loading = false
-            self.loadingMore = false
-            if let error = error {
-                NSLog("Received error \(error)")
-                if self.onErrorReceived != nil {
-                    self.onErrorReceived?(error)
-                }
-                else {
-                    guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
-                    let alert = UIAlertController(title: "ConnectionErrorTitle".i18n(), message: "ConnectionErrorMsg".i18n(), preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "CloseDialogButton".i18n(), style: .cancel, handler: nil))
-                    rootVC.present(alert, animated: true, completion: nil)
-                }
+            self.processRequestResults(requestId: requestId, result: result, error: error, append: append)
+        }))
+    }
+    
+    open func processRequestResults(requestId: UInt32, result: [Coupon]?, error: Error?, append: Bool = false, relatedSection: Bool = false) {
+        if (self.requestId != requestId) {
+            NSLog("Discarding request")
+            return
+        }
+        self.lastRequestError = error
+        self.loading = false
+        self.loadingMore = false
+        if let error = error {
+            NSLog("Received error \(error)")
+            if self.onErrorReceived != nil {
+                self.onErrorReceived?(error)
             }
             else {
-                let coupons = result ?? [Coupon]()
+                guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
+                let alert = UIAlertController(title: "ConnectionErrorTitle".i18n(), message: "ConnectionErrorMsg".i18n(), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "CloseDialogButton".i18n(), style: .cancel, handler: nil))
+                rootVC.present(alert, animated: true, completion: nil)
+            }
+        }
+        else {
+            let coupons = result ?? [Coupon]()
+            if (relatedSection) {
+                self.relatedHasMore = coupons.count >= self.elementsPerPage
+                self.relatedNextPage += 1
+            }
+            else {
                 self.hasMore = coupons.count >= self.elementsPerPage
                 self.nextPage += 1
-                
-                if (append) {
-                    let indexes = self.coupons.count..<self.coupons.count + coupons.count
-                    let indexPaths = indexes.map { index in IndexPath(row: index, section: 0) }
+            }
+            
+            let section = relatedSection ? 1 : 0
+            if (append) {
+                let existingCoupons = relatedSection ? self.relatedCoupons : self.coupons
+                let indexes = existingCoupons.count ..< existingCoupons.count + coupons.count
+                let indexPaths = indexes.map { index in IndexPath(row: index, section: section) }
+                if (relatedSection) {
+                    self.relatedCoupons += coupons
+                }
+                else {
                     self.coupons += coupons
-                    self.collectionView?.insertItems(at: indexPaths)
+                }
+                self.collectionView?.insertItems(at: indexPaths)
+            }
+            else {
+                if (relatedSection) {
+                    self.relatedCoupons = coupons
                 }
                 else {
                     self.coupons = coupons
-                    if (self.reloadAnimated) {
-                        self.collectionView?.reloadSections(IndexSet(integer: 0))
-                    }
-                    else {
-                        self.collectionView?.reloadData()
-                    }
                 }
-                self.collectionView?.reloadEmptyDataSet()
+                if (self.reloadAnimated) {
+                    self.collectionView?.reloadSections(IndexSet(integer: section))
+                }
+                else {
+                    self.collectionView?.reloadData()
+                }
             }
-        }))
+            
+            self.collectionView?.reloadEmptyDataSet()
+
+        }
     }
 
     
     open func collectionView (_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let coupons = indexPath.section == 0 ? self.coupons : self.relatedCoupons
         return prototypeCouponCell.getUpdatedSize(data: coupons[(indexPath as NSIndexPath).row])
     }
     
+    open func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, heightForFooterInSection section: Int) -> CGFloat {
+        let lastSection = numberOfSections(in: collectionView)
+        let showLoading = lastSection == section && (loadingMore || (showFooterWhenReloading && loading))
+        return showLoading ? layout.footerHeight : 0
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 1 ? layout.headerHeight : 0
+    }
+    
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return coupons.count
+        return section == 0 ? coupons.count : relatedCoupons.count
+    }
+    
+    open func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return relatedCoupons.count > 0 ? 2 : 1
     }
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let coupons = indexPath.section == 0 ? self.coupons : self.relatedCoupons
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: couponCellId, for: indexPath) as! CouponCollectionViewCell
         cell.userLocation = userLocation
         cell.coupon = coupons[(indexPath as NSIndexPath).row]
@@ -219,14 +314,20 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
     
     open func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        loadingFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: loadingFooterId, for: indexPath) as? LoadingFooterView
-        loadingFooterView?.isHidden = !(loadingMore || (showFooterWhenReloading && loading))
-        return loadingFooterView
+        switch kind {
+        case CHTCollectionElementKindSectionFooter:
+            loadingFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: loadingFooterId, for: indexPath) as? LoadingFooterView
+            loadingFooterView?.isHidden = !(loadingMore || (showFooterWhenReloading && loading))
+            return loadingFooterView
+        default:
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: sectionHeaderId, for: indexPath) as! SectionHeaderView
+            return header
+        }
     }
     
     open func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-        if (coupons.count - (indexPath as NSIndexPath).row <= pageReloadElements) {
+        let couponCount = (indexPath.section == 1 ? relatedCoupons : coupons).count
+        if (couponCount - (indexPath as NSIndexPath).row <= pageReloadElements) {
             loadMoreCoupons()
         }
     }

@@ -14,6 +14,8 @@
 		694C68241C73328A0062C730 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C68231C73328A0062C730 /* UserService.swift */; };
 		694C68261C7346E00062C730 /* Dictionary+Flatten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694C68251C7346E00062C730 /* Dictionary+Flatten.swift */; };
 		695660511C7239420067918C /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695660501C7239420067918C /* BaseService.swift */; };
+		69595A89231E754A0082D436 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69595A87231E754A0082D436 /* SectionHeaderView.swift */; };
+		69595A8A231E754A0082D436 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69595A88231E754A0082D436 /* SectionHeaderView.xib */; };
 		695D7A491C21B66F0083132B /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A421C21B66F0083132B /* Coupon.swift */; };
 		695D7A4A1C21B66F0083132B /* CouponImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A431C21B66F0083132B /* CouponImage.swift */; };
 		695D7A4B1C21B66F0083132B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695D7A441C21B66F0083132B /* Store.swift */; };
@@ -128,6 +130,8 @@
 		694C68231C73328A0062C730 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		694C68251C7346E00062C730 /* Dictionary+Flatten.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Flatten.swift"; sourceTree = "<group>"; };
 		695660501C7239420067918C /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		69595A87231E754A0082D436 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		69595A88231E754A0082D436 /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		695D7A421C21B66F0083132B /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		695D7A431C21B66F0083132B /* CouponImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponImage.swift; sourceTree = "<group>"; };
 		695D7A441C21B66F0083132B /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -411,6 +415,8 @@
 				69D999DA1C22F6A4000892B1 /* ScissorsLoadingView.swift */,
 				69D999D91C22F6A4000892B1 /* UIImageView+Fade.swift */,
 				69D999E21C22F6A4000892B1 /* UIButton+VerticalLayout.swift */,
+				69595A87231E754A0082D436 /* SectionHeaderView.swift */,
+				69595A88231E754A0082D436 /* SectionHeaderView.xib */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -572,6 +578,7 @@
 				69D999FE1C22FDC8000892B1 /* CouponDetailHeaderView.xib in Resources */,
 				69D999E81C22F6A4000892B1 /* LoadingFooterView.xib in Resources */,
 				69D999FC1C22FDC8000892B1 /* CouponDetailCollectionViewCell.xib in Resources */,
+				69595A8A231E754A0082D436 /* SectionHeaderView.xib in Resources */,
 				69D999FA1C22FDC8000892B1 /* CouponCollectionViewCell.xib in Resources */,
 				69EA218A1C24680600B8EE30 /* Wakup.strings in Resources */,
 				69D99A211C22FF98000892B1 /* ContextItemView.xib in Resources */,
@@ -669,6 +676,7 @@
 				695D7A831C21DB200083132B /* StyleKit.swift in Sources */,
 				695D7A4A1C21B66F0083132B /* CouponImage.swift in Sources */,
 				69E3BE1C1D1AEC330005E817 /* RedemptionCode.swift in Sources */,
+				69595A89231E754A0082D436 /* SectionHeaderView.swift in Sources */,
 				69A0A77B21CD228B0017D7DE /* CategoryFilterView.swift in Sources */,
 				695D7A691C21BEE50083132B /* SyncUtils.swift in Sources */,
 				69431BB01C3BF68C00A42139 /* NavBarIconView.swift in Sources */,

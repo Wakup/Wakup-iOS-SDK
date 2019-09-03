@@ -26,7 +26,7 @@ import DZNEmptyDataSet
     let highlightedOfferSegueId = "highlightedOffer"
     let mapStoryboardId = "couponMap"
     let savedOffersSegueId = "savedOffers"
-    var selectedRow: Int = 0
+    var selectedIndex: IndexPath?
     
     let layout = CHTCollectionViewWaterfallLayout()
     open var couponCollectionHandler: CouponCollectionHandler?
@@ -95,6 +95,18 @@ import DZNEmptyDataSet
         categorySelectionView?.onCategorySelected = { [weak self] category, company in
             self?.filterOptions = FilterOptions(companyId: company?.id, categoryId: category?.id)
             self?.reload()
+            if let company = company, let category = category {
+                // Setup related offers for company and category filters
+                self?.couponCollectionHandler?.setRelatedCouponsLoadMethod(loadMethod: { (page, perPage, onComplete) -> Void in
+                    guard let wself = self else { return }
+                    let pagination = PaginationInfo(page: page, perPage: perPage)
+                    let sensor = wself.location.map { l in l.horizontalAccuracy > 0 } ?? false
+                    wself.offersService.findRelatedCategoryOffers(usingLocation: wself.coordinate, sensor: sensor, category: category, company: company, pagination: pagination, completion: onComplete)
+                })
+            }
+            else {
+                self?.couponCollectionHandler?.resetRelatedCouponsLoadMethod()
+            }
         }
         if filterOptions == nil && categoryFilterEnabled {
             categorySelectionView?.fetchCategories()
@@ -200,6 +212,14 @@ import DZNEmptyDataSet
         return couponCollectionHandler!.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
     }
     
+    public func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, heightForHeaderInSection section: Int) -> CGFloat {
+        return couponCollectionHandler!.collectionView(collectionView, layout: collectionViewLayout, heightForHeaderInSection: section)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, heightForFooterInSection section: Int) -> CGFloat {
+        return couponCollectionHandler!.collectionView(collectionView, layout: collectionViewLayout, heightForFooterInSection: section)
+    }
+    
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return couponCollectionHandler!.collectionView(collectionView, numberOfItemsInSection: section)
     }
@@ -220,8 +240,12 @@ import DZNEmptyDataSet
     
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         couponCollectionHandler?.collectionView(collectionView, didSelectItemAt: indexPath)
-        selectedRow = (indexPath as NSIndexPath).row
+        selectedIndex = indexPath
         performSegue(withIdentifier: showDetailsSegueId, sender: self)
+    }
+    
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return couponCollectionHandler!.numberOfSections(in: collectionView)
     }
     
     // MARK: CLLocationManagerDelegate methods
@@ -277,13 +301,13 @@ import DZNEmptyDataSet
     
     // MARK: Transition methods
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == showDetailsSegueId) {
+        if (segue.identifier == showDetailsSegueId), let selectedIndex = self.selectedIndex {
             let vc = segue.destination as! CouponDetailsViewController
             vc.userLocation = couponCollectionHandler?.userLocation
-            vc.coupons = couponCollectionHandler!.coupons
-            vc.selectedIndex = selectedRow
+            vc.coupons = selectedIndex.section == 1 ? couponCollectionHandler!.relatedCoupons : couponCollectionHandler!.coupons
+            vc.selectedIndex = selectedIndex.row
             vc.onSelectionChanged = { coupon, row in
-                self.selectedRow = row
+                self.selectedIndex = IndexPath(row: row, section: selectedIndex.section)
             }
         }
         else if (segue.identifier == highlightedOfferSegueId) {
@@ -298,7 +322,7 @@ import DZNEmptyDataSet
     }
     
     open func zoomTransitionOriginView() -> UIView {
-        let indexPath = IndexPath(row: selectedRow, section: 0)
+        let indexPath = self.selectedIndex ?? IndexPath(row: 0, section: 0)
         let cell = self.collectionView?.scrollToAndGetCell(atIndexPath: indexPath) as! CouponCollectionViewCell
         return cell.couponImageView
     }

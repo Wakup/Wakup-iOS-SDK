@@ -54,7 +54,7 @@ public class OffersService: BaseService {
     public func findOffers(usingLocation location: CLLocationCoordinate2D, sensor: Bool, filterOptions: FilterOptions? = nil, pagination: PaginationInfo? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
         
         let url = "\(offerHostUrl)offers/find"
-        let locationParameters: [String: Any] = ["latitude": location.latitude, "longitude": location.longitude, "sensor": "\(sensor)"]
+        let locationParameters = getLocationParams(location: location, sensor: sensor)
         var parameters = getPaginationParams(pagination: pagination, combinedWith: locationParameters)
         parameters = getFilterParams(filter: filterOptions, combinedWith: parameters)
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
@@ -63,7 +63,7 @@ public class OffersService: BaseService {
     public func getRecommendedOffers(usingLocation location: CLLocationCoordinate2D, sensor: Bool, pagination: PaginationInfo? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
         
         let url = "\(offerHostUrl)offers/recommended"
-        let locationParameters: [String: Any] = ["latitude": location.latitude, "longitude": location.longitude, "sensor": "\(sensor)"]
+        let locationParameters = getLocationParams(location: location, sensor: sensor)
         let parameters = getPaginationParams(pagination: pagination, combinedWith: locationParameters)
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
@@ -73,6 +73,18 @@ public class OffersService: BaseService {
         let url = "\(offerHostUrl)offers/related"
         let offerParameters = ["storeId": offer.store?.id ?? -1, "offerId": offer.id]
         let parameters = getPaginationParams(pagination: pagination, combinedWith: offerParameters as [String : Any]?)
+        getOffersFromURL(url: url, parameters: parameters, completion: completion)
+    }
+    
+    public func findRelatedCategoryOffers(usingLocation location: CLLocationCoordinate2D, sensor: Bool, category: CompanyCategory, company: Company, pagination: PaginationInfo? = nil, completion: @escaping ([Coupon]?, Error?) -> Void) {
+        
+        let url = "\(offerHostUrl)offers/category/related"
+        let filterParams: [String: Any] = [
+            "companyId": company.id,
+            "categoryId": category.id
+        ]
+        let locationParameters = getLocationParams(location: location, sensor: sensor, combinedWith: filterParams)
+        let parameters = getPaginationParams(pagination: pagination, combinedWith: locationParameters)
         getOffersFromURL(url: url, parameters: parameters, completion: completion)
     }
     
@@ -151,6 +163,14 @@ public class OffersService: BaseService {
                 result["categoryId"] = categoryId
             }
         }
+        return result
+    }
+    
+    fileprivate func getLocationParams(location: CLLocationCoordinate2D?, sensor: Bool, combinedWith parameters: [String: Any]? = nil) -> [String: Any] {
+        var result = parameters ?? [String: Any]()
+        result["latitude"] = location?.latitude
+        result["longitude"] = location?.longitude
+        result["sensor"] = "\(sensor)"
         return result
     }
     
