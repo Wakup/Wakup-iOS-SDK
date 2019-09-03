@@ -263,7 +263,11 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
             }
             
             self.collectionView?.reloadEmptyDataSet()
-
+            
+            // Manually load related offers if offer list comes empty
+            if (!relatedSection && self.coupons.count == 0 && loadRelatedCouponsMethod != nil) {
+                self.loadRelatedCoupons(appendResults: true)
+            }
         }
     }
 
@@ -280,7 +284,7 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
     }
     
     public func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 1 ? layout.headerHeight : 0
+        return section == 1 && relatedCoupons.count > 0 ? layout.headerHeight : 0
     }
     
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -288,7 +292,7 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
     }
     
     open func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return relatedCoupons.count > 0 ? 2 : 1
+        return loadRelatedCouponsMethod != nil ? 2 : 1
     }
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
