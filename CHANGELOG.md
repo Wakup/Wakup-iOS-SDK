@@ -5,6 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 - No changes
 
+## [4.0.0] - 2019-09-04
+### Added
+- Added category and company selectors on top of the offer list to filter the current selection.
+- Added related offers section to the end of the company filtered offers.
+/Users/redent/workspace/wakup-sdk/Wakup/CouponDetailCollectionViewCell.swift
+
 ## [3.3.0] - 2018-12-13
 ### Added
 - Non-vectorial images can now be used instead of vectorial icons anywhere in the application.
@@ -148,7 +154,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.3.0...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.3.0...v4.0.0
 [3.3.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.2.0...v3.3.0
 [3.2.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.1.1...v3.2.0
 [3.1.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.1.0...v3.1.1
