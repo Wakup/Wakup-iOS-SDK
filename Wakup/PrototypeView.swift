@@ -26,6 +26,7 @@ class PrototypeView<T: UIView> {
     }
     
     func getFittingSize() -> CGSize {
+        view.setNeedsLayout()
         view.layoutIfNeeded()
         return view.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
     }
