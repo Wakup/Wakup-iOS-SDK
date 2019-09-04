@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Yellow Pineapple" => "juan.cerro@101offers.co" }
   s.platform     = :ios
+  s.swift_versions = ['4.0']
   s.ios.deployment_target = '9.0'
   s.source       = { :git => "https://github.com/Wakup/Wakup-iOS-SDK.git", :tag => "v#{s.version}" }
 
