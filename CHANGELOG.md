@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+
+## [4.0.2] - 2019-09-06
 ### Fixed
 - Reloading offers will no longer hide and show the loading view, causing some issues when location changes rapidly
 
@@ -159,7 +162,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.1...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.2...HEAD
+[4.0.2]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.1...v4.0.2
 [4.0.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.0...v4.0.1
 [4.0.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.3.0...v4.0.0
 [3.3.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.2.0...v3.3.0
