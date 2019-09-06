@@ -3,9 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-- No changes
+### Fixed
+- Reloading offers will no longer hide and show the loading view, causing some issues when location changes rapidly
 
 ## [4.0.1] - 2019-09-04
+### Fixed
 - Added `swift_versions` property to podspec file.
 
 ## [4.0.0] - 2019-09-04

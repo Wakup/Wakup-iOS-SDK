@@ -115,8 +115,8 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
     }
     
     open func reloadCoupons() {
-        clear()
         loading = true;
+        clear(cancel: false)
         loadCoupons()
     }
     
@@ -139,8 +139,10 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
         loadingMore = false
     }
     
-    open func clear() {
-        cancel()
+    open func clear(cancel: Bool = true) {
+        if (cancel) {
+            self.cancel()
+        }
         
         nextPage = 0
         hasMore = true
