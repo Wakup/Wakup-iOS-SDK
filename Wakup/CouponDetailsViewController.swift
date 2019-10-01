@@ -77,6 +77,13 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
+    private func getVisibleCellIndex() -> IndexPath? {
+        guard let collectionView = self.collectionView else { return nil }
+        let offset = collectionView.contentOffset.x + (collectionView.frame.width / 2)
+        
+        return collectionView.indexPathForItem(at: CGPoint(x: offset, y: collectionView.frame.height / 2))
+    }
+    
     // MARK: View lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -198,8 +205,8 @@ class CouponDetailsViewController: LoadingPresenterViewController, UICollectionV
     
     // MARK: UIScrollViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if let visibleIndexPath = self.collectionView?.indexPathsForVisibleItems.first {
-            let newSelectedItem = (visibleIndexPath as NSIndexPath).row
+        if let visibleIndexPath = getVisibleCellIndex() {
+            let newSelectedItem = visibleIndexPath.row
             if newSelectedItem != self.selectedIndex {
                 self.selectedIndex = newSelectedItem
                 if let listener = onSelectionChanged {

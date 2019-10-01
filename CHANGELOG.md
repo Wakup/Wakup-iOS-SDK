@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 - Fixed issue in iOS 13 where the layoutSubviews was called endlessly, causing the application to hang when entering in an offer detail
+- Details view controller will now more reliably perform the correct animation when going to the previous screen
 
 ## [4.0.2] - 2019-09-06
 ### Fixed
