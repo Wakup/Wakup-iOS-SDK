@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+
+## [4.0.4] - 2019-10-01
 ### Fixed
 - Updated XIB files for Xcode 11
 
@@ -168,7 +171,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.3...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.4...HEAD
+[4.0.4]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.3...v4.0.4
 [4.0.3]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.2...v4.0.3
 [4.0.2]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.1...v4.0.2
 [4.0.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.0...v4.0.1
