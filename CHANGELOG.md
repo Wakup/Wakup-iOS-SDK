@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+
+## [4.0.3] - 2019-10-01
 - Fixed issue in iOS 13 where the layoutSubviews was called endlessly, causing the application to hang when entering in an offer detail
 - Details view controller will now more reliably perform the correct animation when going to the previous screen
 
@@ -163,7 +166,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.2...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.3...HEAD
+[4.0.2]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.2...v4.0.3
 [4.0.2]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.1...v4.0.2
 [4.0.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.0...v4.0.1
 [4.0.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v3.3.0...v4.0.0
