@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-- No changes
+- Fixed issue in iOS 13 where the layoutSubviews was called endlessly, causing the application to hang when entering in an offer detail
 
 ## [4.0.2] - 2019-09-06
 ### Fixed

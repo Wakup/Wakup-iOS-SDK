@@ -104,7 +104,7 @@ open class CouponDetailHeaderView: UICollectionReusableView {
     @IBOutlet weak var descriptionViewConstraint: NSLayoutConstraint!
     
     // MARK: Properties
-    var coupon: Coupon! { didSet { setNeedsLayout(); updateTags() } }
+    var coupon: Coupon! { didSet { setNeedsRefresh() } }
     var userLocation: CLLocation? { didSet { setNeedsLayout() } }
     
     var loadImages = true
@@ -117,6 +117,8 @@ open class CouponDetailHeaderView: UICollectionReusableView {
     
     var hasLocation: Bool { return coupon?.store?.location() != nil }
     var hasLink: Bool { return coupon?.online ?? false && coupon?.link != nil }
+    
+    private var needsRefresh = true;
     
     @objc open dynamic var tagPrefix = "#"
     
@@ -133,7 +135,10 @@ open class CouponDetailHeaderView: UICollectionReusableView {
     }
     
     override open func layoutSubviews() {
-        refreshUI()
+        if (needsRefresh) {
+            refreshUI()
+            needsRefresh = false
+        }
         super.layoutSubviews()
     }
     
@@ -145,6 +150,12 @@ open class CouponDetailHeaderView: UICollectionReusableView {
                 self.delegate?.headerViewDidSelectAction(.showTag(tag: tag), headerView: self)
             }
         }
+    }
+    
+    func setNeedsRefresh() {
+        needsRefresh = true
+        setNeedsLayout()
+        updateTags()
     }
     
     func refreshUI() {
