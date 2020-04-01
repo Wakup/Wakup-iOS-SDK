@@ -1,14 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
+platform :ios, '11.0'
 use_frameworks!
 
 target 'WakupDemo' do
 
     # Wakup SDK
     pod 'Wakup', :path => '../'
-    
-    # An easy-to-plug-in Contextual Menu for iOS inspired by Pinterest (fix for modal controllers fork)
-    pod 'iOSContextualMenu', :git => 'https://github.com/redent/iOSContextualMenu.git'
 
 end
 

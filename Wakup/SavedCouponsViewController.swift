@@ -210,8 +210,8 @@ class SavedCouponsViewController: LoadingPresenterViewController, CHTCollectionV
     let emptyViewColor = UIColor(fromHexString: "#908E90")
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18),
-            NSAttributedStringKey.foregroundColor: emptyViewColor
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18),
+            NSAttributedString.Key.foregroundColor: emptyViewColor
         ]
         let title = lastRequestFailed ? "ConnectionErrorViewTitle".i18n() : "EmptyMyOffersTitle".i18n()
         return NSAttributedString(string: title, attributes: attributes)
@@ -228,8 +228,8 @@ class SavedCouponsViewController: LoadingPresenterViewController, CHTCollectionV
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14),
-            NSAttributedStringKey.foregroundColor: emptyViewColor
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
+            NSAttributedString.Key.foregroundColor: emptyViewColor
         ]
         let description = lastRequestFailed ? "ConnectionErrorViewMsg".i18n() : "EmptyMyOffersDescription".i18n()
         return NSAttributedString(string: description, attributes: attributes)

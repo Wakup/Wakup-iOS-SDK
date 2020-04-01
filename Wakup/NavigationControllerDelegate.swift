@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 open class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
-    open func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    open func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         switch (operation, fromVC, toVC) {
         case (.push, is ZoomTransitionOrigin, is ZoomTransitionDestination):

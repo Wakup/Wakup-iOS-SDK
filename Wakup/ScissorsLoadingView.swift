@@ -149,7 +149,7 @@ import UIKit
         transformAnim.toValue     = 360 * CGFloat.pi/180;
         transformAnim.duration    = 6
         transformAnim.repeatCount = Float.infinity
-        transformAnim.fillMode = kCAFillModeBoth
+        transformAnim.fillMode = CAMediaTimingFillMode.both
         transformAnim.isRemovedOnCompletion = false
         
         return transformAnim;
@@ -170,7 +170,7 @@ import UIKit
         transformAnim.keyTimes    = [0, 0.2, 0.25, 0.45, 0.5, 0.7, 0.75, 0.95, 1]
         transformAnim.duration    = 6
         transformAnim.repeatCount = Float.infinity
-        transformAnim.fillMode = kCAFillModeBoth
+        transformAnim.fillMode = CAMediaTimingFillMode.both
         transformAnim.isRemovedOnCompletion = false
         
         return transformAnim;
@@ -204,7 +204,7 @@ import UIKit
         transformAnim.keyTimes    = [0, 0.0333, 0.0667, 0.1, 0.133, 0.167, 0.283, 0.317, 0.35, 0.383, 0.417, 0.533, 0.567, 0.6, 0.633, 0.667, 0.783, 0.817, 0.85, 0.883, 0.917, 1]
         transformAnim.duration    = 6
         transformAnim.repeatCount = Float.infinity
-        transformAnim.fillMode = kCAFillModeBoth
+        transformAnim.fillMode = CAMediaTimingFillMode.both
         transformAnim.isRemovedOnCompletion = false
         
         return transformAnim;
@@ -238,7 +238,7 @@ import UIKit
         transformAnim.keyTimes    = [0, 0.0333, 0.0667, 0.1, 0.133, 0.167, 0.283, 0.317, 0.35, 0.383, 0.417, 0.533, 0.567, 0.6, 0.633, 0.667, 0.783, 0.817, 0.85, 0.883, 0.917, 1]
         transformAnim.duration    = 6
         transformAnim.repeatCount = Float.infinity
-        transformAnim.fillMode = kCAFillModeBoth
+        transformAnim.fillMode = CAMediaTimingFillMode.both
         transformAnim.isRemovedOnCompletion = false
         
         return transformAnim;

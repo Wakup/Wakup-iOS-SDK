@@ -276,7 +276,7 @@ import DZNEmptyDataSet
             if #available(iOS 8.0, *) {
                 let alert = UIAlertController(title: "GeolocationDeniedTitle".i18n(), message: "GeolocationDeniedMsg".i18n(), preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ApplicationSettings".i18n(), style: .default) { _ in
-                    UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+                    UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
                 })
                 alert.addAction(UIAlertAction(title: "CloseDialogButton".i18n(), style: .default) { _ in })
                 present(alert, animated: true, completion: nil)
@@ -341,8 +341,8 @@ import DZNEmptyDataSet
     let emptyViewColor = UIColor(fromHexString: "#908E90")
     open func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18),
-            NSAttributedStringKey.foregroundColor: emptyViewColor
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18),
+            NSAttributedString.Key.foregroundColor: emptyViewColor
         ]
         let title = lastRequestFailed ? "ConnectionErrorViewTitle".i18n() : "EmptyOfferSearchTitle".i18n()
         return NSAttributedString(string: title, attributes: attributes)
@@ -359,8 +359,8 @@ import DZNEmptyDataSet
     
     open func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14),
-            NSAttributedStringKey.foregroundColor: emptyViewColor
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
+            NSAttributedString.Key.foregroundColor: emptyViewColor
         ]
         let description = lastRequestFailed ? "ConnectionErrorViewMsg".i18n() : "EmptyOfferSearchDescription".i18n()
         return NSAttributedString(string: description, attributes: attributes)

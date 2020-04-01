@@ -15,7 +15,7 @@ extension UIImageView {
             if (cacheType ==  .none) {
                 let animation = CATransition()
                 animation.duration = 0.3
-                animation.type = kCATransitionFade
+                animation.type = CATransitionType.fade
                 
                 self.layer.add(animation, forKey: "image-load")
             }

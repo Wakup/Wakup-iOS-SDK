@@ -78,7 +78,7 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
         self.collectionView = collectionView
         super.init()
         
-        layout.sectionInset = UIEdgeInsetsMake(10, 6, 10, 6)
+        layout.sectionInset = UIEdgeInsets.init(top: 10, left: 6, bottom: 10, right: 6)
         layout.footerHeight = 80
         layout.headerHeight = 50
         
@@ -96,7 +96,7 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
         
         collectionView?.setCollectionViewLayout(layout, animated: false)
         
-        refreshControl.addTarget(self, action: #selector(CouponCollectionHandler.forceRefresh), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(CouponCollectionHandler.forceRefresh), for: UIControl.Event.valueChanged)
         collectionView?.addSubview(refreshControl)
         collectionView?.alwaysBounceVertical = true
     }
@@ -156,7 +156,7 @@ open class CouponCollectionHandler: NSObject, CHTCollectionViewDelegateWaterfall
     }
     
     open func removeCoupon(_ coupon: Coupon, animated: Bool) {
-        if let index = coupons.index(of: coupon) {
+        if let index = coupons.firstIndex(of: coupon) {
             removeCoupon(atIndex: index, animated: animated)
         }
     }

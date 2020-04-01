@@ -104,7 +104,7 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
     }
     
     func openAppSettings() {
-        guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else { return }
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
         UIApplication.shared.openURL(settingsUrl)
     }
     
@@ -214,7 +214,7 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
         return text.map { NSAttributedString(string: NSLocalizedString($0, comment: "")) }
     }
     
-    public func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+    public func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
         var text: String?
         switch status {
         case .locationFailed:
@@ -230,7 +230,7 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
         default:
             break
         }
-        let attrs = [NSAttributedStringKey.foregroundColor: UIColor.lightGray]
+        let attrs = [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         return text.map { NSAttributedString(string: NSLocalizedString($0, comment: ""), attributes: attrs) }
     }
     
@@ -238,7 +238,7 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
     public func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
         switch status {
         case .loading, .fetchingLocation:
-            let view = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            let view = UIActivityIndicatorView(style: .gray)
             view.startAnimating()
             return view
         default:

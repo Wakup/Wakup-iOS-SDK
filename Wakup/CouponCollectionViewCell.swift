@@ -160,7 +160,7 @@ open class CouponCollectionViewCell: UICollectionViewCell {
     }
     
     func aspectRatioConstraint(forView view: UIView, ratio: Float) -> NSLayoutConstraint {
-        let constraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.height, multiplier: CGFloat(ratio), constant: CGFloat(0))
+        let constraint = NSLayoutConstraint(item: view, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.height, multiplier: CGFloat(ratio), constant: CGFloat(0))
         return constraint
     }
     

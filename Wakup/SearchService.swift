@@ -72,7 +72,7 @@ class SearchService: BaseService {
     func getSavedHistory() -> [SearchHistory]? {
         if let jsonString = try? String(contentsOf: searchHistoryFile(), encoding: String.Encoding.utf8),
             let data = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false),
-            let array = try? JSON(data: data).array
+            let array = ((try? JSON(data: data).array) as [JSON]??)
         {
             return array.map { $0.compactMap(SearchHistory.fromJson) }
         }

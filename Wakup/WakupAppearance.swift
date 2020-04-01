@@ -29,7 +29,7 @@ public class WakupAppearance {
         UINavigationBar.appearance().barTintColor = navBarColor
         UINavigationBar.appearance().tintColor = tintColor
         UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedStringKey.foregroundColor: tintColor
+            NSAttributedString.Key.foregroundColor: tintColor
         ]
         NavBarIconView.appearance().iconColor = tintColor
     }

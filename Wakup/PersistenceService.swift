@@ -35,14 +35,14 @@ class PersistenceService {
     }
     
     func removeOfferId(_ id: Int) {
-        if let index = getSavedOfferIds().index(of: id) {
+        if let index = getSavedOfferIds().firstIndex(of: id) {
             savedOfferIds?.remove(at: index)
             persistOfferIds()
         }
     }
     
     func isSaved(_ id: Int) -> Bool {
-        return getSavedOfferIds().index(of: id) != .none
+        return getSavedOfferIds().firstIndex(of: id) != .none
     }
     
     @discardableResult func toggle(_ id: Int) -> Bool {

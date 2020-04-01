@@ -126,9 +126,9 @@ open class CouponDetailHeaderView: UICollectionReusableView {
     override open func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        saveButton.setTitle("CouponHeaderSave".i18n(), for: UIControlState())
+        saveButton.setTitle("CouponHeaderSave".i18n(), for: UIControl.State())
         saveButton.setTitle("CouponHeaderSaved".i18n(), for: .selected)
-        shareButton.setTitle("CouponHeaderShare".i18n(), for: UIControlState())
+        shareButton.setTitle("CouponHeaderShare".i18n(), for: UIControl.State())
 
         cellWidthConstraint!.constant = preferredWidth
         self.setNeedsLayout()
@@ -196,11 +196,11 @@ open class CouponDetailHeaderView: UICollectionReusableView {
             
             if hasLink {
                 showInMapButton?.iconIdentifier = "link"
-                showInMapButton?.setTitle("CouponHeaderLink".i18n(), for: UIControlState())
+                showInMapButton?.setTitle("CouponHeaderLink".i18n(), for: UIControl.State())
             }
             else {
                 showInMapButton?.iconIdentifier = "location"
-                showInMapButton?.setTitle("CouponHeaderShowMap".i18n(), for: UIControlState())
+                showInMapButton?.setTitle("CouponHeaderShowMap".i18n(), for: UIControl.State())
                 showInMapButton?.isEnabled = hasLocation
             }
             refreshSavedStatus()
@@ -274,7 +274,7 @@ open class CouponDetailHeaderView: UICollectionReusableView {
     }
 
     func aspectRatioConstraint(forView view: UIView, ratio: Float) -> NSLayoutConstraint {
-        let constraint = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.height, multiplier: CGFloat(ratio), constant: CGFloat(0))
+        let constraint = NSLayoutConstraint(item: view, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.height, multiplier: CGFloat(ratio), constant: CGFloat(0))
         return constraint
     }
     

@@ -43,7 +43,7 @@ open class WakupManager: NSObject {
         vc.userLocation = userLocation
         if let offers = offers, !offers.isEmpty {
             vc.coupons = offers
-            vc.selectedIndex = offers.index(of: offer) ?? 0
+            vc.selectedIndex = offers.firstIndex(of: offer) ?? 0
         }
         else {
             vc.coupons = [offer]

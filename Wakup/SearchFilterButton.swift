@@ -15,6 +15,6 @@ open class SearchFilterButton: CenteredCodeIconButton {
     func reloadUI() {
         guard let category = category else { return }
         iconIdentifier = category.icon
-        setTitle(category.title, for: UIControlState())
+        setTitle(category.title, for: UIControl.State())
     }
 }

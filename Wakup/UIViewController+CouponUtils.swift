@@ -29,7 +29,7 @@ extension UIViewController {
         }
         
         let activityViewController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
-        activityViewController.excludedActivityTypes = [UIActivityType.addToReadingList, UIActivityType.print, UIActivityType.assignToContact]
+        activityViewController.excludedActivityTypes = [UIActivity.ActivityType.addToReadingList, UIActivity.ActivityType.print, UIActivity.ActivityType.assignToContact]
         self.present(activityViewController, animated: true, completion: nil)
     }
 }
@@ -40,8 +40,7 @@ private func shareCouponInPresenter(_ coupon: Coupon, presenter: UIViewControlle
     let shareText = coupon.company.name + " - " + text + "\n" + "ShareOfferFooter".i18n()
     if let imageUrl = coupon.image?.sourceUrl {
         loadViewPresenter.showLoadingView(animated: true)
-        SDWebImageManager.shared().imageDownloader?.downloadImage(with: imageUrl, options: .highPriority, progress: nil, completed: { (image, error, cacheType, imageUrl) -> Void in
-            
+        SDWebImageManager.shared.imageLoader.requestImage(with: imageUrl, options: .highPriority, context: nil, progress: nil, completed: { (image, data, error, finished) in
             loadViewPresenter.dismissLoadingView(animated: true, completion: {
                 presenter.shareTextImageAndURL(sharingText: shareText, sharingImage: image, sharingURL: url)
             })

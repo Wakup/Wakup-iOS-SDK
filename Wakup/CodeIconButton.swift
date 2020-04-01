@@ -43,7 +43,7 @@ import UIKit
     }
     
     func refreshNormal() {
-        setImage(getIcon(color: iconColor), for: UIControlState())
+        setImage(getIcon(color: iconColor), for: UIControl.State())
     }
     
     func refreshHighlighted() {

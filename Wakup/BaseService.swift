@@ -32,7 +32,7 @@ public class BaseService {
     {
         let performRequest = { (headers: [String: String]) in
             NetworkActivityIndicatorManager.sharedInstance.startActivity()
-            let r = request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseSwiftyJSON { result in
+            AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: HTTPHeaders(headers)).validate().responseSwiftyJSON { result in
                 NetworkActivityIndicatorManager.sharedInstance.endActivity()
                 switch result.result {
                 case .failure(let error):
@@ -43,7 +43,7 @@ public class BaseService {
                     completion(json, nil)
                 }
             }
-            print("Creating request with URL", r.request!.url!)
+            print("Creating request with URL", url)
         }
         
         if withUserToken {

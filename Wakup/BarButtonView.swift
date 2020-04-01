@@ -133,18 +133,18 @@ open class BarButtonView: UIScrollView {
             var frame = view.frame
             if item != items.first && item != items.last {
                 let insets = UIEdgeInsets(top: 0, left: -40, bottom: 0, right: -40)
-                frame = UIEdgeInsetsInsetRect(frame, insets)
+                frame = frame.inset(by: insets)
             }
             self.view.scrollRectToVisible(frame, animated: animated)
         }
         
         func viewForItem(_ item: T) -> V? {
-            guard let stackView = stackView, let index = items.index(of: item) else { return nil }
+            guard let stackView = stackView, let index = items.firstIndex(of: item) else { return nil }
             return stackView.arrangedSubviews[index] as? V
         }
         
         @objc func barButtonSelected(sender: AnyObject) {
-            guard let stackView = stackView, let index = stackView.arrangedSubviews.index(of: sender as! UIView) else { return }
+            guard let stackView = stackView, let index = stackView.arrangedSubviews.firstIndex(of: sender as! UIView) else { return }
             select(index: index, animated: true)
         }
         

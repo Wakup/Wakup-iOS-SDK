@@ -180,8 +180,8 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         }
         else {
             // Reverse animation is exactly the opposite steps
-            containerView.bringSubview(toFront: fromSnapshotView)
-            containerView.bringSubview(toFront: toMainView)
+            containerView.bringSubviewToFront(fromSnapshotView)
+            containerView.bringSubviewToFront(toMainView)
             toMainView.alpha = 0
             toMainView.transform = toScaleTransform
             

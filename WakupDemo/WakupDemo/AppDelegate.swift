@@ -14,11 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setupCustomFonts()
         
-        WakupManager.manager.setup("1223b89c-ca0b-4c40-bc87-6fce7f7d1ad7")  // Sample project API Key, don't use this in a production environment
+        WakupManager.manager.setup("075f9656-6909-4e4e-a286-3ddc562a2513")  // Sample project API Key, don't use this in a production environment	
         //WakupManager.appearance.setTint(mainColor: UIColor(fromHexString: "#5788a9"))
         
         // Sample of offer carousel view with modal integration
@@ -56,9 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             headerTitle.font = UIFont(name: "Aller", size: 16)
             
             let searchBarTextField = UITextField.appearance(whenContainedInInstancesOf:[UISearchBar.self])
-            searchBarTextField.defaultTextAttributes = [
-                NSAttributedStringKey.font.rawValue: UIFont(name: "Aller", size: 14)!
-            ]
+            searchBarTextField.defaultTextAttributes = convertToNSAttributedStringKeyDictionary([
+                NSAttributedString.Key.font.rawValue: UIFont(name: "Aller", size: 14)!
+            ])
         }
     }
 }
@@ -71,3 +71,8 @@ extension UIButton {
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}

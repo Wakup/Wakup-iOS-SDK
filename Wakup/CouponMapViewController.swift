@@ -171,7 +171,7 @@ open class CouponMapViewController: UIViewController, MKMapViewDelegate {
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: detailsStoryboardId) as! CouponDetailsViewController
         detailsVC.userLocation = self.userLocation
         detailsVC.coupons = coupons
-        detailsVC.selectedIndex = coupons.index(of: offer) ?? 0
+        detailsVC.selectedIndex = coupons.firstIndex(of: offer) ?? 0
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     
