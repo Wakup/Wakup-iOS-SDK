@@ -10,12 +10,12 @@ import Foundation
 
 @objc
 open class WakupManager: NSObject {
-    public static let manager = WakupManager()
-    public static let appearance = WakupAppearance()
+    @objc public static let manager = WakupManager()
+    @objc public static let appearance = WakupAppearance()
     
     internal var options = WakupOptions()
     
-    open func setup(_ apiKey: String, options: WakupOptions = WakupOptions()) {
+    @objc open func setup(_ apiKey: String, options: WakupOptions = WakupOptions()) {
         SearchService.sharedInstance.apiKey = apiKey
         OffersService.sharedInstance.apiKey = apiKey
         UserService.sharedInstance.apiKey = apiKey
@@ -24,17 +24,17 @@ open class WakupManager: NSObject {
         CodeIconLibrary.instance = options.iconLibrary
     }
     
-    open lazy var storyboard: UIStoryboard! = UIStoryboard(name: "Wakup", bundle: Bundle(for: WakupManager.self))
+    @objc open lazy var storyboard: UIStoryboard! = UIStoryboard(name: "Wakup", bundle: Bundle(for: WakupManager.self))
     
-    open func rootNavigationController() -> UINavigationController! {
+    @objc open func rootNavigationController() -> UINavigationController! {
         return storyboard.instantiateInitialViewController() as? UINavigationController
     }
     
-    open func rootController() -> UIViewController! {
+    @objc open func rootController() -> UIViewController! {
         return storyboard.instantiateViewController(withIdentifier: "couponWaterfall")
     }
     
-    open func webViewController() -> WebViewController! {
+    @objc open func webViewController() -> WebViewController! {
         return storyboard.instantiateViewController(withIdentifier: "webViewController") as? WebViewController
     }
     
@@ -53,7 +53,7 @@ open class WakupManager: NSObject {
         return vc
     }
     
-    open func setAlias(alias: String, _ completion: ((Error?) -> Void)? = nil) {
+    @objc open func setAlias(alias: String, _ completion: ((Error?) -> Void)? = nil) {
         UserService.sharedInstance.setAlias(alias: alias, completion ?? { _ in })
     }
     
@@ -71,10 +71,10 @@ open class WakupOptions: NSObject {
     open var iconLibrary: IconLibrary = DefaultIconLibrary()
     
     /// Default user location, used when there's no user location available
-    open var defaultLocation = CLLocation(latitude: 40.416944, longitude: -3.703611) // Puerta del Sol, Madrid
+    @objc open var defaultLocation = CLLocation(latitude: 40.416944, longitude: -3.703611) // Puerta del Sol, Madrid
     
     /// Search country, will be appended to geolocation searches to narrow results
-    open var searchCountryCode: String? = "es" // NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as? String
+    @objc open var searchCountryCode: String? = "es" // NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as? String
     
     /// Category definition. Used for search controller shortcuts. Set to nil to disable category search.
     open var searchCategories: [OfferCategory]? = [

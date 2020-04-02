@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-public class WakupAppearance {
-    public func setTint(mainColor: UIColor, secondaryColor: UIColor? = nil, contrastColor: UIColor? = nil) {
+@objc
+public class WakupAppearance: NSObject {
+    @objc public func setTint(mainColor: UIColor, secondaryColor: UIColor? = nil, contrastColor: UIColor? = nil) {
         let isLight = mainColor.isLight()
         let contrastColor = contrastColor ?? (isLight ? mainColor.darker(by: 80) : mainColor.lighter(by: 80))
         let secondaryColor = secondaryColor ?? (isLight ? mainColor.darker(by: 30) : mainColor.lighter(by: 30))
@@ -25,7 +26,7 @@ public class WakupAppearance {
         setSearchTint(mainColor)
     }
     
-    public func setNavigationBarTint(navBarColor: UIColor, tintColor: UIColor) {
+    @objc public func setNavigationBarTint(navBarColor: UIColor, tintColor: UIColor) {
         UINavigationBar.appearance().barTintColor = navBarColor
         UINavigationBar.appearance().tintColor = tintColor
         UINavigationBar.appearance().titleTextAttributes = [
@@ -34,7 +35,7 @@ public class WakupAppearance {
         NavBarIconView.appearance().iconColor = tintColor
     }
     
-    public func setCategoryFilterTint(backgroundColor: UIColor, buttonColor: UIColor, highlightedButtonColor: UIColor = .white) {
+    @objc public func setCategoryFilterTint(backgroundColor: UIColor, buttonColor: UIColor, highlightedButtonColor: UIColor = .white) {
         CategoryFilterButton.appearance().setTitleColor(buttonColor, for: [])
         CategoryFilterButton.appearance().setTitleColor(highlightedButtonColor, for: .selected)
         CategoryFilterView.appearance().backgroundColor = backgroundColor
@@ -42,7 +43,7 @@ public class WakupAppearance {
         
     }
     
-    public func setOfferViewsTint(titleColor: UIColor = .black, descriptionColor: UIColor = UIColor(white: 0.33, alpha: 1), detailsColor: UIColor = UIColor(white:0.56, alpha:1)) {
+    @objc public func setOfferViewsTint(titleColor: UIColor = .black, descriptionColor: UIColor = UIColor(white: 0.33, alpha: 1), detailsColor: UIColor = UIColor(white:0.56, alpha:1)) {
         CouponCollectionViewCell.appearance().storeNameTextColor = titleColor
         CouponCollectionViewCell.appearance().descriptionTextColor = descriptionColor
         CouponCollectionViewCell.appearance().distanceTextColor = detailsColor
@@ -51,12 +52,12 @@ public class WakupAppearance {
         CouponCollectionViewCell.appearance().expirationIconColor = detailsColor
     }
     
-    public func setDiscountTagTint(_ tintColor: UIColor, labelColor: UIColor = .white) {
+    @objc public func setDiscountTagTint(_ tintColor: UIColor, labelColor: UIColor = .white) {
         DiscountTagView.appearance().backgroundColor = tintColor
         DiscountTagView.appearance().labelColor = labelColor
     }
     
-    public func setQuickActionsTint(_ mainColor: UIColor, secondaryColor: UIColor = .white) {
+    @objc public func setQuickActionsTint(_ mainColor: UIColor, secondaryColor: UIColor = .white) {
         ContextItemView.appearance().backgroundColor = mainColor
         ContextItemView.appearance().highlightedBackgroundColor = mainColor.lighter(by: 20)
         ContextItemView.appearance().iconColor = secondaryColor
@@ -64,7 +65,7 @@ public class WakupAppearance {
         ContextItemView.appearance().borderColor = secondaryColor
     }
     
-    public func setOfferDetailsTint(titleColor: UIColor = .black, descriptionColor: UIColor = UIColor(white: 0.33, alpha: 1), detailsColor: UIColor = UIColor(white:0.56, alpha:1)) {
+    @objc public func setOfferDetailsTint(titleColor: UIColor = .black, descriptionColor: UIColor = UIColor(white: 0.33, alpha: 1), detailsColor: UIColor = UIColor(white:0.56, alpha:1)) {
         CouponDetailHeaderView.appearance().companyNameTextColor = titleColor
         CouponDetailHeaderView.appearance().storeAddressTextColor = detailsColor
         CouponDetailHeaderView.appearance().storeDistanceTextColor = detailsColor
@@ -78,20 +79,20 @@ public class WakupAppearance {
         CouponDetailHeaderView.appearance().companyNameTextColor = detailsColor
     }
     
-    public func setOfferActionButtonsTint(_ actionColor: UIColor) {
+    @objc public func setOfferActionButtonsTint(_ actionColor: UIColor) {
         CouponActionButton.appearance().iconColor = actionColor
         CouponActionButton.appearance().highlightedBackgroundColor = actionColor
         CouponActionButton.appearance().setTitleColor(actionColor, for: [])
         CouponActionButton.appearance().normalBorderColor = actionColor
     }
     
-    public func setTagListTint(_ tintColor: UIColor) {
+    @objc public func setTagListTint(_ tintColor: UIColor) {
         WakupTagListView.appearance().tagBackgroundColor = tintColor
         WakupTagListView.appearance().tagHighlightedBackgroundColor = tintColor.darker()
         WakupTagListView.appearance().wakupBorderColor = tintColor.darker()
     }
     
-    public func setSearchTint(_ tintColor: UIColor) {
+    @objc public func setSearchTint(_ tintColor: UIColor) {
         SearchFilterButton.appearance().iconColor = tintColor
         SearchFilterButton.appearance().highlightedBackgroundColor = tintColor
         SearchFilterButton.appearance().setTitleColor(tintColor, for: [])
