@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WebKit
 
-open class WebViewController: LoadingPresenterViewController, UIWebViewDelegate {
+open class WebViewController: LoadingPresenterViewController, WKNavigationDelegate, WKUIDelegate {
     
     open var url: URL?
     open var showRefreshButton = false
@@ -18,12 +19,12 @@ open class WebViewController: LoadingPresenterViewController, UIWebViewDelegate 
         return navigationController.presentingViewController != nil && navigationController.viewControllers.first == self
     }
     
-    @IBOutlet var webView: UIWebView!
+    @IBOutlet var webView: WKWebView!
     
     open func loadUrl(_ url: URL, animated: Bool = true) {
         self.url = url
         showLoadingView()
-        webView?.loadRequest(URLRequest(url: url))
+        webView?.load(URLRequest(url: url))
     }
     
     // MARK: View lifecycle
@@ -31,6 +32,8 @@ open class WebViewController: LoadingPresenterViewController, UIWebViewDelegate 
         super.viewDidLoad()
 
         setupLoadingView()
+        webView?.uiDelegate = self
+        webView?.navigationDelegate = self
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -80,14 +83,8 @@ open class WebViewController: LoadingPresenterViewController, UIWebViewDelegate 
         webView.reload()
     }
     
-    // MARK: UIWebViewDelegate
-    open func webViewDidStartLoad(_ webView: UIWebView) {
-        showLoadingView()
-    }
-    open func webViewDidFinishLoad(_ webView: UIWebView) {
-        dismissLoadingView()
-    }
-    open func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+    // MARK: WKNavigationDelegate
+    open func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         dismissLoadingView()
         
         let error = error as NSError
@@ -105,7 +102,13 @@ open class WebViewController: LoadingPresenterViewController, UIWebViewDelegate 
         let alert = UIAlertController(title: "WebViewError".i18n(), message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "CloseDialogButton".i18n(), style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
 
-        
+    open func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        showLoadingView()
+    }
+    
+    open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        dismissLoadingView()
     }
 }
