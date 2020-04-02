@@ -336,8 +336,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                 if let placemark = placemarks?[(indexPath as NSIndexPath).row], let coord = placemark.location?.coordinate {
                     location = placemark.location
                     locationName = placemark.name
-                    let address = (placemark.addressDictionary?["FormattedAddressLines"] as? Array<String>)?.joined(separator: ", ")
-                    newHistory = SearchHistory.location(name: placemark.name!, address: address, latitude: coord.latitude, longitude: coord.longitude)
+                    let addressFormatter = CNPostalAddressFormatter()
+                    var fullAddress = ""
+                    if let address = placemark.postalAddress {
+                        fullAddress = addressFormatter.string(from: address)
+                    }
+                    newHistory = SearchHistory.location(name: placemark.name!, address: fullAddress, latitude: coord.latitude, longitude: coord.longitude)
                 }
             case .userLocation:
                 break

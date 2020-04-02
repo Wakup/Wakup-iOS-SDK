@@ -87,14 +87,17 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
             status = .awaitingPermission
         case .denied, .restricted:
             status = .permissionDenied
+        @unknown default:
+            status = .permissionDenied
         }
     }
     
     func configure(withParentController parentVC: UIViewController) {
-        onOfferSelected = { [unowned parentVC] offer in
+        onOfferSelected = { [weak self] offer in
             print("Selected offer \(offer)")
-            let detailsVC = WakupManager.manager.offerDetailsController(forOffer: offer, userLocation: self.location, offers: self.offers)!
-            detailsVC.automaticallyAdjustsScrollViewInsets = false
+            guard let sself = self else { return }
+            let detailsVC = WakupManager.manager.offerDetailsController(forOffer: offer, userLocation: sself.location, offers: sself.offers)!
+            sself.collectionView.contentInsetAdjustmentBehavior = .never
             
             let navicationController = WakupManager.manager.rootNavigationController()!
             navicationController.viewControllers = [detailsVC]
@@ -105,7 +108,7 @@ open class OffersWidgetView: UIView, UICollectionViewDelegate, UICollectionViewD
     
     func openAppSettings() {
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
-        UIApplication.shared.openURL(settingsUrl)
+        UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
     }
     
     // MARK: - UIView
