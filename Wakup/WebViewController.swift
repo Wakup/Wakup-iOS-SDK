@@ -55,7 +55,11 @@ open class WebViewController: LoadingPresenterViewController, UIWebViewDelegate 
     
     open func openInSafari() -> Bool {
         guard let url = url else { return false }
-        return UIApplication.shared.openURL(url)
+        if (UIApplication.shared.canOpenURL(url)) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            return true
+        }
+        return false;
     }
     
     open func closeController(_ animated: Bool = true) {

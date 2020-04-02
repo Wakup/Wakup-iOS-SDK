@@ -9,6 +9,7 @@
 import UIKit
 import AddressBookUI
 import CoreLocation
+import Contacts
 
 class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, UISearchResultsUpdating {
 
@@ -244,9 +245,15 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                 cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell") as? SearchResultCell
                 let placemark = placemarks?[(indexPath as NSIndexPath).row]
                 let name = placemark?.name ?? ""
-                let address = (placemark?.addressDictionary?["FormattedAddressLines"] as? Array<String>)?.joined(separator: ", ")
+                let addressFormatter = CNPostalAddressFormatter()
+                if let address = placemark?.postalAddress {
+                    cell.detailTextLabel?.text = addressFormatter.string(from: address)
+                }
+                else {
+                    cell.detailTextLabel?.text = ""
+                }
+
                 cell.textLabel?.text = name
-                cell.detailTextLabel?.text = address
                 cell.iconIdentifier = "location"
             case .userLocation:
                 cell = tableView.dequeueReusableCell(withIdentifier: "FeaturedCell") as? SearchResultCell

@@ -142,7 +142,7 @@ class CouponDetailCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     func showLink(forOffer offer: Coupon) {
         if let link = offer.link {
             // TODO: Ask for confirmation?
-            UIApplication.shared.openURL(link as URL)
+            UIApplication.shared.open(link, options: [:], completionHandler: nil)
         }
     }
     

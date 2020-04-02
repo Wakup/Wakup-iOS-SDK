@@ -276,7 +276,7 @@ import DZNEmptyDataSet
             if #available(iOS 8.0, *) {
                 let alert = UIAlertController(title: "GeolocationDeniedTitle".i18n(), message: "GeolocationDeniedMsg".i18n(), preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ApplicationSettings".i18n(), style: .default) { _ in
-                    UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
+                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
                 })
                 alert.addAction(UIAlertAction(title: "CloseDialogButton".i18n(), style: .default) { _ in })
                 present(alert, animated: true, completion: nil)

@@ -50,7 +50,7 @@ open class CodeImage {
             adjustedSize = CGSize(width: size.width, height: size.width / aspectRatio)
         }
         
-        let adjustedOrigin = CGPoint(x: fabs(size.width - adjustedSize.width) / 2 + frame.origin.x, y: fabs(size.height - adjustedSize.height) / 2 + frame.origin.y)
+        let adjustedOrigin = CGPoint(x: abs(size.width - adjustedSize.width) / 2 + frame.origin.x, y: abs(size.height - adjustedSize.height) / 2 + frame.origin.y)
         
         return CGRect(x: adjustedOrigin.x, y: adjustedOrigin.y, width: adjustedSize.width, height: adjustedSize.height)
     }
