@@ -110,6 +110,14 @@ public class OffersService: BaseService {
         }
     }
     
+    public func getHighlightedCompanies(completion: @escaping ([CompanyWithCount]?, Error?) -> Void) -> Void {
+        let url = "\(offerHostUrl)highlightedCompanies"
+        self.createRequest(.get, url) { json, error in
+            let result = json?.arrayValue.map(self.parseCompanyWithCount)
+            completion(result, error)
+        }
+    }
+    
     public func getRedemptionCode(forOffer offer: Coupon, completion: @escaping (RedemptionCode?, Error?) -> Void) {
         let url = "\(offerHostUrl)offers/\(offer.id)/code"
         self.createRequest(.get, url) { (json, error) in

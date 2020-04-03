@@ -3,7 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-- No changes
+### Added
+- Company carousel in Home view will now show highlighted companies when no category is selected.
 
 ## [5.0.1] - 2020-04-03
 ### Changes

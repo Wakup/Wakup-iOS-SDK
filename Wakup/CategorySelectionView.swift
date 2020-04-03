@@ -30,6 +30,7 @@ open class CategorySelectionView: UIView {
     open var categories: [CompanyCategory]? { didSet { reloadCategories() } }
     open var selectedCategory: CompanyCategory? { didSet { reloadCompanies() } }
     open var selectedCompany: CompanyWithCount?
+    open var highlightedCompanies: [CompanyWithCount]? { didSet { reloadCompanies() } }
     
     open var allowedAspectRatio: ClosedRange<CGFloat> = (0.6 ... 1.0)
     
@@ -40,6 +41,9 @@ open class CategorySelectionView: UIView {
         guard categories == nil else { return }
         offerService.getCategories { [weak self] categories, error in
             self?.categories = categories
+        }
+        offerService.getHighlightedCompanies { [weak self] (companies, error) in
+            self?.highlightedCompanies = companies
         }
     }
     
@@ -58,7 +62,7 @@ open class CategorySelectionView: UIView {
     }
     
     open func reloadCompanies() {
-        let availableCompanies = selectedCategory?.companies ?? Set(categories?.flatMap { $0.companies } ?? []).sorted { $0.name < $1.name }
+        let availableCompanies = selectedCategory?.companies ?? Set(highlightedCompanies ?? []).sorted { $0.name < $1.name }
         companyHelper?.items = availableCompanies
         selectedCompany = nil
         
