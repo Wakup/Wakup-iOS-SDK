@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 - No changes
 
-## [5.0.0] - 2020-04-03
+## [5.0.1] - 2020-04-03
 ### Changes
 - Migrated code and updated dependencies to enable Swift 5 compatibility. For Swift 4 support use 4.x versions.
 - Minimum deployment target increased to iOS 11.
@@ -177,7 +177,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.4...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v5.0.1...HEAD
+[5.0.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.4...v5.0.1
 [4.0.4]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.3...v4.0.4
 [4.0.3]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.2...v4.0.3
 [4.0.2]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.1...v4.0.2
