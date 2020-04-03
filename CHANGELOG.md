@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+
+## [5.1.0] - 2020-04-03
 ### Added
 - Company carousel in Home view will now show highlighted companies when no category is selected.
 
@@ -179,6 +182,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - First fully functional public release.
 
 [Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v5.0.1...HEAD
+[5.1.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v5.0.1...v5.1.0
 [5.0.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.4...v5.0.1
 [4.0.4]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.3...v4.0.4
 [4.0.3]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.2...v4.0.3
