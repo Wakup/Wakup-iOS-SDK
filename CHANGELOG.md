@@ -5,6 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 - No changes
 
+## [5.0.0] - 2020-04-03
+### Changes
+- Migrated code and updated dependencies to enable Swift 5 compatibility. For Swift 4 support use 4.x versions.
+- Minimum deployment target increased to iOS 11.
+- Removed deprecated methods and classes up to iOS 11.
+
 ## [4.0.4] - 2019-10-01
 ### Fixed
 - Updated XIB files for Xcode 11
