@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+
+## [5.1.1] - 2020-04-06
 ### Changed
 - Saved offers access button is now on the right side of the navigation bar
 
@@ -182,7 +185,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v5.0.1...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v5.1.1...HEAD
+[5.1.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v5.1.0...v5.1.1
 [5.1.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v5.0.1...v5.1.0
 [5.0.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.4...v5.0.1
 [4.0.4]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.3...v4.0.4
