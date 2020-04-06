@@ -369,7 +369,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdv-bH-hbr" userLabel="Location Button" customClass="ShowMapButton" customModule="Wakup" customModuleProvider="target">
-                                <rect key="frame" x="325" y="613" width="30" height="34"/>
+                                <rect key="frame" x="295" y="587" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.49762970210000002" green="0.33670049909999999" blue="0.49032086130000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
@@ -414,28 +414,6 @@
                     <navigationItem key="navigationItem" id="nM2-PM-m0W">
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="jEU-dT-6Jy"/>
-                        <barButtonItem key="leftBarButtonItem" id="23a-WU-zMY">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wmd-YL-nQd" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
-                                <rect key="frame" x="16" y="10" width="24" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                        <color key="value" red="0.56380760669999996" green="0.37957167629999999" blue="0.56779015060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="star"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
-                                        <color key="value" red="0.70332032440000003" green="0.41117131709999999" blue="0.71390604970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="iconFillsButton" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="f4c-f2-uen" kind="show" identifier="savedOffers" id="8bg-kf-hLp"/>
-                                </connections>
-                            </button>
-                            <connections>
-                                <segue destination="f4c-f2-uen" kind="show" identifier="savedOffers" id="HQn-XC-CoO"/>
-                            </connections>
-                        </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="Sue-Z3-mKh" customClass="NavBarIconView" customModule="Wakup" customModuleProvider="target">
                             <rect key="frame" x="134.5" y="5.5" width="106" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -447,25 +425,49 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="navbar-logo"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" id="Ora-Lo-NuL">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="feQ-Mm-SY9" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
-                                <rect key="frame" x="335" y="10" width="24" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                        <color key="value" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="search"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
-                                        <color key="value" red="0.70332032442092896" green="0.4111713171005249" blue="0.71390604972839355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="iconFillsButton" value="YES"/>
-                                </userDefinedRuntimeAttributes>
+                        <rightBarButtonItems>
+                            <barButtonItem id="Ora-Lo-NuL">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="feQ-Mm-SY9" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
+                                    <rect key="frame" x="329" y="5" width="30" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                            <color key="value" red="0.56380760669708252" green="0.37957167625427246" blue="0.56779015064239502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="search"/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
+                                            <color key="value" red="0.70332032442092896" green="0.4111713171005249" blue="0.71390604972839355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="iconFillsButton" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="searchButtonTapped:" destination="8uP-JE-fId" eventType="touchUpInside" id="8BT-05-Ygn"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem id="23a-WU-zMY">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wmd-YL-nQd" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="7" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                            <color key="value" red="0.56380760669999996" green="0.37957167629999999" blue="0.56779015060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="iconIdentifier" value="star"/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
+                                            <color key="value" red="0.70332032440000003" green="0.41117131709999999" blue="0.71390604970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="iconFillsButton" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <segue destination="f4c-f2-uen" kind="show" identifier="savedOffers" id="8bg-kf-hLp"/>
+                                    </connections>
+                                </button>
                                 <connections>
-                                    <action selector="searchButtonTapped:" destination="8uP-JE-fId" eventType="touchUpInside" id="8BT-05-Ygn"/>
+                                    <segue destination="f4c-f2-uen" kind="show" identifier="savedOffers" id="HQn-XC-CoO"/>
                                 </connections>
-                            </button>
-                        </barButtonItem>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="categorySelectionView" destination="Syx-YK-c9n" id="1Pf-uH-UeN"/>
@@ -534,7 +536,7 @@
                         </view>
                         <barButtonItem key="rightBarButtonItem" id="YFX-1p-3Q4">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TDX-y2-zlA" customClass="CodeIconButton" customModule="Wakup" customModuleProvider="target">
-                                <rect key="frame" x="335" y="10" width="24" height="24"/>
+                                <rect key="frame" x="329" y="5" width="30" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="iconColor">

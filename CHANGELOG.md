@@ -3,14 +3,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-- No changes
+### Changed
+- Saved offers access button is now on the right side of the navigation bar
 
 ## [5.1.0] - 2020-04-03
 ### Added
 - Company carousel in Home view will now show highlighted companies when no category is selected.
 
 ## [5.0.1] - 2020-04-03
-### Changes
+### Changed
 - Migrated code and updated dependencies to enable Swift 5 compatibility. For Swift 4 support use 4.x versions.
 - Minimum deployment target increased to iOS 11.
 - Removed deprecated methods and classes up to iOS 11.
