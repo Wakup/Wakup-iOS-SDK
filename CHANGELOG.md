@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- No changes
+
+## [5.2.0] - 2020-04-21
 - Implemented mechanism to customize the method that is called when a user shares an offer.
 
 ## [5.1.1] - 2020-04-06
@@ -185,7 +188,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First fully functional public release.
 
-[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v5.1.1...HEAD
+[Unreleased]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v5.2.0...HEAD
+[5.1.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v5.1.1...v5.2.0
 [5.1.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v5.1.0...v5.1.1
 [5.1.0]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v5.0.1...v5.1.0
 [5.0.1]: https://github.com/Wakup/Wakup-iOS-SDK/compare/v4.0.4...v5.0.1
