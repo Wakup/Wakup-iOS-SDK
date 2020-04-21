@@ -18,7 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         setupCustomFonts()
         
-        WakupManager.manager.setup("075f9656-6909-4e4e-a286-3ddc562a2513")  // Sample project API Key, don't use this in a production environment	
+        let options = WakupOptions()
+        options.customShareFunction = { (offer, presenter, loadingPresenter) in
+            let url = URL(string: "http://mycompany.com/offer/\(offer.id)")
+            let imageUrl = offer.image?.sourceUrl
+            let text = "Mira esta oferta! \(offer.shortDescription) de \(offer.company.name)"
+            presenter.shareTextImageAndURL(text: text, imageURL: imageUrl, linkURL: url, loadingProtocol: loadingPresenter)
+        }
+        
+        WakupManager.manager.setup("075f9656-6909-4e4e-a286-3ddc562a2513", options: options)  // Sample project API Key, don't use this in a production environment	
         //WakupManager.appearance.setTint(mainColor: UIColor(fromHexString: "#5788a9"))
         
         // Sample of offer carousel view with modal integration

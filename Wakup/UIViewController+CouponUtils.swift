@@ -9,13 +9,13 @@
 import Foundation
 import SDWebImage
 
-extension UIViewController {
+public extension UIViewController {
     func showMap(forOffer offer: Coupon) {
         let mapVC = WakupManager.manager.mapController(for: offer)
         self.navigationController?.pushViewController(mapVC, animated: true)
     }
 
-    func shareTextImageAndURL(sharingText: String?, sharingImage: UIImage?, sharingURL: URL?) {
+    @objc func shareTextImageAndURL(sharingText: String?, sharingImage: UIImage?, sharingURL: URL?) {
         var sharingItems = [AnyObject]()
         
         if let text = sharingText {
@@ -32,28 +32,18 @@ extension UIViewController {
         activityViewController.excludedActivityTypes = [UIActivity.ActivityType.addToReadingList, UIActivity.ActivityType.print, UIActivity.ActivityType.assignToContact]
         self.present(activityViewController, animated: true, completion: nil)
     }
-}
-
-private func shareCouponInPresenter(_ coupon: Coupon, presenter: UIViewController, loadViewPresenter: LoadingViewProtocol) {
-    let url: URL! = nil
-    let text = coupon.shortDescription
-    let shareText = coupon.company.name + " - " + text + "\n" + "ShareOfferFooter".i18n()
-    if let imageUrl = coupon.image?.sourceUrl {
-        loadViewPresenter.showLoadingView(animated: true)
-        SDWebImageManager.shared.imageLoader.requestImage(with: imageUrl, options: .highPriority, context: nil, progress: nil, completed: { (image, data, error, finished) in
-            loadViewPresenter.dismissLoadingView(animated: true, completion: {
-                presenter.shareTextImageAndURL(sharingText: shareText, sharingImage: image, sharingURL: url)
+    
+    @objc func shareTextImageAndURL(text: String?, imageURL: URL?, linkURL: URL?, loadingProtocol: LoadingViewProtocol) {
+        if let imageUrl = imageURL {
+            loadingProtocol.showLoadingView(animated: true)
+            SDWebImageManager.shared.imageLoader.requestImage(with: imageUrl, options: .highPriority, context: nil, progress: nil, completed: { (image, data, error, finished) in
+                loadingProtocol.dismissLoadingView(animated: true, completion: {
+                    self.shareTextImageAndURL(sharingText: text, sharingImage: image, sharingURL: linkURL)
+                })
             })
-        })
-    }
-    else {
-        presenter.shareTextImageAndURL(sharingText: shareText, sharingImage: nil, sharingURL: url)
-    }
-}
-
-extension LoadingPresenterViewController {
-    func shareCoupon(_ coupon: Coupon) {
-        let presenter = self.navigationController ?? self
-        shareCouponInPresenter(coupon, presenter: presenter, loadViewPresenter: self)
+        }
+        else {
+            self.shareTextImageAndURL(sharingText: text, sharingImage: nil, sharingURL: linkURL)
+        }
     }
 }

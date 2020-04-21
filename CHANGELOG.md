@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-- No changes
+- Implemented mechanism to customize the method that is called when a user shares an offer.
 
 ## [5.1.1] - 2020-04-06
 ### Changed

@@ -84,5 +84,12 @@ open class WakupOptions: NSObject {
         OfferCategory(title: "Servicios", icon: "services", associatedTags: ["services"])
     ]
     
+    /// Custom Function for sharing an Offer. Use it to completely take control over the offer sharing mechanism.
+    /// The block takes three parameters:
+    /// - offer: Coupon: The offer that is being shared. All offer information can be accessed
+    /// - presenter: UIViewController: the view controller that triggers the share action. Use it to present modal controllers if needed.
+    /// - loadingProtocol: LoadingViewProtocol: provides convenience methods to show and hiding a modal dialog.
+    open var customShareFunction: ((Coupon, UIViewController, LoadingViewProtocol) -> Void)? = nil
+    
     public override init() {}
 }

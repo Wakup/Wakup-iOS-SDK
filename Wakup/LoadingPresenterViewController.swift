@@ -8,10 +8,9 @@
 
 import Foundation
 
-
-protocol LoadingViewProtocol {
-    func showLoadingView(animated: Bool)
-    func dismissLoadingView(animated: Bool, completion: (() -> Void)?)
+@objc public protocol LoadingViewProtocol {
+    @objc func showLoadingView(animated: Bool)
+    @objc func dismissLoadingView(animated: Bool, completion: (() -> Void)?)
 }
 
 open class LoadingPresenterViewController: UIViewController, LoadingViewProtocol {
@@ -38,7 +37,7 @@ open class LoadingPresenterViewController: UIViewController, LoadingViewProtocol
         showingLoadingView = false
     }
     
-    func showLoadingView(animated: Bool = true) {
+    public func showLoadingView(animated: Bool = true) {
         loading = true
         if (loadingController == nil) {
             setupLoadingView()
@@ -65,7 +64,7 @@ open class LoadingPresenterViewController: UIViewController, LoadingViewProtocol
         }
     }
     
-    func dismissLoadingView(animated: Bool = true, completion: (() -> Void)? = nil) {
+    public func dismissLoadingView(animated: Bool = true, completion: (() -> Void)? = nil) {
         loading = false
         if (loadingController == nil) {
             setupLoadingView()
@@ -89,5 +88,24 @@ open class LoadingPresenterViewController: UIViewController, LoadingViewProtocol
             completion?()
         }
     }
+}
 
+import SDWebImage
+extension LoadingPresenterViewController {
+    private func shareCouponInPresenter(_ coupon: Coupon, presenter: UIViewController) {
+        let shareText = coupon.company.name + " - " + coupon.shortDescription + "\n" + "ShareOfferFooter".i18n()
+        let imageUrl = coupon.image?.sourceUrl
+        presenter.shareTextImageAndURL(text: shareText, imageURL: imageUrl, linkURL: nil, loadingProtocol: self)
+    }
+    
+    func shareCoupon(_ coupon: Coupon) {
+        let presenter = self.navigationController ?? self
+        
+        if let customShareFunction = WakupManager.manager.options.customShareFunction {
+            customShareFunction(coupon, presenter, self)
+        }
+        else {
+            shareCouponInPresenter(coupon, presenter: presenter)
+        }
+    }
 }

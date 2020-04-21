@@ -555,3 +555,28 @@ Vectorial and non-vectorial images can be mixed in the same IconLibrary. But for
 Adding additional languages or replacing strings in an already existing language is very easy. Wakup SDK will find strings in a `Wakup.strings` file for the current language or fall back to embedded SDK strings if the file or the specific string is not found.
 
 Copy [`Wakup.strings`](https://github.com/Wakup/Wakup-iOS-SDK/blob/master/Wakup/Wakup.strings) file from the SDK sources into your project. You can now replace the strings that you want and internationalize that file to your supported languages.
+
+### Custom method for sharing offers
+
+When the user shares an offer from the application the default share controller is presented with some information about the offer. The footer of the text can be altered customizing the  `ShareOfferFooter` key in the strings file (see previous point). 
+
+For further customization, you can set a method in the `WakupOptions` object when initializing the library that will be called when the user shares an offer. This method overrides the default behaviour and can be used to perform any operation. The current top-level controller and a generic loading modal presenter are provided as method parameters for easier integration. In addition, a class extension for `UIViewController` is provided that will help downloading images or presenting the share controller.
+
+This example customizes the shared text and provides a custom URL in addition to sharing the offer image:
+
+~~~swift
+let options = WakupOptions()
+options.customShareFunction = { (offer, presenter, loadingPresenter) in
+    // Create a custom URL based on the offer ID
+    let url = URL(string: "http://mycompany.com/offer/\(offer.id)")
+    // Share the offer image
+    let imageUrl = offer.image?.sourceUrl
+    // Create a custom text to share
+    let text = "Mira esta oferta! \(offer.shortDescription) de \(offer.company.name)"
+
+    // Call the convenience method for showing the share controller
+    presenter.shareTextImageAndURL(text: text, imageURL: imageUrl, linkURL: url, loadingProtocol: loadingPresenter)
+}
+
+WakupManager.manager.setup(API_KEY, options: options) 
+~~~
