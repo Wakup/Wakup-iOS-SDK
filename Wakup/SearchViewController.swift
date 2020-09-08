@@ -24,7 +24,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var filterButtonsScrollView: UIScrollView!
+    @IBOutlet var filterButtonsScrollView: UIScrollView!
     
     var categoryButtons: [SearchFilterButton]?
     var categoryButtonNib = UINib(nibName: "SearchFilterButton", bundle: Bundle(for: SearchViewController.self))
